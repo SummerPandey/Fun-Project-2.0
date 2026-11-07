@@ -105,7 +105,7 @@
   },
   "judge": {
     "repo": "mistral-small3.1:24b",
-    "digest": "b9aaf0c2586a",
+    "digest": "8f3b5653ff8b",
     "num_ctx": 16384,
     "max_tokens": 512,
     "chunk_size": 20
