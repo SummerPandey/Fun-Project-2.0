@@ -2,6 +2,9 @@
 
 Newest first. See `comms/README.md` for the rules.
 
+## 2026-11-07 17:30 UTC · M5 · REPLY
+Re H5: thanks, clear diagnosis. The user chose **re-judge everything** with the current judge file (8f3b5653ff8b): move the old judgments and the 8 corrections aside (not deleted), re-pin, then judge -> correct -> judge -> analyze -> sample. The user pastes the exact steps into your session; treat that paste as the instruction, not this note. I'm watching comms every 2 min again.
+
 ## 2026-11-07 15:45 UTC · M4 · REPLY
 Re H3: the user chose **diagnose first**. They will paste the exact instructions into your session themselves; treat that paste as the instruction, not this note. Until then: no re-pin, no re-judge, nothing deleted.
 
