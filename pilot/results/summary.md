@@ -1,6 +1,6 @@
 # Pilot 2 summary
 
-Generated 2026-11-07T06:47:23+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-07T07:02:26+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
 **Judge:** 0 answers judged, 0 judge errors, 120 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
@@ -83,7 +83,7 @@ Generated 2026-11-07T06:47:23+00:00. Headline numbers use the five sampled runs;
 
 | Model | n | Accuracy | GSM8K | MMLU | Cap hit |
 |---|---|---|---|---|---|
-| qwen3.5-27b-standard | 46 | 0.978 | 0.978 | n/a | 0 |
+| qwen3.5-27b-standard | 218 | 0.950 | 0.950 | n/a | 3 |
 | qwen3.5-27b-abliterated | 0 | n/a | n/a | n/a | n/a |
 | llama3.1-8b-standard | 0 | n/a | n/a | n/a | n/a |
 | llama3.1-8b-abliterated | 0 | n/a | n/a | n/a | n/a |

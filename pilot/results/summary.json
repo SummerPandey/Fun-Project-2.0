@@ -1,6 +1,6 @@
 {
   "mock": false,
-  "generated_at": "2026-11-07T06:47:23+00:00",
+  "generated_at": "2026-11-07T07:02:26+00:00",
   "notes": [
     "Development prompts only (10 prompts): descriptive, never main results.",
     "Headline numbers use the five sampled runs (s1-s5). Greedy is reported separately.",
@@ -998,12 +998,12 @@
     "n_items": 500,
     "per_model": {
       "qwen3.5-27b-standard": {
-        "n": 46,
+        "n": 218,
         "n_expected": 500,
-        "accuracy": 0.9782608695652174,
-        "accuracy_gsm8k": 0.9782608695652174,
+        "accuracy": 0.9495412844036697,
+        "accuracy_gsm8k": 0.9495412844036697,
         "accuracy_mmlu": null,
-        "n_hit_cap": 0,
+        "n_hit_cap": 3,
         "n_no_prediction": 0
       },
       "qwen3.5-27b-abliterated": {
