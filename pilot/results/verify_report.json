@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-11-07T08:18:49+00:00",
+  "checked_at": "2026-11-07T08:32:50+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
-  "fails": 2,
+  "fails": 0,
   "warnings": 7,
   "items": [
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 300 rows, all valid JSON"
+      "message": "generations.jsonl: 480 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -18,7 +18,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "capability.jsonl: 1000 rows, all valid JSON"
+      "message": "capability.jsonl: 1847 rows, all valid JSON"
     },
     {
       "level": "PASS",
@@ -38,12 +38,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-standard: generate 60/120, judge 0/120, capability 0/500"
+      "message": "llama3.1-8b-standard: generate 120/120, judge 0/120, capability 500/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-abliterated: generate 0/120, judge 0/120, capability 0/500"
+      "message": "llama3.1-8b-abliterated: generate 120/120, judge 0/120, capability 347/500"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 300 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 480 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -74,6 +74,11 @@
       "level": "PASS",
       "area": "digests",
       "message": "llama3.1-8b-standard: one set of weights, 46e0c10c039e (matches pin)"
+    },
+    {
+      "level": "PASS",
+      "area": "digests",
+      "message": "llama3.1-8b-abliterated: one set of weights, 5920dea9e0f0 (matches pin)"
     },
     {
       "level": "PASS",
@@ -93,27 +98,27 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 300 answers: cap flags consistent, counts in range"
-    },
-    {
-      "level": "FAIL",
-      "area": "summary",
-      "message": "llama3.1-8b-standard twin: mean output tokens recomputed 535.500 vs summary 534.1034482758621"
+      "message": "all 480 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T08:18:47+00:00"
+      "message": "8 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
-      "level": "FAIL",
+      "level": "PASS",
+      "area": "summary",
+      "message": "summary.json generated_at 2026-11-07T08:32:48+00:00"
+    },
+    {
+      "level": "PASS",
       "area": "per_prompt",
-      "message": "per_prompt.csv: 119/120 cells match the JSONL (re-run tools/visualize.py if the run moved on since)"
+      "message": "per_prompt.csv: 120/120 cells match the JSONL"
     },
     {
       "level": "PASS",
       "area": "capability",
-      "message": "1000/1000 capability rows re-score to the stored result"
+      "message": "1847/1847 capability rows re-score to the stored result"
     }
   ]
 }
