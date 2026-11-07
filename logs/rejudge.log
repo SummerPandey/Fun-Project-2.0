@@ -1,0 +1,6 @@
+=== 2026-11-07T20:22:33Z stage judge
+[14:22:33] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[14:22:33] === stage: judge (backend: ollama) ===
+[14:22:33]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[14:22:33]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[14:22:33] judging 720 answers
