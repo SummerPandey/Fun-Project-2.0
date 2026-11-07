@@ -1,6 +1,6 @@
 {
   "mock": false,
-  "generated_at": "2026-11-07T09:02:57+00:00",
+  "generated_at": "2026-11-07T09:18:01+00:00",
   "notes": [
     "Development prompts only (10 prompts): descriptive, never main results.",
     "Headline numbers use the five sampled runs (s1-s5). Greedy is reported separately.",
@@ -17,7 +17,7 @@
     "judged": 0,
     "errors": 0,
     "inconsistent": 0,
-    "missing": 633,
+    "missing": 698,
     "judge_models_used": []
   },
   "by_model": {
@@ -684,15 +684,15 @@
     "gemma4-12b-abliterated": {
       "sampled": {
         "original": {
-          "n_attempts": 17,
-          "n_answered": 17,
-          "mean_input_tokens": 32.05882352941177,
-          "mean_output_tokens": 1686.2941176470588,
-          "mean_thinking_tokens_est": 715.4117647058823,
+          "n_attempts": 49,
+          "n_answered": 49,
+          "mean_input_tokens": 31.73469387755102,
+          "mean_output_tokens": 1717.3877551020407,
+          "mean_thinking_tokens_est": 759.0612244897959,
           "cap_hit_rate": 0.0,
           "cap_hit_in_thinking_rate": 0.0,
           "keyword_refusal_rate": 0.0,
-          "n_unjudged_answers": 17,
+          "n_unjudged_answers": 49,
           "refusal_source": "keyword",
           "full_refusal_rate": 0.0,
           "partial_refusal_rate": null,
@@ -705,15 +705,15 @@
           }
         },
         "twin": {
-          "n_attempts": 16,
-          "n_answered": 16,
-          "mean_input_tokens": 31.3125,
-          "mean_output_tokens": 1668.25,
-          "mean_thinking_tokens_est": 691.25,
+          "n_attempts": 49,
+          "n_answered": 49,
+          "mean_input_tokens": 31.3265306122449,
+          "mean_output_tokens": 1656.938775510204,
+          "mean_thinking_tokens_est": 689.3877551020408,
           "cap_hit_rate": 0.0,
           "cap_hit_in_thinking_rate": 0.0,
           "keyword_refusal_rate": 0.0,
-          "n_unjudged_answers": 16,
+          "n_unjudged_answers": 49,
           "refusal_source": "keyword",
           "full_refusal_rate": 0.0,
           "partial_refusal_rate": null,
@@ -726,15 +726,15 @@
           }
         },
         "block": {
-          "n_attempts": 16,
-          "n_answered": 16,
-          "mean_input_tokens": 31.4375,
-          "mean_output_tokens": 1667.4375,
-          "mean_thinking_tokens_est": 687.5,
+          "n_attempts": 49,
+          "n_answered": 49,
+          "mean_input_tokens": 31.53061224489796,
+          "mean_output_tokens": 1663.2244897959183,
+          "mean_thinking_tokens_est": 692.1836734693877,
           "cap_hit_rate": 0.0,
           "cap_hit_in_thinking_rate": 0.0,
           "keyword_refusal_rate": 0.0,
-          "n_unjudged_answers": 16,
+          "n_unjudged_answers": 49,
           "refusal_source": "keyword",
           "full_refusal_rate": 0.0,
           "partial_refusal_rate": null,
@@ -821,18 +821,18 @@
           "by_family": {
             "qwen": 1.2073561849601473,
             "llama": 0.6182396606574762,
-            "gemma": 1.1215193854979841
+            "gemma": 1.1421991214980518
           },
-          "mean_of_family_ratios": 0.9823717437052025,
+          "mean_of_family_ratios": 0.9892649890385584,
           "n_families": 3
         },
         "mean_thinking_tokens_est": {
           "by_family": {
             "qwen": 1.0173579209870063,
             "llama": null,
-            "gemma": 1.1627417837502965
+            "gemma": 1.2336842161126576
           },
-          "mean_of_family_ratios": 1.0900498523686513,
+          "mean_of_family_ratios": 1.125521068549832,
           "n_families": 2
         },
         "tpua": {
@@ -850,18 +850,18 @@
           "by_family": {
             "qwen": 1.1001327093664872,
             "llama": 0.6327705004921632,
-            "gemma": 1.120322615306095
+            "gemma": 1.1127264992547103
           },
-          "mean_of_family_ratios": 0.9510752750549152,
+          "mean_of_family_ratios": 0.9485432363711203,
           "n_families": 3
         },
         "mean_thinking_tokens_est": {
           "by_family": {
             "qwen": 0.9467988824617323,
             "llama": null,
-            "gemma": 1.158843252305113
+            "gemma": 1.1557212994166652
           },
-          "mean_of_family_ratios": 1.0528210673834226,
+          "mean_of_family_ratios": 1.0512600909391987,
           "n_families": 2
         },
         "tpua": {
@@ -879,18 +879,18 @@
           "by_family": {
             "qwen": 1.1049699068578849,
             "llama": 0.6334597265310813,
-            "gemma": 1.12233960206774
+            "gemma": 1.119503856682407
           },
-          "mean_of_family_ratios": 0.9535897451522354,
+          "mean_of_family_ratios": 0.9526444966904576,
           "n_families": 3
         },
         "mean_thinking_tokens_est": {
           "by_family": {
             "qwen": 0.9515334498649294,
             "llama": null,
-            "gemma": 1.1570567841394865
+            "gemma": 1.1649393676485034
           },
-          "mean_of_family_ratios": 1.054295117002208,
+          "mean_of_family_ratios": 1.0582364087567164,
           "n_families": 2
         },
         "tpua": {

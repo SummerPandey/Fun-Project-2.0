@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-11-07T09:02:59+00:00",
+  "checked_at": "2026-11-07T09:18:03+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
-  "fails": 2,
+  "fails": 0,
   "warnings": 7,
   "items": [
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 634 rows, all valid JSON"
+      "message": "generations.jsonl: 698 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -53,12 +53,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-abliterated: generate 34/120, judge 0/120, capability 0/500"
+      "message": "gemma4-12b-abliterated: generate 98/120, judge 0/120, capability 0/500"
     },
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 634 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 698 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -113,22 +113,22 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 634 answers: cap flags consistent, counts in range"
-    },
-    {
-      "level": "FAIL",
-      "area": "summary",
-      "message": "gemma4-12b-abliterated twin: mean output tokens recomputed 1666.412 vs summary 1668.25"
+      "message": "all 698 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T09:02:57+00:00"
+      "message": "12 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
-      "level": "FAIL",
+      "level": "PASS",
+      "area": "summary",
+      "message": "summary.json generated_at 2026-11-07T09:18:01+00:00"
+    },
+    {
+      "level": "PASS",
       "area": "per_prompt",
-      "message": "per_prompt.csv: 119/120 cells match the JSONL (re-run tools/visualize.py if the run moved on since)"
+      "message": "per_prompt.csv: 120/120 cells match the JSONL"
     },
     {
       "level": "PASS",
