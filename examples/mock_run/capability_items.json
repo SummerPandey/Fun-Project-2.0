@@ -1,0 +1,237 @@
+{
+  "mock": true,
+  "seed": 2026,
+  "n_per_dataset": 250,
+  "items": [
+    {
+      "id": "mock:gsm8k:0",
+      "dataset": "gsm8k",
+      "index": 0,
+      "question": "[MOCK] Made-up GSM8K-style question 0.",
+      "choices": null,
+      "gold": "456",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:1",
+      "dataset": "gsm8k",
+      "index": 1,
+      "question": "[MOCK] Made-up GSM8K-style question 1.",
+      "choices": null,
+      "gold": "215",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:2",
+      "dataset": "gsm8k",
+      "index": 2,
+      "question": "[MOCK] Made-up GSM8K-style question 2.",
+      "choices": null,
+      "gold": "407",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:3",
+      "dataset": "gsm8k",
+      "index": 3,
+      "question": "[MOCK] Made-up GSM8K-style question 3.",
+      "choices": null,
+      "gold": "220",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:4",
+      "dataset": "gsm8k",
+      "index": 4,
+      "question": "[MOCK] Made-up GSM8K-style question 4.",
+      "choices": null,
+      "gold": "149",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:5",
+      "dataset": "gsm8k",
+      "index": 5,
+      "question": "[MOCK] Made-up GSM8K-style question 5.",
+      "choices": null,
+      "gold": "390",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:6",
+      "dataset": "gsm8k",
+      "index": 6,
+      "question": "[MOCK] Made-up GSM8K-style question 6.",
+      "choices": null,
+      "gold": "452",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:7",
+      "dataset": "gsm8k",
+      "index": 7,
+      "question": "[MOCK] Made-up GSM8K-style question 7.",
+      "choices": null,
+      "gold": "440",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:8",
+      "dataset": "gsm8k",
+      "index": 8,
+      "question": "[MOCK] Made-up GSM8K-style question 8.",
+      "choices": null,
+      "gold": "68",
+      "mock": true
+    },
+    {
+      "id": "mock:gsm8k:9",
+      "dataset": "gsm8k",
+      "index": 9,
+      "question": "[MOCK] Made-up GSM8K-style question 9.",
+      "choices": null,
+      "gold": "41",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:0",
+      "dataset": "mmlu",
+      "index": 0,
+      "question": "[MOCK] Made-up MMLU-style question 0.",
+      "choices": [
+        "[MOCK] option 0 of item 0",
+        "[MOCK] option 1 of item 0",
+        "[MOCK] option 2 of item 0",
+        "[MOCK] option 3 of item 0"
+      ],
+      "gold": "D",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:1",
+      "dataset": "mmlu",
+      "index": 1,
+      "question": "[MOCK] Made-up MMLU-style question 1.",
+      "choices": [
+        "[MOCK] option 0 of item 1",
+        "[MOCK] option 1 of item 1",
+        "[MOCK] option 2 of item 1",
+        "[MOCK] option 3 of item 1"
+      ],
+      "gold": "C",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:2",
+      "dataset": "mmlu",
+      "index": 2,
+      "question": "[MOCK] Made-up MMLU-style question 2.",
+      "choices": [
+        "[MOCK] option 0 of item 2",
+        "[MOCK] option 1 of item 2",
+        "[MOCK] option 2 of item 2",
+        "[MOCK] option 3 of item 2"
+      ],
+      "gold": "C",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:3",
+      "dataset": "mmlu",
+      "index": 3,
+      "question": "[MOCK] Made-up MMLU-style question 3.",
+      "choices": [
+        "[MOCK] option 0 of item 3",
+        "[MOCK] option 1 of item 3",
+        "[MOCK] option 2 of item 3",
+        "[MOCK] option 3 of item 3"
+      ],
+      "gold": "A",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:4",
+      "dataset": "mmlu",
+      "index": 4,
+      "question": "[MOCK] Made-up MMLU-style question 4.",
+      "choices": [
+        "[MOCK] option 0 of item 4",
+        "[MOCK] option 1 of item 4",
+        "[MOCK] option 2 of item 4",
+        "[MOCK] option 3 of item 4"
+      ],
+      "gold": "B",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:5",
+      "dataset": "mmlu",
+      "index": 5,
+      "question": "[MOCK] Made-up MMLU-style question 5.",
+      "choices": [
+        "[MOCK] option 0 of item 5",
+        "[MOCK] option 1 of item 5",
+        "[MOCK] option 2 of item 5",
+        "[MOCK] option 3 of item 5"
+      ],
+      "gold": "A",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:6",
+      "dataset": "mmlu",
+      "index": 6,
+      "question": "[MOCK] Made-up MMLU-style question 6.",
+      "choices": [
+        "[MOCK] option 0 of item 6",
+        "[MOCK] option 1 of item 6",
+        "[MOCK] option 2 of item 6",
+        "[MOCK] option 3 of item 6"
+      ],
+      "gold": "A",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:7",
+      "dataset": "mmlu",
+      "index": 7,
+      "question": "[MOCK] Made-up MMLU-style question 7.",
+      "choices": [
+        "[MOCK] option 0 of item 7",
+        "[MOCK] option 1 of item 7",
+        "[MOCK] option 2 of item 7",
+        "[MOCK] option 3 of item 7"
+      ],
+      "gold": "A",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:8",
+      "dataset": "mmlu",
+      "index": 8,
+      "question": "[MOCK] Made-up MMLU-style question 8.",
+      "choices": [
+        "[MOCK] option 0 of item 8",
+        "[MOCK] option 1 of item 8",
+        "[MOCK] option 2 of item 8",
+        "[MOCK] option 3 of item 8"
+      ],
+      "gold": "C",
+      "mock": true
+    },
+    {
+      "id": "mock:mmlu:9",
+      "dataset": "mmlu",
+      "index": 9,
+      "question": "[MOCK] Made-up MMLU-style question 9.",
+      "choices": [
+        "[MOCK] option 0 of item 9",
+        "[MOCK] option 1 of item 9",
+        "[MOCK] option 2 of item 9",
+        "[MOCK] option 3 of item 9"
+      ],
+      "gold": "B",
+      "mock": true
+    }
+  ]
+}

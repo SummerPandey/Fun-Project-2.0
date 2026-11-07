@@ -1,0 +1,39 @@
+{
+  "notes": "Ollama backend. Each model's digest is the prefix of its /api/tags digest on the run machine; the runner refuses a tag that resolves to anything else. Every sampling option below is sent on every request, so Modelfile defaults (stock Qwen 3.5's presence_penalty 1.5, Ollama's repeat_penalty 1.1) never apply. supports_thinking is checked against the server. The judge digest is not pinned yet: pull the judge, then copy its digest in. The previous vLLM / Hugging Face setup is in config_vllm.json.",
+  "backend": "ollama",
+  "ollama": {"host": "http://127.0.0.1:11434", "timeout_s": 1800, "keep_alive": "30m"},
+  "prompts_file": "../pilot_prompts.json",
+  "models": [
+    {"name": "qwen3.5-27b-standard", "family": "qwen", "variant": "standard", "repo": "qwen3.5:27b", "digest": "64ae5b1d", "supports_thinking": true},
+    {"name": "qwen3.5-27b-abliterated", "family": "qwen", "variant": "abliterated", "repo": "huihui_ai/qwen3.5-abliterated:27b", "digest": "2c5b727e", "supports_thinking": true, "abliteration_method": "huihui-ai abliteration (see model card); file has an extra multi-token-prediction layer"},
+    {"name": "llama3.1-8b-standard", "family": "llama", "variant": "standard", "repo": "llama3.1:8b", "digest": "46e0c10c", "supports_thinking": false},
+    {"name": "llama3.1-8b-abliterated", "family": "llama", "variant": "abliterated", "repo": "mannix/llama3.1-8b-abliterated:q4_k_m", "digest": "5920dea9", "supports_thinking": false, "abliteration_method": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated (Labonne abliteration), GGUF by mannix"},
+    {"name": "gemma4-12b-standard", "family": "gemma", "variant": "standard", "repo": "gemma4:12b", "digest": "6114515d", "supports_thinking": true},
+    {"name": "gemma4-12b-abliterated", "family": "gemma", "variant": "abliterated", "repo": "huihui_ai/gemma-4-abliterated:12b", "digest": "526eca3f", "supports_thinking": true, "abliteration_method": "huihui-ai abliteration (see model card); quantized without an importance matrix, stock was quantized with one"}
+  ],
+  "generation": {
+    "n_sampled": 5,
+    "sampled_temperature": 0.7,
+    "top_p": 1.0,
+    "max_tokens": 4096,
+    "num_ctx": 16384,
+    "think": true,
+    "sampling": {"top_k": 0, "min_p": 0.0, "presence_penalty": 0.0, "frequency_penalty": 0.0, "repeat_penalty": 1.0}
+  },
+  "capability": {
+    "n_per_dataset": 250,
+    "seed": 2026,
+    "max_tokens": 1024,
+    "think": false,
+    "gsm8k": {"dataset": "openai/gsm8k", "config": "main", "split": "test"},
+    "mmlu": {"dataset": "cais/mmlu", "config": "all", "split": "test"}
+  },
+  "judge": {
+    "repo": "mistral-small3.1:24b",
+    "digest": null,
+    "num_ctx": 16384,
+    "max_tokens": 512,
+    "chunk_size": 20
+  },
+  "handcheck": {"n": 60, "seed": 2026}
+}

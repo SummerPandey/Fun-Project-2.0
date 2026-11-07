@@ -1,0 +1,104 @@
+{
+  "checked_at": "2026-11-07T05:07:08+00:00",
+  "results": "examples/mock_run",
+  "mock": true,
+  "fails": 0,
+  "warnings": 1,
+  "items": [
+    {
+      "level": "PASS",
+      "area": "files",
+      "message": "generations.jsonl: 720 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "files",
+      "message": "judgments.jsonl: 720 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "files",
+      "message": "capability.jsonl: 120 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "files",
+      "message": "all rows are MOCK (synthetic)"
+    },
+    {
+      "level": "PASS",
+      "area": "progress",
+      "message": "qwen3.5-27b-standard: generate 120/120, judge 120/120, capability 20/20"
+    },
+    {
+      "level": "PASS",
+      "area": "progress",
+      "message": "qwen3.5-27b-abliterated: generate 120/120, judge 120/120, capability 20/20"
+    },
+    {
+      "level": "PASS",
+      "area": "progress",
+      "message": "llama3.1-8b-standard: generate 120/120, judge 120/120, capability 20/20"
+    },
+    {
+      "level": "PASS",
+      "area": "progress",
+      "message": "llama3.1-8b-abliterated: generate 120/120, judge 120/120, capability 20/20"
+    },
+    {
+      "level": "PASS",
+      "area": "progress",
+      "message": "gemma4-12b-standard: generate 120/120, judge 120/120, capability 20/20"
+    },
+    {
+      "level": "PASS",
+      "area": "progress",
+      "message": "gemma4-12b-abliterated: generate 120/120, judge 120/120, capability 20/20"
+    },
+    {
+      "level": "PASS",
+      "area": "provenance",
+      "message": "all 720 answers match the prompt texts in pilot_prompts.json"
+    },
+    {
+      "level": "PASS",
+      "area": "settings",
+      "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
+    },
+    {
+      "level": "PASS",
+      "area": "tokens",
+      "message": "all 720 answers: cap flags consistent, counts in range"
+    },
+    {
+      "level": "PASS",
+      "area": "judge",
+      "message": "720 judgments: 'useful' follows its rule in every one"
+    },
+    {
+      "level": "WARN",
+      "area": "judge",
+      "message": "12 times the judge's own 'useful' disagreed with the rule (rule value is used)"
+    },
+    {
+      "level": "PASS",
+      "area": "summary",
+      "message": "24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+    },
+    {
+      "level": "PASS",
+      "area": "summary",
+      "message": "summary.json generated_at 2026-11-07T05:07:04+00:00"
+    },
+    {
+      "level": "PASS",
+      "area": "per_prompt",
+      "message": "per_prompt.csv: 120/120 cells match the JSONL"
+    },
+    {
+      "level": "PASS",
+      "area": "capability",
+      "message": "120/120 capability rows re-score to the stored result"
+    }
+  ]
+}

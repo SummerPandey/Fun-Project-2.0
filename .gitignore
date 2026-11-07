@@ -1,0 +1,6 @@
+__pycache__/
+*.pyc
+.DS_Store
+.venv/
+# results/ and logs/ ARE committed on purpose: the archivist pushes them as the run goes.
+.claude/launch.json
