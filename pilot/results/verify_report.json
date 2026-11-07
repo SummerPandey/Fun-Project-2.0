@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-07T09:48:50+00:00",
+  "checked_at": "2026-11-07T10:03:17+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 0,
-  "warnings": 2,
+  "warnings": 1,
   "items": [
     {
       "level": "PASS",
@@ -13,7 +13,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "judgments.jsonl: 680 rows, all valid JSON"
+      "message": "judgments.jsonl: 720 rows, all valid JSON"
     },
     {
       "level": "PASS",
@@ -26,9 +26,9 @@
       "message": "all rows are real"
     },
     {
-      "level": "WARN",
+      "level": "PASS",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 120/120, judge 80/120, capability 500/500"
+      "message": "qwen3.5-27b-standard: generate 120/120, judge 120/120, capability 500/500"
     },
     {
       "level": "PASS",
@@ -118,17 +118,17 @@
     {
       "level": "PASS",
       "area": "judge",
-      "message": "680 judgments: 'useful' follows its rule in every one"
+      "message": "720 judgments: 'useful' follows its rule in every one"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "22 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T09:48:48+00:00"
+      "message": "summary.json generated_at 2026-11-07T10:03:15+00:00"
     },
     {
       "level": "PASS",
@@ -136,9 +136,24 @@
       "message": "per_prompt.csv: 120/120 cells match the JSONL"
     },
     {
+      "level": "PASS",
+      "area": "correction",
+      "message": "corrections.jsonl: 8 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "all 8 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "every refused standard answer (8) has its correction turn"
+    },
+    {
       "level": "WARN",
       "area": "correction",
-      "message": "8 refused standard answers have no correction turn yet (run the correct stage), e.g. ['llama3.1-8b-standard|P01|original|s3|c1', 'llama3.1-8b-standard|P06|original|greedy|c1']"
+      "message": "8 correction turns not judged yet (run judge again)"
     },
     {
       "level": "PASS",

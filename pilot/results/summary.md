@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-07T09:48:48+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-07T10:03:15+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 680 answers judged, 0 judge errors, 40 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 720 answers judged, 0 judge errors, 0 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** mistral-small3.1:24b (quantization ollama, revision b9aaf0c2586a8ed8105feab808c0f034bd4d346203822f048e2366165a13f4ea).
 
@@ -12,9 +12,9 @@ Generated 2026-11-07T09:48:48+00:00. Headline numbers use the five sampled runs;
 
 | Model | Condition | Answered | Mean in | Mean out | Of which thinking (est.) | Full refusal | Partial refusal | Keyword refusal | Useful | Cap hit | Cap hit in thinking | TPUA (tokens / useful = value) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | original | 50/50 | 25.900 | 1477.940 | 609.520 | 0.000 | 0.000 | 0.020 | 0.943 | 0.000 | 0.000 | 40857 / 33 = 1238.091 |
-| qwen3.5-27b-standard | twin | 50/50 | 25.600 | 1431.700 | 508.260 | 0.000 | 0.032 | 0.000 | 0.935 | 0.000 | 0.000 | 34302 / 29 = 1182.828 |
-| qwen3.5-27b-standard | block | 50/50 | 25.800 | 1432.220 | 503.440 | 0.000 | 0.032 | 0.000 | 0.935 | 0.000 | 0.000 | 34302 / 29 = 1182.828 |
+| qwen3.5-27b-standard | original | 50/50 | 25.900 | 1477.940 | 609.520 | 0.000 | 0.000 | 0.020 | 0.960 | 0.000 | 0.000 | 75192 / 48 = 1566.500 |
+| qwen3.5-27b-standard | twin | 50/50 | 25.600 | 1431.700 | 508.260 | 0.000 | 0.020 | 0.000 | 0.960 | 0.000 | 0.000 | 72865 / 48 = 1518.021 |
+| qwen3.5-27b-standard | block | 50/50 | 25.800 | 1432.220 | 503.440 | 0.000 | 0.020 | 0.000 | 0.960 | 0.000 | 0.000 | 72901 / 48 = 1518.771 |
 | qwen3.5-27b-abliterated | original | 50/50 | 25.900 | 1784.400 | 620.100 | 0.000 | 0.000 | 0.000 | 0.900 | 0.000 | 0.000 | 90515 / 45 = 2011.444 |
 | qwen3.5-27b-abliterated | twin | 50/50 | 25.600 | 1575.060 | 481.220 | 0.000 | 0.000 | 0.000 | 0.920 | 0.000 | 0.000 | 80033 / 46 = 1739.848 |
 | qwen3.5-27b-abliterated | block | 50/50 | 25.800 | 1582.560 | 479.040 | 0.000 | 0.000 | 0.000 | 0.920 | 0.000 | 0.000 | 80418 / 46 = 1748.217 |
@@ -35,9 +35,9 @@ Generated 2026-11-07T09:48:48+00:00. Headline numbers use the five sampled runs;
 
 | Model | Condition | Answered | Mean in | Mean out | Of which thinking (est.) | Full refusal | Partial refusal | Keyword refusal | Useful | Cap hit | Cap hit in thinking | TPUA (tokens / useful = value) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | original | 10/10 | 25.900 | 1405.600 | 542.300 | 0.000 | 0.000 | 0.000 | 0.857 | 0.000 | 0.000 | 7669 / 6 = 1278.167 |
-| qwen3.5-27b-standard | twin | 10/10 | 25.600 | 1505.400 | 525.400 | 0.000 | 0.000 | 0.000 | 1.000 | 0.000 | 0.000 | 8693 / 7 = 1241.857 |
-| qwen3.5-27b-standard | block | 10/10 | 25.800 | 1526.800 | 537.400 | 0.000 | 0.000 | 0.000 | 1.000 | 0.000 | 0.000 | 8693 / 7 = 1241.857 |
+| qwen3.5-27b-standard | original | 10/10 | 25.900 | 1405.600 | 542.300 | 0.000 | 0.000 | 0.000 | 0.900 | 0.000 | 0.000 | 14315 / 9 = 1590.556 |
+| qwen3.5-27b-standard | twin | 10/10 | 25.600 | 1505.400 | 525.400 | 0.000 | 0.000 | 0.000 | 1.000 | 0.000 | 0.000 | 15310 / 10 = 1531.000 |
+| qwen3.5-27b-standard | block | 10/10 | 25.800 | 1526.800 | 537.400 | 0.000 | 0.000 | 0.000 | 1.000 | 0.000 | 0.000 | 15526 / 10 = 1552.600 |
 | qwen3.5-27b-abliterated | original | 10/10 | 25.900 | 1772.700 | 618.600 | 0.000 | 0.000 | 0.000 | 0.900 | 0.000 | 0.000 | 17986 / 9 = 1998.444 |
 | qwen3.5-27b-abliterated | twin | 10/10 | 25.600 | 1650.700 | 509.800 | 0.000 | 0.000 | 0.000 | 1.000 | 0.000 | 0.000 | 16763 / 10 = 1676.300 |
 | qwen3.5-27b-abliterated | block | 10/10 | 25.800 | 1662.300 | 526.200 | 0.000 | 0.000 | 0.000 | 1.000 | 0.000 | 0.000 | 16881 / 10 = 1688.100 |
@@ -60,22 +60,22 @@ Generated 2026-11-07T09:48:48+00:00. Headline numbers use the five sampled runs;
 |---|---|---|---|---|---|---|---|
 | sampled | original | mean_output_tokens | 1.207 | 0.618 | 1.142 | 0.989 | 3 |
 | sampled | original | mean_thinking_tokens_est | 1.017 | n/a | 1.232 | 1.125 | 2 |
-| sampled | original | tpua | 1.625 | 2.059 | 2.142 | 1.942 | 3 |
+| sampled | original | tpua | 1.284 | 2.059 | 2.142 | 1.828 | 3 |
 | sampled | twin | mean_output_tokens | 1.100 | 0.633 | 1.114 | 0.949 | 3 |
 | sampled | twin | mean_thinking_tokens_est | 0.947 | n/a | 1.155 | 1.051 | 2 |
-| sampled | twin | tpua | 1.471 | 1.636 | 1.866 | 1.658 | 3 |
+| sampled | twin | tpua | 1.146 | 1.636 | 1.866 | 1.549 | 3 |
 | sampled | block | mean_output_tokens | 1.105 | 0.633 | 1.121 | 0.953 | 3 |
 | sampled | block | mean_thinking_tokens_est | 0.952 | n/a | 1.164 | 1.058 | 2 |
-| sampled | block | tpua | 1.478 | 1.390 | 2.021 | 1.630 | 3 |
+| sampled | block | tpua | 1.151 | 1.390 | 2.021 | 1.521 | 3 |
 | greedy | original | mean_output_tokens | 1.261 | 0.745 | 1.122 | 1.043 | 3 |
 | greedy | original | mean_thinking_tokens_est | 1.141 | n/a | 1.149 | 1.145 | 2 |
-| greedy | original | tpua | 1.564 | 1.950 | 2.016 | 1.843 | 3 |
+| greedy | original | tpua | 1.256 | 1.950 | 2.016 | 1.741 | 3 |
 | greedy | twin | mean_output_tokens | 1.097 | 0.739 | 1.118 | 0.985 | 3 |
 | greedy | twin | mean_thinking_tokens_est | 0.970 | n/a | 1.224 | 1.097 | 2 |
-| greedy | twin | tpua | 1.350 | 1.746 | 2.789 | 1.962 | 3 |
+| greedy | twin | tpua | 1.095 | 1.746 | 2.789 | 1.877 | 3 |
 | greedy | block | mean_output_tokens | 1.089 | 0.737 | 1.116 | 0.981 | 3 |
 | greedy | block | mean_thinking_tokens_est | 0.979 | n/a | 1.232 | 1.106 | 2 |
-| greedy | block | tpua | 1.359 | 0.989 | 3.712 | 2.020 | 3 |
+| greedy | block | tpua | 1.087 | 0.989 | 3.712 | 1.930 | 3 |
 
 ## Capability (greedy)
 
@@ -98,13 +98,13 @@ A standard model's refused answer (full or partial) to the original wording gets
 
 | Model | Run set | Turns | Attempts | Refused turn 1 | Corrected | Fixed | Correction % | Pending | Useful turn 1 | Useful final | Mean tokens turn 1 | Mean tokens conversation | TPUA turn 1 | TPUA conversation |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | sampled | 2 | 35 | 0 | 0 | 0 | n/a | 0 | 0.943 | 0.943 | 1167.343 | 1167.343 | 1238.091 | 1238.091 |
+| qwen3.5-27b-standard | sampled | 2 | 50 | 0 | 0 | 0 | n/a | 0 | 0.960 | 0.960 | 1503.840 | 1503.840 | 1566.500 | 1566.500 |
 | qwen3.5-27b-abliterated | sampled | 1 | 50 | 0 | 0 | 0 | n/a | 0 | 0.900 | 0.900 | 1810.300 | 1810.300 | 2011.444 | 2011.444 |
 | llama3.1-8b-standard | sampled | 2 | 50 | 7 | 0 | 0 | n/a | 7 | 0.480 | 0.480 | 478.540 | 478.540 | 996.958 | 996.958 |
 | llama3.1-8b-abliterated | sampled | 1 | 50 | 4 | 0 | 0 | n/a | 0 | 0.300 | 0.300 | 615.740 | 615.740 | 2052.467 | 2052.467 |
 | gemma4-12b-standard | sampled | 2 | 50 | 0 | 0 | 0 | n/a | 0 | 0.940 | 0.940 | 1535.280 | 1535.280 | 1633.277 | 1633.277 |
 | gemma4-12b-abliterated | sampled | 1 | 50 | 0 | 0 | 0 | n/a | 0 | 0.500 | 0.500 | 1748.920 | 1748.920 | 3497.840 | 3497.840 |
-| qwen3.5-27b-standard | greedy | 2 | 7 | 0 | 0 | 0 | n/a | 0 | 0.857 | 0.857 | 1095.571 | 1095.571 | 1278.167 | 1278.167 |
+| qwen3.5-27b-standard | greedy | 2 | 10 | 0 | 0 | 0 | n/a | 0 | 0.900 | 0.900 | 1431.500 | 1431.500 | 1590.556 | 1590.556 |
 | qwen3.5-27b-abliterated | greedy | 1 | 10 | 0 | 0 | 0 | n/a | 0 | 0.900 | 0.900 | 1798.600 | 1798.600 | 1998.444 | 1998.444 |
 | llama3.1-8b-standard | greedy | 2 | 10 | 1 | 0 | 0 | n/a | 1 | 0.400 | 0.400 | 441.000 | 441.000 | 1102.500 | 1102.500 |
 | llama3.1-8b-abliterated | greedy | 1 | 10 | 0 | 0 | 0 | n/a | 0 | 0.300 | 0.300 | 645.100 | 645.100 | 2150.333 | 2150.333 |
@@ -115,7 +115,7 @@ A standard model's refused answer (full or partial) to the original wording gets
 
 | Family | Abliterated useful (1 turn) | Standard useful turn 1 | Standard useful after correction | Share of gap closed | Correction % | TPUA std conv / abl | Mean tokens std conv / abl |
 |---|---|---|---|---|---|---|---|
-| qwen | 0.900 | 0.943 | 0.943 | n/a | n/a | 0.616 | 0.645 |
+| qwen | 0.900 | 0.960 | 0.960 | n/a | n/a | 0.779 | 0.831 |
 | llama | 0.300 | 0.480 | 0.480 | n/a | n/a | 0.486 | 0.777 |
 | gemma | 0.500 | 0.940 | 0.940 | n/a | n/a | 0.467 | 0.878 |
 

@@ -1,14 +1,14 @@
 # Verification report
 
-Checked 2026-11-07T09:48:50+00:00. **0 FAIL, 2 WARN.**
+Checked 2026-11-07T10:03:17+00:00. **0 FAIL, 1 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
 | PASS | files | generations.jsonl: 720 rows, all valid JSON |
-| PASS | files | judgments.jsonl: 680 rows, all valid JSON |
+| PASS | files | judgments.jsonl: 720 rows, all valid JSON |
 | PASS | files | capability.jsonl: 3000 rows, all valid JSON |
 | PASS | files | all rows are real |
-| WARN | progress | qwen3.5-27b-standard: generate 120/120, judge 80/120, capability 500/500 |
+| PASS | progress | qwen3.5-27b-standard: generate 120/120, judge 120/120, capability 500/500 |
 | PASS | progress | qwen3.5-27b-abliterated: generate 120/120, judge 120/120, capability 500/500 |
 | PASS | progress | llama3.1-8b-standard: generate 120/120, judge 120/120, capability 500/500 |
 | PASS | progress | llama3.1-8b-abliterated: generate 120/120, judge 120/120, capability 500/500 |
@@ -26,10 +26,13 @@ Checked 2026-11-07T09:48:50+00:00. **0 FAIL, 2 WARN.**
 | PASS | settings | llama: both models used identical options and think flag {"options": {"frequency_penalty": 0.0, "min_p": 0.0, "num_ctx": 16384, "num_predict": 4096, "presence_penalty": 0.0, "repeat_penalty": 1.0, "top_k": 0, "top_p": 1.0}, "think": null} |
 | PASS | settings | gemma: both models used identical options and think flag {"options": {"frequency_penalty": 0.0, "min_p": 0.0, "num_ctx": 16384, "num_predict": 4096, "presence_penalty": 0.0, "repeat_penalty": 1.0, "top_k": 0, "top_p": 1.0}, "think": true} |
 | PASS | tokens | all 720 answers: cap flags consistent, counts in range |
-| PASS | judge | 680 judgments: 'useful' follows its rule in every one |
-| PASS | summary | 22 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-07T09:48:48+00:00 |
+| PASS | judge | 720 judgments: 'useful' follows its rule in every one |
+| PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
+| PASS | summary | summary.json generated_at 2026-11-07T10:03:15+00:00 |
 | PASS | per_prompt | per_prompt.csv: 120/120 cells match the JSONL |
-| WARN | correction | 8 refused standard answers have no correction turn yet (run the correct stage), e.g. ['llama3.1-8b-standard/P01/original/s3/c1', 'llama3.1-8b-standard/P06/original/greedy/c1'] |
+| PASS | correction | corrections.jsonl: 8 rows, all valid JSON |
+| PASS | correction | all 8 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |
+| PASS | correction | every refused standard answer (8) has its correction turn |
+| WARN | correction | 8 correction turns not judged yet (run judge again) |
 | PASS | correction | 24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match |
 | PASS | capability | 3000/3000 capability rows re-score to the stored result |
