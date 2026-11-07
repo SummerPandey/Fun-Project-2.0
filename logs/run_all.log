@@ -1,11 +1,57 @@
-[00:02:14] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
-[00:02:14] === stage: generate (backend: ollama) ===
-[00:02:14] qwen3.5-27b-standard: generating 120 of 120 answers
-[00:02:14]   qwen3.5:27b digest 64ae5b1d651f, think=True, Ollama 0.40.0
-[00:05:51]   10/120 (last: 1488 tokens, stop)
-[00:10:22]   20/120 (last: 2345 tokens, stop)
-[00:12:39]   30/120 (last: 1097 tokens, stop)
-[00:16:48]   40/120 (last: 2304 tokens, stop)
-[00:19:11]   50/120 (last: 1545 tokens, stop)
-[00:23:16]   60/120 (last: 2399 tokens, stop)
-[00:25:49]   70/120 (last: 1005 tokens, stop)
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: generate (backend: ollama) ===
+[04:19:06] qwen3.5-27b-standard: all 120 answers already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: capability (backend: ollama) ===
+[04:19:06] using 500 capability items from /home/sandb/Fun-Project-2.0/pilot/results/capability_items.json
+[04:19:06] qwen3.5-27b-standard: all 500 capability items already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: generate (backend: ollama) ===
+[04:19:06] qwen3.5-27b-abliterated: all 120 answers already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: capability (backend: ollama) ===
+[04:19:06] using 500 capability items from /home/sandb/Fun-Project-2.0/pilot/results/capability_items.json
+[04:19:06] qwen3.5-27b-abliterated: all 500 capability items already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: generate (backend: ollama) ===
+[04:19:06] llama3.1-8b-standard: all 120 answers already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: capability (backend: ollama) ===
+[04:19:06] using 500 capability items from /home/sandb/Fun-Project-2.0/pilot/results/capability_items.json
+[04:19:06] llama3.1-8b-standard: all 500 capability items already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: generate (backend: ollama) ===
+[04:19:06] llama3.1-8b-abliterated: all 120 answers already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: capability (backend: ollama) ===
+[04:19:06] using 500 capability items from /home/sandb/Fun-Project-2.0/pilot/results/capability_items.json
+[04:19:06] llama3.1-8b-abliterated: all 500 capability items already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: generate (backend: ollama) ===
+[04:19:06] gemma4-12b-standard: all 120 answers already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: capability (backend: ollama) ===
+[04:19:06] using 500 capability items from /home/sandb/Fun-Project-2.0/pilot/results/capability_items.json
+[04:19:06] gemma4-12b-standard: all 500 capability items already present, skipping
+[04:19:06] done
+[04:19:06] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:06] === stage: generate (backend: ollama) ===
+[04:19:06] gemma4-12b-abliterated: all 120 answers already present, skipping
+[04:19:06] done
+[04:19:07] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:07] === stage: capability (backend: ollama) ===
+[04:19:07] using 500 capability items from /home/sandb/Fun-Project-2.0/pilot/results/capability_items.json
+[04:19:07] gemma4-12b-abliterated: all 500 capability items already present, skipping
+[04:19:07] done
+[04:19:07] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[04:19:07] === stage: judge (backend: ollama) ===
+mistral-small3.1:24b resolves to 8f3b5653ff8b, b02dc4066b18, not the pinned digest b9aaf0c2586a. Check the model, then update its digest in config.json.
