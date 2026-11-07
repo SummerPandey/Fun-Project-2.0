@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-07T08:02:41+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-07T08:17:44+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 240 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 272 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -18,9 +18,9 @@ Generated 2026-11-07T08:02:41+00:00. Headline numbers use the five sampled runs;
 | qwen3.5-27b-abliterated | original | 50/50 | 25.900 | 1784.400 | 620.100 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | twin | 50/50 | 25.600 | 1575.060 | 481.220 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | block | 50/50 | 25.800 | 1582.560 | 479.040 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| llama3.1-8b-standard | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| llama3.1-8b-standard | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| llama3.1-8b-standard | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
+| llama3.1-8b-standard | original | 16/16 | 26.125 | 448.125 | 0.000 | 0.125 | n/a | 0.125 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| llama3.1-8b-standard | twin | 16/16 | 25.500 | 549.938 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| llama3.1-8b-standard | block | 16/16 | 25.625 | 541.750 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
@@ -84,13 +84,13 @@ Generated 2026-11-07T08:02:41+00:00. Headline numbers use the five sampled runs;
 | Model | n | Accuracy | GSM8K | MMLU | Cap hit |
 |---|---|---|---|---|---|
 | qwen3.5-27b-standard | 500 | 0.912 | 0.948 | 0.876 | 3 |
-| qwen3.5-27b-abliterated | 106 | 0.934 | 0.934 | n/a | 1 |
+| qwen3.5-27b-abliterated | 500 | 0.900 | 0.952 | 0.848 | 4 |
 | llama3.1-8b-standard | 0 | n/a | n/a | n/a | n/a |
 | llama3.1-8b-abliterated | 0 | n/a | n/a | n/a | n/a |
 | gemma4-12b-standard | 0 | n/a | n/a | n/a | n/a |
 | gemma4-12b-abliterated | 0 | n/a | n/a | n/a | n/a |
 
-Abliterated minus standard (percentage points): qwen: 2.196, llama: n/a, gemma: n/a
+Abliterated minus standard (percentage points): qwen: -1.200, llama: n/a, gemma: n/a
 
 ## Correction: abliterated gets 1 turn, standard gets up to 2
 
