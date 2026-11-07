@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T08:17:46+00:00",
+  "checked_at": "2026-11-07T08:18:49+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 2,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 273 rows, all valid JSON"
+      "message": "generations.jsonl: 300 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -38,7 +38,7 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-standard: generate 33/120, judge 0/120, capability 0/500"
+      "message": "llama3.1-8b-standard: generate 60/120, judge 0/120, capability 0/500"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 273 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 300 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -93,17 +93,17 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 273 answers: cap flags consistent, counts in range"
+      "message": "all 300 answers: cap flags consistent, counts in range"
     },
     {
       "level": "FAIL",
       "area": "summary",
-      "message": "llama3.1-8b-standard original: mean output tokens recomputed 441.412 vs summary 448.125"
+      "message": "llama3.1-8b-standard twin: mean output tokens recomputed 535.500 vs summary 534.1034482758621"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T08:17:44+00:00"
+      "message": "summary.json generated_at 2026-11-07T08:18:47+00:00"
     },
     {
       "level": "FAIL",
