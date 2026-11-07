@@ -4,3 +4,70 @@
 [14:22:33]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
 [14:22:33]   judge mistral-small3.1:24b digest 8f3b5653ff8b
 [14:22:33] judging 720 answers
+[14:22:54]   judged 20/720 answers
+[14:23:11]   retrying 1 unparseable judge replies once
+[14:23:11]   judged 40/720 answers
+[14:23:31]   judged 60/720 answers
+[14:23:50]   judged 80/720 answers
+[14:24:08]   judged 100/720 answers
+[14:24:27]   judged 120/720 answers
+[14:24:44]   judged 140/720 answers
+[14:25:00]   judged 160/720 answers
+[14:25:20]   judged 180/720 answers
+[14:25:38]   judged 200/720 answers
+[14:25:56]   judged 220/720 answers
+[14:26:14]   judged 240/720 answers
+[14:26:28]   judged 260/720 answers
+[14:26:41]   judged 280/720 answers
+[14:26:56]   retrying 2 unparseable judge replies once
+[14:26:57]   judged 300/720 answers
+[14:27:11]   judged 320/720 answers
+[14:27:24]   judged 340/720 answers
+[14:27:38]   judged 360/720 answers
+[14:27:53]   judged 380/720 answers
+[14:28:07]   judged 400/720 answers
+[14:28:23]   retrying 1 unparseable judge replies once
+[14:28:24]   judged 420/720 answers
+[14:28:39]   judged 440/720 answers
+[14:28:54]   judged 460/720 answers
+[14:29:09]   judged 480/720 answers
+[14:29:26]   judged 500/720 answers
+[14:29:44]   judged 520/720 answers
+[14:30:06]   judged 540/720 answers
+[14:30:25]   judged 560/720 answers
+[14:30:45]   judged 580/720 answers
+[14:31:06]   judged 600/720 answers
+[14:31:22]   judged 620/720 answers
+[14:31:37]   judged 640/720 answers
+[14:31:57]   judged 660/720 answers
+[14:32:16]   judged 680/720 answers
+[14:32:35]   judged 700/720 answers
+[14:32:54]   judged 720/720 answers
+[14:32:54] wrote 720 judgments to /home/sandb/Fun-Project-2.0/pilot/results/judgments.jsonl (0 judge errors)
+[14:32:54] done
+=== 2026-11-07T20:32:54Z stage correct
+[14:32:54] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[14:32:54] === stage: correct (backend: ollama) ===
+[14:32:54] llama3.1-8b-standard: 8 refused answers get a correction turn
+[14:33:15]   8/8 corrections
+[14:33:15] llama3.1-8b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot/results/corrections.jsonl
+[14:33:15] done
+=== 2026-11-07T20:33:15Z stage judge
+[14:33:15] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[14:33:15] === stage: judge (backend: ollama) ===
+[14:33:15]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[14:33:15]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[14:33:15] judging 8 corrections
+[14:33:25] wrote 8 judgments to /home/sandb/Fun-Project-2.0/pilot/results/correction_judgments.jsonl (0 judge errors)
+[14:33:25] done
+=== 2026-11-07T20:33:25Z stage analyze
+[14:33:25] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[14:33:25] === stage: analyze (backend: ollama) ===
+[14:33:25] wrote /home/sandb/Fun-Project-2.0/pilot/results/summary.json and /home/sandb/Fun-Project-2.0/pilot/results/summary.md
+[14:33:25] done
+=== 2026-11-07T20:33:25Z stage sample
+[14:33:25] output folder: /home/sandb/Fun-Project-2.0/pilot/results (backend: ollama)
+[14:33:25] === stage: sample (backend: ollama) ===
+[14:33:25] wrote 60 blind items to /home/sandb/Fun-Project-2.0/pilot/results/handcheck.csv (key in handcheck_key.csv; do not open it before scoring)
+[14:33:25] done
+=== 2026-11-07T20:33:25Z FINISHED
