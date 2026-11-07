@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T08:47:54+00:00",
+  "checked_at": "2026-11-07T08:48:48+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 596 rows, all valid JSON"
+      "message": "generations.jsonl: 600 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -18,7 +18,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "capability.jsonl: 2000 rows, all valid JSON"
+      "message": "capability.jsonl: 2019 rows, all valid JSON"
     },
     {
       "level": "PASS",
@@ -48,7 +48,7 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-standard: generate 116/120, judge 0/120, capability 0/500"
+      "message": "gemma4-12b-standard: generate 120/120, judge 0/120, capability 19/500"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 596 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 600 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -108,7 +108,7 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 596 answers: cap flags consistent, counts in range"
+      "message": "all 600 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
@@ -118,7 +118,7 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T08:47:53+00:00"
+      "message": "summary.json generated_at 2026-11-07T08:48:47+00:00"
     },
     {
       "level": "PASS",
@@ -128,7 +128,7 @@
     {
       "level": "PASS",
       "area": "capability",
-      "message": "2000/2000 capability rows re-score to the stored result"
+      "message": "2019/2019 capability rows re-score to the stored result"
     }
   ]
 }
