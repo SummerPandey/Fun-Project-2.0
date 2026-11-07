@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T08:32:50+00:00",
+  "checked_at": "2026-11-07T08:47:54+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 480 rows, all valid JSON"
+      "message": "generations.jsonl: 596 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -18,7 +18,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "capability.jsonl: 1847 rows, all valid JSON"
+      "message": "capability.jsonl: 2000 rows, all valid JSON"
     },
     {
       "level": "PASS",
@@ -43,12 +43,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-abliterated: generate 120/120, judge 0/120, capability 347/500"
+      "message": "llama3.1-8b-abliterated: generate 120/120, judge 0/120, capability 500/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-standard: generate 0/120, judge 0/120, capability 0/500"
+      "message": "gemma4-12b-standard: generate 116/120, judge 0/120, capability 0/500"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 480 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 596 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -82,6 +82,11 @@
     },
     {
       "level": "PASS",
+      "area": "digests",
+      "message": "gemma4-12b-standard: one set of weights, 6114515d63c1 (matches pin)"
+    },
+    {
+      "level": "PASS",
       "area": "settings",
       "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
     },
@@ -97,18 +102,23 @@
     },
     {
       "level": "PASS",
+      "area": "settings",
+      "message": "gemma: both models used identical options and think flag {\"options\": {\"frequency_penalty\": 0.0, \"min_p\": 0.0, \"num_ctx\": 16384, \"num_predict\": 4096, \"presence_penalty\": 0.0, \"repeat_penalty\": 1.0, \"top_k\": 0, \"top_p\": 1.0}, \"think\": true}"
+    },
+    {
+      "level": "PASS",
       "area": "tokens",
-      "message": "all 480 answers: cap flags consistent, counts in range"
+      "message": "all 596 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "8 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "10 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T08:32:48+00:00"
+      "message": "summary.json generated_at 2026-11-07T08:47:53+00:00"
     },
     {
       "level": "PASS",
@@ -118,7 +128,7 @@
     {
       "level": "PASS",
       "area": "capability",
-      "message": "1847/1847 capability rows re-score to the stored result"
+      "message": "2000/2000 capability rows re-score to the stored result"
     }
   ]
 }

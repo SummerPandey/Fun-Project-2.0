@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-07T08:32:48+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-07T08:47:53+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 480 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 596 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -24,9 +24,9 @@ Generated 2026-11-07T08:32:48+00:00. Headline numbers use the five sampled runs;
 | llama3.1-8b-abliterated | original | 50/50 | 335.900 | 279.840 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | twin | 50/50 | 335.600 | 334.280 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | block | 50/50 | 335.800 | 330.780 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-standard | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| gemma4-12b-standard | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| gemma4-12b-standard | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
+| gemma4-12b-standard | original | 50/50 | 31.700 | 1503.580 | 615.280 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| gemma4-12b-standard | twin | 50/50 | 31.400 | 1489.080 | 596.500 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| gemma4-12b-standard | block | 50/50 | 31.600 | 1485.680 | 594.180 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | gemma4-12b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
@@ -47,9 +47,9 @@ Generated 2026-11-07T08:32:48+00:00. Headline numbers use the five sampled runs;
 | llama3.1-8b-abliterated | original | 10/10 | 335.900 | 309.200 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | twin | 10/10 | 335.600 | 391.700 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | block | 10/10 | 335.800 | 382.500 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-standard | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| gemma4-12b-standard | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| gemma4-12b-standard | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
+| gemma4-12b-standard | original | 8/8 | 32.375 | 1519.500 | 612.375 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| gemma4-12b-standard | twin | 8/8 | 31.625 | 1480.750 | 595.125 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| gemma4-12b-standard | block | 8/8 | 31.625 | 1480.750 | 595.125 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | gemma4-12b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
@@ -86,11 +86,11 @@ Generated 2026-11-07T08:32:48+00:00. Headline numbers use the five sampled runs;
 | qwen3.5-27b-standard | 500 | 0.912 | 0.948 | 0.876 | 3 |
 | qwen3.5-27b-abliterated | 500 | 0.900 | 0.952 | 0.848 | 4 |
 | llama3.1-8b-standard | 500 | 0.758 | 0.884 | 0.632 | 4 |
-| llama3.1-8b-abliterated | 298 | 0.745 | 0.788 | 0.521 | 0 |
+| llama3.1-8b-abliterated | 500 | 0.662 | 0.788 | 0.536 | 0 |
 | gemma4-12b-standard | 0 | n/a | n/a | n/a | n/a |
 | gemma4-12b-abliterated | 0 | n/a | n/a | n/a | n/a |
 
-Abliterated minus standard (percentage points): qwen: -1.200, llama: -1.303, gemma: n/a
+Abliterated minus standard (percentage points): qwen: -1.200, llama: -9.600, gemma: n/a
 
 ## Correction: abliterated gets 1 turn, standard gets up to 2
 
