@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T07:02:28+00:00",
+  "checked_at": "2026-11-07T07:17:31+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 120 rows, all valid JSON"
+      "message": "generations.jsonl: 147 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -18,7 +18,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "capability.jsonl: 219 rows, all valid JSON"
+      "message": "capability.jsonl: 500 rows, all valid JSON"
     },
     {
       "level": "PASS",
@@ -28,12 +28,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 120/120, judge 0/120, capability 219/500"
+      "message": "qwen3.5-27b-standard: generate 120/120, judge 0/120, capability 500/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-abliterated: generate 0/120, judge 0/120, capability 0/500"
+      "message": "qwen3.5-27b-abliterated: generate 27/120, judge 0/120, capability 0/500"
     },
     {
       "level": "WARN",
@@ -58,12 +58,17 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 120 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 147 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
       "area": "digests",
       "message": "qwen3.5-27b-standard: one set of weights, 64ae5b1d651f (matches pin)"
+    },
+    {
+      "level": "PASS",
+      "area": "digests",
+      "message": "qwen3.5-27b-abliterated: one set of weights, 2c5b727e8ad6 (matches pin)"
     },
     {
       "level": "PASS",
@@ -78,17 +83,17 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 120 answers: cap flags consistent, counts in range"
+      "message": "all 147 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "2 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "4 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T07:02:26+00:00"
+      "message": "summary.json generated_at 2026-11-07T07:17:29+00:00"
     },
     {
       "level": "PASS",
@@ -98,7 +103,7 @@
     {
       "level": "PASS",
       "area": "capability",
-      "message": "219/219 capability rows re-score to the stored result"
+      "message": "500/500 capability rows re-score to the stored result"
     }
   ]
 }
