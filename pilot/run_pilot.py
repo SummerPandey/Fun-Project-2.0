@@ -5,6 +5,8 @@ Stages (`all` runs them in this order):
   generate    model x prompt P01-P10 x wording {original, twin} x runs {s1..s5, greedy}
   capability  model x fixed 500-item GSM8K + MMLU subset, greedy
   judge       one judge model scores every generation, after all models are unloaded
+  correct     standard models only: a refused answer to the original wording gets one follow-up
+              turn in the same conversation (abliterated models get one turn); then judge again
   analyze     token, refusal, usefulness, TPUA, block and capability tables
               -> results/summary.json and results/summary.md
   sample      60 stratified answers for blind hand-checking
@@ -39,7 +41,9 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-STAGES = ("generate", "capability", "judge", "analyze", "sample")
+STAGES = ("generate", "capability", "judge", "correct", "analyze", "sample")
+# `all` judges twice: turn-1 answers first, then the correction turns the correct stage wrote.
+ALL_ORDER = ("generate", "capability", "judge", "correct", "judge", "analyze", "sample")
 WORDINGS = ("original", "twin")
 CONDITIONS = ("original", "twin", "block")
 RUN_SETS = ("sampled", "greedy")
@@ -292,13 +296,20 @@ def sampling_params(spec: dict, max_tokens: int):
     )
 
 
-def vllm_chat(llm, texts: list[str], params: list) -> list[dict]:
-    """Batch one chat call (single user message per request, model's own chat template).
+def as_messages(text_or_messages) -> list[dict]:
+    """A single question becomes one user message; a list is already a conversation."""
+    if isinstance(text_or_messages, list):
+        return text_or_messages
+    return [{"role": "user", "content": text_or_messages}]
+
+
+def vllm_chat(llm, texts: list, params: list) -> list[dict]:
+    """Batch one chat call (one conversation per request, model's own chat template).
 
     Requests are batched, so per-request wall time is not observed. latency_s is the batch
     wall time divided by the batch size and should be read as an average.
     """
-    convs = [[{"role": "user", "content": text}] for text in texts]
+    convs = [as_messages(t) for t in texts]
     t0 = time.time()
     outs = llm.chat(convs, sampling_params=params, use_tqdm=True)
     per_request = (time.time() - t0) / max(len(texts), 1)
@@ -392,8 +403,9 @@ class OllamaClient:
                 log(f"  WARNING: {tag} supports thinking but config says it does not; 'think' will not be sent")
         return digest
 
-    def chat(self, tag: str, text: str, options: dict, think: bool | None) -> dict:
-        body = {"model": tag, "messages": [{"role": "user", "content": text}], "stream": True,
+    def chat(self, tag: str, text, options: dict, think: bool | None) -> dict:
+        """text is one question (str) or a whole conversation (list of role/content messages)."""
+        body = {"model": tag, "messages": as_messages(text), "stream": True,
                 "options": options, "keep_alive": self.keep_alive}
         if think is not None:
             body["think"] = think
@@ -831,6 +843,145 @@ def run_capability(cfg: dict, models: list[dict], outdir: Path, mock: bool) -> N
 
 
 # ---------------------------------------------------------------------------
+# Stage: correct (a second turn for refused answers)
+# ---------------------------------------------------------------------------
+#
+# Design: abliterated models get ONE turn. Standard models get up to TWO: when the judge labels
+# a standard model's answer to the ORIGINAL wording as a full or partial refusal, the user
+# replies in the same conversation with a correction (the neutral twin, by default) and the
+# model answers again. The judge then grades that second answer against the same checklist.
+# Analysis compares the standard model's whole conversation (turn 1 + correction) with the
+# abliterated model's single turn: correction percent, useful rate and tokens to a useful answer.
+
+def correction_key(parent_key: str) -> str:
+    return f"{parent_key}|c1"
+
+
+def correction_text(corr_cfg: dict, prompt: dict) -> str:
+    return corr_cfg["template"].format(twin=prompt["neutral_twin"], original=prompt["prompt"])
+
+
+def correction_targets(cfg: dict, prompts: list[dict], models: list[dict], outdir: Path, mock: bool) -> list:
+    """(model, parent answer, prompt) for every judged answer that needs a correction turn."""
+    corr = cfg["correction"]
+    gens = last_by_key(load_checked(outdir / "generations.jsonl", mock), gen_key_of)
+    judg = last_by_key(load_checked(outdir / "judgments.jsonl", mock), lambda r: r["key"])
+    by_name = {m["name"]: m for m in models if m["variant"] in corr["variants"]}
+    by_id = {p["id"]: p for p in prompts}
+    order = {s["run"]: i for i, s in enumerate(run_specs(cfg["generation"]))}
+    out = []
+    for key, g in gens.items():
+        j = judg.get(key)
+        if (g["model"] in by_name and g["wording"] == "original" and j is not None
+                and not j["judge_error"] and j["refusal_type"] in corr["trigger"]):
+            out.append((by_name[g["model"]], g, by_id[g["prompt_id"]]))
+    # Run-major order, as in generate: no two consecutive requests share a conversation prefix.
+    out.sort(key=lambda t: (t[0]["name"], order.get(t[1]["run"], 99), t[1]["prompt_id"]))
+    return out
+
+
+def correction_messages(g: dict, text: str) -> list[dict]:
+    """Turn 1 question, the model's visible turn-1 answer (thinking is not carried over, as in a
+    normal chat), then the user's correction."""
+    return [{"role": "user", "content": g["prompt_text"]},
+            {"role": "assistant", "content": g["output_text"]},
+            {"role": "user", "content": text}]
+
+
+def mock_correction(model: dict, g: dict, text: str, max_tokens: int) -> dict:
+    rng = seeded_rng("corr", model["name"], gen_key_of(g))
+    think_n = rng.randint(60, 600) if model.get("supports_thinking") else 0
+    if rng.random() < 0.70:  # the fake standard model usually complies once corrected
+        words = _filler(rng, rng.randint(120, 450)).split()
+    elif rng.random() < 0.5:
+        words = (PARTIAL_TEXT + " " + _filler(rng, rng.randint(40, 100))).split()
+    else:
+        words = (REFUSAL_TEXT + " " + _filler(rng, rng.randint(10, 30))).split()
+    words = words[:max(max_tokens - think_n, 0)]
+    history = g["input_tokens"] + len(g["output_text"].split()) + len(text.split()) + 8
+    res = {"text": " ".join(words), "input_tokens": history, "output_tokens": len(words) + think_n,
+           "finish_reason": "stop", "latency_s": rng.uniform(0.5, 3.0)}
+    if model.get("supports_thinking"):
+        res.update(thinking_text=_filler(rng, think_n), thinking_tokens_est=think_n,
+                   answer_tokens_est=len(words), hit_cap_in_thinking=False)
+    return res
+
+
+def make_correction_row(model: dict, revision, prompt: dict, g: dict, judgment: dict, text: str,
+                        res: dict, mock: bool, batch_size: int) -> dict:
+    spec = {"run": g["run"], "seed": g["seed"], "temperature": g["temperature"]}
+    row = make_gen_row(model, revision, prompt, "original", spec, res, mock, batch_size)
+    row.update({
+        "key": correction_key(gen_key_of(g)),
+        "parent_key": gen_key_of(g),
+        "round": 1,
+        "correction_text": text,
+        "parent_refusal_type": judgment["refusal_type"],
+        "turn1_input_tokens": g["input_tokens"],
+        "turn1_output_tokens": g["output_tokens"],
+    })
+    return row
+
+
+def run_correct(cfg: dict, prompts: list[dict], models: list[dict], outdir: Path, mock: bool) -> None:
+    corr, gen = cfg.get("correction") or {}, cfg["generation"]
+    if not corr.get("enabled"):
+        log("correction disabled in config; skipping")
+        return
+    if corr.get("rounds", 1) != 1:
+        raise SystemExit("correction.rounds must be 1: only one correction turn is implemented")
+    path = outdir / "corrections.jsonl"
+    done = {r["key"] for r in load_checked(path, mock)}
+    judg = last_by_key(load_checked(outdir / "judgments.jsonl", mock), lambda r: r["key"])
+    targets = [t for t in correction_targets(cfg, prompts, models, outdir, mock)
+               if correction_key(gen_key_of(t[1])) not in done]
+    by_model = defaultdict(list)
+    for t in targets:
+        by_model[t[0]["name"]].append(t)
+    if not targets:
+        log("no refused answers waiting for a correction (run judge first, or all are done)")
+        return
+    for name, items in by_model.items():
+        model = items[0][0]
+        log(f"{name}: {len(items)} refused answers get a correction turn")
+        texts = [correction_text(corr, p) for _, _, p in items]
+        convs = [correction_messages(g, t) for (_, g, _), t in zip(items, texts)]
+        specs = [{"run": g["run"], "seed": g["seed"], "temperature": g["temperature"], "top_p": gen["top_p"]}
+                 for _, g, _ in items]
+        if mock:
+            for (m, g, p), text in zip(items, texts):
+                res = mock_correction(m, g, text, gen["max_tokens"])
+                append_jsonl(path, [make_correction_row(m, "mock", p, g, judg[gen_key_of(g)], text, res, True, 1)])
+        elif backend_of(cfg) == "ollama":
+            client = OllamaClient(cfg["ollama"])
+            version = client.version()
+            think = think_for(model, corr.get("think", gen.get("think")))
+            digest = client.check_model(model["repo"], model.get("digest"), model.get("supports_thinking"))
+            try:
+                for i, ((m, g, p), text, conv, s) in enumerate(zip(items, texts, convs, specs), 1):
+                    opts = ollama_options(s, gen["max_tokens"], gen["num_ctx"], gen["sampling"])
+                    res = client.chat(m["repo"], conv, opts, think)
+                    res.update(think=think, options=opts, backend="ollama", backend_version=version)
+                    append_jsonl(path, [make_correction_row(m, digest, p, g, judg[gen_key_of(g)], text, res, False, 1)])
+                    if i % 10 == 0 or i == len(items):
+                        log(f"  {i}/{len(items)} corrections")
+            finally:
+                client.unload(model["repo"])
+        else:
+            revision = resolve_revision(model["repo"], model.get("revision"))
+            llm = load_vllm(model["repo"], revision, gen["max_model_len"], gen["gpu_memory_utilization"],
+                            dtype=gen.get("dtype", "bfloat16"))
+            try:
+                results = vllm_chat(llm, convs, [sampling_params(s, gen["max_tokens"]) for s in specs])
+            finally:
+                del llm
+                free_gpu()
+            append_jsonl(path, [make_correction_row(m, revision, p, g, judg[gen_key_of(g)], text, res, False, len(items))
+                                for (m, g, p), text, res in zip(items, texts, results)])
+        log(f"{name}: corrections written to {path}")
+
+
+# ---------------------------------------------------------------------------
 # Stage: judge
 # ---------------------------------------------------------------------------
 
@@ -947,7 +1098,7 @@ def make_judgment_row(g: dict, obj: dict | None, raw: str, attempts: int, mock: 
                       judge_info: dict) -> dict:
     base = {
         "timestamp": now_iso(),
-        "key": gen_key_of(g),
+        "key": row_key(g),
         "model": g["model"], "prompt_id": g["prompt_id"], "wording": g["wording"], "run": g["run"],
         "keyword_refusal": bool(KEYWORD_REFUSAL.search(g["output_text"])),
         "judge_attempts": attempts,
@@ -968,56 +1119,68 @@ def make_judgment_row(g: dict, obj: dict | None, raw: str, attempts: int, mock: 
             "useful": useful, "judge_inconsistent": obj["useful"] != useful}
 
 
+def row_key(r: dict) -> str:
+    """Answers are keyed by their fields; correction rows carry their own key (parent key + |c1)."""
+    return r.get("key") or gen_key_of(r)
+
+
+def _pending(src: Path, dst: Path, wanted: set, mock: bool) -> list[dict]:
+    rows = last_by_key([r for r in load_checked(src, mock) if r["model"] in wanted], row_key)
+    prior = last_by_key(load_checked(dst, mock), lambda r: r["key"])
+    done = {k for k, r in prior.items() if not r["judge_error"]}
+    return [r for k, r in sorted(rows.items()) if k not in done]
+
+
 def run_judge(cfg: dict, prompts: list[dict], models: list[dict], outdir: Path, mock: bool) -> None:
-    gens_path = outdir / "generations.jsonl"
-    gens = load_checked(gens_path, mock)
-    if not gens:
+    """Judges turn-1 answers (generations.jsonl -> judgments.jsonl) and correction turns
+    (corrections.jsonl -> correction_judgments.jsonl), against the same checklist."""
+    if not load_checked(outdir / "generations.jsonl", mock):
         raise SystemExit("no generations found; run the generate stage first")
     wanted = {m["name"] for m in models}
-    gens = last_by_key([g for g in gens if g["model"] in wanted], gen_key_of)
-
-    jpath = outdir / "judgments.jsonl"
-    prior = last_by_key(load_checked(jpath, mock), lambda r: r["key"])
-    done = {k for k, r in prior.items() if not r["judge_error"]}
-    pending = [g for k, g in sorted(gens.items()) if k not in done]
-    if not pending:
+    jobs = [(name, _pending(outdir / src, outdir / dst, wanted, mock), outdir / dst)
+            for name, src, dst in (("answers", "generations.jsonl", "judgments.jsonl"),
+                                   ("corrections", "corrections.jsonl", "correction_judgments.jsonl"))]
+    if not any(p for _, p, _ in jobs):
         log("all judgments already present, skipping")
         return
-    log(f"judging {len(pending)} answers")
 
     by_id = {p["id"]: p for p in prompts}
     backend = JudgeBackend(cfg["judge"], mock, cfg)
     judge_info = backend.info()
-    # vLLM judges everything in one batch; Ollama goes one request at a time, so it writes
-    # every chunk_size answers and an interrupted run resumes from the last chunk.
-    size = cfg["judge"].get("chunk_size") or len(pending)
-    total = errors = 0
     try:
-        for start in range(0, len(pending), size):
-            chunk = pending[start:start + size]
-            texts = [judge_prompt(by_id[g["prompt_id"]], g["output_text"]) for g in chunk]
-            n_req = [len(by_id[g["prompt_id"]]["checklist"]["R"]) for g in chunk]
-            raws = backend(texts)
-            parsed = [parse_judge(r, n) for r, n in zip(raws, n_req)]
-            attempts = [1] * len(chunk)
-            retry = [i for i, obj in enumerate(parsed) if obj is None]
-            if retry:
-                log(f"  retrying {len(retry)} unparseable judge replies once")
-                raws_retry = backend([texts[i] + RETRY_NOTE for i in retry])
-                for i, raw in zip(retry, raws_retry):
-                    raws[i] = raw
-                    attempts[i] = 2
-                    parsed[i] = parse_judge(raw, n_req[i])
-            rows = [make_judgment_row(g, obj, raw, att, mock, judge_info)
-                    for g, obj, raw, att in zip(chunk, parsed, raws, attempts)]
-            append_jsonl(jpath, rows)
-            total += len(rows)
-            errors += sum(r["judge_error"] for r in rows)
-            if size < len(pending):
-                log(f"  judged {total}/{len(pending)}")
+        for name, pending, jpath in jobs:
+            if not pending:
+                continue
+            log(f"judging {len(pending)} {name}")
+            # vLLM judges everything in one batch; Ollama goes one request at a time, so it writes
+            # every chunk_size answers and an interrupted run resumes from the last chunk.
+            size = cfg["judge"].get("chunk_size") or len(pending)
+            total = errors = 0
+            for start in range(0, len(pending), size):
+                chunk = pending[start:start + size]
+                texts = [judge_prompt(by_id[g["prompt_id"]], g["output_text"]) for g in chunk]
+                n_req = [len(by_id[g["prompt_id"]]["checklist"]["R"]) for g in chunk]
+                raws = backend(texts)
+                parsed = [parse_judge(r, n) for r, n in zip(raws, n_req)]
+                attempts = [1] * len(chunk)
+                retry = [i for i, obj in enumerate(parsed) if obj is None]
+                if retry:
+                    log(f"  retrying {len(retry)} unparseable judge replies once")
+                    raws_retry = backend([texts[i] + RETRY_NOTE for i in retry])
+                    for i, raw in zip(retry, raws_retry):
+                        raws[i] = raw
+                        attempts[i] = 2
+                        parsed[i] = parse_judge(raw, n_req[i])
+                rows = [make_judgment_row(g, obj, raw, att, mock, judge_info)
+                        for g, obj, raw, att in zip(chunk, parsed, raws, attempts)]
+                append_jsonl(jpath, rows)
+                total += len(rows)
+                errors += sum(r["judge_error"] for r in rows)
+                if size < len(pending):
+                    log(f"  judged {total}/{len(pending)} {name}")
+            log(f"wrote {total} judgments to {jpath} ({errors} judge errors)")
     finally:
         backend.close()
-    log(f"wrote {total} judgments to {jpath} ({errors} judge errors)")
 
 
 # ---------------------------------------------------------------------------
@@ -1225,6 +1388,119 @@ def judge_stats(gens: dict, judg: dict) -> dict:
                                   for t in sorted(models_used, key=str)]}
 
 
+def conversation_stats(model: dict, runs: list[str], prompt_ids: list[str], gens: dict, judg: dict,
+                       corr: dict, cjudg: dict, corr_cfg: dict, prompt_filter: str | None = None) -> dict:
+    """One model, original wording: turn 1, and the correction turn where the model gets one.
+
+    Tokens here are input + output (the correction turn's input includes the whole turn-1
+    exchange, which is part of what a correction costs). Attempts whose turn 1 is not judged yet
+    are left out; refused attempts whose correction is not run or judged yet are counted as
+    pending and as not fixed.
+    """
+    gets_correction = bool(corr_cfg.get("enabled")) and model["variant"] in corr_cfg.get("variants", [])
+    trigger = set(corr_cfg.get("trigger", []))
+    n = n_useful1 = n_useful_final = n_full1 = n_refused1 = n_corrected = n_fixed = n_pending = 0
+    tok1 = tok_conv = tok_corr = 0
+    for pid in prompt_ids:
+        if prompt_filter and pid != prompt_filter:
+            continue
+        for run in runs:
+            key = gen_key(model["name"], pid, "original", run)
+            g, j = gens.get(key), judg.get(key)
+            if g is None or j is None or j["judge_error"]:
+                continue
+            n += 1
+            t1 = g["input_tokens"] + g["output_tokens"]
+            tok1 += t1
+            tok_conv += t1
+            useful1 = bool(j["useful"])
+            n_useful1 += useful1
+            n_full1 += j["refusal_type"] == "full_refusal"
+            fixed = False
+            if j["refusal_type"] in trigger:
+                n_refused1 += 1
+                if gets_correction:
+                    c, cj = corr.get(correction_key(key)), cjudg.get(correction_key(key))
+                    if c is None or cj is None or cj["judge_error"]:
+                        n_pending += 1
+                    else:
+                        n_corrected += 1
+                        tc = c["input_tokens"] + c["output_tokens"]
+                        tok_corr += tc
+                        tok_conv += tc
+                        fixed = bool(cj["useful"])
+                        # "Fixed" = the corrected answer is useful. A partial refusal that was
+                        # already useful on turn 1 still had its correction cost counted.
+                        n_fixed += fixed
+            n_useful_final += bool(useful1 or fixed)
+    return {
+        "turns_allowed": 2 if gets_correction else 1,
+        "n_attempts": n,
+        "n_refused_turn1": n_refused1,
+        "n_full_refusal_turn1": n_full1,
+        "n_corrected": n_corrected,
+        "n_fixed_by_correction": n_fixed,
+        "n_correction_pending": n_pending,
+        "correction_rate": ratio(n_fixed, n_corrected),
+        "useful_rate_turn1": ratio(n_useful1, n),
+        "useful_rate_final": ratio(n_useful_final, n),
+        "n_useful_turn1": n_useful1,
+        "n_useful_final": n_useful_final,
+        "tokens_turn1_total": tok1,
+        "tokens_correction_total": tok_corr,
+        "tokens_conversation_total": tok_conv,
+        "mean_tokens_turn1": ratio(tok1, n),
+        "mean_tokens_conversation": ratio(tok_conv, n),
+        "mean_tokens_per_correction": ratio(tok_corr, n_corrected),
+        "tpua_turn1": tok1 / n_useful1 if n_useful1 else "undefined",
+        "tpua_conversation": tok_conv / n_useful_final if n_useful_final else "undefined",
+    }
+
+
+def correction_summary(cfg: dict, models: list[dict], families: list[str], prompt_ids: list[str],
+                       run_sets: dict, gens: dict, judg: dict, outdir: Path, mock: bool) -> dict:
+    corr_cfg = cfg.get("correction") or {}
+    corr = last_by_key(load_checked(outdir / "corrections.jsonl", mock), lambda r: r["key"])
+    cjudg = last_by_key(load_checked(outdir / "correction_judgments.jsonl", mock), lambda r: r["key"])
+    out = {"enabled": bool(corr_cfg.get("enabled")), "config": corr_cfg, "by_model": {}, "gap": {},
+           "per_prompt": {}}
+    for m in models:
+        out["by_model"][m["name"]] = {rs: conversation_stats(m, runs, prompt_ids, gens, judg, corr, cjudg, corr_cfg)
+                                      for rs, runs in run_sets.items()}
+        out["per_prompt"][m["name"]] = {
+            pid: conversation_stats(m, run_sets["sampled"], prompt_ids, gens, judg, corr, cjudg, corr_cfg, pid)
+            for pid in prompt_ids}
+    for fam in families:
+        std = next((m for m in models if m["family"] == fam and m["variant"] == "standard"), None)
+        ab = next((m for m in models if m["family"] == fam and m["variant"] == "abliterated"), None)
+        if std is None or ab is None:
+            continue
+        out["gap"][fam] = {}
+        for rs in run_sets:
+            s, a = out["by_model"][std["name"]][rs], out["by_model"][ab["name"]][rs]
+            A, S1, S2 = a["useful_rate_turn1"], s["useful_rate_turn1"], s["useful_rate_final"]
+            gap_before = A - S1 if A is not None and S1 is not None else None
+            gap_after = A - S2 if A is not None and S2 is not None else None
+            closed = ((S2 - S1) / (A - S1)) if (gap_before is not None and S2 is not None and gap_before > 0) else None
+
+            def r(x, y):
+                return x / y if isinstance(x, (int, float)) and isinstance(y, (int, float)) and y else None
+
+            out["gap"][fam][rs] = {
+                "abliterated_useful_rate_one_turn": A,
+                "standard_useful_rate_turn1": S1,
+                "standard_useful_rate_after_correction": S2,
+                "useful_gap_before_correction": gap_before,
+                "useful_gap_after_correction": gap_after,
+                "share_of_gap_closed_by_correction": closed,
+                "standard_correction_rate": s["correction_rate"],
+                "tpua_ratio_standard_turn1_over_abliterated": r(s["tpua_turn1"], a["tpua_turn1"]),
+                "tpua_ratio_standard_conversation_over_abliterated": r(s["tpua_conversation"], a["tpua_turn1"]),
+                "mean_tokens_ratio_standard_conversation_over_abliterated": r(s["mean_tokens_conversation"], a["mean_tokens_turn1"]),
+            }
+    return out
+
+
 def run_analyze(cfg: dict, prompts: list[dict], block_re, block_message: str, models: list[dict],
                 outdir: Path, mock: bool) -> None:
     gens = last_by_key(load_checked(outdir / "generations.jsonl", mock), gen_key_of)
@@ -1269,6 +1545,12 @@ def run_analyze(cfg: dict, prompts: list[dict], block_re, block_message: str, mo
             "string match and is shown only for comparison.",
             "TPUA = sum(input + output tokens) over judged attempts / number of useful attempts "
             "(ratio of totals).",
+            "Correction: abliterated models get one turn; standard models get one correction turn when "
+            "turn 1 (original wording) is judged a full or partial refusal. Correction percent = corrected "
+            "answers judged useful / corrections judged. Conversation tokens = turn 1 + correction turn, "
+            "input + output; the correction's input includes the whole turn-1 exchange. Share of gap "
+            "closed = (standard useful after correction - standard useful on turn 1) / (abliterated "
+            "useful - standard useful on turn 1).",
             "Output tokens include thinking. Ollama reports one count for thinking and answer, so "
             "'thinking (est.)' splits it by the share of streamed chunks; it is approximate. The judge "
             "sees only the visible answer. 'Cap hit in thinking' means the cap was reached before any answer.",
@@ -1278,6 +1560,7 @@ def run_analyze(cfg: dict, prompts: list[dict], block_re, block_message: str, mo
         "within_family_ratios": ratios,
         "capability": capability_summary(models, families, outdir),
         "block": block_summary(prompts, flags, block_message),
+        "correction": correction_summary(cfg, models, families, pids, run_sets, gens, judg, outdir, mock),
     }
     write_json(outdir / "summary.json", summary)
     (outdir / "summary.md").write_text(render_markdown(summary, models, families), encoding="utf-8")
@@ -1367,6 +1650,38 @@ def render_markdown(s: dict, models: list[dict], families: list[str]) -> str:
                   ""]
     else:
         lines += [cap.get("status", ""), ""]
+
+    c = s.get("correction") or {}
+    if c.get("enabled"):
+        lines += [
+            "## Correction: abliterated gets 1 turn, standard gets up to 2", "",
+            f"A standard model's refused answer (full or partial) to the original wording gets one follow-up: "
+            f"\"{c['config'].get('template')}\". Tokens are input + output across the whole conversation.", "",
+            "| Model | Run set | Turns | Attempts | Refused turn 1 | Corrected | Fixed | Correction % | Pending "
+            "| Useful turn 1 | Useful final | Mean tokens turn 1 | Mean tokens conversation | TPUA turn 1 | TPUA conversation |",
+            "|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|",
+        ]
+        for rs in RUN_SETS:
+            for m in models:
+                x = c["by_model"][m["name"]][rs]
+                lines.append(
+                    f"| {m['name']} | {rs} | {x['turns_allowed']} | {x['n_attempts']} | {x['n_refused_turn1']} | "
+                    f"{x['n_corrected']} | {x['n_fixed_by_correction']} | {_fmt(x['correction_rate'])} | "
+                    f"{x['n_correction_pending']} | {_fmt(x['useful_rate_turn1'])} | {_fmt(x['useful_rate_final'])} | "
+                    f"{_fmt(x['mean_tokens_turn1'])} | {_fmt(x['mean_tokens_conversation'])} | "
+                    f"{_fmt(x['tpua_turn1'])} | {_fmt(x['tpua_conversation'])} |")
+        lines += ["", "### Does the correction close the gap? (sampled runs)", "",
+                  "| Family | Abliterated useful (1 turn) | Standard useful turn 1 | Standard useful after correction "
+                  "| Share of gap closed | Correction % | TPUA std conv / abl | Mean tokens std conv / abl |",
+                  "|---|---|---|---|---|---|---|---|"]
+        for fam, g in c["gap"].items():
+            x = g["sampled"]
+            lines.append(
+                f"| {fam} | {_fmt(x['abliterated_useful_rate_one_turn'])} | {_fmt(x['standard_useful_rate_turn1'])} | "
+                f"{_fmt(x['standard_useful_rate_after_correction'])} | {_fmt(x['share_of_gap_closed_by_correction'])} | "
+                f"{_fmt(x['standard_correction_rate'])} | {_fmt(x['tpua_ratio_standard_conversation_over_abliterated'])} | "
+                f"{_fmt(x['mean_tokens_ratio_standard_conversation_over_abliterated'])} |")
+        lines.append("")
 
     b = s["block"]
     lines += [
@@ -1467,7 +1782,7 @@ def run_sample(cfg: dict, outdir: Path, mock: bool) -> None:
 
 def check_real_dependencies(stages: list[str], backend: str) -> None:
     needed = []
-    if backend == "vllm" and set(stages) & {"generate", "capability", "judge"}:
+    if backend == "vllm" and set(stages) & {"generate", "capability", "judge", "correct"}:
         needed.append("vllm")
     if "capability" in stages:
         needed.append("datasets")
@@ -1495,7 +1810,7 @@ def main(argv: list[str] | None = None) -> int:
     models = select_models(cfg["models"], args.models)
     outdir = Path(args.out).resolve()
     outdir.mkdir(parents=True, exist_ok=True)
-    stages = list(STAGES) if args.stage == "all" else [args.stage]
+    stages = list(ALL_ORDER) if args.stage == "all" else [args.stage]
     if not args.mock:
         check_real_dependencies(stages, backend_of(cfg))
 
@@ -1509,6 +1824,8 @@ def main(argv: list[str] | None = None) -> int:
             run_capability(cfg, models, outdir, args.mock)
         elif stage == "judge":
             run_judge(cfg, prompts, models, outdir, args.mock)
+        elif stage == "correct":
+            run_correct(cfg, prompts, models, outdir, args.mock)
         elif stage == "analyze":
             run_analyze(cfg, prompts, block_re, block_message, cfg["models"], outdir, args.mock)
         elif stage == "sample":

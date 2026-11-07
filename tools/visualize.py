@@ -84,8 +84,29 @@ def load(results: Path, cfg: dict) -> dict:
     n_items = None
     if (results / "capability_items.json").exists():
         n_items = len(json.loads((results / "capability_items.json").read_text(encoding="utf-8"))["items"])
-    return {"gens": gens, "judg": judg, "cap": cap, "summary": summary, "models": cfg["models"],
-            "mock": True in mock_flags, "mixed": len(mock_flags) > 1, "n_cap_items": n_items, "cfg": cfg}
+    d = {"gens": gens, "judg": judg, "cap": cap, "summary": summary, "models": cfg["models"],
+         "mock": True in mock_flags, "mixed": len(mock_flags) > 1, "n_cap_items": n_items, "cfg": cfg,
+         "corr": None}
+    if (cfg.get("correction") or {}).get("enabled"):
+        # Same code the analyze stage uses, so the figures and summary.md can never disagree.
+        rp = load_runner()
+        fams = []
+        for m in cfg["models"]:
+            if m["family"] not in fams:
+                fams.append(m["family"])
+        n_s = cfg["generation"]["n_sampled"]
+        run_sets = {"sampled": [f"s{i}" for i in range(1, n_s + 1)], "greedy": ["greedy"]}
+        d["corr"] = rp.correction_summary(cfg, cfg["models"], fams, PROMPTS, run_sets, gens, judg, results, d["mock"])
+    return d
+
+
+def load_runner():
+    import importlib.util
+
+    spec = importlib.util.spec_from_file_location("run_pilot", ROOT / "pilot" / "run_pilot.py")
+    mod = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(mod)
+    return mod
 
 
 # ---------------------------------------------------------------------------
@@ -114,8 +135,20 @@ def per_prompt_rows(d: dict) -> list[dict]:
     for m in d["models"]:
         for pid in PROMPTS:
             for w in WORDINGS:
-                out.append({"family": m["family"], "variant": m["variant"], "model": m["name"],
-                            "prompt_id": pid, "wording": w, **cell_stats(d, m["name"], pid, w)})
+                row = {"family": m["family"], "variant": m["variant"], "model": m["name"],
+                       "prompt_id": pid, "wording": w, **cell_stats(d, m["name"], pid, w)}
+                c = (d["corr"] or {}).get("per_prompt", {}).get(m["name"], {}).get(pid) if w == "original" else None
+                row.update({
+                    "turns_allowed": c["turns_allowed"] if c else None,
+                    "n_refused_turn1": c["n_refused_turn1"] if c else None,
+                    "n_corrected": c["n_corrected"] if c else None,
+                    "n_fixed_by_correction": c["n_fixed_by_correction"] if c else None,
+                    "correction_rate": c["correction_rate"] if c else None,
+                    "useful_rate_final": c["useful_rate_final"] if c else None,
+                    "mean_tokens_turn1": c["mean_tokens_turn1"] if c else None,
+                    "mean_tokens_conversation": c["mean_tokens_conversation"] if c else None,
+                })
+                out.append(row)
     return out
 
 
@@ -176,6 +209,33 @@ def write_tables(d: dict, rows: list[dict], results: Path) -> str:
                     f"{pct(s['full_refusal_rate'])} | {pct(a['full_refusal_rate'])} | {pct(s['useful_rate'])} | "
                     f"{pct(a['useful_rate'])} | {s['n']}/{a['n']} |")
         lines.append("")
+    if d["corr"]:
+        lines += ["# Correction: abliterated answers in 1 turn, standard gets up to 2", "",
+                  f"Original wording, sampled runs. A refused standard answer gets the follow-up "
+                  f"\"{d['cfg']['correction']['template']}\". Tokens are input + output; the conversation "
+                  "column adds the correction turn (whose input includes the first exchange).", ""]
+        for fam in families(d):
+            std, ab = pair(d, fam)
+            if not std or not ab:
+                continue
+            lines += [f"## {fam}", "",
+                      "| Prompt | Std refused t1 | Corrected | Fixed | Correction % | Std useful t1 | Std useful final "
+                      "| Abl useful (1 turn) | Std tokens t1 | Std tokens conversation | Abl tokens |",
+                      "|---|---|---|---|---|---|---|---|---|---|---|"]
+            for pid in PROMPTS:
+                s, a = idx[(std["name"], pid, "original")], idx[(ab["name"], pid, "original")]
+                lines.append(
+                    f"| {pid} | {fmt(s['n_refused_turn1'])} | {fmt(s['n_corrected'])} | {fmt(s['n_fixed_by_correction'])} | "
+                    f"{pct(s['correction_rate'])} | {pct(s['useful_rate'])} | {pct(s['useful_rate_final'])} | "
+                    f"{pct(a['useful_rate'])} | {fmt(s['mean_tokens_turn1'])} | {fmt(s['mean_tokens_conversation'])} | "
+                    f"{fmt(a['mean_tokens_turn1'])} |")
+            g = d["corr"]["gap"].get(fam, {}).get("sampled")
+            if g:
+                lines += ["", f"Gap: abliterated useful {pct(g['abliterated_useful_rate_one_turn'])} in one turn; standard "
+                          f"{pct(g['standard_useful_rate_turn1'])} on turn 1 and {pct(g['standard_useful_rate_after_correction'])} "
+                          f"after correction (share of gap closed {fmt(g['share_of_gap_closed_by_correction'], 2)}; correction "
+                          f"{pct(g['standard_correction_rate'])}). Tokens per useful answer, standard whole conversation / "
+                          f"abliterated: {fmt(g['tpua_ratio_standard_conversation_over_abliterated'], 2)}.", ""]
     lines += ["## Prompt texts", "", "| ID | Original | Neutral twin |", "|---|---|---|"]
     for pid in PROMPTS:
         p = prompts[pid]
@@ -387,6 +447,90 @@ def fig_token_distribution(plt, d, out: Path):
     finish(plt, fig, out)
 
 
+def fig_correction_per_prompt(plt, d, idx, out: Path):
+    """Original wording. Standard: turn-1 tokens + correction tokens (hatched) stacked; abliterated: one turn."""
+    fams = families(d)
+    fig, axes = plt.subplots(len(fams), 1, figsize=(13, 3.3 * len(fams)), squeeze=False)
+    wbar = 0.38
+    for ax, fam in zip(axes[:, 0], fams):
+        std, ab = pair(d, fam)
+        if not std or not ab:
+            continue
+        top = 0
+        for i, pid in enumerate(PROMPTS):
+            s, a = idx[(std["name"], pid, "original")], idx[(ab["name"], pid, "original")]
+            x_s, x_a = i - wbar / 2, i + wbar / 2
+            t1, conv = s["mean_tokens_turn1"], s["mean_tokens_conversation"]
+            if t1 is not None:
+                ax.bar(x_s, t1, width=wbar - 0.04, color=COL["standard"], edgecolor=SURFACE, linewidth=1,
+                       label="standard: turn 1" if i == 0 else None)
+                extra = (conv or t1) - t1
+                ax.bar(x_s, extra, bottom=t1, width=wbar - 0.04, color=COL["standard"], alpha=0.45, hatch="///",
+                       edgecolor=SURFACE, linewidth=1, label="standard: correction turn" if i == 0 else None)
+                label = f"{s['n_fixed_by_correction']}/{s['n_corrected']}" if s["n_corrected"] else "–"
+                ax.text(x_s, (conv or t1) * 1.02, label, ha="center", va="bottom", fontsize=7.5, color=INK2)
+                top = max(top, conv or t1)
+            if a["mean_tokens_turn1"] is not None:
+                ax.bar(x_a, a["mean_tokens_turn1"], width=wbar - 0.04, color=COL["abliterated"], edgecolor=SURFACE,
+                       linewidth=1, label="abliterated: one turn" if i == 0 else None)
+                top = max(top, a["mean_tokens_turn1"])
+        ax.set_ylim(0, top * 1.15 if top else 1)
+        ax.set_xticks(range(len(PROMPTS)), PROMPTS)
+        ax.set_ylabel("mean tokens per attempt\n(input + output)")
+        ax.set_title(f"{fam} - original wording", loc="left")
+        legend_above(ax, ncol=3)
+    stamp(fig, d, "Cost with correction, per prompt (labels: corrections that worked / corrections sent)")
+    finish(plt, fig, out)
+
+
+def fig_correction_gap(plt, d, out: Path):
+    """Per family: useful rate of abliterated (1 turn) vs standard on turn 1 and after correction."""
+    gap = d["corr"]["gap"]
+    fams = [f for f in families(d) if f in gap]
+    if not fams:
+        return False
+    fig, axes = plt.subplots(1, 2, figsize=(13, 3.9), squeeze=False)
+    ax = axes[0][0]
+    w = 0.26
+    series = (("standard_useful_rate_turn1", "standard, turn 1", COL["standard"], None, 1.0),
+              ("standard_useful_rate_after_correction", "standard, after correction", COL["standard"], "///", 0.45),
+              ("abliterated_useful_rate_one_turn", "abliterated, one turn", COL["abliterated"], None, 1.0))
+    for k, (field, label, color, hatch, alpha) in enumerate(series):
+        xs = [i + (k - 1) * w for i in range(len(fams))]
+        vals = [gap[f]["sampled"][field] for f in fams]
+        ax.bar([x for x, v in zip(xs, vals) if v is not None], [v for v in vals if v is not None], width=w - 0.03,
+               color=color, hatch=hatch, alpha=alpha, edgecolor=SURFACE, linewidth=1, label=label)
+        for x, v in zip(xs, vals):
+            if v is not None:
+                ax.text(x, v + 0.015, f"{v * 100:.0f}%", ha="center", fontsize=8, color=INK2)
+    ax.set_xticks(range(len(fams)), [f"{f}\ncorrection {pct(gap[f]['sampled']['standard_correction_rate'])}" for f in fams])
+    ax.set_ylim(0, 1.38)
+    ax.set_yticks([0, 0.25, 0.5, 0.75, 1.0], ["0%", "25%", "50%", "75%", "100%"])
+    ax.set_ylabel("useful answers (share of attempts)")
+    ax.set_title("Does the correction close the usefulness gap?", loc="left")
+    ax.legend(loc="upper left", ncol=3, fontsize=8)  # inside, above the 100% line, clear of the title
+
+    ax = axes[0][1]
+    names, vals = [], []
+    for f in fams:
+        g = gap[f]["sampled"]
+        names += [f"{f} · turn 1 only", f"{f} · with correction"]
+        vals += [g["tpua_ratio_standard_turn1_over_abliterated"], g["tpua_ratio_standard_conversation_over_abliterated"]]
+    ys = list(range(len(names)))[::-1]
+    ax.barh([y for y, v in zip(ys, vals) if v is not None], [v for v in vals if v is not None],
+            color=[COL["standard"] if "turn 1" in n else "#8fb6e8" for n, v in zip(names, vals) if v is not None],
+            height=0.6, edgecolor=SURFACE)
+    for y, v in zip(ys, vals):
+        ax.text((v or 0) + 0.03, y, fmt(v, 2) if v is not None else "n/a", va="center", fontsize=8, color=INK2)
+    ax.axvline(1.0, color=INK, linewidth=1.2, linestyle="--")
+    ax.set_yticks(ys, names, fontsize=8)
+    ax.set_xlabel("standard / abliterated (1.0 = same cost; >1 = standard costs more)")
+    ax.set_title("Tokens per useful answer: standard vs abliterated", loc="left")
+    stamp(fig, d, "Correction: abliterated gets 1 turn, standard gets up to 2 (sampled runs, original wording)")
+    finish(plt, fig, out)
+    return True
+
+
 def progress(d: dict) -> list[dict]:
     cfg = d["cfg"]["generation"]
     per_model = 10 * 2 * (cfg["n_sampled"] + 1)
@@ -490,7 +634,10 @@ __BANNER__
     <option value="mean_thinking_tokens_est">mean thinking tokens (est.)</option>
     <option value="full_refusal_rate">full refusal rate</option>
     <option value="useful_rate">useful rate</option>
-    <option value="cap_hit_rate">cap hit rate</option></select></label>
+    <option value="cap_hit_rate">cap hit rate</option>
+    <option value="mean_tokens_conversation">tokens with correction (in+out, original only)</option>
+    <option value="useful_rate_final">useful after correction (original only)</option>
+    <option value="correction_rate">correction success rate (standard, original only)</option></select></label>
   <span class="legend"><span><span class="sw" style="background:var(--std)"></span><span id="lstd">standard</span></span><span><span class="sw" style="background:var(--abl)"></span><span id="labl">abliterated</span></span></span>
 </div>
 <div id="chart"></div>
@@ -526,16 +673,17 @@ function render() {
       const x = L + i * gw + gw / 2 + (k - 1) * bw + (k ? 2 : -2) + (k ? 0 : 0);
       if (v == null) { s += `<text x="${x + bw / 2}" y="${H - B - 4}" text-anchor="middle">–</text>`; return; }
       const h = (H - B - T) * v / max, y = H - B - h;
-      const tip = `${p} · ${w}<br><b>${k ? 'abliterated' : 'standard'}</b>: ${show(v, m)}<br>n = ${c.n} answers, ${c.n_judged} judged<br><i>${(D.prompts[p] || {})[w] || ''}</i>`;
+      const corr = (c.n_corrected != null && !k) ? `<br>corrections: ${c.n_fixed_by_correction} worked of ${c.n_corrected} sent (${c.n_refused_turn1} refused on turn 1)` : '';
+      const tip = `${p} · ${w}<br><b>${k ? 'abliterated' : 'standard'}</b>: ${show(v, m)}<br>n = ${c.n} answers, ${c.n_judged} judged${corr}<br><i>${(D.prompts[p] || {})[w] || ''}</i>`;
       s += `<rect x="${x}" y="${y}" width="${bw}" height="${Math.max(h, 0.5)}" rx="4" fill="var(${k ? '--abl' : '--std'})" data-tip="${tip.replace(/"/g, '&quot;')}"/>`;
       s += `<rect x="${x - 3}" y="${T}" width="${bw + 6}" height="${H - B - T}" fill="transparent" data-tip="${tip.replace(/"/g, '&quot;')}"/>`;
     });
     s += `<text x="${L + i * gw + gw / 2}" y="${H - B + 18}" text-anchor="middle">${p}</text>`;
   });
   $('#chart').innerHTML = s + '</svg>';
-  let t = '<table><tr><th>Prompt</th><th>Wording</th><th>Std tokens</th><th>Abl tokens</th><th>Std thinking</th><th>Abl thinking</th><th>Std refusal</th><th>Abl refusal</th><th>Std useful</th><th>Abl useful</th><th>n</th></tr>';
+  let t = '<table><tr><th>Prompt</th><th>Wording</th><th>Std tokens</th><th>Abl tokens</th><th>Std thinking</th><th>Abl thinking</th><th>Std refusal</th><th>Abl refusal</th><th>Std useful</th><th>Std useful after corr.</th><th>Abl useful</th><th>Corrections worked</th><th>n</th></tr>';
   P.forEach((p, i) => { const [a, b] = vals[i]; const g = (c, k) => c ? show(c[k], k) : '–';
-    t += `<tr><td>${p}</td><td>${w}</td><td>${g(a,'mean_output_tokens')}</td><td>${g(b,'mean_output_tokens')}</td><td>${g(a,'mean_thinking_tokens_est')}</td><td>${g(b,'mean_thinking_tokens_est')}</td><td>${g(a,'full_refusal_rate')}</td><td>${g(b,'full_refusal_rate')}</td><td>${g(a,'useful_rate')}</td><td>${g(b,'useful_rate')}</td><td>${a ? a.n : 0}/${b ? b.n : 0}</td></tr>`; });
+    t += `<tr><td>${p}</td><td>${w}</td><td>${g(a,'mean_output_tokens')}</td><td>${g(b,'mean_output_tokens')}</td><td>${g(a,'mean_thinking_tokens_est')}</td><td>${g(b,'mean_thinking_tokens_est')}</td><td>${g(a,'full_refusal_rate')}</td><td>${g(b,'full_refusal_rate')}</td><td>${g(a,'useful_rate')}</td><td>${a && a.useful_rate_final != null ? show(a.useful_rate_final, 'useful_rate_final') : '–'}</td><td>${g(b,'useful_rate')}</td><td>${a && a.n_corrected ? a.n_fixed_by_correction + '/' + a.n_corrected : '–'}</td><td>${a ? a.n : 0}/${b ? b.n : 0}</td></tr>`; });
   $('#table').innerHTML = t + '</table>';
 }
 document.addEventListener('mousemove', e => { const el = e.target && e.target.closest ? e.target.closest('[data-tip]') : null, tip = $('#tip');
@@ -580,6 +728,10 @@ def main() -> int:
     figs.append(("token_distribution.png", "Token spread"))
     if fig_family_ratios(plt, d, F / "family_ratios.png"):
         figs.append(("family_ratios.png", "Within-family ratios"))
+    if d["corr"] and fig_correction_gap(plt, d, F / "correction_gap.png"):
+        figs.insert(3, ("correction_gap.png", "Correction: gap and cost"))
+        fig_correction_per_prompt(plt, d, idx, F / "correction_per_prompt.png")
+        figs.insert(4, ("correction_per_prompt.png", "Correction cost per prompt"))
     if d["cap"]:
         fig_capability(plt, d, F / "capability.png")
         figs.append(("capability.png", "Capability check"))

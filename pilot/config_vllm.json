@@ -2,12 +2,51 @@
   "notes": "Abliterated repos are SUGGESTED. Before a real run, verify each repo exists, set its revision to the commit hash (or leave null to resolve main automatically and log the hash), and fill abliteration_method from its model card. Quantized judge repo must be set so the judge fits in 32 GB.",
   "prompts_file": "../pilot_prompts.json",
   "models": [
-    {"name": "qwen2.5-7b-standard", "family": "qwen", "variant": "standard", "repo": "Qwen/Qwen2.5-7B-Instruct", "revision": null},
-    {"name": "qwen2.5-7b-abliterated", "family": "qwen", "variant": "abliterated", "repo": "huihui-ai/Qwen2.5-7B-Instruct-abliterated", "revision": null, "abliteration_method": null},
-    {"name": "llama3.1-8b-standard", "family": "llama", "variant": "standard", "repo": "meta-llama/Llama-3.1-8B-Instruct", "revision": null},
-    {"name": "llama3.1-8b-abliterated", "family": "llama", "variant": "abliterated", "repo": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated", "revision": null, "abliteration_method": null},
-    {"name": "gemma3-12b-standard", "family": "gemma", "variant": "standard", "repo": "google/gemma-3-12b-it", "revision": null},
-    {"name": "gemma3-12b-abliterated", "family": "gemma", "variant": "abliterated", "repo": "mlabonne/gemma-3-12b-it-abliterated", "revision": null, "abliteration_method": null}
+    {
+      "name": "qwen2.5-7b-standard",
+      "family": "qwen",
+      "variant": "standard",
+      "repo": "Qwen/Qwen2.5-7B-Instruct",
+      "revision": null
+    },
+    {
+      "name": "qwen2.5-7b-abliterated",
+      "family": "qwen",
+      "variant": "abliterated",
+      "repo": "huihui-ai/Qwen2.5-7B-Instruct-abliterated",
+      "revision": null,
+      "abliteration_method": null
+    },
+    {
+      "name": "llama3.1-8b-standard",
+      "family": "llama",
+      "variant": "standard",
+      "repo": "meta-llama/Llama-3.1-8B-Instruct",
+      "revision": null
+    },
+    {
+      "name": "llama3.1-8b-abliterated",
+      "family": "llama",
+      "variant": "abliterated",
+      "repo": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated",
+      "revision": null,
+      "abliteration_method": null
+    },
+    {
+      "name": "gemma3-12b-standard",
+      "family": "gemma",
+      "variant": "standard",
+      "repo": "google/gemma-3-12b-it",
+      "revision": null
+    },
+    {
+      "name": "gemma3-12b-abliterated",
+      "family": "gemma",
+      "variant": "abliterated",
+      "repo": "mlabonne/gemma-3-12b-it-abliterated",
+      "revision": null,
+      "abliteration_method": null
+    }
   ],
   "generation": {
     "n_sampled": 5,
@@ -15,15 +54,35 @@
     "top_p": 1.0,
     "max_tokens": 4096,
     "max_model_len": 8192,
-    "gpu_memory_utilization": 0.90,
+    "gpu_memory_utilization": 0.9,
     "dtype": "bfloat16"
   },
   "capability": {
     "n_per_dataset": 250,
     "seed": 2026,
     "max_tokens": 1024,
-    "gsm8k": {"dataset": "openai/gsm8k", "config": "main", "split": "test"},
-    "mmlu": {"dataset": "cais/mmlu", "config": "all", "split": "test"}
+    "gsm8k": {
+      "dataset": "openai/gsm8k",
+      "config": "main",
+      "split": "test"
+    },
+    "mmlu": {
+      "dataset": "cais/mmlu",
+      "config": "all",
+      "split": "test"
+    }
+  },
+  "correction": {
+    "enabled": true,
+    "variants": [
+      "standard"
+    ],
+    "trigger": [
+      "full_refusal",
+      "partial_refusal"
+    ],
+    "template": "To be clear, I mean: {twin}",
+    "rounds": 1
   },
   "judge": {
     "repo": "mistralai/Mistral-Small-3.1-24B-Instruct-2503",
@@ -32,8 +91,11 @@
     "revision": null,
     "quantized_revision": null,
     "max_model_len": 16384,
-    "gpu_memory_utilization": 0.90,
+    "gpu_memory_utilization": 0.9,
     "max_tokens": 512
   },
-  "handcheck": {"n": 60, "seed": 2026}
+  "handcheck": {
+    "n": 60,
+    "seed": 2026
+  }
 }

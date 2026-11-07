@@ -15,8 +15,9 @@ You own the **visual layer**: `pilot/results/figures/*.png`, `per_prompt.md`, `d
    - blue = standard, orange = abliterated everywhere
    - the red "MOCK DATA" stamp appears only if the data is mock
    - empty cells show "–" (not run yet), never a fake 0
-3. Pick 3 bars from `per_prompt_tokens.png` / `refusal_heatmap.png` and confirm them with
-   `python3 tools/lookup.py --prompt <Pxx> --family <fam>`. Report value-from-figure vs value-from-lookup.
+3. Pick 3 bars from `per_prompt_tokens.png` / `refusal_heatmap.png` / `correction_per_prompt.png`
+   and confirm them with `python3 tools/lookup.py --prompt <Pxx> --family <fam>` (correction bars:
+   the `fixed` and `corrected` columns; `correction_gap.png`: `summary.json` -> `correction.gap`). Report value-from-figure vs value-from-lookup.
 4. Reply:
 
 ```

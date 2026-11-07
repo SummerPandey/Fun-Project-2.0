@@ -289,6 +289,105 @@ def main() -> int:
         (rep.fail if mism else rep.ok)("per_prompt", f"per_prompt.csv: {len(rows) - mism}/{len(rows)} cells match the JSONL"
                                        + ("" if not mism else " (re-run tools/visualize.py if the run moved on since)"))
 
+    # ---- correction turns (standard models get one follow-up after a refusal)
+    corr_cfg = cfg.get("correction") or {}
+    corr = {r["key"]: r for r in read_jsonl(results / "corrections.jsonl", rep, "correction")} \
+        if (results / "corrections.jsonl").exists() else {}
+    cjudg = {r["key"]: r for r in read_jsonl(results / "correction_judgments.jsonl", rep, "correction")} \
+        if (results / "correction_judgments.jsonl").exists() else {}
+    if corr_cfg.get("enabled") and judg:
+        variants, trigger = set(corr_cfg["variants"]), set(corr_cfg["trigger"])
+        targets = {f"{k}|c1" for k, j in judg.items() if k in gens and not j.get("judge_error")
+                   and gens[k]["wording"] == "original" and models.get(gens[k]["model"], {}).get("variant") in variants
+                   and j["refusal_type"] in trigger}
+        bad = Counter()
+        for k, c in corr.items():
+            parent = gens.get(c.get("parent_key"))
+            pj = judg.get(c.get("parent_key"))
+            if parent is None or k != f"{c['parent_key']}|c1":
+                bad["has no matching turn-1 answer"] += 1
+                continue
+            if models.get(c["model"], {}).get("variant") not in variants:
+                bad[f"belongs to a model that should get one turn only ({c['model']})"] += 1
+            if pj is None or pj.get("judge_error") or pj["refusal_type"] not in trigger:
+                bad["follows a turn-1 answer that was not judged a refusal"] += 1
+            want = corr_cfg["template"].format(twin=prompts[c["prompt_id"]]["neutral_twin"],
+                                               original=prompts[c["prompt_id"]]["prompt"])
+            if c["correction_text"] != want:
+                bad["correction text differs from the configured template"] += 1
+            if c["seed"] != parent["seed"] or not close(c["temperature"], parent["temperature"]):
+                bad["seed/temperature differ from the turn-1 answer"] += 1
+            if (c.get("options") or parent.get("options")) and c.get("options") != parent.get("options"):
+                bad["sampling options differ from the turn-1 answer"] += 1
+            if c.get("think") != parent.get("think"):
+                bad["think flag differs from the turn-1 answer"] += 1
+            if c["turn1_input_tokens"] != parent["input_tokens"] or c["turn1_output_tokens"] != parent["output_tokens"]:
+                bad["copied turn-1 token counts differ from the turn-1 row"] += 1
+            if c["input_tokens"] <= parent["input_tokens"]:
+                # The correction's input must contain the whole first exchange; fewer tokens means
+                # the server's prompt cache under-reported it.
+                bad["input tokens not larger than turn 1's (history missing or cache under-count)"] += 1
+        for msg, n in bad.items():
+            rep.fail("correction", f"{n} correction turns: {msg}")
+        if corr and not bad:
+            rep.ok("correction", f"all {len(corr)} correction turns follow a judged refusal of a standard model, "
+                                 "use the configured text and carry the full history")
+        missing = targets - set(corr)
+        if missing:
+            rep.warn("correction", f"{len(missing)} refused standard answers have no correction turn yet "
+                                   f"(run the correct stage), e.g. {sorted(missing)[:2]}")
+        elif targets:
+            rep.ok("correction", f"every refused standard answer ({len(targets)}) has its correction turn")
+        orphan = [k for k in cjudg if k not in corr]
+        bad_rule = [k for k, j in cjudg.items() if not j.get("judge_error") and
+                    bool(all(j["required_met"]) and not j["materially_wrong"] and j["refusal_type"] != "full_refusal") != j["useful"]]
+        if orphan or bad_rule:
+            rep.fail("correction", f"correction judgments: {len(orphan)} without a correction, {len(bad_rule)} break the useful rule")
+        unjudged = [k for k in corr if k not in cjudg or cjudg[k].get("judge_error")]
+        if unjudged:
+            rep.warn("correction", f"{len(unjudged)} correction turns not judged yet (run judge again)")
+
+        # Recompute the correction summary independently and compare with summary.json.
+        if spath.exists():
+            s = json.loads(spath.read_text(encoding="utf-8"))
+            sc = (s.get("correction") or {}).get("by_model", {})
+            mism = checked = 0
+            for name, m in models.items():
+                if name not in sc:
+                    continue
+                n = useful1 = useful_final = n_corr = n_fixed = 0
+                tok = 0
+                for k, g in gens.items():
+                    j = judg.get(k)
+                    if g["model"] != name or g["wording"] != "original" or g["run"] not in SAMPLED or j is None or j.get("judge_error"):
+                        continue
+                    n += 1
+                    tok += g["input_tokens"] + g["output_tokens"]
+                    fixed = False
+                    ck = f"{k}|c1"
+                    if m["variant"] in variants and j["refusal_type"] in trigger and ck in corr \
+                            and ck in cjudg and not cjudg[ck].get("judge_error"):
+                        n_corr += 1
+                        tok += corr[ck]["input_tokens"] + corr[ck]["output_tokens"]
+                        fixed = bool(cjudg[ck]["useful"])
+                        n_fixed += fixed
+                    useful1 += bool(j["useful"])
+                    useful_final += bool(j["useful"]) or fixed
+                theirs = sc[name]["sampled"]
+                mine = {"n_corrected": n_corr, "n_fixed_by_correction": n_fixed,
+                        "useful_rate_final": useful_final / n if n else None,
+                        "tpua_conversation": tok / useful_final if useful_final else "undefined"}
+                for field, v in mine.items():
+                    checked += 1
+                    if not close(v, theirs[field]):
+                        mism += 1
+                        rep.fail("correction", f"{name}: {field} recomputed {v} vs summary {theirs[field]}")
+            if checked and not mism:
+                rep.ok("correction", f"{checked} correction numbers in summary.json (corrected, fixed, useful after "
+                                     "correction, conversation TPUA) recomputed from JSONL: all match")
+    elif corr:
+        rep.warn("correction", f"{len(corr)} correction rows exist but correction is disabled in config.json")
+
     # ---- capability re-score
     if cap:
         items = {}

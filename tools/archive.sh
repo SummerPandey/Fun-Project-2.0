@@ -11,6 +11,7 @@ cd "$ROOT"
 
 once() {
   local note="${1:-}"
+  (cd pilot && python3 run_pilot.py analyze --out results >/dev/null 2>&1) || true   # refresh summary.json mid-run
   python3 tools/visualize.py >/dev/null 2>&1 || echo "archive: visualize skipped (no data yet or matplotlib missing)"
   python3 tools/verify_results.py --quiet >/dev/null 2>&1
   local verify; verify=$(python3 - <<'EOF'

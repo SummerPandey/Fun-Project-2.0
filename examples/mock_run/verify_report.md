@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-07T05:17:13+00:00. **0 FAIL, 1 WARN.** MOCK DATA.
+Checked 2026-11-07T05:34:12+00:00. **0 FAIL, 1 WARN.** MOCK DATA.
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -20,6 +20,11 @@ Checked 2026-11-07T05:17:13+00:00. **0 FAIL, 1 WARN.** MOCK DATA.
 | PASS | judge | 720 judgments: 'useful' follows its rule in every one |
 | WARN | judge | 12 times the judge's own 'useful' disagreed with the rule (rule value is used) |
 | PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-07T05:17:09+00:00 |
+| PASS | summary | summary.json generated_at 2026-11-07T05:34:08+00:00 |
 | PASS | per_prompt | per_prompt.csv: 120/120 cells match the JSONL |
+| PASS | correction | corrections.jsonl: 90 rows, all valid JSON |
+| PASS | correction | correction_judgments.jsonl: 90 rows, all valid JSON |
+| PASS | correction | all 90 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |
+| PASS | correction | every refused standard answer (90) has its correction turn |
+| PASS | correction | 24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match |
 | PASS | capability | 120/120 capability rows re-score to the stored result |

@@ -60,6 +60,32 @@ A **key** identifies one answer: `model|prompt_id|wording|run`, for example
 | `judge_repo`, `judge_quantization`, `judge_revision` | str | Which judge weights produced this row. |
 | `timestamp`, `mock` | | As above. |
 
+## `corrections.jsonl`: one row per correction turn (standard models only)
+
+Written by the `correct` stage for every **standard** model answer to the **original** wording
+that the judge labelled `full_refusal` or `partial_refusal` (`correction.trigger`). The request
+is a three-message conversation: user `prompt_text`, assistant turn-1 `output_text` (visible
+answer only, no thinking), user `correction_text`. Abliterated models never get one.
+
+Every `generations.jsonl` field (same meaning; `input_tokens` / `output_tokens` are **this turn
+only**, and `input_tokens` already includes the whole first exchange), plus:
+
+| Field | Type | Meaning |
+|---|---|---|
+| `key` | str | Parent key + `|c1`, e.g. `llama3.1-8b-standard|P05|original|s2|c1`. |
+| `parent_key` | str | The turn-1 answer this corrects. |
+| `round` | int | Always 1: one correction per refusal (`correction.rounds` must be 1; the runner refuses other values). |
+| `correction_text` | str | `correction.template` filled in, default `To be clear, I mean: <neutral twin>`. |
+| `parent_refusal_type` | str | The judge's turn-1 label that triggered it. |
+| `turn1_input_tokens`, `turn1_output_tokens` | int | Copied from the parent, so a row alone gives the conversation cost. |
+
+Seed, temperature, `think` and all `options` equal the parent's (checked by the verifier).
+
+## `correction_judgments.jsonl`: one row per judged correction turn
+
+Same fields as `judgments.jsonl`, keyed by the correction `key`. Graded against the same
+prompt's checklist, so "useful" means the same thing on both turns.
+
 ## `capability.jsonl`: one row per model × capability item (greedy)
 
 `model`, `family`, `variant`, `repo`, `revision`, `item_id` (`gsm8k:<i>` or `mmlu:<i>`),
@@ -79,6 +105,10 @@ Ollama-only fields above, `timestamp`, `mock`. Cap is 1,024 tokens and thinking 
 | `by_model.<model>.<sampled|greedy>.<original|twin|block>` | Per-condition stats (below). |
 | `within_family_ratios.<run set>.<condition>.<metric>` | abliterated / standard per family, and their mean. Metrics: `mean_output_tokens`, `mean_thinking_tokens_est`, `tpua`. |
 | `capability` | Accuracy per model and abliterated − standard in percentage points. |
+| `correction.config`, `correction.enabled` | The correction settings used. |
+| `correction.by_model.<model>.<sampled|greedy>` | Conversation stats per model, original wording (below). |
+| `correction.per_prompt.<model>.<P01..P10>` | The same stats per prompt (sampled runs). |
+| `correction.gap.<family>.<sampled|greedy>` | `abliterated_useful_rate_one_turn`, `standard_useful_rate_turn1`, `standard_useful_rate_after_correction`, `useful_gap_before_correction`, `useful_gap_after_correction`, `share_of_gap_closed_by_correction`, `standard_correction_rate`, `tpua_ratio_standard_turn1_over_abliterated`, `tpua_ratio_standard_conversation_over_abliterated`, `mean_tokens_ratio_standard_conversation_over_abliterated`. |
 | `block` | Per prompt: which wording the blocking regex blocks and which answer the block path uses. |
 
 Per-condition stats: `n_attempts`, `n_answered`, `mean_input_tokens`, `mean_output_tokens`,
@@ -87,6 +117,16 @@ Per-condition stats: `n_attempts`, `n_answered`, `mean_input_tokens`, `mean_outp
 `refusal_source` (`judge` or `keyword`), and `tpua` = {`numerator_tokens`, `denominator_useful`,
 `value`}. **TPUA** (tokens per useful answer) = Σ(input + output tokens) over judged attempts ÷
 number of useful attempts; `"undefined"` if none were useful.
+
+Conversation stats (`correction.by_model` / `per_prompt`): `turns_allowed` (1 abliterated, 2
+standard), `n_attempts`, `n_refused_turn1`, `n_full_refusal_turn1`, `n_corrected`,
+`n_fixed_by_correction`, `n_correction_pending` (refused but not corrected or not judged yet),
+`correction_rate` (= fixed ÷ corrected, the **correction percent**), `useful_rate_turn1`,
+`useful_rate_final`, `n_useful_turn1`, `n_useful_final`, `tokens_turn1_total`,
+`tokens_correction_total`, `tokens_conversation_total`, `mean_tokens_turn1`,
+`mean_tokens_conversation`, `mean_tokens_per_correction`, `tpua_turn1`, `tpua_conversation`.
+Share of gap closed = (std useful after − std useful turn 1) ÷ (abl useful − std useful turn 1);
+`null` when the standard model was not behind on turn 1.
 
 Conditions: `original` and `twin` are the model's answers to that wording. `block` simulates a
 keyword filter: if the original wording contains a blocked word, the user sees a block message
@@ -100,7 +140,10 @@ The same numbers as human-readable tables.
 
 One row per model × prompt × wording, sampled runs only (n = 5): `family`, `variant`, `model`,
 `prompt_id`, `wording`, `n`, `n_judged`, `mean_output_tokens`, `mean_thinking_tokens_est`,
-`mean_input_tokens`, `full_refusal_rate`, `useful_rate`, `cap_hit_rate`. The `.md` version
+`mean_input_tokens`, `full_refusal_rate`, `useful_rate`, `cap_hit_rate`, and for the original
+wording the correction columns `turns_allowed`, `n_refused_turn1`, `n_corrected`,
+`n_fixed_by_correction`, `correction_rate`, `useful_rate_final`, `mean_tokens_turn1`,
+`mean_tokens_conversation` (empty for the twin wording). The `.md` version
 pairs standard and abliterated side by side per family. **This is the main "P01-P10, model vs
 model" view.**
 
@@ -125,6 +168,8 @@ A list of `{level: PASS|WARN|FAIL, area, message}` with `fails` and `warnings` t
 | `thinking_split.png` | Mean visible-answer tokens vs estimated thinking tokens per model. |
 | `token_distribution.png` | Spread of output tokens per model and wording. |
 | `family_ratios.png` | abliterated / standard ratios (mean output tokens, TPUA) per family and condition. |
+| `correction_gap.png` | Left: useful rate per family, abliterated (1 turn) vs standard turn 1 and after correction, with the correction percent. Right: TPUA standard ÷ abliterated, turn 1 only and whole conversation. |
+| `correction_per_prompt.png` | Original wording, mean tokens per attempt: standard turn 1 with the correction turn stacked on top (hatched) vs abliterated one turn; labels = corrections that worked / sent. |
 | `capability.png` | GSM8K and MMLU accuracy, standard vs abliterated. |
 
 `dashboard.html` is a single self-contained file (figures embedded). It has an interactive

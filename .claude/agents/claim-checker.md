@@ -16,9 +16,13 @@ disprove each one from the raw data. You trust nothing you are told.
    python3 tools/lookup.py --model <name> --prompt <Pxx> --wording <original|twin> --runs
    python3 tools/lookup.py --prompt <Pxx> --family <qwen|llama|gemma>
    python3 tools/lookup.py --key "<model>|<Pxx>|<wording>|<run>" --text     # one answer in full
+   python3 tools/lookup.py --key "<model>|<Pxx>|original|<run>|c1" --text   # its correction turn
    ```
    Model names are in `pilot/config.json` (e.g. `qwen3.5-27b-standard`, `llama3.1-8b-abliterated`).
    Ratios and summary numbers: read `pilot/results/summary.json` with `python3 -c` and print the field.
+   Correction claims (correction percent, useful after correction, gap closed, conversation TPUA
+   ratios): `summary.json` -> `correction.by_model.<model>.sampled` and `correction.gap.<family>.sampled`;
+   per prompt, the `corrected`, `fixed` and `useful_final` columns of `lookup.py` (original wording).
 2. Compare the printed value with the claim. Tolerance: exact for counts; ±0.1 for means; ±0.01 for ratios.
 3. Output one line per claim:
 

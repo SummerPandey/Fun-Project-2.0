@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T05:17:13+00:00",
+  "checked_at": "2026-11-07T05:34:12+00:00",
   "results": "examples/mock_run",
   "mock": true,
   "fails": 0,
@@ -88,12 +88,37 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T05:17:09+00:00"
+      "message": "summary.json generated_at 2026-11-07T05:34:08+00:00"
     },
     {
       "level": "PASS",
       "area": "per_prompt",
       "message": "per_prompt.csv: 120/120 cells match the JSONL"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "corrections.jsonl: 90 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "correction_judgments.jsonl: 90 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "all 90 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "every refused standard answer (90) has its correction turn"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
