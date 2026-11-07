@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-11-07T06:02:15+00:00",
+  "checked_at": "2026-11-07T06:03:16+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 0,
-  "warnings": 9,
+  "warnings": 8,
   "items": [
     {
-      "level": "WARN",
+      "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl does not exist yet"
+      "message": "generations.jsonl: 1 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -21,9 +21,14 @@
       "message": "capability.jsonl does not exist yet"
     },
     {
+      "level": "PASS",
+      "area": "files",
+      "message": "all rows are real"
+    },
+    {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 0/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-standard: generate 1/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
@@ -49,6 +54,46 @@
       "level": "WARN",
       "area": "progress",
       "message": "gemma4-12b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+    },
+    {
+      "level": "PASS",
+      "area": "provenance",
+      "message": "all 1 answers match the prompt texts in pilot_prompts.json"
+    },
+    {
+      "level": "PASS",
+      "area": "digests",
+      "message": "qwen3.5-27b-standard: one set of weights, 64ae5b1d651f (matches pin)"
+    },
+    {
+      "level": "PASS",
+      "area": "settings",
+      "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
+    },
+    {
+      "level": "PASS",
+      "area": "settings",
+      "message": "qwen: both models used identical options and think flag {\"options\": {\"frequency_penalty\": 0.0, \"min_p\": 0.0, \"num_ctx\": 16384, \"num_predict\": 4096, \"presence_penalty\": 0.0, \"repeat_penalty\": 1.0, \"top_k\": 0, \"top_p\": 1.0}, \"think\": true}"
+    },
+    {
+      "level": "PASS",
+      "area": "tokens",
+      "message": "all 1 answers: cap flags consistent, counts in range"
+    },
+    {
+      "level": "PASS",
+      "area": "summary",
+      "message": "1 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+    },
+    {
+      "level": "PASS",
+      "area": "summary",
+      "message": "summary.json generated_at 2026-11-07T06:03:14+00:00"
+    },
+    {
+      "level": "PASS",
+      "area": "per_prompt",
+      "message": "per_prompt.csv: 120/120 cells match the JSONL"
     }
   ]
 }
