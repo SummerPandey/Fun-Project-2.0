@@ -1,6 +1,6 @@
 {
   "mock": true,
-  "generated_at": "2026-11-07T05:07:04+00:00",
+  "generated_at": "2026-11-07T05:17:09+00:00",
   "notes": [
     "MOCK DATA: every number comes from run_pilot.py --mock and says nothing about models.",
     "Headline numbers use the five sampled runs (s1-s5). Greedy is reported separately.",

@@ -6,7 +6,7 @@
   "models": [
     {"name": "qwen3.5-27b-standard", "family": "qwen", "variant": "standard", "repo": "qwen3.5:27b", "digest": "64ae5b1d", "supports_thinking": true},
     {"name": "qwen3.5-27b-abliterated", "family": "qwen", "variant": "abliterated", "repo": "huihui_ai/qwen3.5-abliterated:27b", "digest": "2c5b727e", "supports_thinking": true, "abliteration_method": "huihui-ai abliteration (see model card); file has an extra multi-token-prediction layer"},
-    {"name": "llama3.1-8b-standard", "family": "llama", "variant": "standard", "repo": "llama3.1:8b", "digest": "46e0c10c", "supports_thinking": false},
+    {"name": "llama3.1-8b-standard", "family": "llama", "variant": "standard", "repo": "llama3.1:8b-instruct-q4_K_M", "digest": "46e0c10c", "supports_thinking": false},
     {"name": "llama3.1-8b-abliterated", "family": "llama", "variant": "abliterated", "repo": "mannix/llama3.1-8b-abliterated:q4_k_m", "digest": "5920dea9", "supports_thinking": false, "abliteration_method": "mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated (Labonne abliteration), GGUF by mannix"},
     {"name": "gemma4-12b-standard", "family": "gemma", "variant": "standard", "repo": "gemma4:12b", "digest": "6114515d", "supports_thinking": true},
     {"name": "gemma4-12b-abliterated", "family": "gemma", "variant": "abliterated", "repo": "huihui_ai/gemma-4-abliterated:12b", "digest": "526eca3f", "supports_thinking": true, "abliteration_method": "huihui-ai abliteration (see model card); quantized without an importance matrix, stock was quantized with one"}

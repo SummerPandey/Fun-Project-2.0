@@ -93,7 +93,7 @@ and **pinned by weights digest**: the runner refuses to run if a tag points to d
 |---|---|---|---|---|---|
 | Qwen 3.5 27B | standard | `qwen3.5:27b` | `64ae5b1d` | yes | Modelfile default presence_penalty 1.5 is overridden to 0. |
 | Qwen 3.5 27B | abliterated | `huihui_ai/qwen3.5-abliterated:27b` | `2c5b727e` | yes | huihui-ai; has an extra multi-token-prediction layer. |
-| Llama 3.1 8B | standard | `llama3.1:8b` | `46e0c10c` | no | Same weights as `llama3.1:8b-instruct-q4_K_M`. |
+| Llama 3.1 8B | standard | `llama3.1:8b-instruct-q4_K_M` | `46e0c10c` | no | Same weights as the `llama3.1:8b` default tag. |
 | Llama 3.1 8B | abliterated | `mannix/llama3.1-8b-abliterated:q4_k_m` | `5920dea9` | no | From `mlabonne/Meta-Llama-3.1-8B-Instruct-abliterated`. |
 | Gemma 4 12B | standard | `gemma4:12b` | `6114515d` | yes | Quantized with an importance matrix; ships a draft model. |
 | Gemma 4 12B | abliterated | `huihui_ai/gemma-4-abliterated:12b` | `526eca3f` | yes | huihui-ai; no importance matrix recorded. |
