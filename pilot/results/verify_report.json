@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-11-07T08:48:48+00:00",
+  "checked_at": "2026-11-07T09:02:59+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
-  "fails": 0,
+  "fails": 2,
   "warnings": 7,
   "items": [
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 600 rows, all valid JSON"
+      "message": "generations.jsonl: 634 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -18,7 +18,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "capability.jsonl: 2019 rows, all valid JSON"
+      "message": "capability.jsonl: 2500 rows, all valid JSON"
     },
     {
       "level": "PASS",
@@ -48,17 +48,17 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-standard: generate 120/120, judge 0/120, capability 19/500"
+      "message": "gemma4-12b-standard: generate 120/120, judge 0/120, capability 500/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-abliterated: generate 0/120, judge 0/120, capability 0/500"
+      "message": "gemma4-12b-abliterated: generate 34/120, judge 0/120, capability 0/500"
     },
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 600 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 634 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -87,6 +87,11 @@
     },
     {
       "level": "PASS",
+      "area": "digests",
+      "message": "gemma4-12b-abliterated: one set of weights, 526eca3f9757 (matches pin)"
+    },
+    {
+      "level": "PASS",
       "area": "settings",
       "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
     },
@@ -108,27 +113,27 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 600 answers: cap flags consistent, counts in range"
+      "message": "all 634 answers: cap flags consistent, counts in range"
+    },
+    {
+      "level": "FAIL",
+      "area": "summary",
+      "message": "gemma4-12b-abliterated twin: mean output tokens recomputed 1666.412 vs summary 1668.25"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "10 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "summary.json generated_at 2026-11-07T09:02:57+00:00"
     },
     {
-      "level": "PASS",
-      "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T08:48:47+00:00"
-    },
-    {
-      "level": "PASS",
+      "level": "FAIL",
       "area": "per_prompt",
-      "message": "per_prompt.csv: 120/120 cells match the JSONL"
+      "message": "per_prompt.csv: 119/120 cells match the JSONL (re-run tools/visualize.py if the run moved on since)"
     },
     {
       "level": "PASS",
       "area": "capability",
-      "message": "2019/2019 capability rows re-score to the stored result"
+      "message": "2500/2500 capability rows re-score to the stored result"
     }
   ]
 }
