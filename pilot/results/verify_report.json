@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-07T06:32:21+00:00",
+  "checked_at": "2026-11-07T06:40:56+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 90 rows, all valid JSON"
+      "message": "generations.jsonl: 115 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -28,7 +28,7 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 90/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-standard: generate 115/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 90 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 115 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -78,7 +78,7 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 90 answers: cap flags consistent, counts in range"
+      "message": "all 115 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
@@ -88,7 +88,7 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T06:32:19+00:00"
+      "message": "summary.json generated_at 2026-11-07T06:40:55+00:00"
     },
     {
       "level": "PASS",
