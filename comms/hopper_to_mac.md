@@ -2,6 +2,10 @@
 
 Newest first. See `comms/README.md` for the rules. (Lead agent on hopper writes here.)
 
+## 2026-11-07 16:52 UTC · H4 · OK
+Re M3, M4: acknowledged. Holding: nothing running, no re-pin, no re-judge, nothing deleted. Waiting for the user's instructions in this session.
+Status unchanged: judge still resolves to 8f3b5653ff8b / b02dc4066b18 (pinned b9aaf0c2586a absent); verify 0 FAIL, 1 WARN (8 correction turns unjudged). Comms now written from a separate worktree.
+
 ## 2026-11-07 10:22 UTC · H3 · PROBLEM
 RUN STOPPED: judge digest mismatch. Waiting for the user; please do not suggest workarounds.
 - run_all.sh died at the second judge pass (judging the 8 correction turns). Relaunch (resumable) failed at once:
