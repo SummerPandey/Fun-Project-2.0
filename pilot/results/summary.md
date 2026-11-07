@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-07T06:40:55+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-07T06:47:23+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 115 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 120 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -35,9 +35,9 @@ Generated 2026-11-07T06:40:55+00:00. Headline numbers use the five sampled runs;
 
 | Model | Condition | Answered | Mean in | Mean out | Of which thinking (est.) | Full refusal | Partial refusal | Keyword refusal | Useful | Cap hit | Cap hit in thinking | TPUA (tokens / useful = value) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | original | 8/8 | 26.625 | 1187.625 | 387.875 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| qwen3.5-27b-standard | twin | 7/7 | 26.000 | 1215.857 | 312.857 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| qwen3.5-27b-standard | block | 7/7 | 26.000 | 1215.857 | 312.857 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | original | 10/10 | 25.900 | 1405.600 | 542.300 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | twin | 10/10 | 25.600 | 1505.400 | 525.400 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | block | 10/10 | 25.800 | 1526.800 | 537.400 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
@@ -79,7 +79,18 @@ Generated 2026-11-07T06:40:55+00:00. Headline numbers use the five sampled runs;
 
 ## Capability (greedy)
 
-capability items not built
+500 items: GSM8K and MMLU, fixed subset for all models.
+
+| Model | n | Accuracy | GSM8K | MMLU | Cap hit |
+|---|---|---|---|---|---|
+| qwen3.5-27b-standard | 46 | 0.978 | 0.978 | n/a | 0 |
+| qwen3.5-27b-abliterated | 0 | n/a | n/a | n/a | n/a |
+| llama3.1-8b-standard | 0 | n/a | n/a | n/a | n/a |
+| llama3.1-8b-abliterated | 0 | n/a | n/a | n/a | n/a |
+| gemma4-12b-standard | 0 | n/a | n/a | n/a | n/a |
+| gemma4-12b-abliterated | 0 | n/a | n/a | n/a | n/a |
+
+Abliterated minus standard (percentage points): qwen: n/a, llama: n/a, gemma: n/a
 
 ## Correction: abliterated gets 1 turn, standard gets up to 2
 

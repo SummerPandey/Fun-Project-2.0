@@ -1,14 +1,14 @@
 {
-  "checked_at": "2026-11-07T06:40:56+00:00",
+  "checked_at": "2026-11-07T06:47:24+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot/results",
   "mock": false,
   "fails": 0,
-  "warnings": 8,
+  "warnings": 7,
   "items": [
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 115 rows, all valid JSON"
+      "message": "generations.jsonl: 120 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -16,9 +16,9 @@
       "message": "judgments.jsonl does not exist yet"
     },
     {
-      "level": "WARN",
+      "level": "PASS",
       "area": "files",
-      "message": "capability.jsonl does not exist yet"
+      "message": "capability.jsonl: 46 rows, all valid JSON"
     },
     {
       "level": "PASS",
@@ -28,37 +28,37 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 115/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-standard: generate 120/120, judge 0/120, capability 46/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-abliterated: generate 0/120, judge 0/120, capability 0/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-standard: generate 0/120, judge 0/120, capability 0/?"
+      "message": "llama3.1-8b-standard: generate 0/120, judge 0/120, capability 0/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+      "message": "llama3.1-8b-abliterated: generate 0/120, judge 0/120, capability 0/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-standard: generate 0/120, judge 0/120, capability 0/?"
+      "message": "gemma4-12b-standard: generate 0/120, judge 0/120, capability 0/500"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+      "message": "gemma4-12b-abliterated: generate 0/120, judge 0/120, capability 0/500"
     },
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 115 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 120 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -78,7 +78,7 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 115 answers: cap flags consistent, counts in range"
+      "message": "all 120 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
@@ -88,12 +88,17 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-07T06:40:55+00:00"
+      "message": "summary.json generated_at 2026-11-07T06:47:23+00:00"
     },
     {
       "level": "PASS",
       "area": "per_prompt",
       "message": "per_prompt.csv: 120/120 cells match the JSONL"
+    },
+    {
+      "level": "PASS",
+      "area": "capability",
+      "message": "46/46 capability rows re-score to the stored result"
     }
   ]
 }
