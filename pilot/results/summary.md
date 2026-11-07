@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-07T09:18:56+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-07T09:33:06+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 702 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 720 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -50,9 +50,9 @@ Generated 2026-11-07T09:18:56+00:00. Headline numbers use the five sampled runs;
 | gemma4-12b-standard | original | 10/10 | 31.700 | 1495.000 | 596.100 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | gemma4-12b-standard | twin | 10/10 | 31.400 | 1460.700 | 579.900 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | gemma4-12b-standard | block | 10/10 | 31.600 | 1453.700 | 577.700 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-abliterated | original | 1/1 | 29.000 | 1524.000 | 777.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-abliterated | twin | 1/1 | 30.000 | 1609.000 | 761.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-abliterated | block | 1/1 | 30.000 | 1609.000 | 761.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| gemma4-12b-abliterated | original | 10/10 | 31.700 | 1678.000 | 684.900 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| gemma4-12b-abliterated | twin | 10/10 | 31.400 | 1633.200 | 709.600 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
+| gemma4-12b-abliterated | block | 10/10 | 31.600 | 1622.500 | 711.900 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 
 ## Within-family ratios (abliterated / standard)
 
@@ -67,14 +67,14 @@ Generated 2026-11-07T09:18:56+00:00. Headline numbers use the five sampled runs;
 | sampled | block | mean_output_tokens | 1.105 | 0.633 | 1.121 | 0.953 | 3 |
 | sampled | block | mean_thinking_tokens_est | 0.952 | n/a | 1.164 | 1.058 | 2 |
 | sampled | block | tpua | n/a | n/a | n/a | n/a | 0 |
-| greedy | original | mean_output_tokens | 1.261 | 0.745 | 1.019 | 1.008 | 3 |
-| greedy | original | mean_thinking_tokens_est | 1.141 | n/a | 1.303 | 1.222 | 2 |
+| greedy | original | mean_output_tokens | 1.261 | 0.745 | 1.122 | 1.043 | 3 |
+| greedy | original | mean_thinking_tokens_est | 1.141 | n/a | 1.149 | 1.145 | 2 |
 | greedy | original | tpua | n/a | n/a | n/a | n/a | 0 |
-| greedy | twin | mean_output_tokens | 1.097 | 0.739 | 1.102 | 0.979 | 3 |
-| greedy | twin | mean_thinking_tokens_est | 0.970 | n/a | 1.312 | 1.141 | 2 |
+| greedy | twin | mean_output_tokens | 1.097 | 0.739 | 1.118 | 0.985 | 3 |
+| greedy | twin | mean_thinking_tokens_est | 0.970 | n/a | 1.224 | 1.097 | 2 |
 | greedy | twin | tpua | n/a | n/a | n/a | n/a | 0 |
-| greedy | block | mean_output_tokens | 1.089 | 0.737 | 1.107 | 0.978 | 3 |
-| greedy | block | mean_thinking_tokens_est | 0.979 | n/a | 1.317 | 1.148 | 2 |
+| greedy | block | mean_output_tokens | 1.089 | 0.737 | 1.116 | 0.981 | 3 |
+| greedy | block | mean_thinking_tokens_est | 0.979 | n/a | 1.232 | 1.106 | 2 |
 | greedy | block | tpua | n/a | n/a | n/a | n/a | 0 |
 
 ## Capability (greedy)
@@ -88,9 +88,9 @@ Generated 2026-11-07T09:18:56+00:00. Headline numbers use the five sampled runs;
 | llama3.1-8b-standard | 500 | 0.758 | 0.884 | 0.632 | 4 |
 | llama3.1-8b-abliterated | 500 | 0.662 | 0.788 | 0.536 | 0 |
 | gemma4-12b-standard | 500 | 0.852 | 0.952 | 0.752 | 3 |
-| gemma4-12b-abliterated | 0 | n/a | n/a | n/a | n/a |
+| gemma4-12b-abliterated | 236 | 0.928 | 0.928 | n/a | 4 |
 
-Abliterated minus standard (percentage points): qwen: -1.200, llama: -9.600, gemma: n/a
+Abliterated minus standard (percentage points): qwen: -1.200, llama: -9.600, gemma: 7.597
 
 ## Correction: abliterated gets 1 turn, standard gets up to 2
 
