@@ -1,0 +1,54 @@
+{
+  "checked_at": "2026-11-07T06:02:15+00:00",
+  "results": "/home/sandb/Fun-Project-2.0/pilot/results",
+  "mock": false,
+  "fails": 0,
+  "warnings": 9,
+  "items": [
+    {
+      "level": "WARN",
+      "area": "files",
+      "message": "generations.jsonl does not exist yet"
+    },
+    {
+      "level": "WARN",
+      "area": "files",
+      "message": "judgments.jsonl does not exist yet"
+    },
+    {
+      "level": "WARN",
+      "area": "files",
+      "message": "capability.jsonl does not exist yet"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "qwen3.5-27b-standard: generate 0/120, judge 0/120, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "qwen3.5-27b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "llama3.1-8b-standard: generate 0/120, judge 0/120, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "llama3.1-8b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "gemma4-12b-standard: generate 0/120, judge 0/120, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "gemma4-12b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+    }
+  ]
+}

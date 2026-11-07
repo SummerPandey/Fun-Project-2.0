@@ -1,0 +1,7 @@
+Pilot 2 smoke test estimate (2026-11-07, from /tmp/smoke log timestamps; includes model load time)
+qwen3.5-27b-standard: 3 answers in 69 s -> 23.0 s/answer (thinking model)
+llama3.1-8b-standard: 3 answers in 11 s -> 3.7 s/answer
+blended: 6 answers in 80 s -> 13.3 s/answer
+items: 720 answers + 3000 capability items + 720 judge calls = 4440 (+ correction turns and their judge calls)
+estimated total at blended rate: 4440 x 13.3 s = 16.4 h
+caveat: gemma4-12b not measured; capability items and judge calls are likely shorter than full answers, so this is a rough figure.
