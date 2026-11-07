@@ -146,7 +146,7 @@ The **lead agent** (a Claude Code session on the Ollama machine) follows [`CLAUD
 and coordinates subagents defined in [`.claude/agents/`](.claude/agents/):
 
 ```mermaid
-flowchart TB
+flowchart LR
     L[Lead agent<br/>follows CLAUDE.md] -->|launch, relaunch| RO[run-operator<br/>runs and babysits the pipeline]
     L -->|every check-in| VE[verifier · Haiku<br/>verify_results.py, verbatim]
     L -->|every check-in| AR[archivist · Haiku<br/>commit + push, confirms remote]
