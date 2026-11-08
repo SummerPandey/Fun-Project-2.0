@@ -69,3 +69,14 @@
 [01:07:55]   judged 260/360 answers
 [01:08:13]   judged 280/360 answers
 [01:08:32]   judged 300/360 answers
+[01:08:48]   judged 320/360 answers
+[01:09:07]   judged 340/360 answers
+[01:09:26]   judged 360/360 answers
+[01:09:26] wrote 360 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/judgments.jsonl (0 judge errors)
+[01:09:26] done
+=== 2026-11-08T07:09:26Z stage analyze
+[01:09:26] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results (backend: ollama)
+[01:09:26] === stage: analyze (backend: ollama) ===
+[01:09:26] wrote /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/summary.json and /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/summary.md
+[01:09:26] done
+=== 2026-11-08T07:09:26Z FINISHED
