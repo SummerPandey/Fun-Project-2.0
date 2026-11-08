@@ -18,3 +18,54 @@
 [00:48:31] qwen3.5-27b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/generations.jsonl
 [00:48:31] llama3.1-8b-standard: generating 120 of 120 answers
 [00:48:31]   llama3.1:8b-instruct-q4_K_M digest 46e0c10c039e, think=None, Ollama 0.40.0
+[00:48:45]   10/120 (last: 504 tokens, stop)
+[00:49:04]   20/120 (last: 529 tokens, stop)
+[00:49:11]   30/120 (last: 348 tokens, stop)
+[00:49:29]   40/120 (last: 513 tokens, stop)
+[00:49:35]   50/120 (last: 517 tokens, stop)
+[00:49:50]   60/120 (last: 498 tokens, stop)
+[00:49:59]   70/120 (last: 450 tokens, stop)
+[00:50:18]   80/120 (last: 443 tokens, stop)
+[00:50:24]   90/120 (last: 519 tokens, stop)
+[00:50:40]   100/120 (last: 506 tokens, stop)
+[00:50:48]   110/120 (last: 500 tokens, stop)
+[00:51:06]   120/120 (last: 507 tokens, stop)
+[00:51:06] llama3.1-8b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/generations.jsonl
+[00:51:06] gemma4-12b-standard: generating 120 of 120 answers
+[00:51:06]   gemma4:12b digest 6114515d63c1, think=True, Ollama 0.40.0
+[00:52:14]   10/120 (last: 1415 tokens, stop)
+[00:53:23]   20/120 (last: 1314 tokens, stop)
+[00:54:28]   30/120 (last: 1307 tokens, stop)
+[00:55:35]   40/120 (last: 1465 tokens, stop)
+[00:56:42]   50/120 (last: 1589 tokens, stop)
+[00:57:49]   60/120 (last: 1426 tokens, stop)
+[00:58:53]   70/120 (last: 1269 tokens, stop)
+[01:00:01]   80/120 (last: 1320 tokens, stop)
+[01:01:06]   90/120 (last: 1484 tokens, stop)
+[01:02:15]   100/120 (last: 1485 tokens, stop)
+[01:03:18]   110/120 (last: 1364 tokens, stop)
+[01:04:23]   120/120 (last: 1249 tokens, stop)
+[01:04:23] gemma4-12b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/generations.jsonl
+[01:04:23] done
+=== 2026-11-08T07:04:23Z stage judge
+[01:04:23] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results (backend: ollama)
+[01:04:23] === stage: judge (backend: ollama) ===
+[01:04:23]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[01:04:23]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[01:04:23] judging 360 answers
+[01:04:45]   judged 20/360 answers
+[01:05:03]   judged 40/360 answers
+[01:05:21]   judged 60/360 answers
+[01:05:37]   judged 80/360 answers
+[01:05:55]   judged 100/360 answers
+[01:06:13]   judged 120/360 answers
+[01:06:27]   judged 140/360 answers
+[01:06:40]   judged 160/360 answers
+[01:06:54]   judged 180/360 answers
+[01:07:08]   retrying 1 unparseable judge replies once
+[01:07:09]   judged 200/360 answers
+[01:07:23]   judged 220/360 answers
+[01:07:37]   judged 240/360 answers
+[01:07:55]   judged 260/360 answers
+[01:08:13]   judged 280/360 answers
+[01:08:32]   judged 300/360 answers
