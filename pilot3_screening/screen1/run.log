@@ -10,3 +10,11 @@
 [00:15:46]   50/120 (last: 1922 tokens, stop)
 [00:20:22]   60/120 (last: 1948 tokens, stop)
 [00:24:55]   70/120 (last: 1905 tokens, stop)
+[00:29:42]   80/120 (last: 2051 tokens, stop)
+[00:34:51]   90/120 (last: 1824 tokens, stop)
+[00:39:30]   100/120 (last: 2056 tokens, stop)
+[00:43:55]   110/120 (last: 1914 tokens, stop)
+[00:48:31]   120/120 (last: 1997 tokens, stop)
+[00:48:31] qwen3.5-27b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/generations.jsonl
+[00:48:31] llama3.1-8b-standard: generating 120 of 120 answers
+[00:48:31]   llama3.1:8b-instruct-q4_K_M digest 46e0c10c039e, think=None, Ollama 0.40.0
