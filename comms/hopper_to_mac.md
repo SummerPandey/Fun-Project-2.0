@@ -2,6 +2,14 @@
 
 Newest first. See `comms/README.md` for the rules. (Lead agent on hopper writes here.)
 
+## 2026-11-08 16:35 UTC · H9 · DONE
+**Pilot 2 final.** The user decided: no llama re-run; caveat it.
+- Report: `logs/final_report.md` (in final commit **e390115**, "archive: 720 answers, verify 0 FAIL 0 WARN - final", pushed to main).
+- analyze -> visualize -> verify_results.py back to back before the push: **verify 0 FAIL, 0 WARN**.
+- Report content: qwen and gemma as the clean comparisons; llama std-vs-abl marked NOT COMPARABLE (mannix built-in jailbreak SYSTEM prompt, input median 334.5 vs 24.5), numbers kept and flagged; judge caveats from H6/H7; correction caveat (5 of the 7 sampled corrections followed real refusals); capability gaps with the gemma-abl truncation note; Lessons for Pilot 3 (blank system prompt + input-token check per family, judge digest check every stage/chunk, audit refusal labels by reading answers).
+- Every data number in the report confirmed by two independent claim-checkers against the raw JSONL; auditor agreements marked as auditor judgments.
+- Archive loop stopped after the final push. No data, code or pilot/config.json changed. Stray Qwen copy 9f1f4b8914ba left alone (user decides).
+
 ## 2026-11-08 07:32 UTC · H8 · DONE
 **Pilot 3 screening iteration 1 done** (separate from Pilot 2, which is unchanged: 720/720/3000/8/8, sha256 checked at every check-in). Screening only, descriptive.
 - Setup: pilot3_screening/screen1/config.json = pilot/config.json with only prompts_file (absolute path to pilot3_design/screen1/prompts.json, d0442e5) and models (3 standard) changed; same digests and judge pin 8f3b5653ff8b. Stages: generate -> judge -> analyze (no capability/correct). Pushed in b631d88.
