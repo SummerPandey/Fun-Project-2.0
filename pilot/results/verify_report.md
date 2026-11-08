@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-08T03:39:23+00:00. **0 FAIL, 0 WARN.**
+Checked 2026-11-08T03:54:27+00:00. **0 FAIL, 0 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -28,7 +28,7 @@ Checked 2026-11-08T03:39:23+00:00. **0 FAIL, 0 WARN.**
 | PASS | tokens | all 720 answers: cap flags consistent, counts in range |
 | PASS | judge | 720 judgments: 'useful' follows its rule in every one |
 | PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-08T03:39:22+00:00 |
+| PASS | summary | summary.json generated_at 2026-11-08T03:54:25+00:00 |
 | PASS | per_prompt | per_prompt.csv: 120/120 cells match the JSONL |
 | PASS | correction | corrections.jsonl: 8 rows, all valid JSON |
 | PASS | correction | correction_judgments.jsonl: 8 rows, all valid JSON |
