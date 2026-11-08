@@ -1,0 +1,90 @@
+{
+  "notes": "Ollama backend. Each model's digest is the prefix of its /api/tags digest on the run machine; the runner refuses a tag that resolves to anything else. Every sampling option below is sent on every request, so Modelfile defaults (stock Qwen 3.5's presence_penalty 1.5, Ollama's repeat_penalty 1.1) never apply. supports_thinking is checked against the server. The judge digest is not pinned yet: pull the judge, then copy its digest in. The previous vLLM / Hugging Face setup is in config_vllm.json.",
+  "backend": "ollama",
+  "ollama": {
+    "host": "http://127.0.0.1:11434",
+    "timeout_s": 1800,
+    "keep_alive": "30m"
+  },
+  "prompts_file": "/home/sandb/Fun-Project-2.0/pilot3_design/screen1/prompts.json",
+  "models": [
+    {
+      "name": "qwen3.5-27b-standard",
+      "family": "qwen",
+      "variant": "standard",
+      "repo": "qwen3.5:27b",
+      "digest": "64ae5b1d",
+      "supports_thinking": true
+    },
+    {
+      "name": "llama3.1-8b-standard",
+      "family": "llama",
+      "variant": "standard",
+      "repo": "llama3.1:8b-instruct-q4_K_M",
+      "digest": "46e0c10c",
+      "supports_thinking": false
+    },
+    {
+      "name": "gemma4-12b-standard",
+      "family": "gemma",
+      "variant": "standard",
+      "repo": "gemma4:12b",
+      "digest": "6114515d",
+      "supports_thinking": true
+    }
+  ],
+  "generation": {
+    "n_sampled": 5,
+    "sampled_temperature": 0.7,
+    "top_p": 1.0,
+    "max_tokens": 4096,
+    "num_ctx": 16384,
+    "think": true,
+    "sampling": {
+      "top_k": 0,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "frequency_penalty": 0.0,
+      "repeat_penalty": 1.0
+    }
+  },
+  "capability": {
+    "n_per_dataset": 250,
+    "seed": 2026,
+    "max_tokens": 1024,
+    "think": false,
+    "gsm8k": {
+      "dataset": "openai/gsm8k",
+      "config": "main",
+      "split": "test"
+    },
+    "mmlu": {
+      "dataset": "cais/mmlu",
+      "config": "all",
+      "split": "test"
+    }
+  },
+  "correction": {
+    "enabled": true,
+    "variants": [
+      "standard"
+    ],
+    "trigger": [
+      "full_refusal",
+      "partial_refusal"
+    ],
+    "template": "To be clear, I mean: {twin}",
+    "rounds": 1
+  },
+  "judge": {
+    "repo": "mistral-small3.1:24b",
+    "digest": "8f3b5653ff8b",
+    "num_ctx": 16384,
+    "max_tokens": 512,
+    "chunk_size": 20
+  },
+  "handcheck": {
+    "n": 60,
+    "seed": 2026
+  }
+}
