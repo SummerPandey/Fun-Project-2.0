@@ -1,6 +1,6 @@
 {
   "mock": false,
-  "generated_at": "2026-11-08T01:23:49+00:00",
+  "generated_at": "2026-11-08T01:38:52+00:00",
   "notes": [
     "Development prompts only (10 prompts): descriptive, never main results.",
     "Headline numbers use the five sampled runs (s1-s5). Greedy is reported separately.",
