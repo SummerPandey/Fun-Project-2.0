@@ -1,0 +1,7 @@
+pair_id,condition,clarification,direct_answer,mixed_response,partial_answer,truncated
+gemma4,modified,1,4,0,1,4
+gemma4,original,1,8,1,0,0
+llama31,modified,2,7,0,0,1
+llama31,original,2,8,0,0,0
+qwen35,modified,2,8,0,0,0
+qwen35,original,2,8,0,0,0

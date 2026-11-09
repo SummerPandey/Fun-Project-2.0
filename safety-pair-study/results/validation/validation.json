@@ -1,0 +1,1137 @@
+{
+ "benchmark_sha256": "00eb9b217c880cac7ddac938c57795f3074b7006a80c9cc1e38fd626660b35b4",
+ "started": "2026-11-09T04:59:06.427229+00:00",
+ "V1": [
+  {
+   "tag": "V1__A__M04_v0_original",
+   "model": "llama3.1:8b-instruct-q4_K_M",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 225,
+   "n_chunks": 224,
+   "n_logprob_tokens": 224,
+   "tokens_per_chunk": 1.0044642857142858,
+   "throughput": 232.21755378932605,
+   "load_s": 0.001630852,
+   "wall_s": 0.983468493912369,
+   "accounting": {
+    "n_logprob_tokens": 224,
+    "eval_count": 225,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 224,
+    "control_tokens": 1,
+    "control_token_list": [
+     "<stop>"
+    ],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "##",
+    " Step",
+    " ",
+    "1"
+   ],
+   "token_seq_sha": "bd32676f6a675822"
+  },
+  {
+   "tag": "V1__A__U01_v0_original",
+   "model": "llama3.1:8b-instruct-q4_K_M",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 143,
+   "n_chunks": 142,
+   "n_logprob_tokens": 142,
+   "tokens_per_chunk": 1.0070422535211268,
+   "throughput": 227.58451661366973,
+   "load_s": 0.001447347,
+   "wall_s": 0.6594575271010399,
+   "accounting": {
+    "n_logprob_tokens": 142,
+    "eval_count": 143,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 142,
+    "control_tokens": 1,
+    "control_token_list": [
+     "<stop>"
+    ],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "Nice",
+    " to",
+    " meet",
+    " you"
+   ],
+   "token_seq_sha": "4b028ab07730fcc6"
+  },
+  {
+   "tag": "V1__B__M04_v0_original",
+   "model": "mannix/llama3.1-8b-abliterated:q4_k_m",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 64,
+   "n_chunks": 63,
+   "n_logprob_tokens": 63,
+   "tokens_per_chunk": 1.0158730158730158,
+   "throughput": 224.63707073259766,
+   "load_s": 0.001331005,
+   "wall_s": 0.29889521887525916,
+   "accounting": {
+    "n_logprob_tokens": 63,
+    "eval_count": 64,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 63,
+    "control_tokens": 1,
+    "control_token_list": [
+     "<stop>"
+    ],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "The",
+    " trip",
+    " from",
+    " "
+   ],
+   "token_seq_sha": "59632accf18abb2e"
+  },
+  {
+   "tag": "V1__B__U01_v0_original",
+   "model": "mannix/llama3.1-8b-abliterated:q4_k_m",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 130,
+   "n_chunks": 129,
+   "n_logprob_tokens": 129,
+   "tokens_per_chunk": 1.0077519379844961,
+   "throughput": 227.89106106078032,
+   "load_s": 0.002774083,
+   "wall_s": 0.5926551879383624,
+   "accounting": {
+    "n_logprob_tokens": 129,
+    "eval_count": 130,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 129,
+    "control_tokens": 1,
+    "control_token_list": [
+     "<stop>"
+    ],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "Hi",
+    " Summer",
+    "!",
+    " I"
+   ],
+   "token_seq_sha": "0e85efb2378d2ed7"
+  },
+  {
+   "tag": "V1__C__M04_v0_original",
+   "model": "gemma4:12b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 1642,
+   "n_chunks": 1641,
+   "n_logprob_tokens": 1641,
+   "tokens_per_chunk": 1.000609384521633,
+   "throughput": 127.59153799243961,
+   "load_s": 0.001764152,
+   "wall_s": 12.913895891048014,
+   "accounting": {
+    "n_logprob_tokens": 1641,
+    "eval_count": 1642,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": 1113,
+    "answer_tokens": 525,
+    "control_tokens": 4,
+    "control_token_list": [
+     "<|channel>",
+     "thought",
+     "<channel|>",
+     "<stop>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "*"
+   ],
+   "token_seq_sha": "95d9443b8cdb5cb1"
+  },
+  {
+   "tag": "V1__C__U01_v0_original",
+   "model": "gemma4:12b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 998,
+   "n_chunks": 997,
+   "n_logprob_tokens": 997,
+   "tokens_per_chunk": 1.0010030090270812,
+   "throughput": 128.71762422862932,
+   "load_s": 0.001593931,
+   "wall_s": 7.956842929124832,
+   "accounting": {
+    "n_logprob_tokens": 997,
+    "eval_count": 998,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": 437,
+    "answer_tokens": 557,
+    "control_tokens": 4,
+    "control_token_list": [
+     "<|channel>",
+     "thought",
+     "<channel|>",
+     "<stop>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "Summer"
+   ],
+   "token_seq_sha": "0fa51996411b6807"
+  },
+  {
+   "tag": "V1__D__M04_v0_original",
+   "model": "huihui_ai/gemma-4-abliterated:12b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 12288,
+   "n_chunks": 12288,
+   "n_logprob_tokens": 12288,
+   "tokens_per_chunk": 1.0,
+   "throughput": 124.39525990485363,
+   "load_s": 0.001559487,
+   "wall_s": 98.82458162494004,
+   "accounting": {
+    "n_logprob_tokens": 12288,
+    "eval_count": 12288,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 12286,
+    "answer_tokens": 0,
+    "control_tokens": 2,
+    "control_token_list": [
+     "<|channel>",
+     "thought"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [
+     "reasoning_unclosed"
+    ],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "*"
+   ],
+   "token_seq_sha": "1d2d3bee7795fd6a"
+  },
+  {
+   "tag": "V1__D__U01_v0_original",
+   "model": "huihui_ai/gemma-4-abliterated:12b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 1358,
+   "n_chunks": 1357,
+   "n_logprob_tokens": 1357,
+   "tokens_per_chunk": 1.0007369196757554,
+   "throughput": 127.87603369599404,
+   "load_s": 0.001637487,
+   "wall_s": 10.899228047113866,
+   "accounting": {
+    "n_logprob_tokens": 1357,
+    "eval_count": 1358,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": 622,
+    "answer_tokens": 732,
+    "control_tokens": 4,
+    "control_token_list": [
+     "<|channel>",
+     "thought",
+     "<channel|>",
+     "<stop>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "Summer"
+   ],
+   "token_seq_sha": "0b563320a6f7ca15"
+  },
+  {
+   "tag": "V1__E__M04_v0_original",
+   "model": "qwen3.5:27b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 5696,
+   "n_chunks": 5695,
+   "n_logprob_tokens": 5695,
+   "tokens_per_chunk": 1.0001755926251097,
+   "throughput": 69.13072974172573,
+   "load_s": 0.007326037,
+   "wall_s": 82.67599007999524,
+   "accounting": {
+    "n_logprob_tokens": 5695,
+    "eval_count": 5696,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": 5302,
+    "answer_tokens": 392,
+    "control_tokens": 2,
+    "control_token_list": [
+     "</think>",
+     "<stop>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "72f758ea50d5d1d6"
+  },
+  {
+   "tag": "V1__E__U01_v0_original",
+   "model": "qwen3.5:27b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 1284,
+   "n_chunks": 1283,
+   "n_logprob_tokens": 1283,
+   "tokens_per_chunk": 1.0007794232268121,
+   "throughput": 69.50209220784113,
+   "load_s": 0.00289209,
+   "wall_s": 18.87794418213889,
+   "accounting": {
+    "n_logprob_tokens": 1283,
+    "eval_count": 1284,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": 853,
+    "answer_tokens": 429,
+    "control_tokens": 2,
+    "control_token_list": [
+     "</think>",
+     "<stop>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "7d6efd376372094a"
+  },
+  {
+   "tag": "V1__F__M04_v0_original",
+   "model": "huihui_ai/qwen3.5-abliterated:27b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 3129,
+   "n_chunks": 3128,
+   "n_logprob_tokens": 3128,
+   "tokens_per_chunk": 1.0003196930946292,
+   "throughput": 70.63456545012605,
+   "load_s": 0.00336735,
+   "wall_s": 44.567915925290436,
+   "accounting": {
+    "n_logprob_tokens": 3128,
+    "eval_count": 3129,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": 2690,
+    "answer_tokens": 437,
+    "control_tokens": 2,
+    "control_token_list": [
+     "</think>",
+     "<stop>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "b3b33eb131d4aa55"
+  },
+  {
+   "tag": "V1__F__U01_v0_original",
+   "model": "huihui_ai/qwen3.5-abliterated:27b",
+   "num_predict": 12288,
+   "seed": 7,
+   "done_reason": "stop",
+   "eval_count": 1058,
+   "n_chunks": 1044,
+   "n_logprob_tokens": 1044,
+   "tokens_per_chunk": 1.0134099616858236,
+   "throughput": 70.93967103973755,
+   "load_s": 0.001613231,
+   "wall_s": 15.252747654914856,
+   "accounting": {
+    "n_logprob_tokens": 1044,
+    "eval_count": 1058,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": false,
+    "reasoning_tokens": null,
+    "answer_tokens": null,
+    "control_tokens": null,
+    "control_token_list": null,
+    "reasoning_status": "supported_but_unobserved",
+    "token_count_method": "eval_count_only",
+    "confidence": "unavailable",
+    "boundary_notes": [
+     "logprob_tokens(1044)+stop(1)!=eval_count(1058)"
+    ]
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "791564783eaa5d90"
+  }
+ ],
+ "V2": [
+  {
+   "tag": "V2__A",
+   "model": "llama3.1:8b-instruct-q4_K_M",
+   "num_predict": 48,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 48,
+   "n_chunks": 48,
+   "n_logprob_tokens": 48,
+   "tokens_per_chunk": 1.0,
+   "throughput": 230.83137767860578,
+   "load_s": 0.001473585,
+   "wall_s": 0.2268897551111877,
+   "accounting": {
+    "n_logprob_tokens": 48,
+    "eval_count": 48,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 48,
+    "control_tokens": 0,
+    "control_token_list": [],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "Nice",
+    " to",
+    " meet",
+    " you"
+   ],
+   "token_seq_sha": "fc5c6a25b2679046"
+  },
+  {
+   "tag": "V2__B",
+   "model": "mannix/llama3.1-8b-abliterated:q4_k_m",
+   "num_predict": 48,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 48,
+   "n_chunks": 48,
+   "n_logprob_tokens": 48,
+   "tokens_per_chunk": 1.0,
+   "throughput": 230.82360748445547,
+   "load_s": 0.002459464,
+   "wall_s": 0.2291594031266868,
+   "accounting": {
+    "n_logprob_tokens": 48,
+    "eval_count": 48,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 48,
+    "control_tokens": 0,
+    "control_token_list": [],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "Hi",
+    " Summer",
+    "!",
+    " I"
+   ],
+   "token_seq_sha": "4da3fd83aed1d562"
+  },
+  {
+   "tag": "V2__C",
+   "model": "gemma4:12b",
+   "num_predict": 48,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 48,
+   "n_chunks": 48,
+   "n_logprob_tokens": 48,
+   "tokens_per_chunk": 1.0,
+   "throughput": 130.56747890519168,
+   "load_s": 0.00161469,
+   "wall_s": 0.5605304962955415,
+   "accounting": {
+    "n_logprob_tokens": 48,
+    "eval_count": 48,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 46,
+    "answer_tokens": 0,
+    "control_tokens": 2,
+    "control_token_list": [
+     "<|channel>",
+     "thought"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [
+     "reasoning_unclosed"
+    ],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "Summer"
+   ],
+   "token_seq_sha": "d52753a83614dff1"
+  },
+  {
+   "tag": "V2__D",
+   "model": "huihui_ai/gemma-4-abliterated:12b",
+   "num_predict": 48,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 48,
+   "n_chunks": 48,
+   "n_logprob_tokens": 48,
+   "tokens_per_chunk": 1.0,
+   "throughput": 130.48229518357226,
+   "load_s": 0.001240826,
+   "wall_s": 0.5624996111728251,
+   "accounting": {
+    "n_logprob_tokens": 48,
+    "eval_count": 48,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 46,
+    "answer_tokens": 0,
+    "control_tokens": 2,
+    "control_token_list": [
+     "<|channel>",
+     "thought"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [
+     "reasoning_unclosed"
+    ],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "Summer"
+   ],
+   "token_seq_sha": "234ed1e46f710ff2"
+  },
+  {
+   "tag": "V2__E",
+   "model": "qwen3.5:27b",
+   "num_predict": 48,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 48,
+   "n_chunks": 48,
+   "n_logprob_tokens": 48,
+   "tokens_per_chunk": 1.0,
+   "throughput": 70.87810590074997,
+   "load_s": 0.001462517,
+   "wall_s": 0.9459246820770204,
+   "accounting": {
+    "n_logprob_tokens": 48,
+    "eval_count": 48,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 48,
+    "answer_tokens": 0,
+    "control_tokens": 0,
+    "control_token_list": [],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [
+     "reasoning_unclosed"
+    ],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "0191d8b98310e288"
+  },
+  {
+   "tag": "V2__F",
+   "model": "huihui_ai/qwen3.5-abliterated:27b",
+   "num_predict": 48,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 48,
+   "n_chunks": 48,
+   "n_logprob_tokens": 48,
+   "tokens_per_chunk": 1.0,
+   "throughput": 71.94104431418454,
+   "load_s": 0.001957561,
+   "wall_s": 0.9299249690957367,
+   "accounting": {
+    "n_logprob_tokens": 48,
+    "eval_count": 48,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 48,
+    "answer_tokens": 0,
+    "control_tokens": 0,
+    "control_token_list": [],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [
+     "reasoning_unclosed"
+    ],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "0ffb68c27117cf09"
+  }
+ ],
+ "V3": [
+  {
+   "tag": "V3__A",
+   "model": "llama3.1:8b-instruct-q4_K_M",
+   "num_predict": 4,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 4,
+   "n_chunks": 4,
+   "n_logprob_tokens": 4,
+   "tokens_per_chunk": 1.0,
+   "throughput": 268.52846401718585,
+   "load_s": 0.001585089,
+   "wall_s": 0.02811043383553624,
+   "accounting": {
+    "n_logprob_tokens": 4,
+    "eval_count": 4,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 4,
+    "control_tokens": 0,
+    "control_token_list": [],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "##",
+    " Step",
+    " ",
+    "1"
+   ],
+   "token_seq_sha": "ca4716c64a4faeef",
+   "same_prefix_as_V1": true
+  },
+  {
+   "tag": "V3__B",
+   "model": "mannix/llama3.1-8b-abliterated:q4_k_m",
+   "num_predict": 4,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 4,
+   "n_chunks": 4,
+   "n_logprob_tokens": 4,
+   "tokens_per_chunk": 1.0,
+   "throughput": 292.4617971777437,
+   "load_s": 0.002508217,
+   "wall_s": 0.02498632436618209,
+   "accounting": {
+    "n_logprob_tokens": 4,
+    "eval_count": 4,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": null,
+    "answer_tokens": 4,
+    "control_tokens": 0,
+    "control_token_list": [],
+    "reasoning_status": "no_separate_reasoning_mode",
+    "token_count_method": "native_logprob_sequence",
+    "confidence": "exact",
+    "boundary_notes": []
+   },
+   "first_tokens": [
+    "The",
+    " trip",
+    " will",
+    " take"
+   ],
+   "token_seq_sha": "d7c3747d99263f1a",
+   "same_prefix_as_V1": false
+  },
+  {
+   "tag": "V3__C",
+   "model": "gemma4:12b",
+   "num_predict": 1120,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 1120,
+   "n_chunks": 1120,
+   "n_logprob_tokens": 1120,
+   "tokens_per_chunk": 1.0,
+   "throughput": 128.45356587098857,
+   "load_s": 0.00150227,
+   "wall_s": 8.748322836123407,
+   "accounting": {
+    "n_logprob_tokens": 1120,
+    "eval_count": 1120,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 1113,
+    "answer_tokens": 4,
+    "control_tokens": 3,
+    "control_token_list": [
+     "<|channel>",
+     "thought",
+     "<channel|>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "*"
+   ],
+   "token_seq_sha": "98f71ed023f13855",
+   "same_prefix_as_V1": true
+  },
+  {
+   "tag": "V3__D",
+   "model": "huihui_ai/gemma-4-abliterated:12b",
+   "num_predict": 12292,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 12292,
+   "n_chunks": 12292,
+   "n_logprob_tokens": 12292,
+   "tokens_per_chunk": 1.0,
+   "throughput": 124.21287718495222,
+   "load_s": 0.002910733,
+   "wall_s": 98.99279722711071,
+   "accounting": {
+    "n_logprob_tokens": 12292,
+    "eval_count": 12292,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 12290,
+    "answer_tokens": 0,
+    "control_tokens": 2,
+    "control_token_list": [
+     "<|channel>",
+     "thought"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [
+     "reasoning_unclosed"
+    ],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "*"
+   ],
+   "token_seq_sha": "5f8a0471e2dc21cd",
+   "same_prefix_as_V1": false
+  },
+  {
+   "tag": "V3__E",
+   "model": "qwen3.5:27b",
+   "num_predict": 5307,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 5307,
+   "n_chunks": 5307,
+   "n_logprob_tokens": 5307,
+   "tokens_per_chunk": 1.0,
+   "throughput": 69.25194923945648,
+   "load_s": 0.001393913,
+   "wall_s": 76.75569414906204,
+   "accounting": {
+    "n_logprob_tokens": 5307,
+    "eval_count": 5307,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 5302,
+    "answer_tokens": 4,
+    "control_tokens": 1,
+    "control_token_list": [
+     "</think>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "8d322532b7fa6303",
+   "same_prefix_as_V1": true
+  },
+  {
+   "tag": "V3__F",
+   "model": "huihui_ai/qwen3.5-abliterated:27b",
+   "num_predict": 2695,
+   "seed": 7,
+   "done_reason": "length",
+   "eval_count": 2695,
+   "n_chunks": 2695,
+   "n_logprob_tokens": 2695,
+   "tokens_per_chunk": 1.0,
+   "throughput": 70.75987467179037,
+   "load_s": 0.001484709,
+   "wall_s": 38.20746586099267,
+   "accounting": {
+    "n_logprob_tokens": 2695,
+    "eval_count": 2695,
+    "done_reason": "length",
+    "stop_token_counted": 0,
+    "reconciled": true,
+    "reasoning_tokens": 2690,
+    "answer_tokens": 4,
+    "control_tokens": 1,
+    "control_token_list": [
+     "</think>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "Thinking",
+    " Process",
+    ":",
+    "\n\n"
+   ],
+   "token_seq_sha": "f29785ebe685184f",
+   "same_prefix_as_V1": true
+  }
+ ],
+ "V4": [
+  {
+   "tag": "V4__draft_default",
+   "model": "gemma4:12b",
+   "num_predict": 2048,
+   "seed": 11,
+   "done_reason": "stop",
+   "eval_count": 1512,
+   "n_chunks": 1428,
+   "n_logprob_tokens": 1,
+   "tokens_per_chunk": 1.0588235294117647,
+   "throughput": 264.96286664587154,
+   "load_s": 2.84089298,
+   "wall_s": 8.629537101835012,
+   "accounting": {
+    "n_logprob_tokens": 1,
+    "eval_count": 1512,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": false,
+    "reasoning_tokens": null,
+    "answer_tokens": null,
+    "control_tokens": null,
+    "control_token_list": null,
+    "reasoning_status": "supported_but_unobserved",
+    "token_count_method": "eval_count_only",
+    "confidence": "unavailable",
+    "boundary_notes": [
+     "logprob_tokens(1)+stop(1)!=eval_count(1512)"
+    ]
+   },
+   "first_tokens": [
+    "<|channel>"
+   ],
+   "token_seq_sha": "529508043f40220b",
+   "setting": "draft_default"
+  },
+  {
+   "tag": "V4__draft_off",
+   "model": "gemma4:12b",
+   "num_predict": 2048,
+   "seed": 11,
+   "done_reason": "stop",
+   "eval_count": 1511,
+   "n_chunks": 1510,
+   "n_logprob_tokens": 1510,
+   "tokens_per_chunk": 1.0006622516556292,
+   "throughput": 127.91914494136503,
+   "load_s": 6.839176558,
+   "wall_s": 18.72199528524652,
+   "accounting": {
+    "n_logprob_tokens": 1510,
+    "eval_count": 1511,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": true,
+    "reasoning_tokens": 523,
+    "answer_tokens": 984,
+    "control_tokens": 4,
+    "control_token_list": [
+     "<|channel>",
+     "thought",
+     "<channel|>",
+     "<stop>"
+    ],
+    "reasoning_status": "supported_and_measured",
+    "token_count_method": "native_logprob_delimiter_split",
+    "confidence": "exact",
+    "boundary_notes": [],
+    "reasoning_text_matches": true,
+    "answer_text_matches": true
+   },
+   "first_tokens": [
+    "<|channel>",
+    "thought",
+    "\n",
+    "Practical"
+   ],
+   "token_seq_sha": "c81bf61b57652588",
+   "setting": "draft_off"
+  },
+  {
+   "tag": "V4__draft_default_2",
+   "model": "gemma4:12b",
+   "num_predict": 2048,
+   "seed": 11,
+   "done_reason": "stop",
+   "eval_count": 1512,
+   "n_chunks": 1428,
+   "n_logprob_tokens": 1,
+   "tokens_per_chunk": 1.0588235294117647,
+   "throughput": 265.1354277395486,
+   "load_s": 2.863754676,
+   "wall_s": 8.64773025503382,
+   "accounting": {
+    "n_logprob_tokens": 1,
+    "eval_count": 1512,
+    "done_reason": "stop",
+    "stop_token_counted": 1,
+    "reconciled": false,
+    "reasoning_tokens": null,
+    "answer_tokens": null,
+    "control_tokens": null,
+    "control_token_list": null,
+    "reasoning_status": "supported_but_unobserved",
+    "token_count_method": "eval_count_only",
+    "confidence": "unavailable",
+    "boundary_notes": [
+     "logprob_tokens(1)+stop(1)!=eval_count(1512)"
+    ]
+   },
+   "first_tokens": [
+    "<|channel>"
+   ],
+   "token_seq_sha": "529508043f40220b",
+   "setting": "draft_default_2"
+  }
+ ],
+ "V4_log_draft_lines": [
+  "Nov 08 23:08:20 hopper ollama[2041812]: time=2026-11-08T23:08:20.956-06:00 level=INFO source=llama_server.go:436 msg=\"starting llama-server\" cmd=\"/home/sandb/ollama/lib/ollama/llama-server --model /home/sandb/ollama/models/blobs/sha256-bb722270d54346adc198f213851dbe0207e87c3ecf2a0aff4d92262726215391 --port 46787 --host 127.0.0.1 --no-webui --offline -c 16384 -np 1 --log-verbosity 4 --no-log-prefix --no-log-timestamps --no-jinja --chat-template chatml --mmproj /home/sandb/ollama/models/blobs/sha256-0cb0cd0a5c499d92942caa22fe5abb98f6e8874868d590e2b094ece4ac8e6d28 --spec-type draft-mtp --spec-draft-n-max 3 --spec-draft-backend-sampling --spec-draft-model /home/sandb/ollama/models/blobs/sha256-7008a656050bed18f6741406a631e83fa75ee1a02308f2e4f40d978cfbb3ce4b --flash-attn auto -b 1024 -ub 1024 --context-shift --keep 4\"",
+  "Nov 08 23:08:21 hopper ollama[2041812]: llama_init_from_model: failed to initialize the context: Gemma4Assistant requires ctx_other to be set (this warning is normal during memory fitting)",
+  "Nov 08 23:08:22 hopper ollama[2041812]: common_speculative_init_result: loading draft model '/home/sandb/ollama/models/blobs/sha256-7008a656050bed18f6741406a631e83fa75ee1a02308f2e4f40d978cfbb3ce4b'",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv   0:                       general.architecture str              = gemma4-assistant",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv   5:                               general.name str              = Assistant",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  10:               gemma4-assistant.block_count u32              = 4",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  11:            gemma4-assistant.context_length u32              = 262144",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  12:          gemma4-assistant.embedding_length u32              = 1024",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  13:       gemma4-assistant.feed_forward_length u32              = 8192",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  14:      gemma4-assistant.attention.head_count u32              = 16",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  15:   gemma4-assistant.attention.head_count_kv arr[i32,4]       = [8, 8, 8, 1]",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  16:            gemma4-assistant.rope.freq_base f32              = 1000000.000000",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  17:        gemma4-assistant.rope.freq_base_swa f32              = 10000.000000",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  18: gemma4-assistant.attention.layer_norm_rms_epsilon f32              = 0.000001",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  19:      gemma4-assistant.attention.key_length u32              = 512",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  20:    gemma4-assistant.attention.value_length u32              = 512",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  21:  gemma4-assistant.attention.sliding_window u32              = 1024",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  22: gemma4-assistant.attention.shared_kv_layers u32              = 4",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  23: gemma4-assistant.embedding_length_per_layer_input u32              = 0",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  24: gemma4-assistant.attention.sliding_window_pattern arr[bool,4]      = [true, true, true, false]",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  25:  gemma4-assistant.attention.key_length_swa u32              = 256",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  26: gemma4-assistant.attention.value_length_swa u32              = 256",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  27:      gemma4-assistant.rope.dimension_count u32              = 512",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  28:  gemma4-assistant.rope.dimension_count_swa u32              = 256",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  29:      gemma4-assistant.embedding_length_out u32              = 3840",
+  "Nov 08 23:08:23 hopper ollama[2041812]: llama_model_loader: - kv  30:      gemma4-assistant.nextn_predict_layers u32              = 4",
+  "Nov 08 23:08:23 hopper ollama[2041812]: print_info: arch                  = gemma4-assistant",
+  "Nov 08 23:08:23 hopper ollama[2041812]: print_info: general.name          = Assistant",
+  "Nov 08 23:08:23 hopper ollama[2041812]: spec common_specu: adding speculative implementation 'draft-mtp'",
+  "Nov 08 23:08:23 hopper ollama[2041812]: You are a helpful assistant<|im_end|>",
+  "Nov 08 23:08:23 hopper ollama[2041812]: <|im_start|>assistant",
+  "Nov 08 23:08:23 hopper ollama[2041812]: <|im_start|>assistant",
+  "Nov 08 23:08:29 hopper ollama[2041812]: slot print_timing: id  0 | task 0 | draft acceptance = 0.59656 (  970 accepted /  1626 generated), mean len =  2.79",
+  "Nov 08 23:08:29 hopper ollama[2041812]: spec common_specu: statistics        draft-mtp: #calls(b,g,a) =    1    542    542, #gen drafts =    542, #acc drafts =   425, #gen tokens =   1626, #acc tokens =   970, #mean acc len = 2.79, #acc rate/pos = (0.784, 0.581, 0.424), dur(b,g,a) = 0.002, 841.516, 0.349 ms",
+  "Nov 08 23:08:36 hopper ollama[2041812]: You are a helpful assistant<|im_end|>",
+  "Nov 08 23:08:36 hopper ollama[2041812]: <|im_start|>assistant",
+  "Nov 08 23:08:36 hopper ollama[2041812]: <|im_start|>assistant",
+  "Nov 08 23:08:48 hopper ollama[2041812]: time=2026-11-08T23:08:48.592-06:00 level=INFO source=llama_server.go:436 msg=\"starting llama-server\" cmd=\"/home/sandb/ollama/lib/ollama/llama-server --model /home/sandb/ollama/models/blobs/sha256-bb722270d54346adc198f213851dbe0207e87c3ecf2a0aff4d92262726215391 --port 39497 --host 127.0.0.1 --no-webui --offline -c 16384 -np 1 --log-verbosity 4 --no-log-prefix --no-log-timestamps --no-jinja --chat-template chatml --mmproj /home/sandb/ollama/models/blobs/sha256-0cb0cd0a5c499d92942caa22fe5abb98f6e8874868d590e2b094ece4ac8e6d28 --spec-type draft-mtp --spec-draft-n-max 3 --spec-draft-backend-sampling --spec-draft-model /home/sandb/ollama/models/blobs/sha256-7008a656050bed18f6741406a631e83fa75ee1a02308f2e4f40d978cfbb3ce4b --flash-attn auto -b 1024 -ub 1024 --context-shift --keep 4\"",
+  "Nov 08 23:08:49 hopper ollama[2041812]: llama_init_from_model: failed to initialize the context: Gemma4Assistant requires ctx_other to be set (this warning is normal during memory fitting)",
+  "Nov 08 23:08:50 hopper ollama[2041812]: common_speculative_init_result: loading draft model '/home/sandb/ollama/models/blobs/sha256-7008a656050bed18f6741406a631e83fa75ee1a02308f2e4f40d978cfbb3ce4b'"
+ ],
+ "finished": "2026-11-09T05:08:56.956194+00:00"
+}

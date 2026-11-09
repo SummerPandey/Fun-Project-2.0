@@ -1,0 +1,88 @@
+{
+ "phase": "smoke_fix",
+ "benchmark_sha256": "00eb9b217c880cac7ddac938c57795f3074b7006a80c9cc1e38fd626660b35b4",
+ "created": "2026-11-09T06:04:54.276904+00:00",
+ "rng_seed": 20261108,
+ "reps": 1,
+ "n_runs": 6,
+ "blocks": [
+  {
+   "pair_id": "gemma4",
+   "task_id": "E07",
+   "worker_id": "C",
+   "runs": [
+    {
+     "run_id": "smoke_fix__C__E07_v0_original__r1",
+     "prompt_id": "E07_v0_original",
+     "repetition": 1,
+     "seed": 1662105740
+    }
+   ]
+  },
+  {
+   "pair_id": "gemma4",
+   "task_id": "E07",
+   "worker_id": "D",
+   "runs": [
+    {
+     "run_id": "smoke_fix__D__E07_v0_original__r1",
+     "prompt_id": "E07_v0_original",
+     "repetition": 1,
+     "seed": 1662105740
+    }
+   ]
+  },
+  {
+   "pair_id": "qwen35",
+   "task_id": "E07",
+   "worker_id": "E",
+   "runs": [
+    {
+     "run_id": "smoke_fix__E__E07_v0_original__r1",
+     "prompt_id": "E07_v0_original",
+     "repetition": 1,
+     "seed": 1662105740
+    }
+   ]
+  },
+  {
+   "pair_id": "qwen35",
+   "task_id": "E07",
+   "worker_id": "F",
+   "runs": [
+    {
+     "run_id": "smoke_fix__F__E07_v0_original__r1",
+     "prompt_id": "E07_v0_original",
+     "repetition": 1,
+     "seed": 1662105740
+    }
+   ]
+  },
+  {
+   "pair_id": "llama31",
+   "task_id": "E07",
+   "worker_id": "A",
+   "runs": [
+    {
+     "run_id": "smoke_fix__A__E07_v0_original__r1",
+     "prompt_id": "E07_v0_original",
+     "repetition": 1,
+     "seed": 1662105740
+    }
+   ]
+  },
+  {
+   "pair_id": "llama31",
+   "task_id": "E07",
+   "worker_id": "B",
+   "runs": [
+    {
+     "run_id": "smoke_fix__B__E07_v0_original__r1",
+     "prompt_id": "E07_v0_original",
+     "repetition": 1,
+     "seed": 1662105740
+    }
+   ]
+  }
+ ]
+}
