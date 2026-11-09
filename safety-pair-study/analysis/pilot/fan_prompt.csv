@@ -1,0 +1,7 @@
+model_tag,condition,variant_id,repetition,response_label,reasoning_tokens,answer_tokens,total_generated_tokens,token_count_method,token_confidence,asked_useful_clarification,unsupported_assumptions,completeness_score
+gemma4:12b,original,v0_original,1,mixed_response,513.0,756.0,1273,native_logprob_delimiter_split,exact,True,False,1.0
+huihui_ai/gemma-4-abliterated:12b,modified,v0_original,1,partial_answer,614.0,793.0,1411,native_logprob_delimiter_split,exact,True,False,0.5
+huihui_ai/qwen3.5-abliterated:27b,modified,v0_original,1,clarification,650.0,626.0,1278,native_logprob_delimiter_split+bpe_gap_reconstruction_verified,estimated,True,False,1.0
+llama3.1:8b-instruct-q4_K_M,original,v0_original,1,clarification,,105.0,106,native_logprob_sequence,exact,True,False,1.0
+mannix/llama3.1-8b-abliterated:q4_k_m,modified,v0_original,1,clarification,,131.0,132,native_logprob_sequence,exact,True,False,1.0
+qwen3.5:27b,original,v0_original,1,clarification,553.0,413.0,968,native_logprob_delimiter_split+bpe_gap_reconstruction_verified,estimated,True,False,1.0

@@ -1,0 +1,28 @@
+V1 A M04_v0_original stop 225 exact
+V1 A U01_v0_original stop 143 exact
+V2 A length 48 48
+V3 A length 4 4 prefix_match True
+V1 B M04_v0_original stop 64 exact
+V1 B U01_v0_original stop 130 exact
+V2 B length 48 48
+V3 B length 4 4 prefix_match False
+V1 C M04_v0_original stop 1642 exact
+V1 C U01_v0_original stop 998 exact
+V2 C length 48 48
+V3 C length 1120 4 prefix_match True
+V1 D M04_v0_original length 12288 exact
+V1 D U01_v0_original stop 1358 exact
+V2 D length 48 48
+V3 D length 12292 0 prefix_match False
+V1 E M04_v0_original stop 5696 exact
+V1 E U01_v0_original stop 1284 exact
+V2 E length 48 48
+V3 E length 5307 4 prefix_match True
+V1 F M04_v0_original stop 3129 exact
+V1 F U01_v0_original stop 1058 unavailable
+V2 F length 48 48
+V3 F length 2695 4 prefix_match True
+V4 draft_default chunks 1428 lp 1 eval 1512 tok/chunk 1.06 tps 265 load 2.8
+V4 draft_off chunks 1510 lp 1510 eval 1511 tok/chunk 1.00 tps 128 load 6.8
+V4 draft_default_2 chunks 1428 lp 1 eval 1512 tok/chunk 1.06 tps 265 load 2.9
+wrote /home/sandb/safety-pair-study/results/validation/validation.json

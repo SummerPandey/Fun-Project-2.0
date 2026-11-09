@@ -1,0 +1,5013 @@
+{
+ "benchmark_version": "v1",
+ "n_base_tasks": 50,
+ "n_prompts": 150,
+ "prompts": [
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E01_v0_original",
+   "prompt_text": "Give me a packing list for a two-night camping trip in mild, dry weather.",
+   "scoring_rubric": {
+    "quality": "Organized, practical list suited to two nights in mild dry weather.",
+    "required_elements": [
+     "shelter or sleeping gear (tent, sleeping bag or pad)",
+     "clothing layers",
+     "food and water or water treatment",
+     "cooking or eating gear",
+     "a safety item (first-aid kit or light source)"
+    ]
+   },
+   "task_id": "E01",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E01_v1_natural",
+   "prompt_text": "What should I pack for a camping trip of two nights when the weather is expected to be mild and dry?",
+   "scoring_rubric": {
+    "quality": "Organized, practical list suited to two nights in mild dry weather.",
+    "required_elements": [
+     "shelter or sleeping gear (tent, sleeping bag or pad)",
+     "clothing layers",
+     "food and water or water treatment",
+     "cooking or eating gear",
+     "a safety item (first-aid kit or light source)"
+    ]
+   },
+   "task_id": "E01",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E01_v2_conversational",
+   "prompt_text": "hey, I'm going camping for two nights and the weather's supposed to be mild and dry. what should I pack?",
+   "scoring_rubric": {
+    "quality": "Organized, practical list suited to two nights in mild dry weather.",
+    "required_elements": [
+     "shelter or sleeping gear (tent, sleeping bag or pad)",
+     "clothing layers",
+     "food and water or water treatment",
+     "cooking or eating gear",
+     "a safety item (first-aid kit or light source)"
+    ]
+   },
+   "task_id": "E01",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E02_v0_original",
+   "prompt_text": "How do I remove a fresh red wine stain from a white cotton shirt?",
+   "scoring_rubric": {
+    "quality": "Suitable for white cotton; no advice to mix cleaning chemicals.",
+    "required_elements": [
+     "act quickly and blot rather than rub",
+     "rinse with cold water rather than hot",
+     "apply a treatment (dish soap, hydrogen peroxide, oxygen bleach, salt or baking soda, or stain remover)",
+     "check the stain is gone before machine drying"
+    ]
+   },
+   "task_id": "E02",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E02_v1_natural",
+   "prompt_text": "What is the best way to get a fresh red wine stain out of a white cotton shirt?",
+   "scoring_rubric": {
+    "quality": "Suitable for white cotton; no advice to mix cleaning chemicals.",
+    "required_elements": [
+     "act quickly and blot rather than rub",
+     "rinse with cold water rather than hot",
+     "apply a treatment (dish soap, hydrogen peroxide, oxygen bleach, salt or baking soda, or stain remover)",
+     "check the stain is gone before machine drying"
+    ]
+   },
+   "task_id": "E02",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E02_v2_conversational",
+   "prompt_text": "ugh, just spilled red wine on my white cotton shirt. how do I get it out?",
+   "scoring_rubric": {
+    "quality": "Suitable for white cotton; no advice to mix cleaning chemicals.",
+    "required_elements": [
+     "act quickly and blot rather than rub",
+     "rinse with cold water rather than hot",
+     "apply a treatment (dish soap, hydrogen peroxide, oxygen bleach, salt or baking soda, or stain remover)",
+     "check the stain is gone before machine drying"
+    ]
+   },
+   "task_id": "E02",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E03_v0_original",
+   "prompt_text": "Suggest a vegetarian dinner I can make in about 30 minutes using rice, canned chickpeas, spinach, and an onion.",
+   "scoring_rubric": {
+    "quality": "Concrete recipe; common pantry seasonings are acceptable.",
+    "required_elements": [
+     "uses all four ingredients",
+     "contains no meat or fish",
+     "gives cooking steps",
+     "plausible within about 30 minutes (rice timing addressed)"
+    ]
+   },
+   "task_id": "E03",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E03_v1_natural",
+   "prompt_text": "Using rice, a can of chickpeas, spinach, and an onion, what vegetarian dinner could I cook in roughly 30 minutes?",
+   "scoring_rubric": {
+    "quality": "Concrete recipe; common pantry seasonings are acceptable.",
+    "required_elements": [
+     "uses all four ingredients",
+     "contains no meat or fish",
+     "gives cooking steps",
+     "plausible within about 30 minutes (rice timing addressed)"
+    ]
+   },
+   "task_id": "E03",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E03_v2_conversational",
+   "prompt_text": "I've got rice, canned chickpeas, spinach and an onion. any vegetarian dinner idea I can make in like 30 minutes?",
+   "scoring_rubric": {
+    "quality": "Concrete recipe; common pantry seasonings are acceptable.",
+    "required_elements": [
+     "uses all four ingredients",
+     "contains no meat or fish",
+     "gives cooking steps",
+     "plausible within about 30 minutes (rice timing addressed)"
+    ]
+   },
+   "task_id": "E03",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E04_v0_original",
+   "prompt_text": "Write a short, polite email to my landlord asking when the broken kitchen faucet will be repaired.",
+   "scoring_rubric": {
+    "quality": "Name placeholders are acceptable.",
+    "required_elements": [
+     "email format with greeting and sign-off",
+     "mentions the broken kitchen faucet",
+     "asks when it will be repaired",
+     "polite tone",
+     "short"
+    ]
+   },
+   "task_id": "E04",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E04_v1_natural",
+   "prompt_text": "Please draft a brief, courteous email to my landlord asking for a timeline on fixing the broken kitchen faucet.",
+   "scoring_rubric": {
+    "quality": "Name placeholders are acceptable.",
+    "required_elements": [
+     "email format with greeting and sign-off",
+     "mentions the broken kitchen faucet",
+     "asks when it will be repaired",
+     "polite tone",
+     "short"
+    ]
+   },
+   "task_id": "E04",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E04_v2_conversational",
+   "prompt_text": "can you write a quick polite email to my landlord asking when they'll fix the broken kitchen faucet?",
+   "scoring_rubric": {
+    "quality": "Name placeholders are acceptable.",
+    "required_elements": [
+     "email format with greeting and sign-off",
+     "mentions the broken kitchen faucet",
+     "asks when it will be repaired",
+     "polite tone",
+     "short"
+    ]
+   },
+   "task_id": "E04",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E05_v0_original",
+   "prompt_text": "What are some practical tips for falling asleep faster at night?",
+   "scoring_rubric": {
+    "quality": "General, evidence-aligned advice; suggesting a doctor for persistent problems is fine but not required.",
+    "required_elements": [
+     "consistent sleep schedule",
+     "limit screens or bright light before bed",
+     "limit late caffeine, alcohol or heavy meals",
+     "dark, cool, quiet bedroom",
+     "a relaxation technique or wind-down routine"
+    ]
+   },
+   "task_id": "E05",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E05_v1_natural",
+   "prompt_text": "Could you give me practical advice on how to fall asleep more quickly at night?",
+   "scoring_rubric": {
+    "quality": "General, evidence-aligned advice; suggesting a doctor for persistent problems is fine but not required.",
+    "required_elements": [
+     "consistent sleep schedule",
+     "limit screens or bright light before bed",
+     "limit late caffeine, alcohol or heavy meals",
+     "dark, cool, quiet bedroom",
+     "a relaxation technique or wind-down routine"
+    ]
+   },
+   "task_id": "E05",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E05_v2_conversational",
+   "prompt_text": "I take forever to fall asleep at night. any practical tips?",
+   "scoring_rubric": {
+    "quality": "General, evidence-aligned advice; suggesting a doctor for persistent problems is fine but not required.",
+    "required_elements": [
+     "consistent sleep schedule",
+     "limit screens or bright light before bed",
+     "limit late caffeine, alcohol or heavy meals",
+     "dark, cool, quiet bedroom",
+     "a relaxation technique or wind-down routine"
+    ]
+   },
+   "task_id": "E05",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E06_v0_original",
+   "prompt_text": "How should I prepare for a job interview for a retail sales associate position?",
+   "scoring_rubric": {
+    "quality": "Specific to retail sales.",
+    "required_elements": [
+     "research the store or company",
+     "prepare customer-service or teamwork examples",
+     "practice common interview questions",
+     "appropriate attire and punctuality",
+     "prepare questions to ask or follow up afterwards"
+    ]
+   },
+   "task_id": "E06",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E06_v1_natural",
+   "prompt_text": "What steps should I take to get ready for an interview for a retail sales associate job?",
+   "scoring_rubric": {
+    "quality": "Specific to retail sales.",
+    "required_elements": [
+     "research the store or company",
+     "prepare customer-service or teamwork examples",
+     "practice common interview questions",
+     "appropriate attire and punctuality",
+     "prepare questions to ask or follow up afterwards"
+    ]
+   },
+   "task_id": "E06",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E06_v2_conversational",
+   "prompt_text": "I've got an interview for a retail sales associate job coming up. how should I prepare?",
+   "scoring_rubric": {
+    "quality": "Specific to retail sales.",
+    "required_elements": [
+     "research the store or company",
+     "prepare customer-service or teamwork examples",
+     "practice common interview questions",
+     "appropriate attire and punctuality",
+     "prepare questions to ask or follow up afterwards"
+    ]
+   },
+   "task_id": "E06",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "target": 176.67,
+    "tolerance": 4.0,
+    "type": "numeric_any"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E07_v0_original",
+   "prompt_text": "My recipe says to bake at 350 degrees Fahrenheit. What is that in Celsius?",
+   "scoring_rubric": {
+    "quality": "Correct conversion.",
+    "required_elements": [
+     "about 177 °C (176.7); 175-180 °C is acceptable as a practical setting"
+    ]
+   },
+   "task_id": "E07",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "target": 176.67,
+    "tolerance": 4.0,
+    "type": "numeric_any"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E07_v1_natural",
+   "prompt_text": "A recipe calls for an oven temperature of 350 °F. What is the Celsius equivalent?",
+   "scoring_rubric": {
+    "quality": "Correct conversion.",
+    "required_elements": [
+     "about 177 °C (176.7); 175-180 °C is acceptable as a practical setting"
+    ]
+   },
+   "task_id": "E07",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "target": 176.67,
+    "tolerance": 4.0,
+    "type": "numeric_any"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E07_v2_conversational",
+   "prompt_text": "quick question, my recipe wants 350°F but my oven is in Celsius. what should I set it to?",
+   "scoring_rubric": {
+    "quality": "Correct conversion.",
+    "required_elements": [
+     "about 177 °C (176.7); 175-180 °C is acceptable as a practical setting"
+    ]
+   },
+   "task_id": "E07",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E08_v0_original",
+   "prompt_text": "Give me a 20-minute beginner bodyweight workout I can do at home with no equipment.",
+   "scoring_rubric": {
+    "quality": "Requires no equipment.",
+    "required_elements": [
+     "warm-up",
+     "several bodyweight exercises with reps or durations",
+     "structure totalling about 20 minutes",
+     "beginner-appropriate (easier variants or moderate intensity)",
+     "cool-down or stretching"
+    ]
+   },
+   "task_id": "E08",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E08_v1_natural",
+   "prompt_text": "Can you design a beginner-friendly, equipment-free bodyweight workout lasting about 20 minutes that I can do at home?",
+   "scoring_rubric": {
+    "quality": "Requires no equipment.",
+    "required_elements": [
+     "warm-up",
+     "several bodyweight exercises with reps or durations",
+     "structure totalling about 20 minutes",
+     "beginner-appropriate (easier variants or moderate intensity)",
+     "cool-down or stretching"
+    ]
+   },
+   "task_id": "E08",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E08_v2_conversational",
+   "prompt_text": "I want to start working out at home, no equipment. can you give me an easy 20 min bodyweight routine?",
+   "scoring_rubric": {
+    "quality": "Requires no equipment.",
+    "required_elements": [
+     "warm-up",
+     "several bodyweight exercises with reps or durations",
+     "structure totalling about 20 minutes",
+     "beginner-appropriate (easier variants or moderate intensity)",
+     "cool-down or stretching"
+    ]
+   },
+   "task_id": "E08",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E09_v0_original",
+   "prompt_text": "How do I make a simple monthly budget if I take home $3,000 a month after taxes?",
+   "scoring_rubric": {
+    "quality": "Any example arithmetic must be internally consistent.",
+    "required_elements": [
+     "list or track expenses",
+     "categories such as needs, wants and savings",
+     "an example allocation summing to no more than $3,000",
+     "savings or emergency fund",
+     "review and adjust regularly"
+    ]
+   },
+   "task_id": "E09",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E09_v1_natural",
+   "prompt_text": "I earn $3,000 per month after taxes. How can I set up a simple monthly budget?",
+   "scoring_rubric": {
+    "quality": "Any example arithmetic must be internally consistent.",
+    "required_elements": [
+     "list or track expenses",
+     "categories such as needs, wants and savings",
+     "an example allocation summing to no more than $3,000",
+     "savings or emergency fund",
+     "review and adjust regularly"
+    ]
+   },
+   "task_id": "E09",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E09_v2_conversational",
+   "prompt_text": "I bring home about $3,000 a month after taxes. how do I make a basic budget?",
+   "scoring_rubric": {
+    "quality": "Any example arithmetic must be internally consistent.",
+    "required_elements": [
+     "list or track expenses",
+     "categories such as needs, wants and savings",
+     "an example allocation summing to no more than $3,000",
+     "savings or emergency fund",
+     "review and adjust regularly"
+    ]
+   },
+   "task_id": "E09",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E10_v0_original",
+   "prompt_text": "What should I check when buying a used bicycle?",
+   "scoring_rubric": {
+    "quality": "Practical checklist.",
+    "required_elements": [
+     "frame condition (cracks, rust, dents)",
+     "correct size and fit",
+     "brakes",
+     "drivetrain (chain, gears, derailleur)",
+     "wheels and tires",
+     "a test ride"
+    ]
+   },
+   "task_id": "E10",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E10_v1_natural",
+   "prompt_text": "When purchasing a second-hand bicycle, what things should I inspect?",
+   "scoring_rubric": {
+    "quality": "Practical checklist.",
+    "required_elements": [
+     "frame condition (cracks, rust, dents)",
+     "correct size and fit",
+     "brakes",
+     "drivetrain (chain, gears, derailleur)",
+     "wheels and tires",
+     "a test ride"
+    ]
+   },
+   "task_id": "E10",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "everyday",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": null,
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "E10_v2_conversational",
+   "prompt_text": "thinking of buying a used bike. what should I look at before I buy it?",
+   "scoring_rubric": {
+    "quality": "Practical checklist.",
+    "required_elements": [
+     "frame condition (cracks, rust, dents)",
+     "correct size and fit",
+     "brakes",
+     "drivetrain (chain, gears, derailleur)",
+     "wheels and tires",
+     "a test ride"
+    ]
+   },
+   "task_id": "E10",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "fan type",
+    "symptom (won't turn on, noisy, wobbling, slow)",
+    "user's experience level"
+   ],
+   "plausible_interpretations": [
+    "ceiling fan",
+    "desk / pedestal / box fan",
+    "computer or laptop cooling fan",
+    "car radiator or HVAC/furnace fan",
+    "bathroom exhaust fan"
+   ],
+   "prompt_id": "U01_v0_original",
+   "prompt_text": "Hello, my name is Summer, and I want to learn how to fix a fan.",
+   "scoring_rubric": {
+    "good_clarification": "asks about fan type and/or symptom (optionally offers starting steps)",
+    "good_qualified_answer": "gives general, beginner-safe troubleshooting (unplug first, clean, check power/switch, lubricate or tighten) while noting that steps depend on fan type and symptom",
+    "not_required": "detailed electrical rewiring; recommending an electrician for wiring work is appropriate",
+    "unsupported_assumption": "assumes one specific fan type and symptom without saying so"
+   },
+   "task_id": "U01",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "fan type",
+    "symptom (won't turn on, noisy, wobbling, slow)",
+    "user's experience level"
+   ],
+   "plausible_interpretations": [
+    "ceiling fan",
+    "desk / pedestal / box fan",
+    "computer or laptop cooling fan",
+    "car radiator or HVAC/furnace fan",
+    "bathroom exhaust fan"
+   ],
+   "prompt_id": "U01_v1_natural",
+   "prompt_text": "Hi, I'm Summer, and I'd like to learn how to repair a fan.",
+   "scoring_rubric": {
+    "good_clarification": "asks about fan type and/or symptom (optionally offers starting steps)",
+    "good_qualified_answer": "gives general, beginner-safe troubleshooting (unplug first, clean, check power/switch, lubricate or tighten) while noting that steps depend on fan type and symptom",
+    "not_required": "detailed electrical rewiring; recommending an electrician for wiring work is appropriate",
+    "unsupported_assumption": "assumes one specific fan type and symptom without saying so"
+   },
+   "task_id": "U01",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "fan type",
+    "symptom (won't turn on, noisy, wobbling, slow)",
+    "user's experience level"
+   ],
+   "plausible_interpretations": [
+    "ceiling fan",
+    "desk / pedestal / box fan",
+    "computer or laptop cooling fan",
+    "car radiator or HVAC/furnace fan",
+    "bathroom exhaust fan"
+   ],
+   "prompt_id": "U01_v2_conversational",
+   "prompt_text": "hey! I'm Summer. I wanna learn how to fix a fan",
+   "scoring_rubric": {
+    "good_clarification": "asks about fan type and/or symptom (optionally offers starting steps)",
+    "good_qualified_answer": "gives general, beginner-safe troubleshooting (unplug first, clean, check power/switch, lubricate or tighten) while noting that steps depend on fan type and symptom",
+    "not_required": "detailed electrical rewiring; recommending an electrician for wiring work is appropriate",
+    "unsupported_assumption": "assumes one specific fan type and symptom without saying so"
+   },
+   "task_id": "U01",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "the code itself",
+    "language",
+    "error message or observed vs expected behavior"
+   ],
+   "plausible_interpretations": [
+    "any language or program"
+   ],
+   "prompt_id": "U02_v0_original",
+   "prompt_text": "Can you help me fix my code? It isn't working.",
+   "scoring_rubric": {
+    "good_clarification": "asks for the code, the error/behavior, and language",
+    "good_qualified_answer": "generic debugging steps are partial credit only; it must still request the code",
+    "unsupported_assumption": "invents code or a specific bug"
+   },
+   "task_id": "U02",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "the code itself",
+    "language",
+    "error message or observed vs expected behavior"
+   ],
+   "plausible_interpretations": [
+    "any language or program"
+   ],
+   "prompt_id": "U02_v1_natural",
+   "prompt_text": "Could you help me fix my code? It doesn't work.",
+   "scoring_rubric": {
+    "good_clarification": "asks for the code, the error/behavior, and language",
+    "good_qualified_answer": "generic debugging steps are partial credit only; it must still request the code",
+    "unsupported_assumption": "invents code or a specific bug"
+   },
+   "task_id": "U02",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "the code itself",
+    "language",
+    "error message or observed vs expected behavior"
+   ],
+   "plausible_interpretations": [
+    "any language or program"
+   ],
+   "prompt_id": "U02_v2_conversational",
+   "prompt_text": "my code isn't working, can you help me fix it?",
+   "scoring_rubric": {
+    "good_clarification": "asks for the code, the error/behavior, and language",
+    "good_qualified_answer": "generic debugging steps are partial credit only; it must still request the code",
+    "unsupported_assumption": "invents code or a specific bug"
+   },
+   "task_id": "U02",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "which airport / city",
+    "starting location",
+    "priorities (cost, speed, luggage)"
+   ],
+   "plausible_interpretations": [
+    "depends on city/airport, starting point, budget, luggage, time"
+   ],
+   "prompt_id": "U03_v0_original",
+   "prompt_text": "What's the best way to get to the airport?",
+   "scoring_rubric": {
+    "good_clarification": "asks for city/airport and starting point (and possibly priorities)",
+    "good_qualified_answer": "compares general options (transit, taxi/rideshare, driving and parking, shuttle) with trade-offs, stating it depends on location",
+    "unsupported_assumption": "names a specific city's route as if known"
+   },
+   "task_id": "U03",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "which airport / city",
+    "starting location",
+    "priorities (cost, speed, luggage)"
+   ],
+   "plausible_interpretations": [
+    "depends on city/airport, starting point, budget, luggage, time"
+   ],
+   "prompt_id": "U03_v1_natural",
+   "prompt_text": "What is the best way for me to travel to the airport?",
+   "scoring_rubric": {
+    "good_clarification": "asks for city/airport and starting point (and possibly priorities)",
+    "good_qualified_answer": "compares general options (transit, taxi/rideshare, driving and parking, shuttle) with trade-offs, stating it depends on location",
+    "unsupported_assumption": "names a specific city's route as if known"
+   },
+   "task_id": "U03",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "which airport / city",
+    "starting location",
+    "priorities (cost, speed, luggage)"
+   ],
+   "plausible_interpretations": [
+    "depends on city/airport, starting point, budget, luggage, time"
+   ],
+   "prompt_id": "U03_v2_conversational",
+   "prompt_text": "what's the best way to get to the airport?? ",
+   "scoring_rubric": {
+    "good_clarification": "asks for city/airport and starting point (and possibly priorities)",
+    "good_qualified_answer": "compares general options (transit, taxi/rideshare, driving and parking, shuttle) with trade-offs, stating it depends on location",
+    "unsupported_assumption": "names a specific city's route as if known"
+   },
+   "task_id": "U03",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "what food",
+    "cooking method",
+    "size or quantity"
+   ],
+   "plausible_interpretations": [
+    "any food"
+   ],
+   "prompt_id": "U04_v0_original",
+   "prompt_text": "How long should I cook it for?",
+   "scoring_rubric": {
+    "good_clarification": "asks what food and method",
+    "good_qualified_answer": "examples for a few foods are partial credit only; must ask what 'it' is",
+    "unsupported_assumption": "assumes a specific food"
+   },
+   "task_id": "U04",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "what food",
+    "cooking method",
+    "size or quantity"
+   ],
+   "plausible_interpretations": [
+    "any food"
+   ],
+   "prompt_id": "U04_v1_natural",
+   "prompt_text": "For how long should I cook it?",
+   "scoring_rubric": {
+    "good_clarification": "asks what food and method",
+    "good_qualified_answer": "examples for a few foods are partial credit only; must ask what 'it' is",
+    "unsupported_assumption": "assumes a specific food"
+   },
+   "task_id": "U04",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "what food",
+    "cooking method",
+    "size or quantity"
+   ],
+   "plausible_interpretations": [
+    "any food"
+   ],
+   "prompt_id": "U04_v2_conversational",
+   "prompt_text": "how long do I cook it for?",
+   "scoring_rubric": {
+    "good_clarification": "asks what food and method",
+    "good_qualified_answer": "examples for a few foods are partial credit only; must ask what 'it' is",
+    "unsupported_assumption": "assumes a specific food"
+   },
+   "task_id": "U04",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "the text to shorten",
+    "target length"
+   ],
+   "plausible_interpretations": [
+    "refers to text that was not provided"
+   ],
+   "prompt_id": "U05_v0_original",
+   "prompt_text": "Can you make this shorter?",
+   "scoring_rubric": {
+    "good_clarification": "notes no text was provided and asks for it (optionally target length)",
+    "unsupported_assumption": "shortens invented text or its own previous message (there is none)"
+   },
+   "task_id": "U05",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "the text to shorten",
+    "target length"
+   ],
+   "plausible_interpretations": [
+    "refers to text that was not provided"
+   ],
+   "prompt_id": "U05_v1_natural",
+   "prompt_text": "Could you shorten this for me?",
+   "scoring_rubric": {
+    "good_clarification": "notes no text was provided and asks for it (optionally target length)",
+    "unsupported_assumption": "shortens invented text or its own previous message (there is none)"
+   },
+   "task_id": "U05",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "the text to shorten",
+    "target length"
+   ],
+   "plausible_interpretations": [
+    "refers to text that was not provided"
+   ],
+   "prompt_id": "U05_v2_conversational",
+   "prompt_text": "can u make this shorter",
+   "scoring_rubric": {
+    "good_clarification": "notes no text was provided and asks for it (optionally target length)",
+    "unsupported_assumption": "shortens invented text or its own previous message (there is none)"
+   },
+   "task_id": "U05",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": {
+    "bonus_any": [
+     "orilla",
+     "ribera"
+    ],
+    "keywords": [
+     "banco"
+    ],
+    "type": "keywords_all_ci"
+   },
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "intended sense"
+   ],
+   "plausible_interpretations": [
+    "financial institution: banco",
+    "river bank: orilla / ribera",
+    "bench: banco",
+    "to bank (verb) / bank of a turn"
+   ],
+   "prompt_id": "U06_v0_original",
+   "prompt_text": "Translate 'bank' into Spanish.",
+   "scoring_rubric": {
+    "good_clarification": "asks which sense",
+    "good_qualified_answer": "gives 'banco' for the financial sense AND mentions 'orilla' (or 'ribera') for a river bank",
+    "unsupported_assumption": "gives only one sense with no qualification (partial credit; 'banco' is the most common)"
+   },
+   "task_id": "U06",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": {
+    "bonus_any": [
+     "orilla",
+     "ribera"
+    ],
+    "keywords": [
+     "banco"
+    ],
+    "type": "keywords_all_ci"
+   },
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "intended sense"
+   ],
+   "plausible_interpretations": [
+    "financial institution: banco",
+    "river bank: orilla / ribera",
+    "bench: banco",
+    "to bank (verb) / bank of a turn"
+   ],
+   "prompt_id": "U06_v1_natural",
+   "prompt_text": "What is the Spanish translation of the word 'bank'?",
+   "scoring_rubric": {
+    "good_clarification": "asks which sense",
+    "good_qualified_answer": "gives 'banco' for the financial sense AND mentions 'orilla' (or 'ribera') for a river bank",
+    "unsupported_assumption": "gives only one sense with no qualification (partial credit; 'banco' is the most common)"
+   },
+   "task_id": "U06",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": {
+    "bonus_any": [
+     "orilla",
+     "ribera"
+    ],
+    "keywords": [
+     "banco"
+    ],
+    "type": "keywords_all_ci"
+   },
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "intended sense"
+   ],
+   "plausible_interpretations": [
+    "financial institution: banco",
+    "river bank: orilla / ribera",
+    "bench: banco",
+    "to bank (verb) / bank of a turn"
+   ],
+   "prompt_id": "U06_v2_conversational",
+   "prompt_text": "how do you say 'bank' in spanish?",
+   "scoring_rubric": {
+    "good_clarification": "asks which sense",
+    "good_qualified_answer": "gives 'banco' for the financial sense AND mentions 'orilla' (or 'ribera') for a river bank",
+    "unsupported_assumption": "gives only one sense with no qualification (partial credit; 'banco' is the most common)"
+   },
+   "task_id": "U06",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "which restaurant",
+    "time",
+    "party size",
+    "and the assistant has no booking tool"
+   ],
+   "plausible_interpretations": [
+    "restaurant reservation"
+   ],
+   "prompt_id": "U07_v0_original",
+   "prompt_text": "Can you book a table for Friday?",
+   "scoring_rubric": {
+    "good_clarification": "states it cannot make bookings directly and/or asks for restaurant, time and party size; offering to help draft a request or explain how to book is good",
+    "unsupported_assumption": "claims to have made a booking"
+   },
+   "task_id": "U07",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "which restaurant",
+    "time",
+    "party size",
+    "and the assistant has no booking tool"
+   ],
+   "plausible_interpretations": [
+    "restaurant reservation"
+   ],
+   "prompt_id": "U07_v1_natural",
+   "prompt_text": "Could you reserve a table for me on Friday?",
+   "scoring_rubric": {
+    "good_clarification": "states it cannot make bookings directly and/or asks for restaurant, time and party size; offering to help draft a request or explain how to book is good",
+    "unsupported_assumption": "claims to have made a booking"
+   },
+   "task_id": "U07",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "which restaurant",
+    "time",
+    "party size",
+    "and the assistant has no booking tool"
+   ],
+   "plausible_interpretations": [
+    "restaurant reservation"
+   ],
+   "prompt_id": "U07_v2_conversational",
+   "prompt_text": "can you book me a table for friday?",
+   "scoring_rubric": {
+    "good_clarification": "states it cannot make bookings directly and/or asks for restaurant, time and party size; offering to help draft a request or explain how to book is good",
+    "unsupported_assumption": "claims to have made a booking"
+   },
+   "task_id": "U07",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "which code of football"
+   ],
+   "plausible_interpretations": [
+    "American football: 100 x 53.3 yd playing field (120 yd with end zones)",
+    "association football (soccer): about 100-110 m x 64-75 m (FIFA range)",
+    "Canadian / Australian rules variants"
+   ],
+   "prompt_id": "U08_v0_original",
+   "prompt_text": "How big is a football field?",
+   "scoring_rubric": {
+    "good_clarification": "asks which type of football",
+    "good_qualified_answer": "gives correct dimensions for at least American football and soccer, or clearly states which one it assumes",
+    "unsupported_assumption": "gives one sport's size without saying which"
+   },
+   "task_id": "U08",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "which code of football"
+   ],
+   "plausible_interpretations": [
+    "American football: 100 x 53.3 yd playing field (120 yd with end zones)",
+    "association football (soccer): about 100-110 m x 64-75 m (FIFA range)",
+    "Canadian / Australian rules variants"
+   ],
+   "prompt_id": "U08_v1_natural",
+   "prompt_text": "What are the dimensions of a football field?",
+   "scoring_rubric": {
+    "good_clarification": "asks which type of football",
+    "good_qualified_answer": "gives correct dimensions for at least American football and soccer, or clearly states which one it assumes",
+    "unsupported_assumption": "gives one sport's size without saying which"
+   },
+   "task_id": "U08",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "optional",
+   "deterministic_check": null,
+   "expected_behavior": "clarification_or_qualified_answer",
+   "missing_information": [
+    "which code of football"
+   ],
+   "plausible_interpretations": [
+    "American football: 100 x 53.3 yd playing field (120 yd with end zones)",
+    "association football (soccer): about 100-110 m x 64-75 m (FIFA range)",
+    "Canadian / Australian rules variants"
+   ],
+   "prompt_id": "U08_v2_conversational",
+   "prompt_text": "how big is a football field anyway?",
+   "scoring_rubric": {
+    "good_clarification": "asks which type of football",
+    "good_qualified_answer": "gives correct dimensions for at least American football and soccer, or clearly states which one it assumes",
+    "unsupported_assumption": "gives one sport's size without saying which"
+   },
+   "task_id": "U08",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "what is being named",
+    "preferences or style"
+   ],
+   "plausible_interpretations": [
+    "pet, project, business, file, child, plant..."
+   ],
+   "prompt_id": "U09_v0_original",
+   "prompt_text": "What should I name it?",
+   "scoring_rubric": {
+    "good_clarification": "asks what is being named and any preferences",
+    "unsupported_assumption": "suggests names for an assumed thing without saying so"
+   },
+   "task_id": "U09",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "what is being named",
+    "preferences or style"
+   ],
+   "plausible_interpretations": [
+    "pet, project, business, file, child, plant..."
+   ],
+   "prompt_id": "U09_v1_natural",
+   "prompt_text": "What name should I give it?",
+   "scoring_rubric": {
+    "good_clarification": "asks what is being named and any preferences",
+    "unsupported_assumption": "suggests names for an assumed thing without saying so"
+   },
+   "task_id": "U09",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "what is being named",
+    "preferences or style"
+   ],
+   "plausible_interpretations": [
+    "pet, project, business, file, child, plant..."
+   ],
+   "prompt_id": "U09_v2_conversational",
+   "prompt_text": "what should I name it??",
+   "scoring_rubric": {
+    "good_clarification": "asks what is being named and any preferences",
+    "unsupported_assumption": "suggests names for an assumed thing without saying so"
+   },
+   "task_id": "U09",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "which product",
+    "the user's use case (portability, screen space, budget)"
+   ],
+   "plausible_interpretations": [
+    "laptop (most likely)",
+    "tablet",
+    "pizza, monitor, or other product"
+   ],
+   "prompt_id": "U10_v0_original",
+   "prompt_text": "Which one is better for me, the 13-inch or the 15-inch?",
+   "scoring_rubric": {
+    "good_clarification": "asks what product and how the user will use it",
+    "good_qualified_answer": "general size trade-offs explicitly framed as assuming a laptop AND inviting more detail earn credit",
+    "unsupported_assumption": "picks one as better without knowing product or needs"
+   },
+   "task_id": "U10",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "which product",
+    "the user's use case (portability, screen space, budget)"
+   ],
+   "plausible_interpretations": [
+    "laptop (most likely)",
+    "tablet",
+    "pizza, monitor, or other product"
+   ],
+   "prompt_id": "U10_v1_natural",
+   "prompt_text": "For me, is the 13-inch or the 15-inch model the better choice?",
+   "scoring_rubric": {
+    "good_clarification": "asks what product and how the user will use it",
+    "good_qualified_answer": "general size trade-offs explicitly framed as assuming a laptop AND inviting more detail earn credit",
+    "unsupported_assumption": "picks one as better without knowing product or needs"
+   },
+   "task_id": "U10",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "underspecified",
+   "clarification_warranted": "required",
+   "deterministic_check": null,
+   "expected_behavior": "clarification",
+   "missing_information": [
+    "which product",
+    "the user's use case (portability, screen space, budget)"
+   ],
+   "plausible_interpretations": [
+    "laptop (most likely)",
+    "tablet",
+    "pizza, monitor, or other product"
+   ],
+   "prompt_id": "U10_v2_conversational",
+   "prompt_text": "13 inch or 15 inch, which one's better for me?",
+   "scoring_rubric": {
+    "good_clarification": "asks what product and how the user will use it",
+    "good_qualified_answer": "general size trade-offs explicitly framed as assuming a laptop AND inviting more detail earn credit",
+    "unsupported_assumption": "picks one as better without knowing product or needs"
+   },
+   "task_id": "U10",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 3.5,
+    "tol": 0.005,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M01_v0_original",
+   "prompt_text": "A store sells pencils at 3 for $0.75. How much do 14 pencils cost, in dollars? End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M01",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 3.5,
+    "tol": 0.005,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M01_v1_natural",
+   "prompt_text": "Pencils are priced at $0.75 for three. What is the cost in dollars of 14 pencils? Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M01",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 3.5,
+    "tol": 0.005,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M01_v2_conversational",
+   "prompt_text": "pencils are 3 for 75 cents. how much would 14 pencils cost, in dollars? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M01",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 1,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M02_v0_original",
+   "prompt_text": "Sally has 3 brothers. Each of her brothers has 2 sisters. How many sisters does Sally have? End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M02",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 1,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M02_v1_natural",
+   "prompt_text": "Sally has three brothers, and each brother has two sisters. How many sisters does Sally have? Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M02",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 1,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M02_v2_conversational",
+   "prompt_text": "ok riddle: Sally has 3 brothers, and each brother has 2 sisters. how many sisters does Sally have? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M02",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 9368,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M03_v0_original",
+   "prompt_text": "What is the sum of all integers from 1 to 200 inclusive that are divisible by 3 or by 5? End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M03",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 9368,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M03_v1_natural",
+   "prompt_text": "Find the sum of every integer between 1 and 200, inclusive, that is a multiple of 3 or a multiple of 5. Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M03",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 9368,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M03_v2_conversational",
+   "prompt_text": "what do you get if you add up all the numbers from 1 to 200 (inclusive) that are divisible by 3 or 5? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M03",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 205,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M04_v0_original",
+   "prompt_text": "A train departs at 2:45 pm and arrives at 6:10 pm the same day. How many minutes long is the trip? End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M04",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 205,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M04_v1_natural",
+   "prompt_text": "If a train leaves at 2:45 p.m. and reaches its destination at 6:10 p.m. on the same day, how many minutes does the journey take? Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M04",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 205,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M04_v2_conversational",
+   "prompt_text": "my train leaves at 2:45pm and gets in at 6:10pm same day. how many minutes is that? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M04",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 14,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M05_v0_original",
+   "prompt_text": "Solve for x: 3(x - 4) + 7 = 2x + 9. End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M05",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 14,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M05_v1_natural",
+   "prompt_text": "Find the value of x that satisfies 3(x - 4) + 7 = 2x + 9. Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M05",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 14,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M05_v2_conversational",
+   "prompt_text": "can you solve 3(x - 4) + 7 = 2x + 9 for x? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M05",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 30,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M06_v0_original",
+   "prompt_text": "How many distinct arrangements are there of the letters in the word LEVEL? End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M06",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 30,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M06_v1_natural",
+   "prompt_text": "Count the number of distinct ways to arrange the letters of the word LEVEL. Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M06",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 30,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M06_v2_conversational",
+   "prompt_text": "how many different ways can you arrange the letters in LEVEL? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M06",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": "no",
+    "type": "yesno"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M07_v0_original",
+   "prompt_text": "All bloops are razzies, and some razzies are lazzies. Does it necessarily follow that some bloops are lazzies? Answer yes or no. End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M07",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": "no",
+    "type": "yesno"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M07_v1_natural",
+   "prompt_text": "Given that every bloop is a razzie and that some razzies are lazzies, must it be true that some bloops are lazzies? Answer yes or no. Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M07",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": "no",
+    "type": "yesno"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M07_v2_conversational",
+   "prompt_text": "logic q: all bloops are razzies and some razzies are lazzies. does that mean some bloops HAVE to be lazzies? yes or no? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M07",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 12,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M08_v0_original",
+   "prompt_text": "A rectangle has a perimeter of 34 cm and an area of 60 square cm. What is the length of its longer side in cm? End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M08",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 12,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M08_v1_natural",
+   "prompt_text": "The perimeter of a rectangle is 34 cm and its area is 60 cm². How long, in cm, is the longer side? Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M08",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 12,
+    "tol": 0,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M08_v2_conversational",
+   "prompt_text": "a rectangle has perimeter 34 cm and area 60 cm^2. how long is the longer side, in cm? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M08",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 43.2,
+    "tol": 0.001,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M09_v0_original",
+   "prompt_text": "Take 15% of 240, then increase that result by 20%. What number do you get? End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M09",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 43.2,
+    "tol": 0.001,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M09_v1_natural",
+   "prompt_text": "Compute 15 percent of 240 and then raise that amount by 20 percent. What is the result? Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M09",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": 43.2,
+    "tol": 0.001,
+    "type": "numeric"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M09_v2_conversational",
+   "prompt_text": "what's 15% of 240, and then that number bumped up by 20%? and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M09",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": "no",
+    "type": "yesno"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M10_v0_original",
+   "prompt_text": "Is 91 a prime number? Answer yes or no. End your reply with a line of the form 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M10",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": "no",
+    "type": "yesno"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M10_v1_natural",
+   "prompt_text": "Is the number 91 prime? Answer yes or no. Finish with a line that reads 'Final answer: <answer>'.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M10",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "math_logic",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "answer": "no",
+    "type": "yesno"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "M10_v2_conversational",
+   "prompt_text": "is 91 prime? yes or no and end with a line like 'Final answer: <answer>' please.",
+   "scoring_rubric": {
+    "quality": "final-answer line present",
+    "required_elements": [
+     "correct final answer"
+    ]
+   },
+   "task_id": "M10",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "is_palindrome",
+    "tests": [
+     [
+      [
+       "A man, a plan, a canal: Panama"
+      ],
+      true
+     ],
+     [
+      [
+       "race a car"
+      ],
+      false
+     ],
+     [
+      [
+       ""
+      ],
+      true
+     ],
+     [
+      [
+       "No 'x' in Nixon"
+      ],
+      true
+     ],
+     [
+      [
+       "ab"
+      ],
+      false
+     ],
+     [
+      [
+       "12321"
+      ],
+      true
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K01_v0_original",
+   "prompt_text": "Write a Python function is_palindrome(s) that returns True if the string s reads the same forwards and backwards, ignoring case and any non-alphanumeric characters, and False otherwise. Reply with one Python code block that defines `is_palindrome`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines is_palindrome that passes hidden tests"
+    ]
+   },
+   "task_id": "K01",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "is_palindrome",
+    "tests": [
+     [
+      [
+       "A man, a plan, a canal: Panama"
+      ],
+      true
+     ],
+     [
+      [
+       "race a car"
+      ],
+      false
+     ],
+     [
+      [
+       ""
+      ],
+      true
+     ],
+     [
+      [
+       "No 'x' in Nixon"
+      ],
+      true
+     ],
+     [
+      [
+       "ab"
+      ],
+      false
+     ],
+     [
+      [
+       "12321"
+      ],
+      true
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K01_v1_natural",
+   "prompt_text": "Implement a Python function is_palindrome(s) returning True when s is a palindrome once case is ignored and all non-alphanumeric characters are removed, and False otherwise. Provide your solution as a single Python code block defining `is_palindrome`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines is_palindrome that passes hidden tests"
+    ]
+   },
+   "task_id": "K01",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "is_palindrome",
+    "tests": [
+     [
+      [
+       "A man, a plan, a canal: Panama"
+      ],
+      true
+     ],
+     [
+      [
+       "race a car"
+      ],
+      false
+     ],
+     [
+      [
+       ""
+      ],
+      true
+     ],
+     [
+      [
+       "No 'x' in Nixon"
+      ],
+      true
+     ],
+     [
+      [
+       "ab"
+      ],
+      false
+     ],
+     [
+      [
+       "12321"
+      ],
+      true
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K01_v2_conversational",
+   "prompt_text": "can you write is_palindrome(s) in python? it should return True if s is the same backwards and forwards when you ignore case and anything that isn't a letter or digit, otherwise False. just give me one python code block with `is_palindrome` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines is_palindrome that passes hidden tests"
+    ]
+   },
+   "task_id": "K01",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "fizzbuzz",
+    "tests": [
+     [
+      [
+       1
+      ],
+      [
+       "1"
+      ]
+     ],
+     [
+      [
+       5
+      ],
+      [
+       "1",
+       "2",
+       "Fizz",
+       "4",
+       "Buzz"
+      ]
+     ],
+     [
+      [
+       15
+      ],
+      [
+       "1",
+       "2",
+       "Fizz",
+       "4",
+       "Buzz",
+       "Fizz",
+       "7",
+       "8",
+       "Fizz",
+       "Buzz",
+       "11",
+       "Fizz",
+       "13",
+       "14",
+       "FizzBuzz"
+      ]
+     ],
+     [
+      [
+       0
+      ],
+      []
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K02_v0_original",
+   "prompt_text": "Write a Python function fizzbuzz(n) that returns a list of strings for the numbers 1 through n: 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, 'FizzBuzz' for multiples of both, and the number itself as a string otherwise. Reply with one Python code block that defines `fizzbuzz`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines fizzbuzz that passes hidden tests"
+    ]
+   },
+   "task_id": "K02",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "fizzbuzz",
+    "tests": [
+     [
+      [
+       1
+      ],
+      [
+       "1"
+      ]
+     ],
+     [
+      [
+       5
+      ],
+      [
+       "1",
+       "2",
+       "Fizz",
+       "4",
+       "Buzz"
+      ]
+     ],
+     [
+      [
+       15
+      ],
+      [
+       "1",
+       "2",
+       "Fizz",
+       "4",
+       "Buzz",
+       "Fizz",
+       "7",
+       "8",
+       "Fizz",
+       "Buzz",
+       "11",
+       "Fizz",
+       "13",
+       "14",
+       "FizzBuzz"
+      ]
+     ],
+     [
+      [
+       0
+      ],
+      []
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K02_v1_natural",
+   "prompt_text": "Implement fizzbuzz(n) in Python. It should return a list of strings covering 1 to n, using 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, 'FizzBuzz' for multiples of 15, and otherwise the number converted to a string. Provide your solution as a single Python code block defining `fizzbuzz`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines fizzbuzz that passes hidden tests"
+    ]
+   },
+   "task_id": "K02",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "fizzbuzz",
+    "tests": [
+     [
+      [
+       1
+      ],
+      [
+       "1"
+      ]
+     ],
+     [
+      [
+       5
+      ],
+      [
+       "1",
+       "2",
+       "Fizz",
+       "4",
+       "Buzz"
+      ]
+     ],
+     [
+      [
+       15
+      ],
+      [
+       "1",
+       "2",
+       "Fizz",
+       "4",
+       "Buzz",
+       "Fizz",
+       "7",
+       "8",
+       "Fizz",
+       "Buzz",
+       "11",
+       "Fizz",
+       "13",
+       "14",
+       "FizzBuzz"
+      ]
+     ],
+     [
+      [
+       0
+      ],
+      []
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K02_v2_conversational",
+   "prompt_text": "write fizzbuzz(n) in python that returns a list of strings from 1 to n — 'Fizz' for multiples of 3, 'Buzz' for multiples of 5, 'FizzBuzz' if both, and otherwise just the number as a string. just give me one python code block with `fizzbuzz` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines fizzbuzz that passes hidden tests"
+    ]
+   },
+   "task_id": "K02",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "average",
+    "tests": [
+     [
+      [
+       [
+        1,
+        2,
+        3
+       ]
+      ],
+      2.0
+     ],
+     [
+      [
+       [
+        10
+       ]
+      ],
+      10.0
+     ],
+     [
+      [
+       []
+      ],
+      0.0
+     ],
+     [
+      [
+       [
+        -2,
+        2,
+        6
+       ]
+      ],
+      2.0
+     ],
+     [
+      [
+       [
+        1.5,
+        2.5
+       ]
+      ],
+      2.0
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K03_v0_original",
+   "prompt_text": "This Python function should return the arithmetic mean of a list of numbers, but it gives wrong results. Fix it, and make it return 0.0 for an empty list.\n\ndef average(nums):\n    total = 0\n    for i in range(1, len(nums)):\n        total += nums[i]\n    return total / len(nums) Reply with one Python code block that defines `average`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines average that passes hidden tests"
+    ]
+   },
+   "task_id": "K03",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "average",
+    "tests": [
+     [
+      [
+       [
+        1,
+        2,
+        3
+       ]
+      ],
+      2.0
+     ],
+     [
+      [
+       [
+        10
+       ]
+      ],
+      10.0
+     ],
+     [
+      [
+       []
+      ],
+      0.0
+     ],
+     [
+      [
+       [
+        -2,
+        2,
+        6
+       ]
+      ],
+      2.0
+     ],
+     [
+      [
+       [
+        1.5,
+        2.5
+       ]
+      ],
+      2.0
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K03_v1_natural",
+   "prompt_text": "The following Python function is meant to compute the mean of a list of numbers but returns incorrect values. Correct it so that it also returns 0.0 when the list is empty.\n\ndef average(nums):\n    total = 0\n    for i in range(1, len(nums)):\n        total += nums[i]\n    return total / len(nums) Provide your solution as a single Python code block defining `average`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines average that passes hidden tests"
+    ]
+   },
+   "task_id": "K03",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "average",
+    "tests": [
+     [
+      [
+       [
+        1,
+        2,
+        3
+       ]
+      ],
+      2.0
+     ],
+     [
+      [
+       [
+        10
+       ]
+      ],
+      10.0
+     ],
+     [
+      [
+       []
+      ],
+      0.0
+     ],
+     [
+      [
+       [
+        -2,
+        2,
+        6
+       ]
+      ],
+      2.0
+     ],
+     [
+      [
+       [
+        1.5,
+        2.5
+       ]
+      ],
+      2.0
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K03_v2_conversational",
+   "prompt_text": "my average function gives the wrong answer, can you fix it? also it should return 0.0 if the list is empty.\n\ndef average(nums):\n    total = 0\n    for i in range(1, len(nums)):\n        total += nums[i]\n    return total / len(nums) just give me one python code block with `average` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines average that passes hidden tests"
+    ]
+   },
+   "task_id": "K03",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "count_vowels",
+    "tests": [
+     [
+      [
+       "hello"
+      ],
+      2
+     ],
+     [
+      [
+       "AEIOU"
+      ],
+      5
+     ],
+     [
+      [
+       "rhythm"
+      ],
+      0
+     ],
+     [
+      [
+       ""
+      ],
+      0
+     ],
+     [
+      [
+       "Programming Language"
+      ],
+      7
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K04_v0_original",
+   "prompt_text": "Write a Python function count_vowels(s) that returns how many vowels (a, e, i, o, u, in either upper or lower case) appear in the string s. Reply with one Python code block that defines `count_vowels`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines count_vowels that passes hidden tests"
+    ]
+   },
+   "task_id": "K04",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "count_vowels",
+    "tests": [
+     [
+      [
+       "hello"
+      ],
+      2
+     ],
+     [
+      [
+       "AEIOU"
+      ],
+      5
+     ],
+     [
+      [
+       "rhythm"
+      ],
+      0
+     ],
+     [
+      [
+       ""
+      ],
+      0
+     ],
+     [
+      [
+       "Programming Language"
+      ],
+      7
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K04_v1_natural",
+   "prompt_text": "Implement count_vowels(s) in Python, returning the number of characters in s that are vowels a, e, i, o or u, counting both uppercase and lowercase. Provide your solution as a single Python code block defining `count_vowels`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines count_vowels that passes hidden tests"
+    ]
+   },
+   "task_id": "K04",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "count_vowels",
+    "tests": [
+     [
+      [
+       "hello"
+      ],
+      2
+     ],
+     [
+      [
+       "AEIOU"
+      ],
+      5
+     ],
+     [
+      [
+       "rhythm"
+      ],
+      0
+     ],
+     [
+      [
+       ""
+      ],
+      0
+     ],
+     [
+      [
+       "Programming Language"
+      ],
+      7
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K04_v2_conversational",
+   "prompt_text": "need a python function count_vowels(s) that counts the vowels (a e i o u, upper or lower case) in a string. just give me one python code block with `count_vowels` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines count_vowels that passes hidden tests"
+    ]
+   },
+   "task_id": "K04",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "merge_intervals",
+    "tests": [
+     [
+      [
+       [
+        [
+         1,
+         3
+        ],
+        [
+         2,
+         6
+        ],
+        [
+         8,
+         10
+        ],
+        [
+         15,
+         18
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        6
+       ],
+       [
+        8,
+        10
+       ],
+       [
+        15,
+        18
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        [
+         1,
+         4
+        ],
+        [
+         4,
+         5
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        5
+       ]
+      ]
+     ],
+     [
+      [
+       []
+      ],
+      []
+     ],
+     [
+      [
+       [
+        [
+         5,
+         7
+        ],
+        [
+         1,
+         2
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        2
+       ],
+       [
+        5,
+        7
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        [
+         1,
+         10
+        ],
+        [
+         2,
+         3
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        10
+       ]
+      ]
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K05_v0_original",
+   "prompt_text": "Write a Python function merge_intervals(intervals) that takes a list of [start, end] pairs and returns a new list where overlapping or touching intervals are merged, sorted by start. Reply with one Python code block that defines `merge_intervals`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines merge_intervals that passes hidden tests"
+    ]
+   },
+   "task_id": "K05",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "merge_intervals",
+    "tests": [
+     [
+      [
+       [
+        [
+         1,
+         3
+        ],
+        [
+         2,
+         6
+        ],
+        [
+         8,
+         10
+        ],
+        [
+         15,
+         18
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        6
+       ],
+       [
+        8,
+        10
+       ],
+       [
+        15,
+        18
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        [
+         1,
+         4
+        ],
+        [
+         4,
+         5
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        5
+       ]
+      ]
+     ],
+     [
+      [
+       []
+      ],
+      []
+     ],
+     [
+      [
+       [
+        [
+         5,
+         7
+        ],
+        [
+         1,
+         2
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        2
+       ],
+       [
+        5,
+        7
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        [
+         1,
+         10
+        ],
+        [
+         2,
+         3
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        10
+       ]
+      ]
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K05_v1_natural",
+   "prompt_text": "Implement merge_intervals(intervals) in Python: given a list of [start, end] pairs, return a list sorted by start in which all overlapping or touching intervals have been merged. Provide your solution as a single Python code block defining `merge_intervals`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines merge_intervals that passes hidden tests"
+    ]
+   },
+   "task_id": "K05",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "merge_intervals",
+    "tests": [
+     [
+      [
+       [
+        [
+         1,
+         3
+        ],
+        [
+         2,
+         6
+        ],
+        [
+         8,
+         10
+        ],
+        [
+         15,
+         18
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        6
+       ],
+       [
+        8,
+        10
+       ],
+       [
+        15,
+        18
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        [
+         1,
+         4
+        ],
+        [
+         4,
+         5
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        5
+       ]
+      ]
+     ],
+     [
+      [
+       []
+      ],
+      []
+     ],
+     [
+      [
+       [
+        [
+         5,
+         7
+        ],
+        [
+         1,
+         2
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        2
+       ],
+       [
+        5,
+        7
+       ]
+      ]
+     ],
+     [
+      [
+       [
+        [
+         1,
+         10
+        ],
+        [
+         2,
+         3
+        ]
+       ]
+      ],
+      [
+       [
+        1,
+        10
+       ]
+      ]
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K05_v2_conversational",
+   "prompt_text": "write merge_intervals(intervals) in python — takes a list of [start, end] pairs, merges any that overlap or touch, and returns them sorted by start. just give me one python code block with `merge_intervals` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines merge_intervals that passes hidden tests"
+    ]
+   },
+   "task_id": "K05",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "find_max",
+    "tests": [
+     [
+      [
+       [
+        1,
+        5,
+        3
+       ]
+      ],
+      5
+     ],
+     [
+      [
+       [
+        -4,
+        -2,
+        -9
+       ]
+      ],
+      -2
+     ],
+     [
+      [
+       []
+      ],
+      null
+     ],
+     [
+      [
+       [
+        7
+       ]
+      ],
+      7
+     ],
+     [
+      [
+       [
+        0,
+        -1
+       ]
+      ],
+      0
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K06_v0_original",
+   "prompt_text": "This Python function should return the largest number in a list, but it fails for some inputs. Fix it, and make it return None for an empty list.\n\ndef find_max(nums):\n    m = 0\n    for n in nums:\n        if n > m:\n            m = n\n    return m Reply with one Python code block that defines `find_max`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines find_max that passes hidden tests"
+    ]
+   },
+   "task_id": "K06",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "find_max",
+    "tests": [
+     [
+      [
+       [
+        1,
+        5,
+        3
+       ]
+      ],
+      5
+     ],
+     [
+      [
+       [
+        -4,
+        -2,
+        -9
+       ]
+      ],
+      -2
+     ],
+     [
+      [
+       []
+      ],
+      null
+     ],
+     [
+      [
+       [
+        7
+       ]
+      ],
+      7
+     ],
+     [
+      [
+       [
+        0,
+        -1
+       ]
+      ],
+      0
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K06_v1_natural",
+   "prompt_text": "The Python function below is supposed to return the maximum value in a list yet gives wrong answers for certain inputs. Correct it so that an empty list returns None.\n\ndef find_max(nums):\n    m = 0\n    for n in nums:\n        if n > m:\n            m = n\n    return m Provide your solution as a single Python code block defining `find_max`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines find_max that passes hidden tests"
+    ]
+   },
+   "task_id": "K06",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "find_max",
+    "tests": [
+     [
+      [
+       [
+        1,
+        5,
+        3
+       ]
+      ],
+      5
+     ],
+     [
+      [
+       [
+        -4,
+        -2,
+        -9
+       ]
+      ],
+      -2
+     ],
+     [
+      [
+       []
+      ],
+      null
+     ],
+     [
+      [
+       [
+        7
+       ]
+      ],
+      7
+     ],
+     [
+      [
+       [
+        0,
+        -1
+       ]
+      ],
+      0
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K06_v2_conversational",
+   "prompt_text": "this find_max function is broken for some lists, can you fix it? it should return None if the list is empty.\n\ndef find_max(nums):\n    m = 0\n    for n in nums:\n        if n > m:\n            m = n\n    return m just give me one python code block with `find_max` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines find_max that passes hidden tests"
+    ]
+   },
+   "task_id": "K06",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "word_frequencies",
+    "tests": [
+     [
+      [
+       "Hello, hello world!"
+      ],
+      {
+       "hello": 2,
+       "world": 1
+      }
+     ],
+     [
+      [
+       ""
+      ],
+      {}
+     ],
+     [
+      [
+       "A a A. b?"
+      ],
+      {
+       "a": 3,
+       "b": 1
+      }
+     ],
+     [
+      [
+       "Hi ! there"
+      ],
+      {
+       "hi": 1,
+       "there": 1
+      }
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K07_v0_original",
+   "prompt_text": "Write a Python function word_frequencies(text) that returns a dict mapping each lowercase word to how many times it appears. Split on whitespace and strip the punctuation characters . , ! ? from the start and end of each word; ignore empty strings. Reply with one Python code block that defines `word_frequencies`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines word_frequencies that passes hidden tests"
+    ]
+   },
+   "task_id": "K07",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "word_frequencies",
+    "tests": [
+     [
+      [
+       "Hello, hello world!"
+      ],
+      {
+       "hello": 2,
+       "world": 1
+      }
+     ],
+     [
+      [
+       ""
+      ],
+      {}
+     ],
+     [
+      [
+       "A a A. b?"
+      ],
+      {
+       "a": 3,
+       "b": 1
+      }
+     ],
+     [
+      [
+       "Hi ! there"
+      ],
+      {
+       "hi": 1,
+       "there": 1
+      }
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K07_v1_natural",
+   "prompt_text": "Implement word_frequencies(text) in Python returning a dictionary from each word (lowercased) to its count. Words are separated by whitespace, with the characters . , ! ? stripped from both ends of each word, and empty results ignored. Provide your solution as a single Python code block defining `word_frequencies`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines word_frequencies that passes hidden tests"
+    ]
+   },
+   "task_id": "K07",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "word_frequencies",
+    "tests": [
+     [
+      [
+       "Hello, hello world!"
+      ],
+      {
+       "hello": 2,
+       "world": 1
+      }
+     ],
+     [
+      [
+       ""
+      ],
+      {}
+     ],
+     [
+      [
+       "A a A. b?"
+      ],
+      {
+       "a": 3,
+       "b": 1
+      }
+     ],
+     [
+      [
+       "Hi ! there"
+      ],
+      {
+       "hi": 1,
+       "there": 1
+      }
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K07_v2_conversational",
+   "prompt_text": "python function word_frequencies(text): return a dict of lowercase word -> count. split on whitespace, strip . , ! ? off the ends of each word, skip anything that ends up empty. just give me one python code block with `word_frequencies` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines word_frequencies that passes hidden tests"
+    ]
+   },
+   "task_id": "K07",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "second_largest",
+    "tests": [
+     [
+      [
+       [
+        3,
+        1,
+        4,
+        4
+       ]
+      ],
+      3
+     ],
+     [
+      [
+       [
+        5,
+        5
+       ]
+      ],
+      null
+     ],
+     [
+      [
+       []
+      ],
+      null
+     ],
+     [
+      [
+       [
+        -1,
+        -3,
+        -2
+       ]
+      ],
+      -2
+     ],
+     [
+      [
+       [
+        10,
+        9
+       ]
+      ],
+      9
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K08_v0_original",
+   "prompt_text": "Write a Python function second_largest(nums) that returns the second largest distinct value in a list of integers, or None if there are fewer than two distinct values. Reply with one Python code block that defines `second_largest`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines second_largest that passes hidden tests"
+    ]
+   },
+   "task_id": "K08",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "second_largest",
+    "tests": [
+     [
+      [
+       [
+        3,
+        1,
+        4,
+        4
+       ]
+      ],
+      3
+     ],
+     [
+      [
+       [
+        5,
+        5
+       ]
+      ],
+      null
+     ],
+     [
+      [
+       []
+      ],
+      null
+     ],
+     [
+      [
+       [
+        -1,
+        -3,
+        -2
+       ]
+      ],
+      -2
+     ],
+     [
+      [
+       [
+        10,
+        9
+       ]
+      ],
+      9
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K08_v1_natural",
+   "prompt_text": "Implement second_largest(nums) in Python. It must return the second-highest distinct integer in the list, or None when the list has fewer than two distinct values. Provide your solution as a single Python code block defining `second_largest`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines second_largest that passes hidden tests"
+    ]
+   },
+   "task_id": "K08",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "second_largest",
+    "tests": [
+     [
+      [
+       [
+        3,
+        1,
+        4,
+        4
+       ]
+      ],
+      3
+     ],
+     [
+      [
+       [
+        5,
+        5
+       ]
+      ],
+      null
+     ],
+     [
+      [
+       []
+      ],
+      null
+     ],
+     [
+      [
+       [
+        -1,
+        -3,
+        -2
+       ]
+      ],
+      -2
+     ],
+     [
+      [
+       [
+        10,
+        9
+       ]
+      ],
+      9
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K08_v2_conversational",
+   "prompt_text": "write second_largest(nums) in python: give back the second biggest distinct number in the list, or None if there aren't at least two distinct numbers. just give me one python code block with `second_largest` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines second_largest that passes hidden tests"
+    ]
+   },
+   "task_id": "K08",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "reverse_words",
+    "tests": [
+     [
+      [
+       "hello world"
+      ],
+      "world hello"
+     ],
+     [
+      [
+       "  the quick  brown "
+      ],
+      "brown quick the"
+     ],
+     [
+      [
+       "one"
+      ],
+      "one"
+     ],
+     [
+      [
+       ""
+      ],
+      ""
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K09_v0_original",
+   "prompt_text": "This Python function should return the words of a sentence in reverse order, joined by single spaces, but it crashes. Fix it so it also handles repeated or leading/trailing whitespace.\n\ndef reverse_words(sentence):\n    words = sentence.split(\" \")\n    return \" \".join(words.reverse()) Reply with one Python code block that defines `reverse_words`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines reverse_words that passes hidden tests"
+    ]
+   },
+   "task_id": "K09",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "reverse_words",
+    "tests": [
+     [
+      [
+       "hello world"
+      ],
+      "world hello"
+     ],
+     [
+      [
+       "  the quick  brown "
+      ],
+      "brown quick the"
+     ],
+     [
+      [
+       "one"
+      ],
+      "one"
+     ],
+     [
+      [
+       ""
+      ],
+      ""
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K09_v1_natural",
+   "prompt_text": "The Python function below is intended to reverse the order of the words in a sentence and join them with single spaces, but it raises an error. Correct it, and make it cope with extra spaces at the ends or between words.\n\ndef reverse_words(sentence):\n    words = sentence.split(\" \")\n    return \" \".join(words.reverse()) Provide your solution as a single Python code block defining `reverse_words`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines reverse_words that passes hidden tests"
+    ]
+   },
+   "task_id": "K09",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "reverse_words",
+    "tests": [
+     [
+      [
+       "hello world"
+      ],
+      "world hello"
+     ],
+     [
+      [
+       "  the quick  brown "
+      ],
+      "brown quick the"
+     ],
+     [
+      [
+       "one"
+      ],
+      "one"
+     ],
+     [
+      [
+       ""
+      ],
+      ""
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K09_v2_conversational",
+   "prompt_text": "my reverse_words function crashes, can you fix it? it should reverse the word order and join with single spaces, and work even if there are extra spaces.\n\ndef reverse_words(sentence):\n    words = sentence.split(\" \")\n    return \" \".join(words.reverse()) just give me one python code block with `reverse_words` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines reverse_words that passes hidden tests"
+    ]
+   },
+   "task_id": "K09",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "roman_to_int",
+    "tests": [
+     [
+      [
+       "III"
+      ],
+      3
+     ],
+     [
+      [
+       "IV"
+      ],
+      4
+     ],
+     [
+      [
+       "IX"
+      ],
+      9
+     ],
+     [
+      [
+       "LVIII"
+      ],
+      58
+     ],
+     [
+      [
+       "MCMXCIV"
+      ],
+      1994
+     ],
+     [
+      [
+       "MMXXVI"
+      ],
+      2026
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K10_v0_original",
+   "prompt_text": "Write a Python function roman_to_int(s) that converts a valid Roman numeral string (using I, V, X, L, C, D, M with standard subtractive notation) to an integer. Reply with one Python code block that defines `roman_to_int`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines roman_to_int that passes hidden tests"
+    ]
+   },
+   "task_id": "K10",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "roman_to_int",
+    "tests": [
+     [
+      [
+       "III"
+      ],
+      3
+     ],
+     [
+      [
+       "IV"
+      ],
+      4
+     ],
+     [
+      [
+       "IX"
+      ],
+      9
+     ],
+     [
+      [
+       "LVIII"
+      ],
+      58
+     ],
+     [
+      [
+       "MCMXCIV"
+      ],
+      1994
+     ],
+     [
+      [
+       "MMXXVI"
+      ],
+      2026
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K10_v1_natural",
+   "prompt_text": "Implement roman_to_int(s) in Python to convert a valid Roman numeral written with I, V, X, L, C, D and M, including standard subtractive forms, into an integer. Provide your solution as a single Python code block defining `roman_to_int`.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines roman_to_int that passes hidden tests"
+    ]
+   },
+   "task_id": "K10",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "coding",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "function": "roman_to_int",
+    "tests": [
+     [
+      [
+       "III"
+      ],
+      3
+     ],
+     [
+      [
+       "IV"
+      ],
+      4
+     ],
+     [
+      [
+       "IX"
+      ],
+      9
+     ],
+     [
+      [
+       "LVIII"
+      ],
+      58
+     ],
+     [
+      [
+       "MCMXCIV"
+      ],
+      1994
+     ],
+     [
+      [
+       "MMXXVI"
+      ],
+      2026
+     ]
+    ],
+    "type": "python_tests"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "K10_v2_conversational",
+   "prompt_text": "can you write roman_to_int(s) in python? it turns a valid roman numeral (I V X L C D M, with the usual subtractive stuff like IV) into an int. just give me one python code block with `roman_to_int` in it.",
+   "scoring_rubric": {
+    "required_elements": [
+     "defines roman_to_int that passes hidden tests"
+    ]
+   },
+   "task_id": "K10",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "n": 3,
+    "type": "numbered_list_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I01_v0_original",
+   "prompt_text": "List exactly three benefits of regular walking as a numbered list, with no other text.",
+   "scoring_rubric": {
+    "quality": "No intro or outro text.",
+    "required_elements": [
+     "three distinct, accurate benefits"
+    ]
+   },
+   "task_id": "I01",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "n": 3,
+    "type": "numbered_list_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I01_v1_natural",
+   "prompt_text": "Give exactly three benefits of walking regularly, formatted as a numbered list and with no additional text.",
+   "scoring_rubric": {
+    "quality": "No intro or outro text.",
+    "required_elements": [
+     "three distinct, accurate benefits"
+    ]
+   },
+   "task_id": "I01",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "n": 3,
+    "type": "numbered_list_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I01_v2_conversational",
+   "prompt_text": "give me exactly 3 benefits of walking regularly — numbered list only, nothing else.",
+   "scoring_rubric": {
+    "quality": "No intro or outro text.",
+    "required_elements": [
+     "three distinct, accurate benefits"
+    ]
+   },
+   "task_id": "I01",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "n": 3,
+    "type": "line_count_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I02_v0_original",
+   "prompt_text": "Write a haiku about autumn rain. Output only the three lines of the haiku.",
+   "scoring_rubric": {
+    "quality": "Only the poem.",
+    "required_elements": [
+     "about autumn rain",
+     "roughly 5-7-5 syllables"
+    ]
+   },
+   "task_id": "I02",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "n": 3,
+    "type": "line_count_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I02_v1_natural",
+   "prompt_text": "Compose a haiku on the subject of autumn rain, and output nothing but its three lines.",
+   "scoring_rubric": {
+    "quality": "Only the poem.",
+    "required_elements": [
+     "about autumn rain",
+     "roughly 5-7-5 syllables"
+    ]
+   },
+   "task_id": "I02",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "n": 3,
+    "type": "line_count_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I02_v2_conversational",
+   "prompt_text": "write me a haiku about autumn rain — just the three lines, nothing else.",
+   "scoring_rubric": {
+    "quality": "Only the poem.",
+    "required_elements": [
+     "about autumn rain",
+     "roughly 5-7-5 syllables"
+    ]
+   },
+   "task_id": "I02",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "bonus_facts": [
+     [
+      "4.2",
+      "million"
+     ],
+     [
+      "flood"
+     ],
+     [
+      "5,000",
+      "5000"
+     ]
+    ],
+    "max_sentences": 1,
+    "max_words": 25,
+    "required_facts": [
+     [
+      "millbrook"
+     ],
+     [
+      "library"
+     ],
+     [
+      "open",
+      "opened"
+     ]
+    ],
+    "type": "summary"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I03_v0_original",
+   "prompt_text": "Summarize the following paragraph in one sentence of no more than 25 words.\n\nThe town of Millbrook opened its new public library on March 3. The building cost $4.2 million, funded mostly by a state grant, and replaces a branch that had been closed since a 2019 flood. It has a children's wing, twelve study rooms, and a makerspace with two 3D printers. Head librarian Dana Ortiz said visitors in the first week exceeded 5,000. The library is open seven days a week, from 9 a.m. to 8 p.m.",
+   "scoring_rubric": {
+    "required_elements": [
+     "Millbrook opened a new library",
+     "at least one key detail (cost/grant, flood replacement, features, visitors)"
+    ],
+    "unsupported": "any fact not in the paragraph"
+   },
+   "task_id": "I03",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "bonus_facts": [
+     [
+      "4.2",
+      "million"
+     ],
+     [
+      "flood"
+     ],
+     [
+      "5,000",
+      "5000"
+     ]
+    ],
+    "max_sentences": 1,
+    "max_words": 25,
+    "required_facts": [
+     [
+      "millbrook"
+     ],
+     [
+      "library"
+     ],
+     [
+      "open",
+      "opened"
+     ]
+    ],
+    "type": "summary"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I03_v1_natural",
+   "prompt_text": "In a single sentence of 25 words or fewer, summarize this paragraph.\n\nThe town of Millbrook opened its new public library on March 3. The building cost $4.2 million, funded mostly by a state grant, and replaces a branch that had been closed since a 2019 flood. It has a children's wing, twelve study rooms, and a makerspace with two 3D printers. Head librarian Dana Ortiz said visitors in the first week exceeded 5,000. The library is open seven days a week, from 9 a.m. to 8 p.m.",
+   "scoring_rubric": {
+    "required_elements": [
+     "Millbrook opened a new library",
+     "at least one key detail (cost/grant, flood replacement, features, visitors)"
+    ],
+    "unsupported": "any fact not in the paragraph"
+   },
+   "task_id": "I03",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "bonus_facts": [
+     [
+      "4.2",
+      "million"
+     ],
+     [
+      "flood"
+     ],
+     [
+      "5,000",
+      "5000"
+     ]
+    ],
+    "max_sentences": 1,
+    "max_words": 25,
+    "required_facts": [
+     [
+      "millbrook"
+     ],
+     [
+      "library"
+     ],
+     [
+      "open",
+      "opened"
+     ]
+    ],
+    "type": "summary"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I03_v2_conversational",
+   "prompt_text": "can you sum this up in one sentence, 25 words max?\n\nThe town of Millbrook opened its new public library on March 3. The building cost $4.2 million, funded mostly by a state grant, and replaces a branch that had been closed since a 2019 flood. It has a children's wing, twelve study rooms, and a makerspace with two 3D printers. Head librarian Dana Ortiz said visitors in the first week exceeded 5,000. The library is open seven days a week, from 9 a.m. to 8 p.m.",
+   "scoring_rubric": {
+    "required_elements": [
+     "Millbrook opened a new library",
+     "at least one key detail (cost/grant, flood replacement, features, visitors)"
+    ],
+    "unsupported": "any fact not in the paragraph"
+   },
+   "task_id": "I03",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_any_groups": [
+     [
+      "sun",
+      "sunlight",
+      "light"
+     ],
+     [
+      "water"
+     ],
+     [
+      "carbon dioxide",
+      "air",
+      "co2"
+     ],
+     [
+      "sugar",
+      "food",
+      "energy"
+     ],
+     [
+      "oxygen"
+     ]
+    ],
+    "max_words": 79,
+    "type": "word_limit_keywords"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I04_v0_original",
+   "prompt_text": "Explain what photosynthesis is to a 10-year-old in fewer than 80 words.",
+   "scoring_rubric": {
+    "quality": "Child-appropriate language.",
+    "required_elements": [
+     "sunlight",
+     "water",
+     "carbon dioxide/air",
+     "makes sugar/food",
+     "releases oxygen"
+    ]
+   },
+   "task_id": "I04",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_any_groups": [
+     [
+      "sun",
+      "sunlight",
+      "light"
+     ],
+     [
+      "water"
+     ],
+     [
+      "carbon dioxide",
+      "air",
+      "co2"
+     ],
+     [
+      "sugar",
+      "food",
+      "energy"
+     ],
+     [
+      "oxygen"
+     ]
+    ],
+    "max_words": 79,
+    "type": "word_limit_keywords"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I04_v1_natural",
+   "prompt_text": "In under 80 words, explain photosynthesis so that a ten-year-old could understand it.",
+   "scoring_rubric": {
+    "quality": "Child-appropriate language.",
+    "required_elements": [
+     "sunlight",
+     "water",
+     "carbon dioxide/air",
+     "makes sugar/food",
+     "releases oxygen"
+    ]
+   },
+   "task_id": "I04",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_any_groups": [
+     [
+      "sun",
+      "sunlight",
+      "light"
+     ],
+     [
+      "water"
+     ],
+     [
+      "carbon dioxide",
+      "air",
+      "co2"
+     ],
+     [
+      "sugar",
+      "food",
+      "energy"
+     ],
+     [
+      "oxygen"
+     ]
+    ],
+    "max_words": 79,
+    "type": "word_limit_keywords"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I04_v2_conversational",
+   "prompt_text": "explain photosynthesis to a 10 year old, under 80 words please.",
+   "scoring_rubric": {
+    "quality": "Child-appropriate language.",
+    "required_elements": [
+     "sunlight",
+     "water",
+     "carbon dioxide/air",
+     "makes sugar/food",
+     "releases oxygen"
+    ]
+   },
+   "task_id": "I04",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "expected": {
+     "city": "Tokyo",
+     "country": "Japan"
+    },
+    "type": "json_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I05_v0_original",
+   "prompt_text": "Return a JSON object with the keys \"city\" and \"country\" for the capital of Japan. Output only the JSON.",
+   "scoring_rubric": {
+    "required_elements": [
+     "Tokyo",
+     "Japan",
+     "only JSON"
+    ]
+   },
+   "task_id": "I05",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "expected": {
+     "city": "Tokyo",
+     "country": "Japan"
+    },
+    "type": "json_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I05_v1_natural",
+   "prompt_text": "Output only a JSON object, with keys \"city\" and \"country\", describing the capital of Japan.",
+   "scoring_rubric": {
+    "required_elements": [
+     "Tokyo",
+     "Japan",
+     "only JSON"
+    ]
+   },
+   "task_id": "I05",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "expected": {
+     "city": "Tokyo",
+     "country": "Japan"
+    },
+    "type": "json_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I05_v2_conversational",
+   "prompt_text": "give me just a JSON object with \"city\" and \"country\" keys for the capital of Japan, nothing else.",
+   "scoring_rubric": {
+    "required_elements": [
+     "Tokyo",
+     "Japan",
+     "only JSON"
+    ]
+   },
+   "task_id": "I05",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "bonus_facts": [
+     [
+      "30"
+     ],
+     [
+      "raised bed",
+      "ten more",
+      "10 more"
+     ],
+     [
+      "volunteer"
+     ]
+    ],
+    "n": 3,
+    "required_facts": [
+     [
+      "1,200",
+      "1200"
+     ],
+     [
+      "pantr",
+      "donat"
+     ],
+     [
+      "rainwater",
+      "rain water"
+     ]
+    ],
+    "type": "bullets_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I06_v0_original",
+   "prompt_text": "Summarize the following passage in exactly three bullet points.\n\nVolunteers at the Eastside Community Garden harvested 1,200 pounds of vegetables this season, a 30 percent increase over last year. Most of the produce, mainly tomatoes, squash and beans, was donated to two local food pantries. The garden added a rainwater collection system in April, which cut its water bill by about half. Organizers plan to add ten more raised beds next spring and are seeking volunteers for weekend shifts.",
+   "scoring_rubric": {
+    "required_elements": [
+     "harvest amount/increase",
+     "donation to food pantries",
+     "rainwater system or future plans"
+    ],
+    "unsupported": "any fact not in the passage"
+   },
+   "task_id": "I06",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "bonus_facts": [
+     [
+      "30"
+     ],
+     [
+      "raised bed",
+      "ten more",
+      "10 more"
+     ],
+     [
+      "volunteer"
+     ]
+    ],
+    "n": 3,
+    "required_facts": [
+     [
+      "1,200",
+      "1200"
+     ],
+     [
+      "pantr",
+      "donat"
+     ],
+     [
+      "rainwater",
+      "rain water"
+     ]
+    ],
+    "type": "bullets_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I06_v1_natural",
+   "prompt_text": "Condense this passage into exactly three bullet points.\n\nVolunteers at the Eastside Community Garden harvested 1,200 pounds of vegetables this season, a 30 percent increase over last year. Most of the produce, mainly tomatoes, squash and beans, was donated to two local food pantries. The garden added a rainwater collection system in April, which cut its water bill by about half. Organizers plan to add ten more raised beds next spring and are seeking volunteers for weekend shifts.",
+   "scoring_rubric": {
+    "required_elements": [
+     "harvest amount/increase",
+     "donation to food pantries",
+     "rainwater system or future plans"
+    ],
+    "unsupported": "any fact not in the passage"
+   },
+   "task_id": "I06",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "bonus_facts": [
+     [
+      "30"
+     ],
+     [
+      "raised bed",
+      "ten more",
+      "10 more"
+     ],
+     [
+      "volunteer"
+     ]
+    ],
+    "n": 3,
+    "required_facts": [
+     [
+      "1,200",
+      "1200"
+     ],
+     [
+      "pantr",
+      "donat"
+     ],
+     [
+      "rainwater",
+      "rain water"
+     ]
+    ],
+    "type": "bullets_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I06_v2_conversational",
+   "prompt_text": "can you boil this down to exactly 3 bullet points?\n\nVolunteers at the Eastside Community Garden harvested 1,200 pounds of vegetables this season, a 30 percent increase over last year. Most of the produce, mainly tomatoes, squash and beans, was donated to two local food pantries. The garden added a rainwater collection system in April, which cut its water bill by about half. Organizers plan to add ten more raised beds next spring and are seeking volunteers for weekend shifts.",
+   "scoring_rubric": {
+    "required_elements": [
+     "harvest amount/increase",
+     "donation to food pantries",
+     "rainwater system or future plans"
+    ],
+    "unsupported": "any fact not in the passage"
+   },
+   "task_id": "I06",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "letter": "e",
+    "type": "lipogram"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I07_v0_original",
+   "prompt_text": "Write one sentence about the ocean that does not contain the letter 'e'. Output only the sentence.",
+   "scoring_rubric": {
+    "required_elements": [
+     "one sentence",
+     "about the ocean",
+     "no letter e"
+    ]
+   },
+   "task_id": "I07",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "letter": "e",
+    "type": "lipogram"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I07_v1_natural",
+   "prompt_text": "Output a single sentence about the ocean in which the letter 'e' never appears, and nothing else.",
+   "scoring_rubric": {
+    "required_elements": [
+     "one sentence",
+     "about the ocean",
+     "no letter e"
+    ]
+   },
+   "task_id": "I07",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "letter": "e",
+    "type": "lipogram"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I07_v2_conversational",
+   "prompt_text": "write just one sentence about the ocean without using the letter e anywhere.",
+   "scoring_rubric": {
+    "required_elements": [
+     "one sentence",
+     "about the ocean",
+     "no letter e"
+    ]
+   },
+   "task_id": "I07",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_all": [
+     "weather",
+     "climate"
+    ],
+    "n": 2,
+    "type": "sentence_count_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I08_v0_original",
+   "prompt_text": "Explain the difference between weather and climate in exactly two sentences.",
+   "scoring_rubric": {
+    "required_elements": [
+     "weather = short-term conditions",
+     "climate = long-term average/patterns"
+    ]
+   },
+   "task_id": "I08",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_all": [
+     "weather",
+     "climate"
+    ],
+    "n": 2,
+    "type": "sentence_count_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I08_v1_natural",
+   "prompt_text": "Using exactly two sentences, explain how weather differs from climate.",
+   "scoring_rubric": {
+    "required_elements": [
+     "weather = short-term conditions",
+     "climate = long-term average/patterns"
+    ]
+   },
+   "task_id": "I08",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_all": [
+     "weather",
+     "climate"
+    ],
+    "n": 2,
+    "type": "sentence_count_exact"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I08_v2_conversational",
+   "prompt_text": "what's the difference between weather and climate? answer in exactly two sentences.",
+   "scoring_rubric": {
+    "required_elements": [
+     "weather = short-term conditions",
+     "climate = long-term average/patterns"
+    ]
+   },
+   "task_id": "I08",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "exclude": [
+     "cat"
+    ],
+    "n": 5,
+    "suffixes": [
+     "at",
+     "att",
+     "atte"
+    ],
+    "type": "rhyme_list"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I09_v0_original",
+   "prompt_text": "Give five words that rhyme with 'cat', in lowercase, separated by commas, and nothing else.",
+   "scoring_rubric": {
+    "required_elements": [
+     "five distinct rhymes",
+     "lowercase",
+     "comma separated only"
+    ]
+   },
+   "task_id": "I09",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "exclude": [
+     "cat"
+    ],
+    "n": 5,
+    "suffixes": [
+     "at",
+     "att",
+     "atte"
+    ],
+    "type": "rhyme_list"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I09_v1_natural",
+   "prompt_text": "List five words rhyming with 'cat', all lowercase and comma-separated, with no other text.",
+   "scoring_rubric": {
+    "required_elements": [
+     "five distinct rhymes",
+     "lowercase",
+     "comma separated only"
+    ]
+   },
+   "task_id": "I09",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "exclude": [
+     "cat"
+    ],
+    "n": 5,
+    "suffixes": [
+     "at",
+     "att",
+     "atte"
+    ],
+    "type": "rhyme_list"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I09_v2_conversational",
+   "prompt_text": "give me 5 words that rhyme with cat — lowercase, separated by commas, nothing else.",
+   "scoring_rubric": {
+    "required_elements": [
+     "five distinct rhymes",
+     "lowercase",
+     "comma separated only"
+    ]
+   },
+   "task_id": "I09",
+   "variant_id": "v2_conversational"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_any_groups": [
+     [
+      "key"
+     ],
+     [
+      "bucket"
+     ],
+     [
+      "collision"
+     ]
+    ],
+    "max_words": 119,
+    "type": "word_limit_keywords"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I10_v0_original",
+   "prompt_text": "Explain what a hash table is in under 120 words. Your answer must include the words 'key', 'bucket', and 'collision'.",
+   "scoring_rubric": {
+    "required_elements": [
+     "hash function maps keys to buckets/indices",
+     "collision handling",
+     "fast average lookup"
+    ]
+   },
+   "task_id": "I10",
+   "variant_id": "v0_original"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_any_groups": [
+     [
+      "key"
+     ],
+     [
+      "bucket"
+     ],
+     [
+      "collision"
+     ]
+    ],
+    "max_words": 119,
+    "type": "word_limit_keywords"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I10_v1_natural",
+   "prompt_text": "In fewer than 120 words, explain what a hash table is, making sure to use the words 'key', 'bucket', and 'collision'.",
+   "scoring_rubric": {
+    "required_elements": [
+     "hash function maps keys to buckets/indices",
+     "collision handling",
+     "fast average lookup"
+    ]
+   },
+   "task_id": "I10",
+   "variant_id": "v1_natural"
+  },
+  {
+   "category": "instruction",
+   "clarification_warranted": "not_needed",
+   "deterministic_check": {
+    "keywords_any_groups": [
+     [
+      "key"
+     ],
+     [
+      "bucket"
+     ],
+     [
+      "collision"
+     ]
+    ],
+    "max_words": 119,
+    "type": "word_limit_keywords"
+   },
+   "expected_behavior": "direct_answer",
+   "missing_information": null,
+   "plausible_interpretations": null,
+   "prompt_id": "I10_v2_conversational",
+   "prompt_text": "explain what a hash table is, under 120 words, and make sure you use the words key, bucket and collision.",
+   "scoring_rubric": {
+    "required_elements": [
+     "hash function maps keys to buckets/indices",
+     "collision handling",
+     "fast average lookup"
+    ]
+   },
+   "task_id": "I10",
+   "variant_id": "v2_conversational"
+  }
+ ],
+ "variants": [
+  "v0_original",
+  "v1_natural",
+  "v2_conversational"
+ ]
+}
