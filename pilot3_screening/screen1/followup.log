@@ -1,0 +1,37 @@
+[15:03:52] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results (backend: ollama)
+[15:03:52] === stage: correct (backend: ollama) ===
+[15:03:52] gemma4-12b-standard: 21 refused answers get a correction turn
+[15:05:07]   10/21 corrections
+[15:06:20]   20/21 corrections
+[15:06:26]   21/21 corrections
+[15:06:26] gemma4-12b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/corrections.jsonl
+[15:06:26] llama3.1-8b-standard: 44 refused answers get a correction turn
+[15:06:43]   10/44 corrections
+[15:06:51]   20/44 corrections
+[15:07:04]   30/44 corrections
+[15:07:11]   40/44 corrections
+[15:07:15]   44/44 corrections
+[15:07:15] llama3.1-8b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/corrections.jsonl
+[15:07:15] qwen3.5-27b-standard: 24 refused answers get a correction turn
+[15:14:12]   10/24 corrections
+[15:19:49]   20/24 corrections
+[15:22:16]   24/24 corrections
+[15:22:16] qwen3.5-27b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/corrections.jsonl
+[15:22:16] done
+[15:22:16] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results (backend: ollama)
+[15:22:16] === stage: judge (backend: ollama) ===
+[15:22:16]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[15:22:16]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[15:22:16] judging 89 corrections
+[15:22:40]   judged 20/89 corrections
+[15:22:54]   judged 40/89 corrections
+[15:23:08]   judged 60/89 corrections
+[15:23:25]   judged 80/89 corrections
+[15:23:33]   judged 89/89 corrections
+[15:23:33] wrote 89 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/correction_judgments.jsonl (0 judge errors)
+[15:23:33] done
+[15:23:33] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results (backend: ollama)
+[15:23:33] === stage: analyze (backend: ollama) ===
+[15:23:33] wrote /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/summary.json and /home/sandb/Fun-Project-2.0/pilot3_screening/screen1/results/summary.md
+[15:23:33] done
+EXIT 0

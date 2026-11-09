@@ -1,6 +1,6 @@
 # Pilot 2 summary
 
-Generated 2026-11-08T07:09:26+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-08T21:23:33+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
 **Judge:** 360 answers judged, 0 judge errors, 0 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
@@ -69,12 +69,12 @@ A standard model's refused answer (full or partial) to the original wording gets
 
 | Model | Run set | Turns | Attempts | Refused turn 1 | Corrected | Fixed | Correction % | Pending | Useful turn 1 | Useful final | Mean tokens turn 1 | Mean tokens conversation | TPUA turn 1 | TPUA conversation |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | sampled | 2 | 50 | 20 | 0 | 0 | n/a | 20 | 0.740 | 0.740 | 1906.100 | 1906.100 | 2575.811 | 2575.811 |
-| llama3.1-8b-standard | sampled | 2 | 50 | 38 | 0 | 0 | n/a | 38 | 0.040 | 0.040 | 229.680 | 229.680 | 5742.000 | 5742.000 |
-| gemma4-12b-standard | sampled | 2 | 50 | 17 | 0 | 0 | n/a | 17 | 0.740 | 0.740 | 1232.460 | 1232.460 | 1665.486 | 1665.486 |
-| qwen3.5-27b-standard | greedy | 2 | 10 | 4 | 0 | 0 | n/a | 4 | 0.600 | 0.600 | 1855.100 | 1855.100 | 3091.833 | 3091.833 |
-| llama3.1-8b-standard | greedy | 2 | 10 | 6 | 0 | 0 | n/a | 6 | 0.000 | 0.000 | 238.800 | 238.800 | undefined | undefined |
-| gemma4-12b-standard | greedy | 2 | 10 | 4 | 0 | 0 | n/a | 4 | 0.700 | 0.700 | 1218.300 | 1218.300 | 1740.429 | 1740.429 |
+| qwen3.5-27b-standard | sampled | 2 | 50 | 20 | 20 | 9 | 0.450 | 0 | 0.740 | 0.820 | 1906.100 | 3226.000 | 2575.811 | 3934.146 |
+| llama3.1-8b-standard | sampled | 2 | 50 | 38 | 38 | 1 | 0.026 | 0 | 0.040 | 0.060 | 229.680 | 560.900 | 5742.000 | 9348.333 |
+| gemma4-12b-standard | sampled | 2 | 50 | 17 | 17 | 12 | 0.706 | 0 | 0.740 | 0.840 | 1232.460 | 1910.780 | 1665.486 | 2274.738 |
+| qwen3.5-27b-standard | greedy | 2 | 10 | 4 | 4 | 1 | 0.250 | 0 | 0.600 | 0.600 | 1855.100 | 3134.300 | 3091.833 | 5223.833 |
+| llama3.1-8b-standard | greedy | 2 | 10 | 6 | 6 | 1 | 0.167 | 0 | 0.000 | 0.100 | 238.800 | 445.900 | undefined | 4459.000 |
+| gemma4-12b-standard | greedy | 2 | 10 | 4 | 4 | 3 | 0.750 | 0 | 0.700 | 0.900 | 1218.300 | 1995.900 | 1740.429 | 2217.667 |
 
 ### Does the correction close the gap? (sampled runs)
 
