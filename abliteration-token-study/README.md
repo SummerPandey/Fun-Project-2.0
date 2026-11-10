@@ -1,4 +1,6 @@
-# Safety-pair study: original vs modified (abliterated) local checkpoints
+# Do Abliterated Models Think Longer? Reasoning Tokens and Answer Quality in Three Original-vs-Abliterated Model Pairs
+
+*Abliteration token study: a paired comparison of three original vs abliterated local models (Llama 3.1 8B, Gemma 4 12B, Qwen 3.5 27B) on 50 benign tasks, 2,700 runs.*
 
 > **Status: complete.** All 2,700 main runs are done and judged. Read [`report/REPORT.md`](report/REPORT.md). To unpack the raw streams, see [`SNAPSHOT.md`](SNAPSHOT.md).
 
@@ -33,7 +35,7 @@ Phases are kept separate: `validation` (measurement checks), `pilot` (60 runs) a
 Requirements: Ollama 0.40.0 on `127.0.0.1:11434` with the six tags and digests in `code/config.py`, plus `mistral-small3.1:24b` for judging; Python ≥ 3.12 with numpy, pandas and matplotlib.
 
 ```bash
-cd ~/safety-pair-study
+cd ~/safety-pair-study   # path on the experiment machine; abliteration-token-study/ in this repo
 python3 benchmark/build_benchmark.py        # must print sha256 00eb9b21…; compare benchmark/benchmark_v1.sha256
 python3 code/validate_measurement.py        # optional: measurement checks
 python3 code/runner.py schedule main        # 50 tasks x 3 variants x 3 reps x 6 models

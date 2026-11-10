@@ -1,4 +1,6 @@
-# Final report: original vs modified checkpoints (main study, v1)
+# Do Abliterated Models Think Longer? Reasoning Tokens and Answer Quality in Three Original-vs-Abliterated Model Pairs
+
+*Final report, main study v1. A paired comparison of installed original and abliterated Ollama checkpoints on benign tasks.*
 
 Date: 2026-11-10. Protocol: `protocol/PROTOCOL.md` (frozen 2026-11-09). Every number below is read from `analysis/main/*.csv` and `analysis/main/supplementary.csv`. Those files are produced by `code/analysis.py main` and `code/sensitivity.py main` from the immutable raw streams.
 

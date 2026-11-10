@@ -1,6 +1,6 @@
 # Snapshot status: main study COMPLETE
 
-This folder is a copy of `~/safety-pair-study/` on the experiment machine, taken on 2026-11-10 at about 10:50 CST after the study finished.
+This folder (`abliteration-token-study/`, originally `safety-pair-study/`) is a copy of `~/safety-pair-study/` on the experiment machine, taken on 2026-11-10 at about 10:50 CST after the study finished.
 
 | Phase | State |
 |---|---|
@@ -27,7 +27,7 @@ Every attempt's raw streamed response is stored compressed in `raw_archives/`. E
 Unpack them in place before running the analysis, since `raw_response_path` points to `raw/<phase>/…`:
 
 ```bash
-cd safety-pair-study
+cd abliteration-token-study
 for f in raw_archives/*.tar.xz; do tar -xJf "$f"; done
 python3 code/analysis.py main && python3 code/sensitivity.py main
 ```
