@@ -1,6 +1,6 @@
 # Safety-pair study: original vs modified (abliterated) local checkpoints
 
-> **Status:** see [`SNAPSHOT.md`](SNAPSHOT.md). The main study was still running when this copy was taken; there are no final results yet.
+> **Status: complete.** All 2,700 main runs are done and judged. Read [`report/REPORT.md`](report/REPORT.md). To unpack the raw streams, see [`SNAPSHOT.md`](SNAPSHOT.md).
 
 This is a separate study from the token-cost pilots in the rest of this repository, and the repo-level `CLAUDE.md` playbook doesn't apply to it.
 
@@ -20,6 +20,7 @@ A controlled comparison of three installed Ollama model pairs: reasoning tokens,
 | `code/scoring.py` | Deterministic scoring and sandboxed code tests. |
 | `code/judge.py` | Blinded secondary judge (mistral-small3.1:24b) and human-review sample. |
 | `code/analysis.py` | Merge, paired cluster bootstrap, tables, charts. |
+| `code/sensitivity.py` | Exact-only sensitivity, non-truncated subset and judge-quality tables (`analysis/<phase>/supplementary.csv`). |
 | `raw/<phase>/` | Immutable raw streamed responses, one file per attempt (read-only). In the GitHub copy these are compressed in `raw_archives/`; see `SNAPSHOT.md` to unpack. |
 | `results/<phase>/` | `schedule.json`, `attempts.jsonl` (one record per attempt), `load_log.jsonl`, judgments. |
 | `analysis/<phase>/` | Scored run table, paired differences, rates, missingness, fan table, charts. |
