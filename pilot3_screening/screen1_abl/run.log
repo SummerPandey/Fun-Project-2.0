@@ -1,0 +1,86 @@
+[15:35:42Z] waiting for safety-pair judge.py pid 2078944
+[16:01:42Z] pid 2078944 gone; launching
+[10:01:42] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results (backend: ollama)
+[10:01:42] === stage: generate (backend: ollama) ===
+[10:01:42] qwen3.5-27b-abliterated: generating 120 of 120 answers
+[10:01:42]   WARNING: huihui_ai/qwen3.5-abliterated:27b has 2 entries on the server (2c5b727e8ad6, 9f1f4b8914ba). Remove the stray copy so the same weights answer every request.
+[10:01:42]   huihui_ai/qwen3.5-abliterated:27b digest 2c5b727e8ad6, think=True, Ollama 0.40.0
+[10:07:47]   10/120 (last: 2034 tokens, stop)
+[10:12:58]   20/120 (last: 1972 tokens, stop)
+[10:18:21]   30/120 (last: 1687 tokens, stop)
+[10:23:32]   40/120 (last: 2076 tokens, stop)
+[10:28:51]   50/120 (last: 1991 tokens, stop)
+[10:34:07]   60/120 (last: 2156 tokens, stop)
+[10:40:09]   70/120 (last: 2027 tokens, stop)
+[10:45:27]   80/120 (last: 2139 tokens, stop)
+[10:51:16]   90/120 (last: 2285 tokens, stop)
+[10:56:29]   100/120 (last: 1957 tokens, stop)
+[11:02:00]   110/120 (last: 2019 tokens, stop)
+[11:07:01]   120/120 (last: 2121 tokens, stop)
+[11:07:01] qwen3.5-27b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results/generations.jsonl
+[11:07:01] llama3.1-8b-abliterated: generating 120 of 120 answers
+[11:07:01]   mannix/llama3.1-8b-abliterated:q4_k_m digest 5920dea9e0f0, think=None, Ollama 0.40.0
+[11:07:19]   10/120 (last: 186 tokens, stop)
+[11:07:33]   20/120 (last: 469 tokens, stop)
+[11:07:46]   30/120 (last: 129 tokens, stop)
+[11:07:57]   40/120 (last: 228 tokens, stop)
+[11:08:09]   50/120 (last: 112 tokens, stop)
+[11:08:20]   60/120 (last: 64 tokens, stop)
+[11:08:35]   70/120 (last: 100 tokens, stop)
+[11:08:44]   80/120 (last: 60 tokens, stop)
+[11:08:59]   90/120 (last: 27 tokens, stop)
+[11:09:11]   100/120 (last: 96 tokens, stop)
+[11:09:25]   110/120 (last: 142 tokens, stop)
+[11:09:36]   120/120 (last: 253 tokens, stop)
+[11:09:36] llama3.1-8b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results/generations.jsonl
+[11:09:36] gemma4-12b-abliterated: generating 120 of 120 answers
+[11:09:36]   huihui_ai/gemma-4-abliterated:12b digest 526eca3f9757, think=True, Ollama 0.40.0
+[11:11:42]   10/120 (last: 1469 tokens, stop)
+[11:13:55]   20/120 (last: 1272 tokens, stop)
+[11:15:56]   30/120 (last: 1339 tokens, stop)
+[11:18:04]   40/120 (last: 1579 tokens, stop)
+[11:20:01]   50/120 (last: 1352 tokens, stop)
+[11:22:08]   60/120 (last: 1522 tokens, stop)
+[11:24:09]   70/120 (last: 1259 tokens, stop)
+[11:26:21]   80/120 (last: 1647 tokens, stop)
+[11:28:23]   90/120 (last: 1573 tokens, stop)
+[11:30:30]   100/120 (last: 1666 tokens, stop)
+[11:32:31]   110/120 (last: 1296 tokens, stop)
+[11:34:40]   120/120 (last: 1587 tokens, stop)
+[11:34:40] gemma4-12b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results/generations.jsonl
+[11:34:40] done
+[11:34:40] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results (backend: ollama)
+[11:34:40] === stage: judge (backend: ollama) ===
+[11:34:40]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[11:34:40]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[11:34:40] judging 360 answers
+[11:35:01]   judged 20/360 answers
+[11:35:21]   judged 40/360 answers
+[11:35:39]   judged 60/360 answers
+[11:35:58]   judged 80/360 answers
+[11:36:16]   judged 100/360 answers
+[11:36:35]   judged 120/360 answers
+[11:36:48]   judged 140/360 answers
+[11:37:03]   judged 160/360 answers
+[11:37:17]   judged 180/360 answers
+[11:37:31]   judged 200/360 answers
+[11:37:45]   judged 220/360 answers
+[11:37:58]   judged 240/360 answers
+[11:38:18]   judged 260/360 answers
+[11:38:40]   judged 280/360 answers
+[11:39:00]   judged 300/360 answers
+[11:39:20]   judged 320/360 answers
+[11:39:41]   judged 340/360 answers
+[18:02:02Z] resuming judge after session end (340/360 judged)
+[12:02:02] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results (backend: ollama)
+[12:02:02] === stage: judge (backend: ollama) ===
+[12:02:02]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[12:02:02]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[12:02:02] judging 20 answers
+[12:02:22] wrote 20 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results/judgments.jsonl (0 judge errors)
+[12:02:22] done
+[12:02:22] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results (backend: ollama)
+[12:02:22] === stage: analyze (backend: ollama) ===
+[12:02:22] wrote /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results/summary.json and /home/sandb/Fun-Project-2.0/pilot3_screening/screen1_abl/results/summary.md
+[12:02:22] done
+EXIT 0
