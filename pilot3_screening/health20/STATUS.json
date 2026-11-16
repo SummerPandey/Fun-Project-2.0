@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-16T10:00:03Z",
+  "updated_utc": "2026-11-16T10:30:05Z",
   "state": "running",
-  "answers_done": 909,
+  "answers_done": 1057,
   "answers_total": 1440,
   "judged": 720,
-  "stage": "batchB generate qwen3.5-27b-abliterated",
+  "stage": "batchB generate llama3.1-8b-standard",
   "verify_fail": 3,
   "verify_warn": 10,
   "last_error": null

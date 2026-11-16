@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T10:00:02+00:00",
+  "checked_at": "2026-11-16T10:30:05+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results",
   "mock": false,
   "fails": 1,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 189 rows, all valid JSON"
+      "message": "generations.jsonl: 337 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -33,12 +33,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-abliterated: generate 69/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-abliterated: generate 120/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-standard: generate 0/120, judge 0/120, capability 0/?"
+      "message": "llama3.1-8b-standard: generate 97/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "FAIL",
       "area": "provenance",
-      "message": "189 answers have a prompt_text that is not in pilot_prompts.json, e.g. ['qwen3.5-27b-standard|P01|original|s1', 'qwen3.5-27b-standard|P01|twin|s1', 'qwen3.5-27b-standard|P02|original|s1']"
+      "message": "337 answers have a prompt_text that is not in pilot_prompts.json, e.g. ['qwen3.5-27b-standard|P01|original|s1', 'qwen3.5-27b-standard|P01|twin|s1', 'qwen3.5-27b-standard|P02|original|s1']"
     },
     {
       "level": "PASS",
@@ -72,6 +72,11 @@
     },
     {
       "level": "PASS",
+      "area": "digests",
+      "message": "llama3.1-8b-standard: one set of weights, 46e0c10c039e (matches pin)"
+    },
+    {
+      "level": "PASS",
       "area": "settings",
       "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
     },
@@ -82,18 +87,23 @@
     },
     {
       "level": "PASS",
+      "area": "settings",
+      "message": "llama: both models used identical options and think flag {\"options\": {\"frequency_penalty\": 0.0, \"min_p\": 0.0, \"num_ctx\": 16384, \"num_predict\": 4096, \"presence_penalty\": 0.0, \"repeat_penalty\": 1.0, \"top_k\": 0, \"top_p\": 1.0}, \"think\": null}"
+    },
+    {
+      "level": "PASS",
       "area": "tokens",
-      "message": "all 189 answers: cap flags consistent, counts in range"
+      "message": "all 337 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "4 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "6 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-16T10:00:02+00:00"
+      "message": "summary.json generated_at 2026-11-16T10:30:05+00:00"
     }
   ]
 }

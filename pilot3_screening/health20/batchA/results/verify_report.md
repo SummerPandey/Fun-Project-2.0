@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-16T10:00:02+00:00. **2 FAIL, 2 WARN.**
+Checked 2026-11-16T10:30:05+00:00. **2 FAIL, 2 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -29,7 +29,7 @@ Checked 2026-11-16T10:00:02+00:00. **2 FAIL, 2 WARN.**
 | WARN | tokens | 1 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study |
 | PASS | judge | 720 judgments: 'useful' follows its rule in every one |
 | PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-16T10:00:02+00:00 |
+| PASS | summary | summary.json generated_at 2026-11-16T10:30:05+00:00 |
 | PASS | correction | corrections.jsonl: 112 rows, all valid JSON |
 | PASS | correction | correction_judgments.jsonl: 112 rows, all valid JSON |
 | FAIL | correction | 112 correction turns: correction text differs from the configured template |

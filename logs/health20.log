@@ -235,3 +235,25 @@
 [03:43:24]   40/120 (last: 2270 tokens, stop)
 [03:48:59]   50/120 (last: 2300 tokens, stop)
 [03:54:27]   60/120 (last: 2222 tokens, stop)
+[04:00:15]   70/120 (last: 2611 tokens, stop)
+[04:05:37]   80/120 (last: 2158 tokens, stop)
+[04:11:10]   90/120 (last: 2496 tokens, stop)
+[04:16:26]   100/120 (last: 2202 tokens, stop)
+[04:22:07]   110/120 (last: 2234 tokens, stop)
+[04:27:30]   120/120 (last: 2357 tokens, stop)
+[04:27:30] qwen3.5-27b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results/generations.jsonl
+[04:27:30] done
+=== 2026-11-16T10:27:30Z batchB stage generate llama3.1-8b-standard
+[04:27:30] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results (backend: ollama)
+[04:27:30] === stage: generate (backend: ollama) ===
+[04:27:30] llama3.1-8b-standard: generating 120 of 120 answers
+[04:27:30]   llama3.1:8b-instruct-q4_K_M digest 46e0c10c039e, think=None, Ollama 0.40.0
+[04:27:47]   10/120 (last: 504 tokens, stop)
+[04:28:13]   20/120 (last: 669 tokens, stop)
+[04:28:21]   30/120 (last: 50 tokens, stop)
+[04:28:40]   40/120 (last: 618 tokens, stop)
+[04:28:49]   50/120 (last: 44 tokens, stop)
+[04:29:08]   60/120 (last: 611 tokens, stop)
+[04:29:19]   70/120 (last: 466 tokens, stop)
+[04:29:40]   80/120 (last: 488 tokens, stop)
+[04:29:49]   90/120 (last: 49 tokens, stop)
