@@ -216,3 +216,17 @@
 [02:46:26]   50/120 (last: 2518 tokens, stop)
 [02:51:45]   60/120 (last: 2222 tokens, stop)
 [02:56:20]   70/120 (last: 2184 tokens, stop)
+[03:01:36]   80/120 (last: 2122 tokens, stop)
+[03:06:15]   90/120 (last: 2316 tokens, stop)
+[03:11:45]   100/120 (last: 2391 tokens, stop)
+[03:16:06]   110/120 (last: 2069 tokens, stop)
+[03:20:45]   120/120 (last: 2038 tokens, stop)
+[03:20:45] qwen3.5-27b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results/generations.jsonl
+[03:20:45] done
+=== 2026-11-16T09:20:45Z batchB stage generate qwen3.5-27b-abliterated
+[03:20:45] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results (backend: ollama)
+[03:20:45] === stage: generate (backend: ollama) ===
+[03:20:45] qwen3.5-27b-abliterated: generating 120 of 120 answers
+[03:20:45]   WARNING: huihui_ai/qwen3.5-abliterated:27b has 2 entries on the server (2c5b727e8ad6, 9f1f4b8914ba). Remove the stray copy so the same weights answer every request.
+[03:20:45]   huihui_ai/qwen3.5-abliterated:27b digest 2c5b727e8ad6, think=True, Ollama 0.40.0
+[03:26:39]   10/120 (last: 2571 tokens, stop)
