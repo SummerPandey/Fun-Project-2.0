@@ -173,3 +173,40 @@
 [01:59:47]   50/50 corrections
 [01:59:47] llama3.1-8b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/corrections.jsonl
 [01:59:47] qwen3.5-27b-standard: 33 refused answers get a correction turn
+[02:07:02]   10/33 corrections
+[02:12:59]   20/33 corrections
+[02:18:52]   30/33 corrections
+[02:20:30]   33/33 corrections
+[02:20:30] qwen3.5-27b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/corrections.jsonl
+[02:20:30] done
+=== 2026-11-16T08:20:30Z batchA stage judge2
+[02:20:30] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[02:20:30] === stage: judge (backend: ollama) ===
+[02:20:30]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[02:20:30]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[02:20:30] judging 112 corrections
+[02:20:52]   judged 20/112 corrections
+[02:21:08]   judged 40/112 corrections
+[02:21:22]   judged 60/112 corrections
+[02:21:36]   judged 80/112 corrections
+[02:21:55]   judged 100/112 corrections
+[02:22:06]   judged 112/112 corrections
+[02:22:06] wrote 112 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/correction_judgments.jsonl (0 judge errors)
+[02:22:06] done
+=== 2026-11-16T08:22:06Z batchA stage analyze
+[02:22:06] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[02:22:06] === stage: analyze (backend: ollama) ===
+[02:22:06] wrote /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/summary.json and /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/summary.md
+[02:22:06] done
+=== 2026-11-16T08:22:06Z batchA stage sample
+[02:22:06] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[02:22:06] === stage: sample (backend: ollama) ===
+[02:22:06] wrote 60 blind items to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/handcheck.csv (key in handcheck_key.csv; do not open it before scoring)
+[02:22:06] done
+=== 2026-11-16T08:22:06Z batchA stage done
+=== 2026-11-16T08:22:06Z batchB stage generate qwen3.5-27b-standard
+[02:22:06] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results (backend: ollama)
+[02:22:06] === stage: generate (backend: ollama) ===
+[02:22:06] qwen3.5-27b-standard: generating 120 of 120 answers
+[02:22:06]   qwen3.5:27b digest 64ae5b1d651f, think=True, Ollama 0.40.0
+[02:26:50]   10/120 (last: 2485 tokens, stop)

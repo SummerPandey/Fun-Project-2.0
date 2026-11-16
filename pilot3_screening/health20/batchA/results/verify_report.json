@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-16T08:00:53+00:00",
+  "checked_at": "2026-11-16T08:30:56+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results",
   "mock": false,
   "fails": 2,
-  "warnings": 4,
+  "warnings": 2,
   "items": [
     {
       "level": "PASS",
@@ -133,27 +133,27 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-16T08:00:53+00:00"
+      "message": "summary.json generated_at 2026-11-16T08:30:55+00:00"
     },
     {
       "level": "PASS",
       "area": "correction",
-      "message": "corrections.jsonl: 80 rows, all valid JSON"
+      "message": "corrections.jsonl: 112 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "correction_judgments.jsonl: 112 rows, all valid JSON"
     },
     {
       "level": "FAIL",
       "area": "correction",
-      "message": "80 correction turns: correction text differs from the configured template"
+      "message": "112 correction turns: correction text differs from the configured template"
     },
     {
-      "level": "WARN",
+      "level": "PASS",
       "area": "correction",
-      "message": "32 refused standard answers have no correction turn yet (run the correct stage), e.g. ['qwen3.5-27b-standard|P01|original|greedy|c1', 'qwen3.5-27b-standard|P01|original|s2|c1']"
-    },
-    {
-      "level": "WARN",
-      "area": "correction",
-      "message": "80 correction turns not judged yet (run judge again)"
+      "message": "every refused standard answer (112) has its correction turn"
     },
     {
       "level": "PASS",

@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-16T08:00:53+00:00. **2 FAIL, 4 WARN.**
+Checked 2026-11-16T08:30:56+00:00. **2 FAIL, 2 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -29,9 +29,9 @@ Checked 2026-11-16T08:00:53+00:00. **2 FAIL, 4 WARN.**
 | WARN | tokens | 1 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study |
 | PASS | judge | 720 judgments: 'useful' follows its rule in every one |
 | PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-16T08:00:53+00:00 |
-| PASS | correction | corrections.jsonl: 80 rows, all valid JSON |
-| FAIL | correction | 80 correction turns: correction text differs from the configured template |
-| WARN | correction | 32 refused standard answers have no correction turn yet (run the correct stage), e.g. ['qwen3.5-27b-standard/P01/original/greedy/c1', 'qwen3.5-27b-standard/P01/original/s2/c1'] |
-| WARN | correction | 80 correction turns not judged yet (run judge again) |
+| PASS | summary | summary.json generated_at 2026-11-16T08:30:55+00:00 |
+| PASS | correction | corrections.jsonl: 112 rows, all valid JSON |
+| PASS | correction | correction_judgments.jsonl: 112 rows, all valid JSON |
+| FAIL | correction | 112 correction turns: correction text differs from the configured template |
+| PASS | correction | every refused standard answer (112) has its correction turn |
 | PASS | correction | 24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match |
