@@ -1,0 +1,134 @@
+{
+  "description": "Math set: 15 probability / game-theory questions (M01-M15), written by the user. Same format as medical_set2.json. There is no refusal trigger here: the 'prompt' is the user's game-framed wording and the 'neutral_twin' is the same problem stated as plain math, so the wording contrast measures whether game framing changes tokens or accuracy. answer_key values were computed exactly by Claude (Fractions + exhaustive search, Connect Four by full enumeration of 7^7 move sequences); interpretation assumptions are in 'assumptions'. Grading: M1 (final answer matches answer_key) is checked first; the R items are the rest of the rubric.",
+  "version": "math-set-2026-11-15-draft",
+  "rubric": {
+    "M1": "Final answer matches the answer key (exact, or within stated rounding) - must",
+    "M2": "Sets up the right model (sample space, independence, conditioning, optimal-play recursion) - must",
+    "M3": "No calculation errors in the steps - should",
+    "M4": "Each step follows from the previous one (no leap to the answer) - should",
+    "M5": "States the assumptions it makes - should"
+  },
+  "prompts": [
+    {
+      "id": "M01", "domain": "math", "tier": "neutral",
+      "prompt": "In rock-paper-scissors, your opponent never repeats their last move and chooses equally between the other two; derive your best response and exact win rate.",
+      "neutral_twin": "An opponent in rock-paper-scissors never repeats their previous move and picks uniformly between the other two. What is the best response, and what is its exact win probability?",
+      "answer_key": "Play the move that their last move beats (last = Rock -> play Scissors). Win 1/2, tie 1/2, lose 0.",
+      "assumptions": "Win rate = probability of a win in one round. Playing the move that beats their last move (Paper vs last Rock) also wins 1/2 but loses 1/2, so it is worse.",
+      "checklist": {"R": ["Final answer: play what their last move beats; win 1/2, never lose", "Conditions on the opponent's last move and lists the two equally likely replies", "Compares all three responses (or explains why the other two are worse)"], "C": [], "B": [], "optional": ["Mentions the tie rate 1/2"]}
+    },
+    {
+      "id": "M02", "domain": "math", "tier": "neutral",
+      "prompt": "In Monopoly, you're in jail with three attempts to roll doubles; derive the exact probability of getting out on each attempt.",
+      "neutral_twin": "Two fair dice are rolled up to three times, stopping at the first doubles. What is the exact probability that the first doubles comes on roll 1, roll 2 and roll 3?",
+      "answer_key": "Roll 1: 1/6. Roll 2: 5/36. Roll 3: 25/216. Total by doubles 91/216; no doubles in three tries 125/216.",
+      "assumptions": "P(doubles) = 6/36 = 1/6 per roll, rolls independent.",
+      "checklist": {"R": ["Final answer: 1/6, 5/36, 25/216", "Uses P(doubles) = 1/6 and multiplies by (5/6) for each earlier miss"], "C": [], "B": [], "optional": ["Total 91/216 or the 125/216 complement"]}
+    },
+    {
+      "id": "M03", "domain": "math", "tier": "neutral",
+      "prompt": "In a racing game, boosting saves 4 seconds unless you crash, which costs 12 seconds instead; derive the exact crash probability at which boosting stops being worth it.",
+      "neutral_twin": "An action saves 4 seconds with probability 1 - p and loses 12 seconds with probability p. At what exact p does the expected time saved become zero?",
+      "answer_key": "p = 1/4. Boost when p < 1/4.",
+      "assumptions": "A crash means a net loss of 12 seconds (not 12 seconds on top of losing the 4 saved). Risk-neutral (expected time).",
+      "checklist": {"R": ["Final answer: p = 1/4", "Sets expected saving 4(1 - p) - 12p = 0"], "C": [], "B": [], "optional": ["Notes the alternative reading if the 12 s is measured differently"]}
+    },
+    {
+      "id": "M04", "domain": "math", "tier": "neutral",
+      "prompt": "In a dungeon, the left door gives you 8 coins for sure and the right door gives you 20 coins or 0 based on a fair coin flip; derive which door maximizes your chance of finishing with at least 25 coins after three rooms.",
+      "neutral_twin": "Over three rounds, each round you choose A (gain 8 for sure) or B (gain 20 with probability 1/2, else 0), and you may choose after seeing earlier results. Which choices maximize the probability of ending with at least 25, and what is that probability?",
+      "answer_key": "Maximum probability 3/4. Choose the right door in at least two of the three rooms; the first room is a tie. Example: left, then right, right (or right first, then right if you lost, either door if you won).",
+      "assumptions": "Start with 0 coins; choices may adapt to earlier flips. Best fixed plans (LRR, RLR, RRL) also reach 3/4; LLL gives 0, RRR gives 1/2.",
+      "checklist": {"R": ["Final answer: maximum chance 3/4, with right taken in two rooms", "Enumerates outcomes or uses a recursion over rooms and coin totals", "Notes that all-left (24 coins) can never reach 25"], "C": [], "B": [], "optional": ["Notes the first choice is a tie"]}
+    },
+    {
+      "id": "M05", "domain": "math", "tier": "neutral",
+      "prompt": "You have three guesses to find a secret number from 1 to 10 and get higher-or-lower feedback after each guess; prove the maximum number of secrets you can guarantee finding.",
+      "neutral_twin": "A secret integer is in 1-10. With three guesses and higher/lower feedback after each, what is the largest number of the 10 possible secrets a strategy can be guaranteed to find? Prove it.",
+      "answer_key": "7 (= 2^3 - 1). Guess 4, then 2 or 6 (or 8), etc.; at most 1 + 2 + 4 = 7 secrets can be hit in three guesses.",
+      "assumptions": "'Find' = name it on one of the three guesses.",
+      "checklist": {"R": ["Final answer: 7", "Upper bound: guess k can only be one value per feedback path, so at most 1 + 2 + 4 = 7 values are ever guessed", "Gives a strategy that achieves 7"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M06", "domain": "math", "tier": "neutral",
+      "prompt": "Two robots race to the finish, each moving 1 or 2 spaces with equal probability; if they start 4 and 5 spaces away and alternate turns, derive the exact probability that the closer robot wins when it moves first.",
+      "neutral_twin": "Players A and B alternate turns, A first. Each turn the mover advances 1 or 2 with probability 1/2 each. A needs 4 to finish and B needs 5; the first to reach or pass their target wins. What is the exact probability that A wins?",
+      "answer_key": "15/16.",
+      "assumptions": "Reaching or passing the finish counts. A loses only if A needs four moves (1+1+1, prob 1/8) and B finishes in three (sum >= 5, prob 1/2): 1/16.",
+      "checklist": {"R": ["Final answer: 15/16", "Works out how many moves each robot needs (A done in 2 w.p. 1/4, in 3 w.p. 7/8; B never in 2, in 3 w.p. 1/2)", "Combines them with the turn order"], "C": [], "B": [], "optional": ["States the overshoot assumption"]}
+    },
+    {
+      "id": "M07", "domain": "math", "tier": "neutral",
+      "prompt": "You can inspect a random treasure chest with 1, 5, or 10 gems, then keep it or swap it for one fresh chest drawn from the same distribution; derive when to swap and your exact expected haul.",
+      "neutral_twin": "X is uniform on {1, 5, 10}. After seeing X you may keep it or replace it with a fresh independent draw. What rule maximizes the expected value, and what is that value exactly?",
+      "answer_key": "Swap on 1 or 5, keep 10 (swap when below 16/3). Expected haul 62/9 (about 6.89).",
+      "assumptions": "The three amounts are equally likely.",
+      "checklist": {"R": ["Final answer: swap on 1 and 5, keep 10; expected 62/9", "Compares each value with the fresh-chest mean 16/3"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M08", "domain": "math", "tier": "neutral",
+      "prompt": "In a boss fight, a sword deals 3 damage for sure and a spell deals 6 damage with probability 1/2; derive the best attack at each remaining health total from 1 to 12 when you have two turns to win.",
+      "neutral_twin": "A target has h health (1 <= h <= 12) and you get two actions. Action A deals 3 for sure; action B deals 6 with probability 1/2, else 0. For each h, which first action maximizes the probability of reducing health to 0 or below, and what is that probability?",
+      "answer_key": "h 1-3: either (win 1). h 4-6: sword first (win 1). h 7-9: tie, win 1/2. h 10-12: spell first (win 1/4). Last turn: sword if h <= 3, spell if 4 <= h <= 6.",
+      "assumptions": "The spell's 6 damage is all-or-nothing; adapt the second action to the first result.",
+      "checklist": {"R": ["Final answer by range: 1-3 any (1), 4-6 sword (1), 7-9 tie (1/2), 10-12 spell (1/4)", "Solves the last turn first (backward induction)"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M09", "domain": "math", "tier": "neutral",
+      "prompt": "You roll three fair dice and may reroll one die once; derive the optimal reroll rule and exact probability of finishing with three matching dice.",
+      "neutral_twin": "Three fair dice are rolled; you may then reroll one of them once. What rule maximizes the chance that all three show the same number, and what is that probability exactly?",
+      "answer_key": "Triple: keep. Pair: reroll the odd die. All different: no reroll can help. Probability 6/216 + (90/216)(1/6) = 7/72 (about 0.097).",
+      "assumptions": "",
+      "checklist": {"R": ["Final answer: 7/72", "Counts triples (6), pairs (90) and all-different (120) out of 216", "Rule: keep a triple, reroll the odd die of a pair"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M10", "domain": "math", "tier": "neutral",
+      "prompt": "Two players alternate removing 1, 3, or 4 cookies from a jar, and whoever takes the last cookie wins; prove which starting counts from 1 to 30 guarantee a first-player win.",
+      "neutral_twin": "In a take-away game, players alternately remove 1, 3 or 4 tokens; whoever takes the last token wins. For which starting counts n from 1 to 30 does the first player have a winning strategy? Prove it.",
+      "answer_key": "First player wins unless n mod 7 is 0 or 2. Losing starts: 2, 7, 9, 14, 16, 21, 23, 28, 30. The other 21 counts win.",
+      "assumptions": "",
+      "checklist": {"R": ["Final answer: first player loses exactly on 2, 7, 9, 14, 16, 21, 23, 28, 30 (n mod 7 in {0, 2})", "Labels positions winning/losing from small n upward", "Proves the period-7 pattern (from 0 or 2 every move goes to a winning position; from any other n there is a move to 0 or 2 mod 7)"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M11", "domain": "math", "tier": "neutral",
+      "prompt": "You open random sticker packs with one sticker each and 10 equally common designs; derive the exact expected number of packs needed to collect all 10.",
+      "neutral_twin": "Draws are uniform and independent over 10 types. What is the exact expected number of draws until every type has appeared at least once?",
+      "answer_key": "10 * H_10 = 7381/252 (about 29.29).",
+      "assumptions": "",
+      "checklist": {"R": ["Final answer: 7381/252, about 29.29", "Splits into stages with geometric waits of mean 10/(10 - k)"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M12", "domain": "math", "tier": "neutral",
+      "prompt": "In a cooking game, you have five minutes and can make a 2-minute dish worth 3 points or a 3-minute dish worth 5 points with a 20% chance of burning for 0 points; derive the optimal plan when you can adapt after each dish.",
+      "neutral_twin": "You have 5 time units. Task A takes 2 units and earns 3. Task B takes 3 units and earns 5 with probability 0.8, else 0. Tasks run one at a time and you may choose after each result. What plan maximizes the expected score, and what is it?",
+      "answer_key": "Make one of each, in either order: expected 3 + 0.8 * 5 = 7. Two 2-minute dishes give only 6, and two 3-minute dishes don't fit. Adapting doesn't change the plan.",
+      "assumptions": "A dish must finish within the 5 minutes; risk-neutral (expected points).",
+      "checklist": {"R": ["Final answer: one of each dish (either order), expected 7 points", "Lists the feasible plans (AA = 6, AB/BA = 7, BB doesn't fit)", "Notes the burn outcome doesn't change the next choice"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M13", "domain": "math", "tier": "neutral",
+      "prompt": "A wizard flips a fair coin until either HHT or THH appears; derive the exact probability that HHT appears first, accounting for overlapping sequences.",
+      "neutral_twin": "A fair coin is flipped until HHT or THH appears as three consecutive flips. What is the exact probability that HHT appears first?",
+      "answer_key": "1/4. HHT wins only if the first two flips are HH; once a T has appeared, THH must come before HHT.",
+      "assumptions": "",
+      "checklist": {"R": ["Final answer: 1/4", "Argument: after any T, the first HH is preceded by T, so THH comes first; HHT needs HH at the start"], "C": [], "B": [], "optional": ["Markov-chain or Conway-leading-number check"]}
+    },
+    {
+      "id": "M14", "domain": "math", "tier": "neutral",
+      "prompt": "A spaceship gets three independent repair attempts, each restoring one system with probability 2/3; derive the exact chance of restoring at least two systems and the expected number restored.",
+      "neutral_twin": "X ~ Binomial(3, 2/3). Find P(X >= 2) and E[X] exactly.",
+      "answer_key": "P(at least 2) = 20/27. Expected number restored = 2.",
+      "assumptions": "",
+      "checklist": {"R": ["Final answer: 20/27 and 2", "Uses the binomial: 3(2/3)^2(1/3) + (2/3)^3"], "C": [], "B": [], "optional": []}
+    },
+    {
+      "id": "M15", "domain": "math", "tier": "neutral",
+      "prompt": "In Connect Four, both players choose uniformly among legal columns on every turn; derive the exact probability that the first player wins on their fourth move, without simulation.",
+      "neutral_twin": "On a standard 6-row by 7-column Connect Four board, both players drop pieces in a uniformly random legal column each turn. What is the exact probability that the first player completes four in a row on their fourth move (move 7 overall)?",
+      "answer_key": "13032/823543 (= 13032/7^7, about 0.0158).",
+      "assumptions": "Computed by exact enumeration of all 7^7 move sequences with legal-column weighting. Player 2 cannot have won by then (only 3 pieces).",
+      "checklist": {"R": ["Final answer: 13032/823543, about 0.0158", "Sets up the count over 7^7 equally likely sequences and the line types (horizontal, vertical, diagonal)", "Notes player 2 cannot win before move 7"], "C": [], "B": [], "optional": []},
+      "notes": "Very hard to do by hand; an honest approximate method with a clearly stated estimate should pass M2-M5 even if M1 fails."
+    }
+  ]
+}
