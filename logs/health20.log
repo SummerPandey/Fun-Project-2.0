@@ -1,0 +1,5 @@
+=== 2026-11-16T04:57:06Z batchA stage generate qwen3.5-27b-standard
+[22:57:06] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[22:57:06] === stage: generate (backend: ollama) ===
+[22:57:06] qwen3.5-27b-standard: generating 120 of 120 answers
+[22:57:06]   qwen3.5:27b digest 64ae5b1d651f, think=True, Ollama 0.40.0
