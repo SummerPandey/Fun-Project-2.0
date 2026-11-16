@@ -24,3 +24,8 @@
 [23:53:46]   WARNING: huihui_ai/qwen3.5-abliterated:27b has 2 entries on the server (2c5b727e8ad6, 9f1f4b8914ba). Remove the stray copy so the same weights answer every request.
 [23:53:46]   huihui_ai/qwen3.5-abliterated:27b digest 2c5b727e8ad6, think=True, Ollama 0.40.0
 [23:59:45]   10/120 (last: 2034 tokens, stop)
+[00:05:14]   20/120 (last: 2661 tokens, stop)
+[00:10:37]   30/120 (last: 1687 tokens, stop)
+[00:16:22]   40/120 (last: 2562 tokens, stop)
+[00:21:41]   50/120 (last: 1991 tokens, stop)
+[00:27:26]   60/120 (last: 2750 tokens, stop)
