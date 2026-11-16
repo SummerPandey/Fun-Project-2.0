@@ -106,7 +106,7 @@ def main() -> int:
 
     results = Path(args.results).resolve()
     cfg = json.loads(Path(args.config).read_text(encoding="utf-8"))
-    prompts = {p["id"]: p for p in json.loads((ROOT / "pilot_prompts.json").read_text(encoding="utf-8"))["prompts"]}
+    prompts = {p["id"]: p for p in json.loads((Path(args.config).resolve().parent / cfg["prompts_file"]).read_text(encoding="utf-8"))["prompts"]}
     rp = load_runner()
     rep = Report()
     models = {m["name"]: m for m in cfg["models"]}
