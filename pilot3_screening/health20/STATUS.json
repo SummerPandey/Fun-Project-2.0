@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-16T10:30:05Z",
+  "updated_utc": "2026-11-16T11:00:12Z",
   "state": "running",
-  "answers_done": 1057,
+  "answers_done": 1378,
   "answers_total": 1440,
   "judged": 720,
-  "stage": "batchB generate llama3.1-8b-standard",
+  "stage": "batchB generate gemma4-12b-abliterated",
   "verify_fail": 3,
   "verify_warn": 10,
   "last_error": null
