@@ -1,8 +1,8 @@
 {
-  "checked_at": "2026-11-16T11:55:19+00:00",
+  "checked_at": "2026-11-16T17:25:02+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results",
   "mock": false,
-  "fails": 2,
+  "fails": 0,
   "warnings": 1,
   "items": [
     {
@@ -56,9 +56,9 @@
       "message": "gemma4-12b-abliterated: generate 120/120, judge 120/120, capability 0/?"
     },
     {
-      "level": "FAIL",
+      "level": "PASS",
       "area": "provenance",
-      "message": "720 answers have a prompt_text that is not in pilot_prompts.json, e.g. ['qwen3.5-27b-standard|P01|original|s1', 'qwen3.5-27b-standard|P01|twin|s1', 'qwen3.5-27b-standard|P02|original|s1']"
+      "message": "all 720 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -141,9 +141,9 @@
       "message": "correction_judgments.jsonl: 133 rows, all valid JSON"
     },
     {
-      "level": "FAIL",
+      "level": "PASS",
       "area": "correction",
-      "message": "133 correction turns: correction text differs from the configured template"
+      "message": "all 133 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history"
     },
     {
       "level": "PASS",

@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-16T11:55:19+00:00. **2 FAIL, 1 WARN.**
+Checked 2026-11-16T17:25:02+00:00. **0 FAIL, 1 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -14,7 +14,7 @@ Checked 2026-11-16T11:55:19+00:00. **2 FAIL, 1 WARN.**
 | PASS | progress | llama3.1-8b-abliterated: generate 120/120, judge 120/120, capability 0/? |
 | PASS | progress | gemma4-12b-standard: generate 120/120, judge 120/120, capability 0/? |
 | PASS | progress | gemma4-12b-abliterated: generate 120/120, judge 120/120, capability 0/? |
-| FAIL | provenance | 720 answers have a prompt_text that is not in pilot_prompts.json, e.g. ['qwen3.5-27b-standard/P01/original/s1', 'qwen3.5-27b-standard/P01/twin/s1', 'qwen3.5-27b-standard/P02/original/s1'] |
+| PASS | provenance | all 720 answers match the prompt texts in pilot_prompts.json |
 | PASS | digests | qwen3.5-27b-standard: one set of weights, 64ae5b1d651f (matches pin) |
 | PASS | digests | qwen3.5-27b-abliterated: one set of weights, 2c5b727e8ad6 (matches pin) |
 | PASS | digests | llama3.1-8b-standard: one set of weights, 46e0c10c039e (matches pin) |
@@ -31,6 +31,6 @@ Checked 2026-11-16T11:55:19+00:00. **2 FAIL, 1 WARN.**
 | PASS | summary | summary.json generated_at 2026-11-16T11:55:19+00:00 |
 | PASS | correction | corrections.jsonl: 133 rows, all valid JSON |
 | PASS | correction | correction_judgments.jsonl: 133 rows, all valid JSON |
-| FAIL | correction | 133 correction turns: correction text differs from the configured template |
+| PASS | correction | all 133 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |
 | PASS | correction | every refused standard answer (133) has its correction turn |
 | PASS | correction | 24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match |
