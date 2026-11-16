@@ -104,3 +104,72 @@
 [01:26:02]   30/120 (last: 1339 tokens, stop)
 [01:28:08]   40/120 (last: 1527 tokens, stop)
 [01:30:05]   50/120 (last: 1352 tokens, stop)
+[01:32:14]   60/120 (last: 1622 tokens, stop)
+[01:34:15]   70/120 (last: 1259 tokens, stop)
+[01:36:24]   80/120 (last: 1576 tokens, stop)
+[01:38:26]   90/120 (last: 1573 tokens, stop)
+[01:40:38]   100/120 (last: 1727 tokens, stop)
+[01:42:40]   110/120 (last: 1296 tokens, stop)
+[01:44:49]   120/120 (last: 1610 tokens, stop)
+[01:44:49] gemma4-12b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/generations.jsonl
+[01:44:49] done
+=== 2026-11-16T07:44:49Z batchA stage judge
+[01:44:49] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[01:44:49] === stage: judge (backend: ollama) ===
+[01:44:49]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[01:44:49]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[01:44:49] judging 720 answers
+[01:45:12]   judged 20/720 answers
+[01:45:32]   judged 40/720 answers
+[01:45:50]   judged 60/720 answers
+[01:46:09]   judged 80/720 answers
+[01:46:30]   judged 100/720 answers
+[01:46:48]   judged 120/720 answers
+[01:47:04]   judged 140/720 answers
+[01:47:23]   judged 160/720 answers
+[01:47:41]   judged 180/720 answers
+[01:47:58]   judged 200/720 answers
+[01:48:15]   judged 220/720 answers
+[01:48:33]   judged 240/720 answers
+[01:48:46]   judged 260/720 answers
+[01:49:01]   judged 280/720 answers
+[01:49:15]   judged 300/720 answers
+[01:49:29]   judged 320/720 answers
+[01:49:43]   judged 340/720 answers
+[01:49:56]   judged 360/720 answers
+[01:50:10]   judged 380/720 answers
+[01:50:24]   judged 400/720 answers
+[01:50:37]   judged 420/720 answers
+[01:50:51]   judged 440/720 answers
+[01:51:06]   judged 460/720 answers
+[01:51:21]   judged 480/720 answers
+[01:51:40]   judged 500/720 answers
+[01:52:02]   judged 520/720 answers
+[01:52:23]   judged 540/720 answers
+[01:52:43]   judged 560/720 answers
+[01:53:04]   judged 580/720 answers
+[01:53:24]   judged 600/720 answers
+[01:53:40]   judged 620/720 answers
+[01:53:59]   judged 640/720 answers
+[01:54:17]   judged 660/720 answers
+[01:54:35]   judged 680/720 answers
+[01:54:53]   judged 700/720 answers
+[01:55:12]   judged 720/720 answers
+[01:55:12] wrote 720 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/judgments.jsonl (0 judge errors)
+[01:55:12] done
+=== 2026-11-16T07:55:12Z batchA stage correct
+[01:55:12] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[01:55:12] === stage: correct (backend: ollama) ===
+[01:55:12] gemma4-12b-standard: 29 refused answers get a correction turn
+[01:56:27]   10/29 corrections
+[01:57:44]   20/29 corrections
+[01:58:47]   29/29 corrections
+[01:58:47] gemma4-12b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/corrections.jsonl
+[01:58:47] llama3.1-8b-standard: 50 refused answers get a correction turn
+[01:59:02]   10/50 corrections
+[01:59:11]   20/50 corrections
+[01:59:22]   30/50 corrections
+[01:59:35]   40/50 corrections
+[01:59:47]   50/50 corrections
+[01:59:47] llama3.1-8b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/corrections.jsonl
+[01:59:47] qwen3.5-27b-standard: 33 refused answers get a correction turn
