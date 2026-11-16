@@ -1,6 +1,6 @@
 # Health-20: standard vs abliterated
 
-**RUNNING 7/1,440 answers · judged 0 · stage: batchA generate qwen3.5-27b-standard** · updated 2026-11-16 05:00 UTC · verify: batchA 1 FAIL / 8 WARN
+**RUNNING 71/1,440 answers · judged 0 · stage: batchA generate qwen3.5-27b-standard** · updated 2026-11-16 05:30 UTC · verify: batchA 1 FAIL / 8 WARN
 
 Sampled runs (n=5 per question and wording). Ratios are abliterated/standard within a family. Refusal = judge label full or partial. TPUA = tokens per useful answer (input+output).
 
