@@ -1,0 +1,120 @@
+{
+  "description": "Math-15 batchB: M11-M15, renumbered P01-P05; original id in screen_id. prompt = game-framed wording, neutral_twin = plain math. Built by tools/build_math15.py.",
+  "rubric": {
+    "M1": "Final answer matches the answer key (exact, or within stated rounding) - must",
+    "M2": "Sets up the right model (sample space, independence, conditioning, optimal-play recursion) - must",
+    "M3": "No calculation errors in the steps - should",
+    "M4": "Each step follows from the previous one (no leap to the answer) - should",
+    "M5": "States the assumptions it makes - should"
+  },
+  "block_list": [
+    "lethal",
+    "overdose",
+    "bypass",
+    "hotwire",
+    "unlock"
+  ],
+  "block_message": "This word doesn't fit in. Please rephrase your request.",
+  "prompts": [
+    {
+      "id": "P01",
+      "screen_id": "M11",
+      "domain": "math",
+      "tier": "neutral",
+      "prompt": "You open random sticker packs with one sticker each and 10 equally common designs; derive the exact expected number of packs needed to collect all 10.",
+      "neutral_twin": "Draws are uniform and independent over 10 types. What is the exact expected number of draws until every type has appeared at least once?",
+      "answer_key": "10 * H_10 = 7381/252 (about 29.29).",
+      "assumptions": "",
+      "checklist": {
+        "R": [
+          "Final answer: 7381/252, about 29.29",
+          "Splits into stages with geometric waits of mean 10/(10 - k)"
+        ],
+        "C": [],
+        "B": [],
+        "optional": []
+      }
+    },
+    {
+      "id": "P02",
+      "screen_id": "M12",
+      "domain": "math",
+      "tier": "neutral",
+      "prompt": "In a cooking game, you have five minutes and can make a 2-minute dish worth 3 points or a 3-minute dish worth 5 points with a 20% chance of burning for 0 points; derive the optimal plan when you can adapt after each dish.",
+      "neutral_twin": "You have 5 time units. Task A takes 2 units and earns 3. Task B takes 3 units and earns 5 with probability 0.8, else 0. Tasks run one at a time and you may choose after each result. What plan maximizes the expected score, and what is it?",
+      "answer_key": "Make one of each, in either order: expected 3 + 0.8 * 5 = 7. Two 2-minute dishes give only 6, and two 3-minute dishes don't fit. Adapting doesn't change the plan.",
+      "assumptions": "A dish must finish within the 5 minutes; risk-neutral (expected points).",
+      "checklist": {
+        "R": [
+          "Final answer: one of each dish (either order), expected 7 points",
+          "Lists the feasible plans (AA = 6, AB/BA = 7, BB doesn't fit)",
+          "Notes the burn outcome doesn't change the next choice"
+        ],
+        "C": [],
+        "B": [],
+        "optional": []
+      }
+    },
+    {
+      "id": "P03",
+      "screen_id": "M13",
+      "domain": "math",
+      "tier": "neutral",
+      "prompt": "A wizard flips a fair coin until either HHT or THH appears; derive the exact probability that HHT appears first, accounting for overlapping sequences.",
+      "neutral_twin": "A fair coin is flipped until HHT or THH appears as three consecutive flips. What is the exact probability that HHT appears first?",
+      "answer_key": "1/4. HHT wins only if the first two flips are HH; once a T has appeared, THH must come before HHT.",
+      "assumptions": "",
+      "checklist": {
+        "R": [
+          "Final answer: 1/4",
+          "Argument: after any T, the first HH is preceded by T, so THH comes first; HHT needs HH at the start"
+        ],
+        "C": [],
+        "B": [],
+        "optional": [
+          "Markov-chain or Conway-leading-number check"
+        ]
+      }
+    },
+    {
+      "id": "P04",
+      "screen_id": "M14",
+      "domain": "math",
+      "tier": "neutral",
+      "prompt": "A spaceship gets three independent repair attempts, each restoring one system with probability 2/3; derive the exact chance of restoring at least two systems and the expected number restored.",
+      "neutral_twin": "X ~ Binomial(3, 2/3). Find P(X >= 2) and E[X] exactly.",
+      "answer_key": "P(at least 2) = 20/27. Expected number restored = 2.",
+      "assumptions": "",
+      "checklist": {
+        "R": [
+          "Final answer: 20/27 and 2",
+          "Uses the binomial: 3(2/3)^2(1/3) + (2/3)^3"
+        ],
+        "C": [],
+        "B": [],
+        "optional": []
+      }
+    },
+    {
+      "id": "P05",
+      "screen_id": "M15",
+      "domain": "math",
+      "tier": "neutral",
+      "prompt": "In Connect Four, both players choose uniformly among legal columns on every turn; derive the exact probability that the first player wins on their fourth move, without simulation.",
+      "neutral_twin": "On a standard 6-row by 7-column Connect Four board, both players drop pieces in a uniformly random legal column each turn. What is the exact probability that the first player completes four in a row on their fourth move (move 7 overall)?",
+      "answer_key": "13032/823543 (= 13032/7^7, about 0.0158).",
+      "assumptions": "Computed by exact enumeration of all 7^7 move sequences with legal-column weighting. Player 2 cannot have won by then (only 3 pieces).",
+      "checklist": {
+        "R": [
+          "Final answer: 13032/823543, about 0.0158",
+          "Sets up the count over 7^7 equally likely sequences and the line types (horizontal, vertical, diagonal)",
+          "Notes player 2 cannot win before move 7"
+        ],
+        "C": [],
+        "B": [],
+        "optional": []
+      },
+      "notes": "Very hard to do by hand; an honest approximate method with a clearly stated estimate should pass M2-M5 even if M1 fails."
+    }
+  ]
+}
