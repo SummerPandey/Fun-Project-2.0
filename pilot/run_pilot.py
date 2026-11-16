@@ -195,9 +195,9 @@ def load_prompts(cfg: dict, config_dir: Path):
     """Return (prompts P01-P10, compiled blocking regex, block_message). The spare S01 is excluded."""
     data = json.loads((config_dir / cfg["prompts_file"]).read_text(encoding="utf-8"))
     prompts = data["prompts"]
-    expected = [f"P{i:02d}" for i in range(1, 11)]
-    if [p["id"] for p in prompts] != expected:
-        raise SystemExit(f"prompts must be exactly {expected} (spare excluded)")
+    expected = [f"P{i:02d}" for i in range(1, len(prompts) + 1)]
+    if not 1 <= len(prompts) <= 10 or [p["id"] for p in prompts] != expected:
+        raise SystemExit(f"prompts must be exactly P01..Pn with 1 <= n <= 10 (spare excluded), got {[p['id'] for p in prompts]}")
     # Whole-word start, then any word characters: "killing", "shoots" and "strangler" are all blocked.
     alternatives = "|".join(re.escape(w) for w in data["block_list"])
     block_re = re.compile(rf"\b(?:{alternatives})\w*", re.IGNORECASE)
