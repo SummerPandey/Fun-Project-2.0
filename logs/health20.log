@@ -210,3 +210,9 @@
 [02:22:06] qwen3.5-27b-standard: generating 120 of 120 answers
 [02:22:06]   qwen3.5:27b digest 64ae5b1d651f, think=True, Ollama 0.40.0
 [02:26:50]   10/120 (last: 2485 tokens, stop)
+[02:32:18]   20/120 (last: 2245 tokens, stop)
+[02:36:42]   30/120 (last: 2355 tokens, stop)
+[02:41:50]   40/120 (last: 2086 tokens, stop)
+[02:46:26]   50/120 (last: 2518 tokens, stop)
+[02:51:45]   60/120 (last: 2222 tokens, stop)
+[02:56:20]   70/120 (last: 2184 tokens, stop)

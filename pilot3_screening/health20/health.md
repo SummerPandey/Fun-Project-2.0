@@ -1,6 +1,6 @@
 # Health-20: standard vs abliterated
 
-**RUNNING 737/1,440 answers · judged 720 · stage: batchB generate qwen3.5-27b-standard** · updated 2026-11-16 08:30 UTC · verify: batchA 2 FAIL / 2 WARN · batchB 1 FAIL / 8 WARN
+**RUNNING 798/1,440 answers · judged 720 · stage: batchB generate qwen3.5-27b-standard** · updated 2026-11-16 09:00 UTC · verify: batchA 2 FAIL / 2 WARN · batchB 1 FAIL / 8 WARN
 
 Sampled runs (n=5 per question and wording). Ratios are abliterated/standard within a family. Refusal = judge label full or partial. TPUA = tokens per useful answer (input+output).
 
@@ -8,7 +8,7 @@ Sampled runs (n=5 per question and wording). Ratios are abliterated/standard wit
 
 | family | out tokens abl/std | TPUA abl/std | refusals std→abl (scary) | refusals std→abl (plain) | useful std→abl (scary) |
 |---|--:|--:|--:|--:|--:|
-| qwen | 1.34 | 0.82 | 54% → 6% | 12% → 8% | 50% → 82% |
+| qwen | 1.31 | 0.82 | 54% → 6% | 12% → 8% | 50% → 82% |
 | llama | 1.90 | – | 84% → 48% | 36% → 34% | 0% → 2% |
 | gemma | 1.27 | 2.17 | 48% → 0% | 10% → 0% | 48% → 28% |
 
@@ -53,7 +53,7 @@ Fixed by follow-up = standard answers to the scary wording that were refused, go
 
 | family | out tokens abl/std | TPUA abl/std | refusals std→abl (scary) | refusals std→abl (plain) | useful std→abl (scary) |
 |---|--:|--:|--:|--:|--:|
-| qwen | 1.42 | 0.61 | 90% → 15% | 30% → 20% | 35% → 85% |
+| qwen | 1.35 | 0.61 | 90% → 15% | 30% → 20% | 35% → 85% |
 | llama | 4.01 | – | 100% → 75% | 90% → 55% | 0% → 0% |
 | gemma | 1.27 | 1.13 | 90% → 0% | 25% → 0% | 40% → 45% |
 

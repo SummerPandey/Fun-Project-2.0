@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T08:30:56+00:00",
+  "checked_at": "2026-11-16T09:00:58+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchB/results",
   "mock": false,
   "fails": 1,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 17 rows, all valid JSON"
+      "message": "generations.jsonl: 78 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -28,7 +28,7 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 17/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-standard: generate 78/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "FAIL",
       "area": "provenance",
-      "message": "17 answers have a prompt_text that is not in pilot_prompts.json, e.g. ['qwen3.5-27b-standard|P01|original|s1', 'qwen3.5-27b-standard|P01|twin|s1', 'qwen3.5-27b-standard|P02|original|s1']"
+      "message": "78 answers have a prompt_text that is not in pilot_prompts.json, e.g. ['qwen3.5-27b-standard|P01|original|s1', 'qwen3.5-27b-standard|P01|twin|s1', 'qwen3.5-27b-standard|P02|original|s1']"
     },
     {
       "level": "PASS",
@@ -78,7 +78,7 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 17 answers: cap flags consistent, counts in range"
+      "message": "all 78 answers: cap flags consistent, counts in range"
     },
     {
       "level": "PASS",
@@ -88,7 +88,7 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-16T08:30:56+00:00"
+      "message": "summary.json generated_at 2026-11-16T09:00:58+00:00"
     }
   ]
 }
