@@ -1,6 +1,6 @@
 # Pilot 2 summary
 
-Generated 2026-11-16T11:30:15+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-16T11:55:19+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
 **Judge:** 720 answers judged, 0 judge errors, 0 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
@@ -87,26 +87,26 @@ A standard model's refused answer (full or partial) to the original wording gets
 
 | Model | Run set | Turns | Attempts | Refused turn 1 | Corrected | Fixed | Correction % | Pending | Useful turn 1 | Useful final | Mean tokens turn 1 | Mean tokens conversation | TPUA turn 1 | TPUA conversation |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | sampled | 2 | 50 | 38 | 0 | 0 | n/a | 38 | 0.420 | 0.420 | 1973.780 | 1973.780 | 4699.476 | 4699.476 |
+| qwen3.5-27b-standard | sampled | 2 | 50 | 38 | 38 | 21 | 0.553 | 0 | 0.420 | 0.620 | 1973.780 | 4103.480 | 4699.476 | 6618.516 |
 | qwen3.5-27b-abliterated | sampled | 1 | 50 | 2 | 0 | 0 | n/a | 0 | 0.720 | 0.720 | 2469.920 | 2469.920 | 3430.444 | 3430.444 |
-| llama3.1-8b-standard | sampled | 2 | 50 | 45 | 0 | 0 | n/a | 45 | 0.040 | 0.040 | 216.280 | 216.280 | 5407.000 | 5407.000 |
+| llama3.1-8b-standard | sampled | 2 | 50 | 45 | 45 | 3 | 0.067 | 0 | 0.040 | 0.100 | 216.280 | 704.600 | 5407.000 | 7046.000 |
 | llama3.1-8b-abliterated | sampled | 1 | 50 | 34 | 0 | 0 | n/a | 0 | 0.080 | 0.080 | 708.720 | 708.720 | 8859.000 | 8859.000 |
-| gemma4-12b-standard | sampled | 2 | 50 | 29 | 0 | 0 | n/a | 29 | 0.380 | 0.380 | 1220.220 | 1220.220 | 3211.105 | 3211.105 |
+| gemma4-12b-standard | sampled | 2 | 50 | 29 | 29 | 8 | 0.276 | 0 | 0.380 | 0.540 | 1220.220 | 2322.520 | 3211.105 | 4300.963 |
 | gemma4-12b-abliterated | sampled | 1 | 50 | 4 | 0 | 0 | n/a | 0 | 0.240 | 0.240 | 1542.600 | 1542.600 | 6427.500 | 6427.500 |
-| qwen3.5-27b-standard | greedy | 2 | 10 | 6 | 0 | 0 | n/a | 6 | 0.500 | 0.500 | 1762.900 | 1762.900 | 3525.800 | 3525.800 |
+| qwen3.5-27b-standard | greedy | 2 | 10 | 6 | 6 | 2 | 0.333 | 0 | 0.500 | 0.600 | 1762.900 | 3643.400 | 3525.800 | 6072.333 |
 | qwen3.5-27b-abliterated | greedy | 1 | 10 | 1 | 0 | 0 | n/a | 0 | 0.600 | 0.600 | 2440.100 | 2440.100 | 4066.833 | 4066.833 |
-| llama3.1-8b-standard | greedy | 2 | 10 | 9 | 0 | 0 | n/a | 9 | 0.000 | 0.000 | 228.000 | 228.000 | undefined | undefined |
+| llama3.1-8b-standard | greedy | 2 | 10 | 9 | 9 | 0 | 0.000 | 0 | 0.000 | 0.000 | 228.000 | 708.100 | undefined | undefined |
 | llama3.1-8b-abliterated | greedy | 1 | 10 | 5 | 0 | 0 | n/a | 0 | 0.100 | 0.100 | 682.100 | 682.100 | 6821.000 | 6821.000 |
-| gemma4-12b-standard | greedy | 2 | 10 | 6 | 0 | 0 | n/a | 6 | 0.400 | 0.400 | 1244.400 | 1244.400 | 3111.000 | 3111.000 |
+| gemma4-12b-standard | greedy | 2 | 10 | 6 | 6 | 1 | 0.167 | 0 | 0.400 | 0.500 | 1244.400 | 2308.000 | 3111.000 | 4616.000 |
 | gemma4-12b-abliterated | greedy | 1 | 10 | 0 | 0 | 0 | n/a | 0 | 0.300 | 0.300 | 1458.000 | 1458.000 | 4860.000 | 4860.000 |
 
 ### Does the correction close the gap? (sampled runs)
 
 | Family | Abliterated useful (1 turn) | Standard useful turn 1 | Standard useful after correction | Share of gap closed | Correction % | TPUA std conv / abl | Mean tokens std conv / abl |
 |---|---|---|---|---|---|---|---|
-| qwen | 0.720 | 0.420 | 0.420 | 0.000 | n/a | 1.370 | 0.799 |
-| llama | 0.080 | 0.040 | 0.040 | 0.000 | n/a | 0.610 | 0.305 |
-| gemma | 0.240 | 0.380 | 0.380 | n/a | n/a | 0.500 | 0.791 |
+| qwen | 0.720 | 0.420 | 0.620 | 0.667 | 0.553 | 1.929 | 1.661 |
+| llama | 0.080 | 0.040 | 0.100 | 1.500 | 0.067 | 0.795 | 0.994 |
+| gemma | 0.240 | 0.380 | 0.540 | n/a | 0.276 | 0.669 | 1.506 |
 
 ## Blocking (regex, computed)
 

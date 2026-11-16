@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-16T11:30:15+00:00. **2 FAIL, 3 WARN.**
+Checked 2026-11-16T11:55:19+00:00. **2 FAIL, 1 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -28,9 +28,9 @@ Checked 2026-11-16T11:30:15+00:00. **2 FAIL, 3 WARN.**
 | PASS | tokens | all 720 answers: cap flags consistent, counts in range |
 | PASS | judge | 720 judgments: 'useful' follows its rule in every one |
 | PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-16T11:30:15+00:00 |
-| PASS | correction | corrections.jsonl: 90 rows, all valid JSON |
-| FAIL | correction | 90 correction turns: correction text differs from the configured template |
-| WARN | correction | 43 refused standard answers have no correction turn yet (run the correct stage), e.g. ['qwen3.5-27b-standard/P01/original/greedy/c1', 'qwen3.5-27b-standard/P01/original/s2/c1'] |
-| WARN | correction | 90 correction turns not judged yet (run judge again) |
+| PASS | summary | summary.json generated_at 2026-11-16T11:55:19+00:00 |
+| PASS | correction | corrections.jsonl: 133 rows, all valid JSON |
+| PASS | correction | correction_judgments.jsonl: 133 rows, all valid JSON |
+| FAIL | correction | 133 correction turns: correction text differs from the configured template |
+| PASS | correction | every refused standard answer (133) has its correction turn |
 | PASS | correction | 24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match |

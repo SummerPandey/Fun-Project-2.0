@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-16T11:30:15Z",
-  "state": "running",
+  "updated_utc": "2026-11-16T11:55:19Z",
+  "state": "finished",
   "answers_done": 1440,
   "answers_total": 1440,
   "judged": 1440,
-  "stage": "batchB correct",
+  "stage": "finished",
   "verify_fail": 4,
-  "verify_warn": 5,
+  "verify_warn": 3,
   "last_error": null
 }
