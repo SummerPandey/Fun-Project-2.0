@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T22:30:49+00:00",
+  "checked_at": "2026-11-16T23:00:51+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 117 rows, all valid JSON"
+      "message": "generations.jsonl: 130 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -28,12 +28,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 117/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-standard: generate 120/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-abliterated: generate 10/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
@@ -58,12 +58,17 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 117 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 130 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
       "area": "digests",
       "message": "qwen3.5-27b-standard: one set of weights, 64ae5b1d651f (matches pin)"
+    },
+    {
+      "level": "PASS",
+      "area": "digests",
+      "message": "qwen3.5-27b-abliterated: one set of weights, 2c5b727e8ad6 (matches pin)"
     },
     {
       "level": "PASS",
@@ -78,22 +83,22 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 117 answers: cap flags consistent, counts in range"
+      "message": "all 130 answers: cap flags consistent, counts in range"
     },
     {
       "level": "WARN",
       "area": "tokens",
-      "message": "29 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
+      "message": "33 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "2 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "4 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-16T22:30:49+00:00"
+      "message": "summary.json generated_at 2026-11-16T23:00:51+00:00"
     }
   ]
 }
