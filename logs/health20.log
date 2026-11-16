@@ -34,3 +34,73 @@
 [00:44:47]   90/120 (last: 2285 tokens, stop)
 [00:50:17]   100/120 (last: 2718 tokens, stop)
 [00:55:48]   110/120 (last: 2019 tokens, stop)
+[01:01:14]   120/120 (last: 2634 tokens, stop)
+[01:01:14] qwen3.5-27b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/generations.jsonl
+[01:01:14] done
+=== 2026-11-16T07:01:14Z batchA stage generate llama3.1-8b-standard
+[01:01:14] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[01:01:14] === stage: generate (backend: ollama) ===
+[01:01:14] llama3.1-8b-standard: generating 120 of 120 answers
+[01:01:14]   llama3.1:8b-instruct-q4_K_M digest 46e0c10c039e, think=None, Ollama 0.40.0
+[01:01:27]   10/120 (last: 504 tokens, stop)
+[01:01:48]   20/120 (last: 602 tokens, stop)
+[01:01:55]   30/120 (last: 348 tokens, stop)
+[01:02:09]   40/120 (last: 461 tokens, stop)
+[01:02:15]   50/120 (last: 517 tokens, stop)
+[01:02:30]   60/120 (last: 605 tokens, stop)
+[01:02:39]   70/120 (last: 450 tokens, stop)
+[01:02:59]   80/120 (last: 366 tokens, stop)
+[01:03:05]   90/120 (last: 519 tokens, stop)
+[01:03:22]   100/120 (last: 866 tokens, stop)
+[01:03:30]   110/120 (last: 500 tokens, stop)
+[01:03:48]   120/120 (last: 497 tokens, stop)
+[01:03:48] llama3.1-8b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/generations.jsonl
+[01:03:48] done
+=== 2026-11-16T07:03:48Z batchA stage generate llama3.1-8b-abliterated
+[01:03:48] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[01:03:48] === stage: generate (backend: ollama) ===
+[01:03:48] llama3.1-8b-abliterated: generating 120 of 120 answers
+[01:03:48]   mannix/llama3.1-8b-abliterated:q4_k_m digest 5920dea9e0f0, think=None, Ollama 0.40.0
+[01:04:06]   10/120 (last: 186 tokens, stop)
+[01:04:16]   20/120 (last: 446 tokens, stop)
+[01:04:29]   30/120 (last: 129 tokens, stop)
+[01:04:41]   40/120 (last: 361 tokens, stop)
+[01:04:53]   50/120 (last: 112 tokens, stop)
+[01:05:05]   60/120 (last: 357 tokens, stop)
+[01:05:20]   70/120 (last: 100 tokens, stop)
+[01:05:34]   80/120 (last: 411 tokens, stop)
+[01:05:50]   90/120 (last: 27 tokens, stop)
+[01:06:03]   100/120 (last: 378 tokens, stop)
+[01:06:17]   110/120 (last: 142 tokens, stop)
+[01:06:27]   120/120 (last: 253 tokens, stop)
+[01:06:27] llama3.1-8b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/generations.jsonl
+[01:06:27] done
+=== 2026-11-16T07:06:27Z batchA stage generate gemma4-12b-standard
+[01:06:27] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[01:06:27] === stage: generate (backend: ollama) ===
+[01:06:27] gemma4-12b-standard: generating 120 of 120 answers
+[01:06:27]   gemma4:12b digest 6114515d63c1, think=True, Ollama 0.40.0
+[01:07:37]   10/120 (last: 1415 tokens, stop)
+[01:08:42]   20/120 (last: 1529 tokens, stop)
+[01:09:47]   30/120 (last: 1307 tokens, stop)
+[01:10:54]   40/120 (last: 1581 tokens, stop)
+[01:12:00]   50/120 (last: 1589 tokens, stop)
+[01:13:09]   60/120 (last: 1455 tokens, stop)
+[01:14:13]   70/120 (last: 1269 tokens, stop)
+[01:15:21]   80/120 (last: 1478 tokens, stop)
+[01:16:26]   90/120 (last: 1484 tokens, stop)
+[01:17:33]   100/120 (last: 1593 tokens, stop)
+[01:18:36]   110/120 (last: 1364 tokens, stop)
+[01:19:41]   120/120 (last: 1539 tokens, stop)
+[01:19:41] gemma4-12b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results/generations.jsonl
+[01:19:41] done
+=== 2026-11-16T07:19:41Z batchA stage generate gemma4-12b-abliterated
+[01:19:41] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/health20/batchA/results (backend: ollama)
+[01:19:41] === stage: generate (backend: ollama) ===
+[01:19:41] gemma4-12b-abliterated: generating 120 of 120 answers
+[01:19:41]   huihui_ai/gemma-4-abliterated:12b digest 526eca3f9757, think=True, Ollama 0.40.0
+[01:21:48]   10/120 (last: 1469 tokens, stop)
+[01:24:00]   20/120 (last: 1545 tokens, stop)
+[01:26:02]   30/120 (last: 1339 tokens, stop)
+[01:28:08]   40/120 (last: 1527 tokens, stop)
+[01:30:05]   50/120 (last: 1352 tokens, stop)

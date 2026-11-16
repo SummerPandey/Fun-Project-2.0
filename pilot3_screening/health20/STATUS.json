@@ -1,10 +1,10 @@
 {
-  "updated_utc": "2026-11-16T07:00:48Z",
+  "updated_utc": "2026-11-16T07:30:50Z",
   "state": "running",
-  "answers_done": 239,
+  "answers_done": 653,
   "answers_total": 1440,
   "judged": 0,
-  "stage": "batchA generate qwen3.5-27b-abliterated",
+  "stage": "batchA generate gemma4-12b-abliterated",
   "verify_fail": 1,
   "verify_warn": 9,
   "last_error": null
