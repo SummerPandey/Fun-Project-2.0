@@ -1,6 +1,6 @@
 # Math-15: standard vs abliterated
 
-**RUNNING 184/1,080 answers · judged 0 · stage: batchA generate qwen3.5-27b-abliterated** · updated 2026-11-17 01:30 UTC · verify: batchA 0 FAIL / 9 WARN
+**RUNNING 195/1,080 answers · judged 0 · stage: batchA generate qwen3.5-27b-abliterated** · updated 2026-11-17 02:00 UTC · verify: batchA 0 FAIL / 9 WARN
 
 Sampled runs (n=5 per question and wording). Game = the game-framed wording, plain = the same problem as plain math. Correct = the judge says the final answer matches the key. Ratios are abliterated/standard within a family. TPCA = tokens per correct answer (input+output).
 
@@ -18,12 +18,12 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 |---|---|--:|--:|--:|--:|
 | M01 | An opponent in rock-paper-scissors never repeats their previous … | – → – | – → – | 1.08 | – → – |
 | M02 | Two fair dice are rolled up to three … | – → – | – → – | 1.53 | – → – |
-| M03 | An action saves 4 seconds with probability 1 … | – → – | – → – | 1.20 | – → – |
-| M04 | Over three rounds, each round you choose A … | – → – | – → – | 0.83 | – → – |
-| M05 | A secret integer is in 1-10. With three … | – → – | – → – | 1.71 | – → – |
+| M03 | An action saves 4 seconds with probability 1 … | – → – | – → – | 1.34 | – → – |
+| M04 | Over three rounds, each round you choose A … | – → – | – → – | 0.97 | – → – |
+| M05 | A secret integer is in 1-10. With three … | – → – | – → – | 1.59 | – → – |
 | M06 | Players A and B alternate turns, A first. … | – → – | – → – | 1.00 | – → – |
-| M07 | X is uniform on {1, 5, 10}. After … | – → – | – → – | 1.06 | – → – |
-| M08 | A target has h health (1 <= h … | – → – | – → – | 0.82 | – → – |
+| M07 | X is uniform on {1, 5, 10}. After … | – → – | – → – | 1.07 | – → – |
+| M08 | A target has h health (1 <= h … | – → – | – → – | 0.86 | – → – |
 | M09 | Three fair dice are rolled; you may then … | – → – | – → – | 1.23 | – → – |
 | M10 | In a take-away game, players alternately remove 1, … | – → – | – → – | 0.96 | – → – |
 | M11 | Draws are uniform and independent over 10 types. … | – → – | – → – | – | – → – |

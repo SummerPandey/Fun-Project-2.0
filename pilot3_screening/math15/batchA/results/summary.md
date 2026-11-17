@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-17T01:30:03+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-17T02:00:06+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 184 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 195 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -15,9 +15,9 @@ Generated 2026-11-17T01:30:03+00:00. Headline numbers use the five sampled runs;
 | qwen3.5-27b-standard | original | 50/50 | 49.900 | 9871.720 | 8708.960 | 0.000 | n/a | 0.000 | not judged | 0.180 | 0.140 | n/a / n/a = not judged |
 | qwen3.5-27b-standard | twin | 50/50 | 57.700 | 12396.700 | 11589.080 | 0.000 | n/a | 0.000 | not judged | 0.420 | 0.360 | n/a / n/a = not judged |
 | qwen3.5-27b-standard | block | 50/50 | 49.900 | 9871.720 | 8708.960 | 0.000 | n/a | 0.000 | not judged | 0.180 | 0.140 | n/a / n/a = not judged |
-| qwen3.5-27b-abliterated | original | 32/32 | 49.156 | 10767.000 | 9813.406 | 0.000 | n/a | 0.000 | not judged | 0.312 | 0.250 | n/a / n/a = not judged |
-| qwen3.5-27b-abliterated | twin | 32/32 | 57.000 | 12521.531 | 11622.469 | 0.000 | n/a | 0.000 | not judged | 0.438 | 0.375 | n/a / n/a = not judged |
-| qwen3.5-27b-abliterated | block | 32/32 | 49.156 | 10767.000 | 9813.406 | 0.000 | n/a | 0.000 | not judged | 0.312 | 0.250 | n/a / n/a = not judged |
+| qwen3.5-27b-abliterated | original | 38/38 | 50.105 | 10751.816 | 9676.237 | 0.000 | n/a | 0.000 | not judged | 0.289 | 0.237 | n/a / n/a = not judged |
+| qwen3.5-27b-abliterated | twin | 37/37 | 57.297 | 12330.892 | 11515.541 | 0.000 | n/a | 0.000 | not judged | 0.459 | 0.378 | n/a / n/a = not judged |
+| qwen3.5-27b-abliterated | block | 38/38 | 50.105 | 10751.816 | 9676.237 | 0.000 | n/a | 0.000 | not judged | 0.289 | 0.237 | n/a / n/a = not judged |
 | llama3.1-8b-standard | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | llama3.1-8b-standard | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | llama3.1-8b-standard | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
@@ -58,14 +58,14 @@ Generated 2026-11-17T01:30:03+00:00. Headline numbers use the five sampled runs;
 
 | Run set | Condition | Metric | qwen | llama | gemma | Mean of families | n families |
 |---|---|---|---|---|---|---|---|
-| sampled | original | mean_output_tokens | 1.091 | n/a | n/a | 1.091 | 1 |
-| sampled | original | mean_thinking_tokens_est | 1.127 | n/a | n/a | 1.127 | 1 |
+| sampled | original | mean_output_tokens | 1.089 | n/a | n/a | 1.089 | 1 |
+| sampled | original | mean_thinking_tokens_est | 1.111 | n/a | n/a | 1.111 | 1 |
 | sampled | original | tpua | n/a | n/a | n/a | n/a | 0 |
-| sampled | twin | mean_output_tokens | 1.010 | n/a | n/a | 1.010 | 1 |
-| sampled | twin | mean_thinking_tokens_est | 1.003 | n/a | n/a | 1.003 | 1 |
+| sampled | twin | mean_output_tokens | 0.995 | n/a | n/a | 0.995 | 1 |
+| sampled | twin | mean_thinking_tokens_est | 0.994 | n/a | n/a | 0.994 | 1 |
 | sampled | twin | tpua | n/a | n/a | n/a | n/a | 0 |
-| sampled | block | mean_output_tokens | 1.091 | n/a | n/a | 1.091 | 1 |
-| sampled | block | mean_thinking_tokens_est | 1.127 | n/a | n/a | 1.127 | 1 |
+| sampled | block | mean_output_tokens | 1.089 | n/a | n/a | 1.089 | 1 |
+| sampled | block | mean_thinking_tokens_est | 1.111 | n/a | n/a | 1.111 | 1 |
 | sampled | block | tpua | n/a | n/a | n/a | n/a | 0 |
 | greedy | original | mean_output_tokens | n/a | n/a | n/a | n/a | 0 |
 | greedy | original | mean_thinking_tokens_est | n/a | n/a | n/a | n/a | 0 |
