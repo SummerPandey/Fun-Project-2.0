@@ -312,3 +312,31 @@
 [12:50:56] gemma4-12b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/corrections.jsonl
 [12:50:56] qwen3.5-27b-standard: 11 refused answers get a correction turn
 [13:27:31]   10/11 corrections
+[13:31:25]   11/11 corrections
+[13:31:25] qwen3.5-27b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/corrections.jsonl
+[13:31:25] done
+=== 2026-11-17T19:31:25Z batchB stage judge2
+[13:31:25] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[13:31:25] === stage: judge (backend: ollama) ===
+[13:31:25]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[13:31:25]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[13:31:25] judging 2 answers
+[13:31:40]   retrying 2 unparseable judge replies once
+[13:31:51] wrote 2 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/judgments.jsonl (2 judge errors)
+[13:31:51] judging 21 corrections
+[13:32:07]   judged 20/21 corrections
+[13:32:08]   judged 21/21 corrections
+[13:32:08] wrote 21 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/correction_judgments.jsonl (0 judge errors)
+[13:32:08] done
+=== 2026-11-17T19:32:08Z batchB stage analyze
+[13:32:08] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[13:32:08] === stage: analyze (backend: ollama) ===
+[13:32:08] wrote /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/summary.json and /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/summary.md
+[13:32:08] done
+=== 2026-11-17T19:32:08Z batchB stage sample
+[13:32:08] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[13:32:08] === stage: sample (backend: ollama) ===
+[13:32:08] wrote 60 blind items to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/handcheck.csv (key in handcheck_key.csv; do not open it before scoring)
+[13:32:08] done
+=== 2026-11-17T19:32:08Z batchB stage done
+=== 2026-11-17T19:32:08Z FINISHED math15

@@ -1,11 +1,11 @@
 # Verification report
 
-Checked 2026-11-17T19:30:57+00:00. **0 FAIL, 6 WARN.**
+Checked 2026-11-17T19:32:59+00:00. **0 FAIL, 4 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
 | PASS | files | generations.jsonl: 360 rows, all valid JSON |
-| PASS | files | judgments.jsonl: 360 rows, all valid JSON |
+| PASS | files | judgments.jsonl: 362 rows, all valid JSON |
 | WARN | files | capability.jsonl does not exist yet |
 | PASS | files | all rows are real |
 | PASS | progress | qwen3.5-27b-standard: generate 60/60, judge 60/60, capability 0/? |
@@ -30,9 +30,9 @@ Checked 2026-11-17T19:30:57+00:00. **0 FAIL, 6 WARN.**
 | PASS | judge | 360 judgments: 'useful' follows its rule in every one |
 | WARN | judge | 2 judge errors (unparseable after retry) |
 | PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-17T19:30:57+00:00 |
-| PASS | correction | corrections.jsonl: 20 rows, all valid JSON |
-| PASS | correction | all 20 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |
-| WARN | correction | 1 refused standard answers have no correction turn yet (run the correct stage), e.g. ['qwen3.5-27b-standard/P05/original/greedy/c1'] |
-| WARN | correction | 20 correction turns not judged yet (run judge again) |
+| PASS | summary | summary.json generated_at 2026-11-17T19:32:59+00:00 |
+| PASS | correction | corrections.jsonl: 21 rows, all valid JSON |
+| PASS | correction | correction_judgments.jsonl: 21 rows, all valid JSON |
+| PASS | correction | all 21 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |
+| PASS | correction | every refused standard answer (21) has its correction turn |
 | PASS | correction | 24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match |
