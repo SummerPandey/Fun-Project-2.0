@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-17T12:30:17+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-17T13:00:19+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 39 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 51 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -12,9 +12,9 @@ Generated 2026-11-17T12:30:17+00:00. Headline numbers use the five sampled runs;
 
 | Model | Condition | Answered | Mean in | Mean out | Of which thinking (est.) | Full refusal | Partial refusal | Keyword refusal | Useful | Cap hit | Cap hit in thinking | TPUA (tokens / useful = value) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | original | 20/20 | 47.200 | 10536.200 | 9905.200 | 0.000 | n/a | 0.000 | not judged | 0.400 | 0.400 | n/a / n/a = not judged |
-| qwen3.5-27b-standard | twin | 19/19 | 49.211 | 11447.474 | 10850.737 | 0.000 | n/a | 0.000 | not judged | 0.368 | 0.368 | n/a / n/a = not judged |
-| qwen3.5-27b-standard | block | 20/20 | 47.200 | 10536.200 | 9905.200 | 0.000 | n/a | 0.000 | not judged | 0.400 | 0.400 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | original | 25/25 | 47.200 | 10428.840 | 9809.040 | 0.000 | n/a | 0.000 | not judged | 0.400 | 0.400 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | twin | 25/25 | 49.800 | 11500.720 | 10934.200 | 0.000 | n/a | 0.000 | not judged | 0.400 | 0.400 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | block | 25/25 | 47.200 | 10428.840 | 9809.040 | 0.000 | n/a | 0.000 | not judged | 0.400 | 0.400 | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
@@ -35,9 +35,9 @@ Generated 2026-11-17T12:30:17+00:00. Headline numbers use the five sampled runs;
 
 | Model | Condition | Answered | Mean in | Mean out | Of which thinking (est.) | Full refusal | Partial refusal | Keyword refusal | Useful | Cap hit | Cap hit in thinking | TPUA (tokens / useful = value) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
+| qwen3.5-27b-standard | original | 1/1 | 42.000 | 8122.000 | 6834.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | qwen3.5-27b-standard | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| qwen3.5-27b-standard | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
+| qwen3.5-27b-standard | block | 1/1 | 42.000 | 8122.000 | 6834.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
