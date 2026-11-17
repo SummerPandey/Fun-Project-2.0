@@ -1,6 +1,6 @@
 # Math-15: standard vs abliterated
 
-**RUNNING 141/1,080 answers · judged 0 · stage: batchA generate qwen3.5-27b-abliterated** · updated 2026-11-16 23:30 UTC · verify: batchA 0 FAIL / 9 WARN
+**RUNNING 151/1,080 answers · judged 0 · stage: batchA generate qwen3.5-27b-abliterated** · updated 2026-11-17 00:00 UTC · verify: batchA 0 FAIL / 9 WARN
 
 Sampled runs (n=5 per question and wording). Game = the game-framed wording, plain = the same problem as plain math. Correct = the judge says the final answer matches the key. Ratios are abliterated/standard within a family. TPCA = tokens per correct answer (input+output).
 
@@ -8,7 +8,7 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 
 | family | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) | TPCA abl/std (game) | TPCA abl/std (plain) |
 |---|--:|--:|--:|--:|--:|
-| qwen | – → – | – → – | 1.05 | – | – |
+| qwen | – → – | – → – | 1.07 | – | – |
 | llama | – → – | – → – | – | – | – |
 | gemma | – → – | – → – | – | – | – |
 
@@ -17,8 +17,8 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 | id | question | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) | refusals std→abl (both wordings) |
 |---|---|--:|--:|--:|--:|
 | M01 | An opponent in rock-paper-scissors never repeats their previous … | – → – | – → – | 1.13 | – → – |
-| M02 | Two fair dice are rolled up to three … | – → – | – → – | 0.68 | – → – |
-| M03 | An action saves 4 seconds with probability 1 … | – → – | – → – | 0.56 | – → – |
+| M02 | Two fair dice are rolled up to three … | – → – | – → – | 1.30 | – → – |
+| M03 | An action saves 4 seconds with probability 1 … | – → – | – → – | 1.02 | – → – |
 | M04 | Over three rounds, each round you choose A … | – → – | – → – | 0.83 | – → – |
 | M05 | A secret integer is in 1-10. With three … | – → – | – → – | 1.93 | – → – |
 | M06 | Players A and B alternate turns, A first. … | – → – | – → – | 1.00 | – → – |

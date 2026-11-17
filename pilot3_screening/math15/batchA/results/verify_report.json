@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-16T23:30:54+00:00",
+  "checked_at": "2026-11-17T00:00:56+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 141 rows, all valid JSON"
+      "message": "generations.jsonl: 151 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -33,7 +33,7 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-abliterated: generate 21/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-abliterated: generate 31/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 141 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 151 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -83,12 +83,12 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 141 answers: cap flags consistent, counts in range"
+      "message": "all 151 answers: cap flags consistent, counts in range"
     },
     {
       "level": "WARN",
       "area": "tokens",
-      "message": "34 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
+      "message": "40 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
     },
     {
       "level": "PASS",
@@ -98,7 +98,7 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-16T23:30:53+00:00"
+      "message": "summary.json generated_at 2026-11-17T00:00:56+00:00"
     }
   ]
 }
