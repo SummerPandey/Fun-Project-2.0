@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-11-17T03:00:11Z",
+  "updated_utc": "2026-11-17T03:30:14Z",
   "state": "running",
-  "answers_done": 217,
+  "answers_done": 230,
   "answers_total": 1080,
   "judged": 0,
   "stage": "batchA generate qwen3.5-27b-abliterated",

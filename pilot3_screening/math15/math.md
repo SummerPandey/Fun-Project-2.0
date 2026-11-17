@@ -1,6 +1,6 @@
 # Math-15: standard vs abliterated
 
-**RUNNING 217/1,080 answers · judged 0 · stage: batchA generate qwen3.5-27b-abliterated** · updated 2026-11-17 03:00 UTC · verify: batchA 0 FAIL / 9 WARN
+**RUNNING 230/1,080 answers · judged 0 · stage: batchA generate qwen3.5-27b-abliterated** · updated 2026-11-17 03:30 UTC · verify: batchA 0 FAIL / 9 WARN
 
 Sampled runs (n=5 per question and wording). Game = the game-framed wording, plain = the same problem as plain math. Correct = the judge says the final answer matches the key. Ratios are abliterated/standard within a family. TPCA = tokens per correct answer (input+output).
 
@@ -25,7 +25,7 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 | M07 | X is uniform on {1, 5, 10}. After … | – → – | – → – | 1.07 | – → – |
 | M08 | A target has h health (1 <= h … | – → – | – → – | 0.88 | – → – |
 | M09 | Three fair dice are rolled; you may then … | – → – | – → – | 1.21 | – → – |
-| M10 | In a take-away game, players alternately remove 1, … | – → – | – → – | 1.02 | – → – |
+| M10 | In a take-away game, players alternately remove 1, … | – → – | – → – | 1.00 | – → – |
 | M11 | Draws are uniform and independent over 10 types. … | – → – | – → – | – | – → – |
 | M12 | You have 5 time units. Task A takes … | – → – | – → – | – | – → – |
 | M13 | A fair coin is flipped until HHT or … | – → – | – → – | – | – → – |
