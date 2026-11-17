@@ -68,10 +68,14 @@ def stats(D, model, wording, qids=None):
            and r["run"] != "greedy" and (qids is None or r["qid"] in qids)]
     jd = [(r, D["judged"][(r["batch"], gkey(r))]) for r in sel if (r["batch"], gkey(r)) in D["judged"]]
     correct = sum(bool(j.get("required_met") and j["required_met"][0]) for _, j in jd)
+    # an empty visible answer that stopped at the token cap is "no answer", not a refusal
+    # (the judge labels these full_refusal; the answer audits confirmed none contain a decline)
+    empty = lambda r: r.get("finish_reason") == "length" and not (r.get("output_text") or "").strip()
     tok = sum(r["input_tokens"] + r["output_tokens"] for r, _ in jd)
     return {"n": len(sel), "n_judged": len(jd),
             "mean_out": sum(r["output_tokens"] for r in sel) / len(sel) if sel else None,
-            "correct": correct, "ref": sum(j["refusal_type"] in REFUSE for _, j in jd),
+            "correct": correct, "ref": sum(j["refusal_type"] in REFUSE and not empty(r) for r, j in jd),
+            "noans": sum(empty(r) for r in sel),
             "tpca": tok / correct if correct else None}
 
 
@@ -92,7 +96,8 @@ def run_state():
 
 
 HEAD = ("| family | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) "
-        "| TPCA abl/std (game) | TPCA abl/std (plain) |\n|---|--:|--:|--:|--:|--:|")
+        "| TPCA abl/std (game) | TPCA abl/std (plain) | no answer (ran out of tokens) std→abl |\n"
+        "|---|--:|--:|--:|--:|--:|--:|")
 
 
 def main():
@@ -136,12 +141,14 @@ def main():
         L.append(f"| {f} | {pct(sg['correct'], sg['n_judged'])} → {pct(ag['correct'], ag['n_judged'])} | "
                  f"{pct(sp['correct'], sp['n_judged'])} → {pct(apl['correct'], apl['n_judged'])} | "
                  f"{f2(ratio(ag['mean_out'], sg['mean_out']))} | {f2(ratio(ag['tpca'], sg['tpca']))} | "
-                 f"{f2(ratio(apl['tpca'], sp['tpca']))} |")
+                 f"{f2(ratio(apl['tpca'], sp['tpca']))} | "
+                 f"{frac(sg['noans'] + sp['noans'], sg['n'] + sp['n'])} → {frac(ag['noans'] + apl['noans'], ag['n'] + apl['n'])} |")
     L += ["", "## Per question (pooled over the 3 families; tokens = mean of the 3 family ratios)", "",
           "| id | question | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) "
-          "| refusals std→abl (both wordings) |", "|---|---|--:|--:|--:|--:|"]
+          "| refusals std→abl (both wordings) | no answer std→abl (both wordings) |", "|---|---|--:|--:|--:|--:|--:|"]
     for q in sorted(D["questions"], key=lambda q: int(q["qid"][1:])):
-        agg = {k: 0 for k in ("sgc", "sgn", "agc", "agn", "spc", "spn", "apc", "apn", "sr", "sn", "ar", "an")}
+        agg = {k: 0 for k in ("sgc", "sgn", "agc", "agn", "spc", "spn", "apc", "apn", "sr", "sn", "ar", "an",
+                              "se", "sa", "ae", "aa")}
         ratios = []
         for f in D["fams"]:
             s, ab = D["fam_models"][f]["standard"], D["fam_models"][f]["abliterated"]
@@ -151,18 +158,29 @@ def main():
                 agg[pre + "c"] += x["correct"]; agg[pre + "n"] += x["n_judged"]
             agg["sr"] += sg["ref"] + sp["ref"]; agg["sn"] += sg["n_judged"] + sp["n_judged"]
             agg["ar"] += ag["ref"] + apl["ref"]; agg["an"] += ag["n_judged"] + apl["n_judged"]
+            agg["se"] += sg["noans"] + sp["noans"]; agg["sa"] += sg["n"] + sp["n"]
+            agg["ae"] += ag["noans"] + apl["noans"]; agg["aa"] += ag["n"] + apl["n"]
             ratios.append(ratio(ag["mean_out"], sg["mean_out"]))
         words = q["text"].split()
         short = " ".join(words[:8]) + (" …" if len(words) > 8 else "")
         L.append(f"| {q['qid']} | {short} | {frac(agg['sgc'], agg['sgn'])} → {frac(agg['agc'], agg['agn'])} | "
                  f"{frac(agg['spc'], agg['spn'])} → {frac(agg['apc'], agg['apn'])} | {f2(mean_ratio(ratios))} | "
-                 f"{frac(agg['sr'], agg['sn'])} → {frac(agg['ar'], agg['an'])} |")
+                 f"{frac(agg['sr'], agg['sn'])} → {frac(agg['ar'], agg['an'])} | "
+                 f"{frac(agg['se'], agg['sa'])} → {frac(agg['ae'], agg['aa'])} |")
     L += ["", "## Caveats", "",
           "- Development prompts; descriptive pilot numbers, not main results.",
           "- Raw token counts are compared within a family only (each family has its own tokenizer); "
           "across families only abl/std ratios.",
           "- Accuracy comes from the judge comparing each answer with the key (first checklist item); M15 is "
-          "very hard by hand, so expect low accuracy there.", "",
+          "very hard by hand, so expect low accuracy there.",
+          "- max_tokens is 16,384 for math (4,096 for health). Thinking models (Qwen, Gemma) often still ran out "
+          "while thinking and showed no answer; these count as not correct and appear under 'no answer'. "
+          "Gemma abliterated mostly looped (repeating the same lines) until the cap.",
+          "- The judge labels an empty, token-capped answer as full_refusal; answer audits found no decline in any "
+          "of them, so this page counts them as 'no answer', not as refusals. The runner's follow-up turn still "
+          "fired on them for standard models (it uses the judge label).",
+          "- A few answers have no usable judgment after the retry (judge_error); they are left out of accuracy and "
+          "refusal counts (n is the judged count).", "",
           "<sub>Generated by tools/math15_report.py from pilot3_screening/math15/batch*/results. batchA = M01-M10, "
           "batchB = M11-M15 (renumbered P01.. for the runner; original id in screen_id).</sub>", ""]
     (SCR / "math.md").write_text("\n".join(L), encoding="utf-8")
