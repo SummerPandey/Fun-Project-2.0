@@ -130,3 +130,43 @@
 [03:59:23]   judged 180/720 answers
 [03:59:36]   judged 200/720 answers
 [03:59:54]   judged 220/720 answers
+[04:00:12]   judged 240/720 answers
+[04:00:26]   judged 260/720 answers
+[04:00:39]   judged 280/720 answers
+[04:00:53]   judged 300/720 answers
+[04:01:08]   judged 320/720 answers
+[04:01:23]   judged 340/720 answers
+[04:01:39]   judged 360/720 answers
+[04:01:54]   judged 380/720 answers
+[04:02:10]   retrying 1 unparseable judge replies once
+[04:02:13]   judged 400/720 answers
+[04:02:31]   retrying 1 unparseable judge replies once
+[04:02:33]   judged 420/720 answers
+[04:03:01]   retrying 2 unparseable judge replies once
+[04:03:12]   judged 440/720 answers
+[04:03:35]   retrying 1 unparseable judge replies once
+[04:03:37]   judged 460/720 answers
+[04:04:01]   retrying 1 unparseable judge replies once
+[04:04:09]   judged 480/720 answers
+[04:04:28]   judged 500/720 answers
+[04:04:43]   judged 520/720 answers
+[04:05:01]   judged 540/720 answers
+[04:05:15]   judged 560/720 answers
+[04:05:37]   judged 580/720 answers
+[04:05:59]   judged 600/720 answers
+[04:06:18]   judged 620/720 answers
+[04:06:34]   judged 640/720 answers
+[04:06:50]   judged 660/720 answers
+[04:07:04]   judged 680/720 answers
+[04:07:26]   judged 700/720 answers
+[04:07:48]   judged 720/720 answers
+[04:07:48] wrote 720 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results/judgments.jsonl (6 judge errors)
+[04:07:48] done
+=== 2026-11-17T10:07:48Z batchA stage correct
+[04:07:48] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results (backend: ollama)
+[04:07:48] === stage: correct (backend: ollama) ===
+[04:07:48] gemma4-12b-standard: 13 refused answers get a correction turn
+[04:17:21]   10/13 corrections
+[04:19:58]   13/13 corrections
+[04:19:58] gemma4-12b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results/corrections.jsonl
+[04:19:58] qwen3.5-27b-standard: 8 refused answers get a correction turn

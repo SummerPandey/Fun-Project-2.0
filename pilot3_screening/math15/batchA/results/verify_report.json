@@ -1,9 +1,9 @@
 {
-  "checked_at": "2026-11-17T10:00:02+00:00",
+  "checked_at": "2026-11-17T10:30:06+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results",
   "mock": false,
   "fails": 0,
-  "warnings": 8,
+  "warnings": 6,
   "items": [
     {
       "level": "PASS",
@@ -13,7 +13,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "judgments.jsonl: 220 rows, all valid JSON"
+      "message": "judgments.jsonl: 720 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -26,29 +26,29 @@
       "message": "all rows are real"
     },
     {
-      "level": "WARN",
+      "level": "PASS",
       "area": "progress",
-      "message": "qwen3.5-27b-standard: generate 120/120, judge 0/120, capability 0/?"
+      "message": "qwen3.5-27b-standard: generate 120/120, judge 120/120, capability 0/?"
+    },
+    {
+      "level": "PASS",
+      "area": "progress",
+      "message": "qwen3.5-27b-abliterated: generate 120/120, judge 120/120, capability 0/?"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-abliterated: generate 120/120, judge 0/120, capability 0/?"
+      "message": "llama3.1-8b-standard: generate 120/120, judge 114/120, capability 0/?"
     },
     {
-      "level": "WARN",
+      "level": "PASS",
       "area": "progress",
-      "message": "llama3.1-8b-standard: generate 120/120, judge 0/120, capability 0/?"
+      "message": "llama3.1-8b-abliterated: generate 120/120, judge 120/120, capability 0/?"
     },
     {
-      "level": "WARN",
+      "level": "PASS",
       "area": "progress",
-      "message": "llama3.1-8b-abliterated: generate 120/120, judge 0/120, capability 0/?"
-    },
-    {
-      "level": "WARN",
-      "area": "progress",
-      "message": "gemma4-12b-standard: generate 120/120, judge 100/120, capability 0/?"
+      "message": "gemma4-12b-standard: generate 120/120, judge 120/120, capability 0/?"
     },
     {
       "level": "PASS",
@@ -123,22 +123,42 @@
     {
       "level": "PASS",
       "area": "judge",
-      "message": "220 judgments: 'useful' follows its rule in every one"
+      "message": "720 judgments: 'useful' follows its rule in every one"
+    },
+    {
+      "level": "WARN",
+      "area": "judge",
+      "message": "6 judge errors (unparseable after retry)"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "14 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "23 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-17T10:00:02+00:00"
+      "message": "summary.json generated_at 2026-11-17T10:30:06+00:00"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "corrections.jsonl: 15 rows, all valid JSON"
+    },
+    {
+      "level": "PASS",
+      "area": "correction",
+      "message": "all 15 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history"
     },
     {
       "level": "WARN",
       "area": "correction",
-      "message": "12 refused standard answers have no correction turn yet (run the correct stage), e.g. ['gemma4-12b-standard|P01|original|greedy|c1', 'gemma4-12b-standard|P01|original|s4|c1']"
+      "message": "6 refused standard answers have no correction turn yet (run the correct stage), e.g. ['qwen3.5-27b-standard|P06|original|greedy|c1', 'qwen3.5-27b-standard|P06|original|s3|c1']"
+    },
+    {
+      "level": "WARN",
+      "area": "correction",
+      "message": "15 correction turns not judged yet (run judge again)"
     },
     {
       "level": "PASS",
