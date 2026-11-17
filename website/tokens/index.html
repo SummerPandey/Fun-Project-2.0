@@ -1,0 +1,461 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>How Tokens Work</title>
+<meta name="description" content="A visual, plain-language guide to how an AI reads, writes and gets billed for text, one token at a time.">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=5">
+<link rel="stylesheet" href="../results/results.css?v=3">
+<style>
+:root{
+  --t1:#dbe7f7; --t2:#f6e3c4; --t3:#d9eedd; --t4:#f3d9e3; --t5:#e4def5; --t6:#d6eef0;
+  --in:#2f5d9b; --out:#c77f14; --think:#44546a; --cache:#3f8f63; --hist:#9aa3ad;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){
+  --t1:#24364f; --t2:#4a3a1e; --t3:#203d2a; --t4:#46283a; --t5:#332b4b; --t6:#1f3e42;
+  --in:#6f9ddc; --out:#d9962c; --think:#b4c0cf; --cache:#5fb585; --hist:#6c747d;
+}}
+:root[data-theme="dark"]{
+  --t1:#24364f; --t2:#4a3a1e; --t3:#203d2a; --t4:#46283a; --t5:#332b4b; --t6:#1f3e42;
+  --in:#6f9ddc; --out:#d9962c; --think:#b4c0cf; --cache:#5fb585; --hist:#6c747d;
+}
+body{background:var(--bg)}
+.tk{max-width:760px;margin:0 auto}
+.tk-hero{padding:36px 0 8px}
+.tk-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6vw,52px);line-height:1.08;margin:6px 0 14px;letter-spacing:-.01em}
+.tk-hero p{font-size:18px;color:var(--ink-2);line-height:1.55;margin:0}
+.toc{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 0;padding:0;list-style:none;background:none;border:0}
+.toc a{display:inline-block;font-size:13px;padding:6px 11px;border:1px solid var(--line);border-radius:999px;color:var(--ink-2);text-decoration:none;background:var(--surface)}
+.toc a:hover{color:var(--ink);border-color:var(--ink-3)}
+.ch{padding:44px 0 6px;border-top:1px solid var(--line);margin-top:40px}
+.ch .num{font-family:var(--mono);font-size:12px;color:var(--ink-3);letter-spacing:.05em}
+.ch h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4.5vw,34px);line-height:1.15;margin:4px 0 10px}
+.ch > p{color:var(--ink-2);font-size:16.5px;line-height:1.6;margin:0 0 14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
+.box h3{font-size:14px;font-weight:600;margin:0 0 10px;font-family:var(--sans)}
+.hint{font-size:13px;color:var(--ink-3);margin:10px 0 0;line-height:1.5}
+.big{font-family:var(--serif);font-size:44px;line-height:1;color:var(--ink)}
+/* token chips */
+.chips{display:flex;flex-wrap:wrap;gap:3px;font-family:var(--mono);font-size:16px;line-height:1}
+.chips span{padding:7px 4px;border-radius:5px;white-space:pre;color:var(--ink)}
+.chips span:nth-child(6n+1){background:var(--t1)} .chips span:nth-child(6n+2){background:var(--t2)}
+.chips span:nth-child(6n+3){background:var(--t3)} .chips span:nth-child(6n+4){background:var(--t4)}
+.chips span:nth-child(6n+5){background:var(--t5)} .chips span:nth-child(6n+6){background:var(--t6)}
+.chips span.byte{font-size:12px;color:var(--ink-3);font-style:italic}
+.chips .sp{color:var(--ink-3)}
+.picker{display:flex;flex-wrap:wrap;gap:6px;margin:0 0 14px}
+.picker button{font:inherit;font-size:13px;padding:6px 11px;border-radius:999px;border:1px solid var(--line);background:var(--bg);color:var(--ink-2);cursor:pointer}
+.picker button[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.count{display:flex;gap:18px;flex-wrap:wrap;margin-top:14px;font-size:13px;color:var(--ink-2)}
+.count b{font-family:var(--mono);font-weight:400;color:var(--ink);font-size:15px}
+.tnote{font-size:14px;color:var(--ink-2);margin:12px 0 0;line-height:1.5}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.rule{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg)}
+.rule .big{font-size:32px}
+.rule p{margin:6px 0 0;font-size:13.5px;color:var(--ink-2);line-height:1.45}
+textarea.est{width:100%;box-sizing:border-box;min-height:84px;font:inherit;font-size:15px;padding:12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);resize:vertical}
+/* generation */
+.gen{font-family:var(--mono);font-size:15px;min-height:56px;line-height:1.7;color:var(--ink)}
+.gen .p{color:var(--ink-3)}
+.gen .new{background:var(--t2);border-radius:4px;animation:pop .35s ease}
+@keyframes pop{from{background:var(--out);color:#fff}to{background:var(--t2)}}
+.cands{margin-top:12px;display:grid;gap:5px}
+.cand{display:grid;grid-template-columns:110px 1fr 44px;gap:8px;align-items:center;font-size:13px}
+.cand code{font-family:var(--mono);font-size:13px;white-space:pre}
+.cand .t{height:10px;background:var(--line);border-radius:5px;overflow:hidden}
+.cand .t i{display:block;height:100%;background:var(--hist);border-radius:5px;transition:width .3s}
+.cand.win .t i{background:var(--out)} .cand.win code{font-weight:600}
+.cand .v{font-family:var(--mono);font-size:12px;color:var(--ink-3);text-align:right}
+.ctrl{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+.ctrl button{font:inherit;font-size:14px;padding:8px 14px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);cursor:pointer}
+.ctrl button.pri{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.ctrl button:disabled{opacity:.4;cursor:default}
+/* price */
+.coins{display:grid;grid-template-columns:auto 1fr;gap:12px 14px;align-items:center;margin-top:6px}
+.coins .lab{font-size:14px;color:var(--ink-2)}
+.coins .row{display:flex;gap:5px;flex-wrap:wrap}
+.coin{width:22px;height:22px;border-radius:50%;display:inline-block}
+.coin.in{background:var(--in)} .coin.out{background:var(--out)} .coin.cache{background:var(--cache)}
+.coin.tenth{width:22px;height:22px;background:conic-gradient(var(--cache) 0 10%, var(--line) 10% 100%)}
+.legend2{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin-top:12px}
+.legend2 i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+/* stacked bars */
+.sbar{display:grid;grid-template-columns:70px 1fr 96px;gap:10px;align-items:center;margin:9px 0;font-size:14px}
+.sbar .t{display:flex;height:22px;border-radius:6px;overflow:hidden;background:var(--line)}
+.sbar .t i{display:block;height:100%}
+.sbar .v{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);text-align:right}
+/* snowball */
+.turns{display:grid;gap:7px;margin-top:6px}
+.turn{display:grid;grid-template-columns:62px 1fr 110px;gap:10px;align-items:center;font-size:13px}
+.turn .t{display:flex;height:20px;border-radius:5px;overflow:hidden;background:transparent}
+.turn .t i{display:block;height:100%}
+.turn .v{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);text-align:right}
+.total{margin-top:12px;font-size:15px;color:var(--ink)}
+.total b{font-family:var(--mono);font-weight:400}
+/* window */
+.desk{position:relative;height:30px;border-radius:8px;border:1px solid var(--line);background:var(--bg);overflow:hidden;margin-top:8px}
+.desk i{position:absolute;left:0;top:0;bottom:0;transition:width .4s}
+.rot{display:flex;justify-content:space-between;font-size:12px;color:var(--ink-3);margin-top:6px}
+input[type=range]{width:100%;accent-color:var(--out);margin-top:12px}
+/* langs */
+.lang{display:grid;grid-template-columns:82px 1fr 60px;gap:10px;align-items:center;margin:8px 0;font-size:14px}
+.lang .chips{font-size:13px}
+.lang .chips span{padding:5px 3px}
+.lang .v{font-family:var(--mono);font-size:12.5px;color:var(--ink-2);text-align:right}
+.src{list-style:none;padding:0;margin:12px 0 0;display:grid;gap:10px}
+.src li{border:1px solid var(--line);border-radius:12px;padding:12px 14px;background:var(--surface);font-size:14px;line-height:1.5}
+.src a{font-weight:600}
+.src span{display:block;color:var(--ink-2);font-size:13.5px;margin-top:2px}
+.tie{border-left:3px solid var(--out);padding:10px 14px;background:var(--surface);border-radius:0 10px 10px 0;margin:16px 0;font-size:15px;line-height:1.55;color:var(--ink)}
+.tie a{white-space:nowrap}
+@media (max-width:640px){
+  .rules{grid-template-columns:1fr}
+  .cand{grid-template-columns:90px 1fr 40px}
+  .lang{grid-template-columns:1fr 54px}
+  .lang .name{grid-column:1/-1;margin-bottom:-4px;font-weight:500}
+  .sbar{grid-template-columns:56px 1fr 84px}
+}
+@media (prefers-reduced-motion:reduce){ .gen .new{animation:none} .desk i,.cand .t i{transition:none} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="r-top" aria-label="Site">
+    <a href="../">&larr; The proposal</a>
+    <a href="../study/">Abliteration study &rarr;</a>
+    <a href="../results/">Pilot results &rarr;</a>
+  </nav>
+
+  <main class="tk">
+  <header class="tk-hero">
+    <p class="eyebrow">A visual guide</p>
+    <h1>Where do the tokens go?</h1>
+    <div class="tldr"><b>In one line</b><p>AI reads and writes in small chunks called tokens, and writing, hidden thinking and long chats are what make the bill grow.</p></div>
+    <p>An AI doesn’t read letters or words. It reads <strong>tokens</strong>, writes tokens, and you pay per token. Here is the whole journey, one chunk at a time.</p>
+    <ul class="toc" aria-label="On this page">
+      <li><a href="#chop">1 · Chopping text</a></li>
+      <li><a href="#write">2 · Writing one at a time</a></li>
+      <li><a href="#price">3 · Writing costs more than reading</a></li>
+      <li><a href="#think">4 · Hidden thinking</a></li>
+      <li><a href="#snow">5 · Conversations snowball</a></li>
+      <li><a href="#window">6 · The context window</a></li>
+      <li><a href="#cache">7 · Caching</a></li>
+      <li><a href="#lang">8 · Languages</a></li>
+    </ul>
+  </header>
+
+  <!-- 1 -->
+  <section class="ch" id="chop">
+    <span class="num">01</span>
+    <h2>First, your text gets chopped up</h2>
+    <p>Before a model sees anything, a <strong>tokenizer</strong> cuts your text into pieces from a fixed vocabulary and turns each piece into a number. A token can be a whole word, part of a word, a single character or a bit of punctuation. Pick an example:</p>
+    <div class="box">
+      <div class="picker" id="pick" role="group" aria-label="Choose an example"></div>
+      <div class="chips" id="chips" aria-live="polite"></div>
+      <div class="count"><span><b id="cTok">0</b> tokens</span><span><b id="cChr">0</b> characters</span></div>
+      <p class="tnote" id="cNote"></p>
+    </div>
+    <p class="hint">Real splits from the tokenizer GPT-4o uses, run with OpenAI’s free, public tool called tiktoken. Every model family has its own tokenizer, so Claude, Qwen or Gemma would cut these a bit differently. That’s why our study only compares token counts <em>inside</em> one family.</p>
+
+    <div class="rules">
+      <div class="rule"><span class="big">≈ 4</span><p>characters make up one token, on average, in English</p></div>
+      <div class="rule"><span class="big">≈ ¾</span><p>of a word per token</p></div>
+      <div class="rule"><span class="big">75 words</span><p>fit in roughly 100 tokens of English</p></div>
+    </div>
+
+    <div class="box">
+      <h3>Quick estimate: paste or type anything</h3>
+      <label for="est" class="visually-hidden" style="position:absolute;left:-9999px">Text to estimate</label>
+      <textarea class="est" id="est">Tokens are the small chunks of text that a language model reads and writes.</textarea>
+      <div class="count"><span>about <b id="eTok">0</b> tokens</span><span><b id="eChr">0</b> characters</span><span><b id="eWrd">0</b> words</span></div>
+      <p class="hint">A rough guess using the 4-characters rule, not a real tokenizer. It works best for plain English; code, numbers, emoji and other languages usually take more.</p>
+    </div>
+  </section>
+
+  <!-- 2 -->
+  <section class="ch" id="write">
+    <span class="num">02</span>
+    <h2>Then it writes back, one token at a time</h2>
+    <p>A model never writes a whole sentence at once. It looks at everything so far and scores every possible next token. It picks one, adds it to the end, and repeats until it picks a “stop” token or hits a length limit. <strong>Each loop produces one output token</strong>, and each one is billed.</p>
+    <div class="box">
+      <div class="gen" id="gen" aria-live="polite"></div>
+      <div class="cands" id="cands"></div>
+      <div class="ctrl">
+        <button type="button" class="pri" id="gStep">Next token &rarr;</button>
+        <button type="button" id="gPlay">Play all</button>
+        <button type="button" id="gReset">Reset</button>
+      </div>
+      <div class="count"><span>Output tokens so far: <b id="gCount">0</b></span></div>
+      <p class="hint">The percentages are invented for illustration. The one-token-at-a-time loop is how it really works.</p>
+    </div>
+  </section>
+
+  <!-- 3 -->
+  <section class="ch" id="price">
+    <span class="num">03</span>
+    <h2>Writing costs more than reading</h2>
+    <p>Providers price the tokens you send (<strong>input</strong>) and the tokens the model writes (<strong>output</strong>) separately. Reading your prompt happens all at once; writing needs one loop per token, so output costs more.</p>
+    <div class="box">
+      <h3>Same number of tokens, different price</h3>
+      <div class="coins">
+        <span class="lab">1 output token</span><div class="row"><i class="coin out"></i><i class="coin out"></i><i class="coin out"></i><i class="coin out"></i><i class="coin out"></i></div>
+        <span class="lab">1 input token</span><div class="row"><i class="coin in"></i></div>
+      </div>
+      <p class="tnote">On Anthropic’s price list, the models on the list typically charge <strong>5× more for output</strong> than input. Example: Claude Opus 5 is $5 per million input tokens and $25 per million output tokens.</p>
+    </div>
+    <div class="tie">This is why a long, rambling or apologetic answer is expensive: every extra token is an output token. In our study, “cost” is counted this way: the tokens spent to get one useful answer (lower is better).</div>
+  </section>
+
+  <!-- 4 -->
+  <section class="ch" id="think">
+    <span class="num">04</span>
+    <h2>Some tokens you never see still get billed</h2>
+    <p>“Reasoning” or “thinking” models write a scratchpad before their answer. You often don’t see it, but those thinking tokens are <strong>billed as output</strong> and count toward the output limit (the most the model is allowed to write). If thinking eats the whole budget, you can get back an empty answer and still pay for it.</p>
+    <div class="box">
+      <h3>Share of output tokens spent on hidden thinking (our pilot, higher = more hidden cost)</h3>
+      <div id="thinkBars"></div>
+      <div class="legend2"><span><i style="background:var(--think)"></i>Thinking (hidden)</span><span><i style="background:var(--out)"></i>Visible answer</span></div>
+      <p class="hint">Each bar is one model’s average answer in our medical and locked-out pilot (Pilot 3, scary wording): dark grey is hidden thinking, orange is the visible reply. The thinking share is an estimate. A longer grey part means more hidden thinking. Compare the shares, not raw token counts, since each model counts tokens its own way.</p>
+    </div>
+    <div class="tie">We saw the “empty answer” trap in one small pilot. On the Tylenol follow-up question, Qwen hit its output limit of 4,096 tokens, and two of its repeat tries came back empty or cut off.</div>
+  </section>
+
+  <!-- 5 -->
+  <section class="ch" id="snow">
+    <span class="num">05</span>
+    <h2>Conversations snowball: each turn re-sends the whole chat</h2>
+    <p>A model has no memory between messages. To continue a chat, the <strong>whole conversation so far is sent again</strong> as input on every turn, and the model’s last reply joins the pile. So turn 5 pays to re-read turns 1 to 4.</p>
+    <div class="box">
+      <h3>Watch the input grow</h3>
+      <div class="turns" id="turns"></div>
+      <div class="ctrl">
+        <button type="button" class="pri" id="tAdd">Send another message &rarr;</button>
+        <button type="button" id="tReset">Reset</button>
+      </div>
+      <p class="total" id="tTotal"></p>
+      <div class="legend2"><span><i style="background:var(--hist)"></i>Re-sent history (input)</span><span><i style="background:var(--in)"></i>Your new message (input)</span><span><i style="background:var(--out)"></i>Reply (output)</span></div>
+      <p class="hint">Made-up example numbers: each of your messages is 50 tokens and each reply is 300 tokens.</p>
+    </div>
+    <div class="tie">This is one cost of a refusal. When a model refuses and you ask again, the second turn re-sends the question <em>and</em> the refusal. In one small medical pilot, being refused and then asking again produced <strong>1.55 to 2.34 times</strong> as many output tokens as asking plainly once (Qwen and Gemma). Lower is cheaper. <a href="../results/medical/">See the medical results &rarr;</a></div>
+  </section>
+
+  <!-- 6 -->
+  <section class="ch" id="window">
+    <span class="num">06</span>
+    <h2>The context window: the model’s desk</h2>
+    <p>Everything the model can “see” at once (instructions, the whole chat, files, its own thinking) has to fit in its <strong>context window</strong>, measured in tokens. Some models now take up to 1 million tokens. But a bigger desk is messier: accuracy and the ability to find details tend to get worse as more tokens pile up. This is sometimes called <strong>context rot</strong>.</p>
+    <div class="box">
+      <h3>Fill the desk</h3>
+      <div class="desk" aria-hidden="true"><i id="wFill"></i></div>
+      <div class="rot"><span>empty</span><span>full</span></div>
+      <label for="wRange" class="hint" style="display:block">Drag to fill an example 200,000-token window</label>
+      <input type="range" id="wRange" min="0" max="100" value="12" aria-describedby="wNote">
+      <p class="tnote" id="wNote"></p>
+    </div>
+  </section>
+
+  <!-- 7 -->
+  <section class="ch" id="cache">
+    <span class="num">07</span>
+    <h2>Caching: paying less for repeats</h2>
+    <p>If the start of your input is exactly the same as last time (a long instruction, a big document, the earlier chat), some providers can reuse their earlier work. That repeated part is billed at a deep discount.</p>
+    <div class="box">
+      <h3>Price of one input token</h3>
+      <div class="coins">
+        <span class="lab">Normal input</span><div class="row"><i class="coin in"></i></div>
+        <span class="lab">From cache</span><div class="row"><i class="coin tenth" title="one tenth"></i><span class="tnote" style="margin:0 0 0 6px">10% of the price</span></div>
+      </div>
+      <p class="tnote">On Anthropic’s price list, reading from the cache costs one tenth (0.1×) of the normal input price. Cached tokens still take up room in the context window, though.</p>
+    </div>
+  </section>
+
+  <!-- 8 -->
+  <section class="ch" id="lang">
+    <span class="num">08</span>
+    <h2>Not every language costs the same</h2>
+    <p>Tokenizers learn their vocabulary mostly from text they were trained on, so some languages get chopped into many more pieces than others. More pieces means higher cost, slower answers and less room in the context window.</p>
+    <div class="box">
+      <h3>“I would like a cup of tea, please.”</h3>
+      <div id="langs"></div>
+      <p class="hint">GPT-4o tokenizer again. This newer tokenizer handles these languages fairly evenly. Older tokenizers were much less fair: a 2023 study (presented at the NeurIPS AI research conference) found the same text could need <strong>up to 15× more tokens</strong> in some languages than in English.</p>
+    </div>
+  </section>
+
+  <!-- recap -->
+  <section class="ch" id="recap">
+    <span class="num">RECAP</span>
+    <h2>Where the tokens go, in one breath</h2>
+    <ul class="caveats">
+      <li><span>Your text is <strong>chopped into tokens</strong> (≈ ¾ of an English word each).</span></li>
+      <li><span>The model writes <strong>one token per step</strong>, and writing costs about 5× more than reading.</span></li>
+      <li><span>Hidden <strong>thinking</strong> is still output, and still billed.</span></li>
+      <li><span>Every new turn <strong>re-sends the whole chat</strong>, so refusals and retries snowball.</span></li>
+      <li><span>Repeated beginnings can be <strong>cached</strong> for a fraction of the price.</span></li>
+    </ul>
+    <div class="nextpage">
+      <a class="btn" href="../">&larr; The proposal</a>
+      <a class="btn primary" href="../results/">See what our pilots found &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="r-foot">
+    <b>Sources</b>
+    <ul class="src">
+      <li><a href="https://help.openai.com/en/articles/4936856-what-are-tokens-and-how-to-count-them">OpenAI: What are tokens and how to count them</a><span>The 4-characters and ¾-word rules of thumb; different token types tracked separately.</span></li>
+      <li><a href="https://github.com/openai/tiktoken">tiktoken (OpenAI)</a><span>The open-source tokenizer used for the real splits on this page.</span></li>
+      <li><a href="https://huggingface.co/docs/transformers/llm_tutorial">Hugging Face: Generation with LLMs</a><span>How models write one token at a time until a stop token or a limit.</span></li>
+      <li><a href="https://platform.claude.com/docs/en/about-claude/pricing">Anthropic: Pricing</a><span>Input vs output prices and cache-read discounts.</span></li>
+      <li><a href="https://platform.claude.com/docs/en/build-with-claude/context-windows">Anthropic: Context windows</a><span>History re-sent each turn, thinking tokens, window sizes and context rot.</span></li>
+      <li><a href="https://openrouter.ai/docs/use-cases/reasoning-tokens">OpenRouter: Reasoning tokens</a><span>Thinking counts toward the output limit and can leave the answer empty.</span></li>
+      <li><a href="https://arxiv.org/abs/2305.15425">Petrov et al., “Language Model Tokenizers Introduce Unfairness Between Languages” (NeurIPS 2023)</a><span>Up to 15× token differences across languages.</span></li>
+      <li><a href="https://github.com/SummerPandey/Fun-Project-2.0/blob/main/pilot3_screening/screen1/results/summary.md">Our Pilot 3 screening summary</a> &middot; <a href="https://github.com/SummerPandey/Fun-Project-2.0/blob/main/pilot3_design/screen1/analysis/tokenomics.csv">follow-up cost analysis</a><span>Thinking shares, the 4,096-token cap, and the ask-again cost.</span></li>
+    </ul>
+  </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  // ---------- 1. Real o200k_base splits (null = a byte piece of a multi-byte character) ----------
+  var EX = [
+    { k: 'A scary-sounding question', t: ['How', ' do', ' I', ' kill', ' a', ' zombie', ' process', '?'],
+      n: 'Common words are usually one token each, and the space is glued to the front of the word.' },
+    { k: 'Long words', t: ['ant', 'idis', 'est', 'ablishment', 'arian', 'ism'],
+      n: 'Rare or long words get split into familiar chunks. “antidisestablishmentarianism” is 6 tokens.' },
+    { k: 'strawberry', t: ['st', 'raw', 'berry'],
+      n: 'The model sees “st + raw + berry”, not ten letters. That’s one reason AIs famously struggle to count the r’s.' },
+    { k: 'Capital letters', t: ['Hello', ' hello', ' HEL', 'LO'],
+      n: 'Same word, different tokens: “Hello”, “ hello” (with a space) and “HELLO” are all different to the model.' },
+    { k: 'Numbers & dates', t: ['123', '456', '7', ' ', '202', '6', '-', '11', '-', '09'], gap: 3,
+      n: 'Numbers are cut into chunks of up to three digits, so the model never sees “1234567” as one number.' },
+    { k: 'Emoji', t: ['I', ' love', ' pizza', null, null],
+      n: 'The 🍕 emoji isn’t in the vocabulary, so it’s stored as 2 raw byte pieces.' },
+    { k: 'Medical words', t: ['What’s', ' the', ' lethal', ' dose', ' of', ' acet', 'amin', 'ophen', ' (', 'Ty', 'len', 'ol', ')', ' for', ' an', ' adult', '?'],
+      n: 'Everyday words are 1 token; drug names get split: “acetaminophen” is 3 tokens, “Tylenol” is 3.' }
+  ];
+  var pick = document.getElementById('pick'), chips = document.getElementById('chips');
+  function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+  function show(i) {
+    var e = EX[i], toks = e.t, html = '', count = 0, chars = 0, byteN = 0;
+    toks.forEach(function (p, j) {
+      if (e.gap && j === e.gap) { html += '<span class="sp" style="background:none">&nbsp;&nbsp;</span>'; return; }
+      count++;
+      if (p === null) { byteN++; html += '<span class="byte" title="raw byte piece">🍕 byte ' + byteN + '</span>'; chars += 0; return; }
+      html += '<span>' + esc(p).replace(/^ /, '<span class="sp">·</span>') + '</span>';
+    });
+    chips.innerHTML = html;
+    var text = toks.filter(function (_, j) { return !(e.gap && j === e.gap); }).map(function (p) { return p === null ? '' : p; }).join('');
+    if (toks.indexOf(null) > -1) text += ' 🍕';
+    document.getElementById('cTok').textContent = count;
+    document.getElementById('cChr').textContent = Array.from(text.replace(/^ /, '')).length;
+    document.getElementById('cNote').innerHTML = e.n + (e.gap ? ' <em>(Two examples shown: 1234567 and 2026-11-09.)</em>' : '') + (toks.some(function (p) { return p !== null && p.charAt(0) === ' '; }) ? ' <span class="sp">·</span> marks a space.' : '');
+    [].forEach.call(pick.children, function (b, j) { b.setAttribute('aria-pressed', j === i); });
+  }
+  pick.innerHTML = EX.map(function (e, i) { return '<button type="button">' + e.k + '</button>'; }).join('');
+  pick.addEventListener('click', function (ev) { var b = ev.target.closest('button'); if (b) show([].indexOf.call(pick.children, b)); });
+  show(0);
+
+  // Estimator
+  var est = document.getElementById('est');
+  function estimate() {
+    var s = est.value, c = Array.from(s).length, w = (s.trim().match(/\S+/g) || []).length;
+    document.getElementById('eTok').textContent = c ? Math.max(1, Math.round(c / 4)) : 0;
+    document.getElementById('eChr').textContent = c;
+    document.getElementById('eWrd').textContent = w;
+  }
+  est.addEventListener('input', estimate); estimate();
+
+  // ---------- 2. Generation (illustrative probabilities) ----------
+  var PROMPT = 'How do I kill a zombie process?';
+  var STEPS = [
+    [[' Use', .46], [' You', .31], [' Run', .14], [' I', .05]],
+    [[' the', .71], [' kill', .12], [' ps', .09], [' a', .04]],
+    [[' kill', .38], [' ps', .29], [' top', .17], [' command', .08]],
+    [[' command', .64], [' -9', .18], [' signal', .09], [' tool', .05]],
+    [[' on', .52], [' with', .33], [' to', .10], ['.', .03]],
+    [[' its', .41], [' the', .40], [' a', .11], [' your', .05]],
+    [[' parent', .83], [' PID', .08], [' process', .05], [' own', .02]],
+    [['.', .58], [' process', .37], [',', .03], [' ID', .01]],
+    [['<stop>', .61], [' Zombies', .22], [' First', .09], [' A', .05]]
+  ];
+  var gi = 0, out = [], timer = null;
+  var gen = document.getElementById('gen'), cands = document.getElementById('cands');
+  function renderGen(last) {
+    gen.innerHTML = '<span class="p">' + esc(PROMPT) + '</span><br>' + out.map(function (t, j) {
+      return '<span' + (last && j === out.length - 1 ? ' class="new"' : '') + '>' + esc(t) + '</span>';
+    }).join('') + (gi >= STEPS.length ? '' : '<span class="p">▍</span>');
+    var c = STEPS[Math.min(gi, STEPS.length - 1)];
+    cands.innerHTML = gi >= STEPS.length
+      ? '<p class="tnote" style="margin:0">The model picked the <code>&lt;stop&gt;</code> token, so it’s done.</p>'
+      : '<p class="tnote" style="margin:0 0 4px">Top guesses for the next token:</p>' + c.map(function (x, j) {
+          return '<div class="cand' + (j === 0 ? ' win' : '') + '"><code>' + esc(x[0]).replace(/^ /, '·') + '</code><div class="t"><i style="width:' + (x[1] * 100) + '%"></i></div><span class="v">' + Math.round(x[1] * 100) + '%</span></div>';
+        }).join('');
+    document.getElementById('gCount').textContent = gi;
+    document.getElementById('gStep').disabled = document.getElementById('gPlay').disabled = gi >= STEPS.length;
+  }
+  function step() {
+    if (gi >= STEPS.length) { stop(); return; }
+    var w = STEPS[gi][0][0]; if (w !== '<stop>') out.push(w); gi++; renderGen(true);
+  }
+  function stop() { clearInterval(timer); timer = null; }
+  document.getElementById('gStep').onclick = function () { stop(); step(); };
+  document.getElementById('gPlay').onclick = function () { stop(); timer = setInterval(step, 650); };
+  document.getElementById('gReset').onclick = function () { stop(); gi = 0; out = []; renderGen(false); };
+  renderGen(false);
+
+  // ---------- 4. Thinking share: Pilot 3 screening, sampled scary wording, mean output tokens ----------
+  var TH = [['Qwen', 1877.2, 1165.98], ['Gemma', 1197.26, 512.0], ['Llama', null, 0]];
+  document.getElementById('thinkBars').innerHTML = TH.map(function (r) {
+    if (r[1] === null) return '<div class="sbar"><span>' + r[0] + '</span><div class="t" style="background:none;font-size:13px;color:var(--ink-3);align-items:center">no thinking mode</div><span class="v"></span></div>';
+    var th = r[2] / r[1] * 100;
+    return '<div class="sbar"><span>' + r[0] + '</span><div class="t"><i style="width:' + th.toFixed(1) + '%;background:var(--think)"></i><i style="width:' + (100 - th).toFixed(1) + '%;background:var(--out)"></i></div><span class="v">~' + Math.round(th) + '% hidden</span></div>';
+  }).join('');
+
+  // ---------- 5. Snowball ----------
+  var MSG = 50, REP = 300, MAXT = 6, nt = 1;
+  function drawTurns() {
+    var rows = '', total = 0, hist = 0, maxW = (MAXT - 1) * (MSG + REP) + MSG + REP;
+    for (var t = 1; t <= nt; t++) {
+      var w = function (x) { return (x / maxW * 100).toFixed(2) + '%'; };
+      rows += '<div class="turn"><span>Turn ' + t + '</span><div class="t">' +
+        (hist ? '<i style="width:' + w(hist) + ';background:var(--hist)"></i>' : '') +
+        '<i style="width:' + w(MSG) + ';background:var(--in)"></i><i style="width:' + w(REP) + ';background:var(--out)"></i></div><span class="v">' + (hist + MSG + REP).toLocaleString('en-US') + ' tokens</span></div>';
+      total += hist + MSG + REP; hist += MSG + REP;
+    }
+    document.getElementById('turns').innerHTML = rows;
+    var naive = nt * (MSG + REP);
+    document.getElementById('tTotal').innerHTML = 'Tokens processed so far (input + output): <b>' + total.toLocaleString('en-US') + '</b>' +
+      (nt > 1 ? ' &nbsp;·&nbsp; that’s ' + (total / naive).toFixed(1) + '× the ' + naive.toLocaleString('en-US') + ' it would be if nothing were re-sent' : '');
+    document.getElementById('tAdd').disabled = nt >= MAXT;
+  }
+  document.getElementById('tAdd').onclick = function () { if (nt < MAXT) { nt++; drawTurns(); } };
+  document.getElementById('tReset').onclick = function () { nt = 1; drawTurns(); };
+  drawTurns();
+
+  // ---------- 6. Context window ----------
+  var wr = document.getElementById('wRange'), wf = document.getElementById('wFill'), wn = document.getElementById('wNote');
+  function drawWin() {
+    var v = +wr.value, tok = Math.round(v / 100 * 200000);
+    wf.style.width = v + '%';
+    wf.style.background = v < 50 ? 'var(--cache)' : v < 85 ? 'var(--out)' : '#c0392b';
+    wn.textContent = '≈ ' + tok.toLocaleString('en-US') + ' of a 200,000-token window (about ' + Math.round(tok * 0.75).toLocaleString('en-US') + ' words). ' +
+      (v < 50 ? 'Plenty of room.' : v < 85 ? 'Getting crowded: the more it holds, the easier it is to miss details.' : v < 100 ? 'Nearly full: older parts may need to be dropped or summarized.' : 'Full: nothing more fits, including the reply.');
+  }
+  wr.addEventListener('input', drawWin); drawWin();
+
+  // ---------- 8. Languages: real o200k_base counts ----------
+  var L = [['English', 'I would like a cup of tea, please.', 10], ['Spanish', 'Me gustaría una taza de té, por favor.', 10],
+           ['French', 'Je voudrais une tasse de thé, s\'il vous plaît.', 12], ['Hindi', 'मुझे एक कप चाय चाहिए, कृपया।', 12], ['Japanese', 'お茶を一杯ください。', 7]];
+  document.getElementById('langs').innerHTML = L.map(function (l) {
+    var dots = ''; for (var i = 0; i < l[2]; i++) dots += '<span>&nbsp;</span>';
+    return '<div class="lang"><span class="name">' + l[0] + '</span><div><div lang="' + ({ Spanish: 'es', French: 'fr', Hindi: 'hi', Japanese: 'ja' }[l[0]] || 'en') + '" style="font-size:14px;margin-bottom:5px">' + l[1] + '</div><div class="chips" aria-hidden="true">' + dots + '</div></div><span class="v">' + l[2] + ' tokens</span></div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

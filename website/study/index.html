@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abliteration Token Study</title>
+<meta name="description" content="Final study results in plain words: do abliterated AI models think longer? Three original-vs-abliterated model pairs, 50 harmless tasks, 2,700 runs.">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=5">
+<link rel="stylesheet" href="../results/results.css?v=3">
+<style>
+:root{ --orig:#2f5d9b; --mod:#c77f14; --think:#8a6bbf; --bad:#b4472f; --ok:#3f8f63; }
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --orig:#6f9ddc; --mod:#d9962c; --think:#a98bdb; --bad:#e07a62; --ok:#5fb585; }}
+:root[data-theme="dark"]{ --orig:#6f9ddc; --mod:#d9962c; --think:#a98bdb; --bad:#e07a62; --ok:#5fb585; }
+body{background:var(--bg)}
+.st{max-width:760px;margin:0 auto}
+.st-hero{padding:36px 0 6px}
+.st-hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6vw,50px);line-height:1.08;margin:6px 0 14px;letter-spacing:-.01em}
+.st-hero .sub{font-size:17px;color:var(--ink-2);line-height:1.55;margin:0}
+.key{font-family:var(--serif);font-size:clamp(21px,3.4vw,25px);line-height:1.4;margin:22px 0 0;padding:18px 20px;border-left:3px solid var(--mod);background:var(--surface);border-radius:0 12px 12px 0}
+.tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:22px 0 0}
+.tile{border:1px solid var(--line);border-radius:12px;padding:14px;background:var(--bg)}
+.tile .k{font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.05em}
+.tile .n{display:block;font-family:var(--serif);font-size:30px;line-height:1.1;margin:6px 0 4px}
+.tile p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.45}
+.ch{padding:40px 0 4px;border-top:1px solid var(--line);margin-top:40px}
+.ch h2{font-family:var(--serif);font-weight:400;font-size:clamp(25px,4.4vw,32px);line-height:1.15;margin:4px 0 10px}
+.ch > p{color:var(--ink-2);font-size:16.5px;line-height:1.6;margin:0 0 14px}
+.box{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px;margin:16px 0}
+.box h3{font-size:14px;font-weight:600;margin:0 0 12px;font-family:var(--sans)}
+.hint{font-size:13px;color:var(--ink-3);margin:12px 0 0;line-height:1.5}
+.lg{display:flex;gap:16px;flex-wrap:wrap;font-size:13px;color:var(--ink-2);margin:0 0 12px}
+.lg i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.grp{margin:14px 0 4px}
+.grp > b{display:block;font-size:14px;margin-bottom:6px}
+.hb{display:grid;grid-template-columns:76px 1fr 64px;gap:10px;align-items:center;margin:5px 0;font-size:13px;color:var(--ink-2)}
+.hb .t{height:16px;background:var(--line);border-radius:5px;overflow:hidden}
+.hb .t i{display:block;height:100%;border-radius:5px}
+.hb .v{font-family:var(--mono);font-size:12.5px;color:var(--ink);text-align:right}
+.verd{font-size:13.5px;margin:6px 0 0;color:var(--ink-2)}
+.verd b{color:var(--ink)}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--ink-2);margin-left:6px;vertical-align:1px}
+.pill.big{border-color:var(--mod);color:var(--mod)}
+.dots{display:grid;grid-template-columns:repeat(30,1fr);gap:3px;max-width:520px}
+.dots i{aspect-ratio:1;border-radius:50%;background:var(--line)}
+.dots i.cap{background:var(--bad)}
+.dots i.ok{background:var(--orig);opacity:.55}
+.twocol{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl th{text-align:left;font-weight:600;font-size:12px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;padding:6px 8px;border-bottom:1px solid var(--line)}
+.tbl td{padding:9px 8px;border-bottom:1px solid var(--line);vertical-align:top;color:var(--ink-2)}
+.tbl td:first-child{color:var(--ink);font-weight:500;white-space:nowrap}
+.tbl .num{font-family:var(--mono);font-size:13px;color:var(--ink);white-space:nowrap}
+.m-close{color:var(--ok);font-weight:600} .m-part{color:var(--mod);font-weight:600}
+.facts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:14px 0 0}
+.fact{text-align:center;border:1px solid var(--line);border-radius:12px;padding:12px 6px;background:var(--bg)}
+.fact b{display:block;font-family:var(--serif);font-weight:400;font-size:26px}
+.fact span{font-size:12px;color:var(--ink-3)}
+.cats{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.cats span{font-size:13px;padding:5px 10px;border-radius:999px;background:var(--bg);border:1px solid var(--line);color:var(--ink-2)}
+.tie{border-left:3px solid var(--orig);padding:10px 14px;background:var(--surface);border-radius:0 10px 10px 0;margin:16px 0;font-size:15px;line-height:1.55}
+.nots{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.nots li{padding:10px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+.nots li b{color:var(--ink)}
+.quote{font-family:var(--serif);font-size:20px;line-height:1.4;margin:0 0 12px}
+@media (max-width:640px){
+  .tiles{grid-template-columns:1fr}
+  .facts{grid-template-columns:1fr 1fr}
+  .twocol{grid-template-columns:1fr}
+  .dots{grid-template-columns:repeat(18,1fr)}
+  .hb{grid-template-columns:64px 1fr 58px}
+  .tbl{font-size:13px} .tbl td,.tbl th{padding:7px 5px}
+  .tbl td:first-child{white-space:normal}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <nav class="r-top" aria-label="Site">
+    <a href="../">&larr; The proposal</a>
+    <a href="../tokens/">How tokens work</a>
+    <a href="../results/">Pilot results &rarr;</a>
+  </nav>
+
+  <main class="st">
+  <header class="st-hero">
+    <p class="eyebrow">Final study &middot; 2,700 runs</p>
+    <h1>Does switching off refusals make AI think longer?</h1>
+    <p class="sub">We ran three AI models side by side with an <strong>edited copy</strong> of each, where the ability to refuse has been removed (researchers call these “abliterated” copies). All 50 tasks were harmless. We counted every token they wrote, including the hidden “thinking”.</p>
+    <div class="tldr"><b>In one line</b><p>Only Gemma’s abliterated copy thought much longer (<strong>nearly 6× as much</strong>) and often ran out of room before answering, which goes with fewer answers right; Qwen showed no clear difference.</p></div>
+
+    <div class="tiles">
+      <div class="tile"><span class="k">Gemma 4 · thinking</span><span class="n">813 → 4,662</span><p>average thinking tokens per run, original → abliterated. More on all 50 tasks.</p></div>
+      <div class="tile"><span class="k">Gemma 4 · correct</span><span class="n">98% → 66%</span><p>of answers correct (higher is better). Most of the drop is runs that never reached an answer.</p></div>
+      <div class="tile"><span class="k">Qwen 3.5 · thinking</span><span class="n">1,903 → 1,800</span><p>average thinking tokens per run. No clear difference (−5%, too small to tell apart from zero), so no clear change in quality.</p></div>
+    </div>
+  </header>
+
+  <!-- what was run -->
+  <section class="ch" id="setup">
+    <p class="eyebrow">What we did</p>
+    <h2>Same task, same settings, two versions of each model</h2>
+    <p>Each model and its abliterated copy got exactly the same prompts with exactly the same settings, and no system instruction. Every task was harmless, so this measures how the edit changes thinking and quality, <strong>not</strong> how models handle dangerous requests.</p>
+    <div class="facts">
+      <div class="fact"><b>50</b><span>harmless tasks</span></div>
+      <div class="fact"><b>3</b><span>wordings each</span></div>
+      <div class="fact"><b>3</b><span>repeats each</span></div>
+      <div class="fact"><b>6</b><span>models (3 pairs)</span></div>
+    </div>
+    <p class="hint" style="text-align:center">50 × 3 × 3 × 6 = <strong>2,700 runs</strong>, all completed, with no technical failures and nothing re-run.</p>
+    <div class="cats" role="group" aria-label="Task categories"><span>Everyday</span><span>Vague (a good answer asks what you mean)</span><span>Math &amp; logic</span><span>Coding</span><span>Instruction following</span></div>
+
+    <div class="box">
+      <h3>How alike is each pair?</h3>
+      <table class="tbl">
+        <thead><tr><th scope="col">Pair</th><th scope="col">Match</th><th scope="col">Why not perfect</th></tr></thead>
+        <tbody>
+          <tr><td>Llama 3.1 · 8B</td><td><span class="m-close">Close</span></td><td>Shrunk to fit a home computer in slightly different ways. The edited copy came with a hidden “always comply” instruction, which we switched off.</td></tr>
+          <tr><td>Gemma 4 · 12B</td><td><span class="m-part">Partial</span></td><td>Prepared and shrunk differently, possibly from a slightly different starting version, and the original comes with a small helper model that speeds up writing (switched off here).</td></tr>
+          <tr><td>Qwen 3.5 · 27B</td><td><span class="m-part">Partial</span></td><td>The original has one extra internal layer (65 vs 64) and a few different built-in control words.</td></tr>
+        </tbody>
+      </table>
+      <p class="hint">The prompts each pair received were exactly the same, character for character. But because the downloaded copies differ in more than just abliteration, no difference here can be blamed on abliteration alone.</p>
+    </div>
+  </section>
+
+  <!-- tokens -->
+  <section class="ch" id="tokens">
+    <p class="eyebrow">Result 1 · tokens</p>
+    <h2>Gemma's abliterated copy thought far longer; Qwen didn’t change</h2>
+    <p>Average tokens per run. Compare the two bars <strong>within</strong> a pair only: each model family splits text into tokens (small chunks, roughly word pieces) its own way, so bar lengths can’t be compared across models.</p>
+    <div class="box">
+      <div class="lg"><span><i style="background:var(--orig)"></i>Original</span><span><i style="background:var(--mod)"></i>Abliterated</span></div>
+      <div id="pairs"></div>
+    </div>
+  </section>
+
+  <!-- runaway -->
+  <section class="ch" id="runaway">
+    <p class="eyebrow">Result 2 · runaway thinking</p>
+    <h2>Gemma’s abliterated copy often couldn’t stop thinking</h2>
+    <p>Each run had a limit of 12,288 generated tokens. The original Gemma never hit it. The abliterated copy hit it in <strong>135 of its 450 runs (30%)</strong>, still thinking, with no answer written.</p>
+    <div class="box">
+      <div class="twocol">
+        <div><h3>Original Gemma · 450 runs</h3><div class="dots" id="dOrig" role="img" aria-label="0 of 450 runs hit the limit"></div></div>
+        <div><h3>Abliterated Gemma · 450 runs</h3><div class="dots" id="dMod" role="img" aria-label="135 of 450 runs hit the limit"></div></div>
+      </div>
+      <p class="hint" style="margin:12px 0 0">Each dot is one run: 450 per model, grey or coloured by whether it hit the limit.</p>
+      <div class="lg" style="margin:8px 0 0"><span><i style="background:var(--bad)"></i>Hit the limit mid-thought</span><span><i style="background:var(--orig);opacity:.55"></i>Finished</span></div>
+      <p class="hint">Because those runs were cut off, the real thinking difference is likely at least as big as shown. Even leaving the cut-off runs out, the abliterated copy still thought about 1,200 tokens more per task. It was higher on 41 of the 43 tasks where at least one abliterated run finished. Treat this as an extra check only, since it leaves out runs based on how they behaved.</p>
+    </div>
+
+    <div class="box">
+      <h3>Where it happened: Gemma’s average thinking tokens per run, by task type</h3>
+      <div class="lg"><span><i style="background:var(--orig)"></i>Original</span><span><i style="background:var(--mod)"></i>Abliterated</span></div>
+      <div id="cats"></div>
+      <p class="hint">Extra breakdown, 10 tasks per type. The abliterated copy was higher on all 10 tasks in every type.</p>
+    </div>
+  </section>
+
+  <!-- quality -->
+  <section class="ch" id="quality">
+    <p class="eyebrow">Result 3 · quality</p>
+    <h2>More thinking didn’t mean better answers</h2>
+    <p>Share of answers that were correct (higher is better). For Gemma, the drop appears where the thinking ran away.</p>
+    <div class="box">
+      <div class="lg"><span><i style="background:var(--orig)"></i>Original</span><span><i style="background:var(--mod)"></i>Abliterated</span></div>
+      <div id="qual"></div>
+      <p class="hint">Bar length is the percent of answers correct, so longer is better.</p>
+    </div>
+    <div class="box">
+      <h3>Gemma correctness by task type</h3>
+      <div id="qcats"></div>
+      <p class="hint">A run cut off before answering scores 0 on tasks with a single right answer. Among runs that did finish, Gemma’s abliterated copy was only about 5 points worse (a side check that was not planned in advance), so most of the loss appears to come from not finishing.</p>
+    </div>
+    <div class="tie">Cost in time, too (average seconds per answer, lower is better): an average Gemma answer took <strong>9.3 s</strong> from the original and <strong>39.8 s</strong> from the abliterated copy. Speed per token was the same (127 tokens a second); it simply wrote far more. Llama (0.96 → 1.01 s) and Qwen (32.3 → 31.5 s) barely changed.</div>
+  </section>
+
+  <!-- clarification -->
+  <section class="ch" id="clarify">
+    <p class="eyebrow">Result 4 · asking back &amp; refusing</p>
+    <h2>Zero refusals, and similar follow-up questions</h2>
+    <p><strong>No model refused anything</strong> in all 2,700 runs, which is expected for harmless tasks. On vague tasks, a good answer asks what you mean. Here is how often each model did:</p>
+    <div class="box">
+      <h3>Asked a clarifying question on underspecified tasks (% of runs)</h3>
+      <div class="lg"><span><i style="background:var(--orig)"></i>Original</span><span><i style="background:var(--mod)"></i>Abliterated</span></div>
+      <div id="clar"></div>
+      <p class="hint">On these vague tasks Gemma’s abliterated copy asked back less often (81% → 66%), though that gap could still be chance. Across all tasks the drop is a small but clear 4 points. Llama and Qwen show no clear difference.</p>
+    </div>
+    <div class="box">
+      <h3>Example: the fan question</h3>
+      <p class="quote">“Hello, my name is Summer, and I want to learn how to fix a fan.”</p>
+      <p style="margin:0;font-size:14.5px;color:var(--ink-2);line-height:1.55">The grader marked all 54 runs as asking a useful follow-up question, and none were cut off or refused. About half (26) asked which kind of fan it was <em>and</em> gave some general steps. Average tokens, original → abliterated: Qwen 1,258 → 1,302 and Llama 113 → 109 (both within about 4%), Gemma 1,243 → 1,407 (+13%).</p>
+    </div>
+  </section>
+
+  <!-- limits -->
+  <section class="ch" id="limits">
+    <p class="eyebrow">Read with care</p>
+    <h2>What this does and doesn’t show</h2>
+    <ul class="nots">
+      <li><b>It does not show that “uncensored models think more.”</b> One measurable pair (Gemma) thought far more; the other (Qwen) didn’t.</li>
+      <li><b>The Gemma effect is large and consistent</b> (all 50 tasks), but it belongs to these two downloaded copies, which differ in more than abliteration.</li>
+      <li><b>Harmful requests weren’t tested.</b> Every task was harmless on purpose.</li>
+      <li><b>People haven’t checked the AI grader yet.</b> 60 answers are set aside for a human review, which hasn’t happened yet.</li>
+      <li><b>“Thinking” is only the text the model writes</b> before answering, not what happens inside the network. Anything past the 12,288-token limit wasn’t seen.</li>
+    </ul>
+    <div class="tie">New to reasoning tokens? <a href="../tokens/#think">Read how hidden thinking is counted and billed &rarr;</a></div>
+    <div class="nextpage">
+      <a class="btn" href="../results/">&larr; Pilot results</a>
+      <a class="btn primary" href="https://github.com/SummerPandey/Fun-Project-2.0/blob/main/abliteration-token-study/report/REPORT.md">Read the full report &rarr;</a>
+    </div>
+  </section>
+
+  <footer class="r-foot">
+    Every number on this page is copied from the study’s final report and analysis files on GitHub:
+    <ul>
+      <li><a href="https://github.com/SummerPandey/Fun-Project-2.0/blob/main/abliteration-token-study/report/REPORT.md">Final report</a> &middot; <a href="https://github.com/SummerPandey/Fun-Project-2.0/blob/main/abliteration-token-study/analysis/main/paired_differences.csv">paired results</a> &middot; <a href="https://github.com/SummerPandey/Fun-Project-2.0/blob/main/abliteration-token-study/analysis/main/by_category.csv">by task type</a> &middot; <a href="https://github.com/SummerPandey/Fun-Project-2.0/blob/main/abliteration-token-study/protocol/PROTOCOL.md">protocol</a></li>
+    </ul>
+    AI grader: mistral-small3.1:24b, which wasn’t told which model wrote each answer. “Clear” differences are ones that held up when the 50 tasks were re-sampled many times (a standard check that the gap is not just luck).
+  </footer>
+  </main>
+</div>
+
+<script>
+(function () {
+  var fmt = function (n) { return Math.round(n).toLocaleString('en-US'); };
+  function bar(lab, v, max, col, txt) {
+    return '<div class="hb"><span>' + lab + '</span><div class="t"><i style="width:' + Math.max(v / max * 100, 0.6).toFixed(1) + '%;background:' + col + '"></i></div><span class="v">' + (txt || fmt(v)) + '</span></div>';
+  }
+  function pair(o, m, max, f) {
+    return bar('Original', o, max, 'var(--orig)', f ? f(o) : null) + bar('Abliterated', m, max, 'var(--mod)', f ? f(m) : null);
+  }
+
+  // report/REPORT.md section 2: [original, abliterated]
+  var P = [
+    { h: 'Gemma 4 · 12B', rows: [['Thinking tokens', 813, 4662, '+473% · more on 50 of 50 tasks', true], ['Answer tokens', 326, 280, '−14%']] },
+    { h: 'Qwen 3.5 · 27B', rows: [['Thinking tokens', 1903, 1800, '−5% · no clear difference'], ['Answer tokens', 321, 367, '+14% · longer on 43 of 50 tasks']] },
+    { h: 'Llama 3.1 · 8B', rows: [['Answer tokens', 213, 224, '+5% · no clear difference']], note: 'No separate thinking stream to measure.' }
+  ];
+  document.getElementById('pairs').innerHTML = P.map(function (p) {
+    var max = Math.max.apply(null, p.rows.map(function (r) { return Math.max(r[1], r[2]); }));
+    return '<div class="grp"><b>' + p.h + '</b>' + p.rows.map(function (r) {
+      return '<div style="margin:8px 0 12px"><div style="font-size:13px;color:var(--ink-3);margin-bottom:2px">' + r[0] + '<span class="pill' + (r[4] ? ' big' : '') + '">' + r[3] + '</span></div>' + pair(r[1], r[2], max) + '</div>';
+    }).join('') + (p.note ? '<p class="verd">' + p.note + '</p>' : '') + '</div>';
+  }).join('');
+
+  // Runaway dots: 450 runs each; 135 of abliterated hit the 12,288 cap
+  function dots(n, cap) { var s = ''; for (var i = 0; i < n; i++) s += '<i class="' + (i < cap ? 'cap' : 'ok') + '"></i>'; return s; }
+  document.getElementById('dOrig').innerHTML = dots(450, 0);
+  document.getElementById('dMod').innerHTML = dots(450, 135);
+
+  // analysis/main/by_category.csv, gemma4 reasoning_tokens mean_orig / mean_mod
+  var C = [['Math', 959, 10426], ['Coding', 793, 6219], ['Instruction', 1308, 4945], ['Everyday', 561, 1113], ['Vague (underspecified)', 444, 606]];
+  document.getElementById('cats').innerHTML = C.map(function (c) {
+    return '<div class="grp"><b style="font-weight:500">' + c[0] + '</b>' + pair(c[1], c[2], 10426) + '</div>';
+  }).join('');
+
+  // Quality (REPORT.md section 3)
+  var pct = function (v) { return Math.round(v * 100) + '%'; };
+  var Q = [['Gemma 4', .98, .66, 'Clearly worse: lower on 24 tasks, higher on none'], ['Llama 3.1', .87, .84, 'No clear difference'], ['Qwen 3.5', .99, .99, 'No clear difference']];
+  document.getElementById('qual').innerHTML = Q.map(function (q) {
+    return '<div class="grp"><b>' + q[0] + '</b>' + pair(q[1], q[2], 1, pct) + '<p class="verd">' + q[3] + '</p></div>';
+  }).join('');
+  var QC = [['Math', 1.00, .20], ['Coding', 1.00, .57], ['Instruction', .89, .59], ['Everyday', 1.00, .97], ['Vague (underspecified)', 1.00, 1.00]];
+  document.getElementById('qcats').innerHTML = '<div class="lg"><span><i style="background:var(--orig)"></i>Original</span><span><i style="background:var(--mod)"></i>Abliterated</span></div>' + QC.map(function (q) {
+    return '<div class="grp"><b style="font-weight:500">' + q[0] + '</b>' + pair(q[1], q[2], 1, pct) + '</div>';
+  }).join('');
+
+  // Clarification on underspecified tasks (REPORT.md section 4)
+  var CL = [['Llama 3.1', .74, .73], ['Gemma 4', .81, .66], ['Qwen 3.5', .84, .83]];
+  document.getElementById('clar').innerHTML = CL.map(function (q) {
+    return '<div class="grp"><b>' + q[0] + '</b>' + pair(q[1], q[2], 1, pct) + '</div>';
+  }).join('');
+})();
+</script>
+</body>
+</html>

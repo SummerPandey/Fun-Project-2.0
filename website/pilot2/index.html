@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pilot 2 Results</title>
+<meta name="description" content="Interactive view of Pilot 2 for The Token Cost of Safety Alignment: six models, ten development prompts, 720 judged answers. Descriptive pilot, not main results.">
+<link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400&family=Newsreader:opsz,wght@6..72,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css?v=5">
+<link rel="stylesheet" href="pilot2.css?v=1">
+</head>
+<body>
+<div class="wrap">
+  <nav class="p2-top" aria-label="Site">
+    <a href="../">&larr; The proposal</a>
+    <span class="p2-top-tag">Pilot 2 &middot; descriptive only</span>
+  </nav>
+
+  <header class="hero p2-hero">
+    <p class="eyebrow">Pilot 2 results</p>
+    <h1>What 720 answers say about the token cost of safety</h1>
+    <div class="tldr"><b>In one line</b><p>An early snapshot of Pilot 2, taken before the run finished; for the final, checked numbers, see <a href="../results/everyday/">Everyday questions</a>.</p></div>
+    <div class="p2-status" role="note" style="border-color:var(--accent)">
+      <b>This page is out of date.</b>
+      <p>It was saved on 7 November 2026, before Pilot 2 finished, and is kept as a detailed record. The finished, checked results are explained simply on the <a href="../results/everyday/">Everyday questions</a> page. Two things changed since: every answer has now been graded and passed every check, and the Llama comparison turned out to be unfair (its edited copy had a hidden “always comply” instruction), so ignore Llama here. Notes below such as “not judged yet” or “stopped” describe that day, not today.</p>
+    </div>
+    <p class="summary">Six AI models running on a home computer answered ten harmless questions that sound risky, each asked in its scary wording and in a plain “twin” wording. The six are three model families (Qwen, Llama, Gemma), each as the normal version and an edited copy with refusals removed. A separate AI graded every answer.</p>
+
+    <div class="p2-status" role="note">
+      <b>Words used on this page.</b>
+      <p><strong>Abliterated</strong> = the edited copy with refusals removed. <strong>Standard</strong> = the normal model. <strong>Twin</strong> = the plain wording of a question. <strong>Judge</strong> = the AI that grades answers. <strong>Sampled</strong> runs vary a little each time; the <strong>greedy</strong> run always gives the same answer. <strong>Tokens</strong> = chunks of text, about &frac34; of a word, which is what AI services charge for. <strong>Thinking</strong> = hidden notes some models write before answering, which are still paid for.</p>
+    </div>
+  </header>
+
+  <section class="p2-tiles" id="tiles" aria-label="Headline numbers"></section>
+
+  <section class="p2-sec" id="families">
+    <div class="p2-head">
+      <h2>Three families, side by side</h2>
+      <p class="lede">Raw token counts never cross families, because each family has its own tokenizer (the tool that splits text into pieces the model reads). Compare the two bars inside a card, not across cards.</p>
+    </div>
+    <div class="p2-controls" role="group" aria-label="Filters">
+      <div class="seg" data-ctl="runset" role="radiogroup" aria-label="Run set">
+        <button data-v="sampled" aria-pressed="true">Sampled (5 runs)</button>
+        <button data-v="greedy" aria-pressed="false">Greedy (1 run)</button>
+      </div>
+      <div class="seg" data-ctl="cond" role="radiogroup" aria-label="Wording">
+        <button data-v="original" aria-pressed="true">Original wording</button>
+        <button data-v="twin" aria-pressed="false">Neutral twin</button>
+        <button data-v="block" aria-pressed="false">Block path</button>
+      </div>
+    </div>
+    <p class="p2-note" id="condNote"></p>
+    <div class="legend" role="note" aria-label="Chart key"><span><i class="sw a"></i>Standard</span><span><i class="sw b"></i>Abliterated (refusals removed)</span><span><i class="sw think"></i>Thinking share (estimate)</span></div>
+    <div class="fam-grid" id="famGrid"></div>
+  </section>
+
+  <section class="p2-sec" id="ratios">
+    <div class="p2-head">
+      <h2>How much more or less the abliterated copy writes</h2>
+      <p class="lede">Abliterated divided by standard, within each family. Right of the line means the abliterated copy used more output tokens (a higher ratio means more tokens). The diamond is the average of the family ratios, which is one descriptive way the pilot summarizes across families.</p>
+    </div>
+    <div class="chart" id="ratioChart"></div>
+    <p class="p2-note">Same filters as above. Thinking-token ratios exist only for Qwen and Gemma, because Llama 3.1 does not think.</p>
+  </section>
+
+  <section class="p2-sec" id="stands">
+    <div class="p2-head">
+      <h2>What stands out</h2>
+      <p class="lede">These are observations on ten development prompts, not tested findings. The judge's reliability is still under review.</p>
+    </div>
+    <ol class="obs" id="obs"></ol>
+  </section>
+
+  <section class="p2-sec" id="prompts">
+    <div class="p2-head">
+      <h2>Prompt by prompt</h2>
+      <p class="lede">Mean output tokens per prompt (5 sampled runs each). Select a row to see the prompt, its twin, and what the judge required.</p>
+    </div>
+    <div class="p2-controls">
+      <div class="seg" data-ctl="ppfam" role="radiogroup" aria-label="Family">
+        <button data-v="qwen" aria-pressed="true">Qwen</button>
+        <button data-v="llama" aria-pressed="false">Llama</button>
+        <button data-v="gemma" aria-pressed="false">Gemma</button>
+      </div>
+      <div class="seg" data-ctl="ppword" role="radiogroup" aria-label="Wording">
+        <button data-v="original" aria-pressed="true">Original</button>
+        <button data-v="twin" aria-pressed="false">Twin</button>
+      </div>
+    </div>
+    <div class="legend" role="note" aria-label="Chart key"><span><i class="dot a"></i>Standard</span><span><i class="dot b"></i>Abliterated</span><span class="muted">Right column: share of answers judged useful (%), standard / abliterated, higher is better</span></div>
+    <div id="ppChart" class="pp"></div>
+  </section>
+
+  <section class="p2-sec" id="swarm">
+    <div class="p2-head">
+      <h2>Every answer, sized by output length</h2>
+      <p class="lede">One dot per answer, placed by output length in tokens (the cap was 4,096 tokens). Filled dots were judged useful, hollow ones were not, and a ring marks a judged refusal. Select a dot to read the answer.</p>
+    </div>
+    <div class="p2-controls">
+      <div class="seg" data-ctl="swword" role="radiogroup" aria-label="Wording">
+        <button data-v="original" aria-pressed="true">Original</button>
+        <button data-v="twin" aria-pressed="false">Twin</button>
+      </div>
+      <div class="seg" data-ctl="swrun" role="radiogroup" aria-label="Runs">
+        <button data-v="sampled" aria-pressed="true">Sampled</button>
+        <button data-v="greedy" aria-pressed="false">Greedy</button>
+      </div>
+      <label class="sel">Prompt
+        <select id="swPrompt"><option value="">All ten</option></select>
+      </label>
+    </div>
+    <div class="legend" role="note" aria-label="Chart key"><span><i class="dot a"></i>Standard</span><span><i class="dot b"></i>Abliterated</span><span><i class="dot hollow"></i>Not useful</span><span><i class="dot ring"></i>Judged refusal</span></div>
+    <div class="chart" id="swarmChart"></div>
+    <p class="p2-note" id="swarmCount"></p>
+  </section>
+
+  <section class="p2-sec" id="refusals">
+    <div class="p2-head">
+      <h2>Refusals and the correction turn</h2>
+      <p class="lede">The judge labeled each answer a full answer, a partial refusal or a full refusal. A standard model that refused the original wording got one follow-up: <q id="corrTpl"></q></p>
+    </div>
+    <div id="refGrid" class="ref-grid"></div>
+    <h3 class="p2-h3">The 8 correction turns <span class="pill warn">Not judged yet</span></h3>
+    <p class="p2-note">The run stopped before the second judge pass (the second round of grading), so nobody knows yet whether a correction fixed the answer. The share of the gap closed is <b>n/a</b> in the results for that reason.</p>
+    <div id="corrList" class="corr-list"></div>
+  </section>
+
+  <section class="p2-sec" id="capability">
+    <div class="p2-head">
+      <h2>Did removing refusals lower math and knowledge scores?</h2>
+      <p class="lede">500 fixed items per model (250 GSM8K math, 250 MMLU), greedy. Scores are percent correct (higher is better). Each line joins a standard model to its abliterated copy.</p>
+    </div>
+    <div class="chart" id="capChart" role="img" aria-label="Capability chart: GSM8K and MMLU scores for each standard model joined to its abliterated copy"></div>
+  </section>
+
+  <section class="p2-sec" id="block">
+    <div class="p2-head">
+      <h2>The blocking filter</h2>
+      <p class="lede">A simulated keyword filter stops a prompt before it reaches the model, at 0 model tokens. The user sees <q id="blockMsg"></q> and, in this pilot, is assumed to re-ask with the neutral twin.</p>
+    </div>
+    <div id="blockGrid" class="block-grid"></div>
+  </section>
+
+  <section class="p2-sec" id="trust">
+    <div class="p2-head">
+      <h2>How much to trust this</h2>
+      <p class="lede">A verifier script re-derives the summary numbers from the raw files. Two Claude sessions keep a written log in the repo. One runs the pilot, and the other reviews it from a Mac.</p>
+    </div>
+    <div class="trust-grid">
+      <div class="card" id="verifyCard"></div>
+      <div class="card"><h3>Log between the two Claudes</h3><ol class="timeline" id="timeline"></ol></div>
+    </div>
+  </section>
+
+  <section class="p2-sec" id="figures">
+    <div class="p2-head">
+      <h2>Figures from the repo</h2>
+      <p class="lede">The static charts the pilot's own visualizer produced from the same files.</p>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <section class="p2-sec" id="caveats">
+    <div class="p2-head"><h2>Caveats</h2></div>
+    <ul class="cav">
+      <li><b>Ten development prompts, descriptive only.</b> Nothing here tests a hypothesis.</li>
+      <li><b>The abliterated copies are third-party downloads</b> made with different methods, so the differences cannot be put down to abliteration alone.</li>
+      <li><b>Tokenizers differ across families.</b> Raw counts compare within a family only.</li>
+      <li><b>The thinking split is an estimate.</b> Ollama (the program that runs the models on this computer) reports one count for thinking plus the answer.</li>
+      <li><b>One judge model grades everything.</b> Its agreement with a human is unknown until the blind hand-check, and its weights (the stored numbers that make up the model) changed during the run.</li>
+      <li><b>The block path assumes an idealised user</b> who always re-asks with the twin.</li>
+      <li><b>The weights are 4-bit quantized (compressed so each number uses fewer bits, which makes the models smaller).</b> The results describe these builds, not full-precision models.</li>
+      <li><b>The model list differs from the proposal text.</b> The pilot ran the models named on this page.</li>
+    </ul>
+  </section>
+
+  <footer class="p2-foot" id="foot"></footer>
+</div>
+
+<div class="tip" id="tip" role="tooltip" hidden></div>
+
+<dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+  <div class="sheet-head">
+    <div><p class="eyebrow" id="sheetKicker"></p><h3 id="sheetTitle"></h3></div>
+    <button class="x" id="sheetClose" aria-label="Close">&times;</button>
+  </div>
+  <div class="sheet-body" id="sheetBody"></div>
+</dialog>
+
+<dialog class="sheet lb" id="lightbox" aria-label="Figure">
+  <div class="sheet-head"><h3 id="lbTitle"></h3><button class="x" id="lbClose" aria-label="Close">&times;</button></div>
+  <img id="lbImg" alt="Pilot 2 figure, enlarged">
+</dialog>
+
+<script src="data.js?v=1"></script>
+<script src="app.js?v=1"></script>
+</body>
+</html>
