@@ -1,6 +1,6 @@
 # Math-15: standard vs abliterated
 
-**RUNNING 1,080/1,080 answers · judged 1,073 · stage: batchB correct** · updated 2026-11-17 19:00 UTC · verify: batchA 0 FAIL / 4 WARN · batchB 0 FAIL / 6 WARN
+**RUNNING 1,080/1,080 answers · judged 1,073 · stage: batchB correct** · updated 2026-11-17 19:30 UTC · verify: batchA 0 FAIL / 4 WARN · batchB 0 FAIL / 6 WARN
 
 Sampled runs (n=5 per question and wording). Game = the game-framed wording, plain = the same problem as plain math. Correct = the judge says the final answer matches the key. Ratios are abliterated/standard within a family. TPCA = tokens per correct answer (input+output).
 

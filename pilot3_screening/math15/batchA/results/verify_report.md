@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-17T19:00:53+00:00. **0 FAIL, 4 WARN.**
+Checked 2026-11-17T19:30:57+00:00. **0 FAIL, 4 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -30,7 +30,7 @@ Checked 2026-11-17T19:00:53+00:00. **0 FAIL, 4 WARN.**
 | PASS | judge | 720 judgments: 'useful' follows its rule in every one |
 | WARN | judge | 5 judge errors (unparseable after retry) |
 | PASS | summary | 23 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-17T19:00:53+00:00 |
+| PASS | summary | summary.json generated_at 2026-11-17T19:30:57+00:00 |
 | PASS | correction | corrections.jsonl: 21 rows, all valid JSON |
 | PASS | correction | correction_judgments.jsonl: 21 rows, all valid JSON |
 | PASS | correction | all 21 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |

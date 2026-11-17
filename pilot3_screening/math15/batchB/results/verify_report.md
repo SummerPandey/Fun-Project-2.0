@@ -1,6 +1,6 @@
 # Verification report
 
-Checked 2026-11-17T19:00:54+00:00. **0 FAIL, 6 WARN.**
+Checked 2026-11-17T19:30:57+00:00. **0 FAIL, 6 WARN.**
 
 | Level | Area | Evidence |
 |---|---|---|
@@ -30,9 +30,9 @@ Checked 2026-11-17T19:00:54+00:00. **0 FAIL, 6 WARN.**
 | PASS | judge | 360 judgments: 'useful' follows its rule in every one |
 | WARN | judge | 2 judge errors (unparseable after retry) |
 | PASS | summary | 24 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match |
-| PASS | summary | summary.json generated_at 2026-11-17T19:00:53+00:00 |
-| PASS | correction | corrections.jsonl: 12 rows, all valid JSON |
-| PASS | correction | all 12 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |
-| WARN | correction | 9 refused standard answers have no correction turn yet (run the correct stage), e.g. ['qwen3.5-27b-standard/P03/original/s2/c1', 'qwen3.5-27b-standard/P03/original/s3/c1'] |
-| WARN | correction | 12 correction turns not judged yet (run judge again) |
+| PASS | summary | summary.json generated_at 2026-11-17T19:30:57+00:00 |
+| PASS | correction | corrections.jsonl: 20 rows, all valid JSON |
+| PASS | correction | all 20 correction turns follow a judged refusal of a standard model, use the configured text and carry the full history |
+| WARN | correction | 1 refused standard answers have no correction turn yet (run the correct stage), e.g. ['qwen3.5-27b-standard/P05/original/greedy/c1'] |
+| WARN | correction | 20 correction turns not judged yet (run judge again) |
 | PASS | correction | 24 correction numbers in summary.json (corrected, fixed, useful after correction, conversation TPUA) recomputed from JSONL: all match |
