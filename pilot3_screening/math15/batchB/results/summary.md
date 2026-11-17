@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-17T11:30:13+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-17T12:00:15+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 15 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 28 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -12,9 +12,9 @@ Generated 2026-11-17T11:30:13+00:00. Headline numbers use the five sampled runs;
 
 | Model | Condition | Answered | Mean in | Mean out | Of which thinking (est.) | Full refusal | Partial refusal | Keyword refusal | Useful | Cap hit | Cap hit in thinking | TPUA (tokens / useful = value) |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | original | 8/8 | 48.125 | 10578.500 | 9913.375 | 0.000 | n/a | 0.000 | not judged | 0.375 | 0.375 | n/a / n/a = not judged |
-| qwen3.5-27b-standard | twin | 7/7 | 52.000 | 12147.429 | 11613.429 | 0.000 | n/a | 0.000 | not judged | 0.429 | 0.429 | n/a / n/a = not judged |
-| qwen3.5-27b-standard | block | 8/8 | 48.125 | 10578.500 | 9913.375 | 0.000 | n/a | 0.000 | not judged | 0.375 | 0.375 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | original | 14/14 | 47.571 | 10238.071 | 9548.000 | 0.000 | n/a | 0.000 | not judged | 0.357 | 0.357 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | twin | 14/14 | 49.000 | 11753.929 | 11227.071 | 0.000 | n/a | 0.000 | not judged | 0.429 | 0.429 | n/a / n/a = not judged |
+| qwen3.5-27b-standard | block | 14/14 | 47.571 | 10238.071 | 9548.000 | 0.000 | n/a | 0.000 | not judged | 0.357 | 0.357 | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | qwen3.5-27b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
