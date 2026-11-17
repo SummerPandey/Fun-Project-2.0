@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-17T04:30:20+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-17T05:00:23+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 509 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 555 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -24,9 +24,9 @@ Generated 2026-11-17T04:30:20+00:00. Headline numbers use the five sampled runs;
 | llama3.1-8b-abliterated | original | 50/50 | 359.200 | 492.420 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | twin | 50/50 | 367.100 | 394.280 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | block | 50/50 | 359.200 | 492.420 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-standard | original | 15/15 | 55.000 | 6479.800 | 5537.933 | 0.000 | n/a | 0.000 | not judged | 0.133 | 0.067 | n/a / n/a = not judged |
-| gemma4-12b-standard | twin | 14/14 | 62.143 | 10494.357 | 9946.429 | 0.000 | n/a | 0.000 | not judged | 0.429 | 0.429 | n/a / n/a = not judged |
-| gemma4-12b-standard | block | 15/15 | 55.000 | 6479.800 | 5537.933 | 0.000 | n/a | 0.000 | not judged | 0.133 | 0.067 | n/a / n/a = not judged |
+| gemma4-12b-standard | original | 38/38 | 56.289 | 7185.842 | 6290.763 | 0.000 | n/a | 0.000 | not judged | 0.184 | 0.132 | n/a / n/a = not judged |
+| gemma4-12b-standard | twin | 37/37 | 63.135 | 10662.486 | 10139.676 | 0.000 | n/a | 0.000 | not judged | 0.459 | 0.405 | n/a / n/a = not judged |
+| gemma4-12b-standard | block | 38/38 | 56.289 | 7185.842 | 6290.763 | 0.000 | n/a | 0.000 | not judged | 0.184 | 0.132 | n/a / n/a = not judged |
 | gemma4-12b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
