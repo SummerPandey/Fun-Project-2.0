@@ -1,6 +1,6 @@
 {
   "mock": false,
-  "generated_at": "2026-11-17T07:30:40+00:00",
+  "generated_at": "2026-11-17T08:00:44+00:00",
   "notes": [
     "Development prompts only (10 prompts): descriptive, never main results.",
     "Headline numbers use the five sampled runs (s1-s5). Greedy is reported separately.",
@@ -17,7 +17,7 @@
     "judged": 0,
     "errors": 0,
     "inconsistent": 0,
-    "missing": 654,
+    "missing": 668,
     "judge_models_used": []
   },
   "by_model": {
@@ -684,15 +684,15 @@
     "gemma4-12b-abliterated": {
       "sampled": {
         "original": {
-          "n_attempts": 27,
-          "n_answered": 27,
-          "mean_input_tokens": 55.96296296296296,
+          "n_attempts": 34,
+          "n_answered": 34,
+          "mean_input_tokens": 55.64705882352941,
           "mean_output_tokens": 16384.0,
           "mean_thinking_tokens_est": 16384.0,
           "cap_hit_rate": 1.0,
           "cap_hit_in_thinking_rate": 1.0,
           "keyword_refusal_rate": 0.0,
-          "n_unjudged_answers": 27,
+          "n_unjudged_answers": 34,
           "refusal_source": "keyword",
           "full_refusal_rate": 0.0,
           "partial_refusal_rate": null,
@@ -705,15 +705,15 @@
           }
         },
         "twin": {
-          "n_attempts": 27,
-          "n_answered": 27,
-          "mean_input_tokens": 63.0,
-          "mean_output_tokens": 14650.185185185184,
-          "mean_thinking_tokens_est": 14611.962962962964,
-          "cap_hit_rate": 0.8888888888888888,
-          "cap_hit_in_thinking_rate": 0.8888888888888888,
+          "n_attempts": 34,
+          "n_answered": 34,
+          "mean_input_tokens": 62.94117647058823,
+          "mean_output_tokens": 14550.617647058823,
+          "mean_thinking_tokens_est": 14510.882352941177,
+          "cap_hit_rate": 0.8823529411764706,
+          "cap_hit_in_thinking_rate": 0.8823529411764706,
           "keyword_refusal_rate": 0.0,
-          "n_unjudged_answers": 27,
+          "n_unjudged_answers": 34,
           "refusal_source": "keyword",
           "full_refusal_rate": 0.0,
           "partial_refusal_rate": null,
@@ -726,15 +726,15 @@
           }
         },
         "block": {
-          "n_attempts": 27,
-          "n_answered": 27,
-          "mean_input_tokens": 55.96296296296296,
+          "n_attempts": 34,
+          "n_answered": 34,
+          "mean_input_tokens": 55.64705882352941,
           "mean_output_tokens": 16384.0,
           "mean_thinking_tokens_est": 16384.0,
           "cap_hit_rate": 1.0,
           "cap_hit_in_thinking_rate": 1.0,
           "keyword_refusal_rate": 0.0,
-          "n_unjudged_answers": 27,
+          "n_unjudged_answers": 34,
           "refusal_source": "keyword",
           "full_refusal_rate": 0.0,
           "partial_refusal_rate": null,
@@ -850,18 +850,18 @@
           "by_family": {
             "qwen": 1.0032411851541134,
             "llama": 0.49874769145141296,
-            "gemma": 1.3803453726682995
+            "gemma": 1.3709640857573546
           },
-          "mean_of_family_ratios": 0.9607780830912752,
+          "mean_of_family_ratios": 0.9576509874542937,
           "n_families": 3
         },
         "mean_thinking_tokens_est": {
           "by_family": {
             "qwen": 0.9981775947702491,
             "llama": null,
-            "gemma": 1.458550485715209
+            "gemma": 1.4484607275343704
           },
-          "mean_of_family_ratios": 1.2283640402427292,
+          "mean_of_family_ratios": 1.2233191611523098,
           "n_families": 2
         },
         "tpua": {

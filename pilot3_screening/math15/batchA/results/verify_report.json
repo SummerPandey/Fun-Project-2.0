@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T07:30:40+00:00",
+  "checked_at": "2026-11-17T08:00:44+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 654 rows, all valid JSON"
+      "message": "generations.jsonl: 668 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -53,12 +53,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-abliterated: generate 54/120, judge 0/120, capability 0/?"
+      "message": "gemma4-12b-abliterated: generate 68/120, judge 0/120, capability 0/?"
     },
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 654 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 668 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -113,12 +113,12 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 654 answers: cap flags consistent, counts in range"
+      "message": "all 668 answers: cap flags consistent, counts in range"
     },
     {
       "level": "WARN",
       "area": "tokens",
-      "message": "149 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
+      "message": "162 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
     },
     {
       "level": "PASS",
@@ -128,7 +128,7 @@
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-17T07:30:40+00:00"
+      "message": "summary.json generated_at 2026-11-17T08:00:44+00:00"
     }
   ]
 }
