@@ -1,7 +1,7 @@
 {
-  "updated_utc": "2026-11-17T05:00:23Z",
+  "updated_utc": "2026-11-17T05:30:26Z",
   "state": "running",
-  "answers_done": 555,
+  "answers_done": 597,
   "answers_total": 1080,
   "judged": 0,
   "stage": "batchA generate gemma4-12b-standard",

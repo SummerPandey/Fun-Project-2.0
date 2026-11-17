@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-17T05:00:23+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-17T05:30:26+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 0 answers judged, 0 judge errors, 555 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 0 answers judged, 0 judge errors, 597 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** none recorded.
 
@@ -24,9 +24,9 @@ Generated 2026-11-17T05:00:23+00:00. Headline numbers use the five sampled runs;
 | llama3.1-8b-abliterated | original | 50/50 | 359.200 | 492.420 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | twin | 50/50 | 367.100 | 394.280 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | block | 50/50 | 359.200 | 492.420 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-standard | original | 38/38 | 56.289 | 7185.842 | 6290.763 | 0.000 | n/a | 0.000 | not judged | 0.184 | 0.132 | n/a / n/a = not judged |
-| gemma4-12b-standard | twin | 37/37 | 63.135 | 10662.486 | 10139.676 | 0.000 | n/a | 0.000 | not judged | 0.459 | 0.405 | n/a / n/a = not judged |
-| gemma4-12b-standard | block | 38/38 | 56.289 | 7185.842 | 6290.763 | 0.000 | n/a | 0.000 | not judged | 0.184 | 0.132 | n/a / n/a = not judged |
+| gemma4-12b-standard | original | 50/50 | 56.100 | 7439.320 | 6572.120 | 0.000 | n/a | 0.000 | not judged | 0.200 | 0.160 | n/a / n/a = not judged |
+| gemma4-12b-standard | twin | 50/50 | 63.500 | 10613.420 | 10018.140 | 0.000 | n/a | 0.000 | not judged | 0.440 | 0.340 | n/a / n/a = not judged |
+| gemma4-12b-standard | block | 50/50 | 56.100 | 7439.320 | 6572.120 | 0.000 | n/a | 0.000 | not judged | 0.200 | 0.160 | n/a / n/a = not judged |
 | gemma4-12b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
@@ -47,9 +47,9 @@ Generated 2026-11-17T05:00:23+00:00. Headline numbers use the five sampled runs;
 | llama3.1-8b-abliterated | original | 10/10 | 359.200 | 422.900 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | twin | 10/10 | 367.100 | 336.000 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
 | llama3.1-8b-abliterated | block | 10/10 | 359.200 | 422.900 | 0.000 | 0.000 | n/a | 0.000 | not judged | 0.000 | 0.000 | n/a / n/a = not judged |
-| gemma4-12b-standard | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| gemma4-12b-standard | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
-| gemma4-12b-standard | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
+| gemma4-12b-standard | original | 9/9 | 55.667 | 8578.444 | 8108.889 | 0.000 | n/a | 0.000 | not judged | 0.444 | 0.444 | n/a / n/a = not judged |
+| gemma4-12b-standard | twin | 8/8 | 64.500 | 12569.375 | 12442.375 | 0.000 | n/a | 0.000 | not judged | 0.750 | 0.750 | n/a / n/a = not judged |
+| gemma4-12b-standard | block | 9/9 | 55.667 | 8578.444 | 8108.889 | 0.000 | n/a | 0.000 | not judged | 0.444 | 0.444 | n/a / n/a = not judged |
 | gemma4-12b-abliterated | original | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | twin | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
 | gemma4-12b-abliterated | block | 0/0 | n/a | n/a | n/a | n/a | n/a | n/a | not judged | n/a | n/a | n/a / n/a = not judged |
