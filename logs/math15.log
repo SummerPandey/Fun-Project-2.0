@@ -207,3 +207,12 @@
 [06:07:58]   30/60 (last: 16384 tokens, length)
 [06:32:31]   40/60 (last: 16384 tokens, length)
 [06:57:01]   50/60 (last: 16384 tokens, length)
+[07:22:33]   60/60 (last: 15369 tokens, stop)
+[07:22:33] qwen3.5-27b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/generations.jsonl
+[07:22:33] done
+=== 2026-11-17T13:22:33Z batchB stage generate qwen3.5-27b-abliterated
+[07:22:33] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[07:22:33] === stage: generate (backend: ollama) ===
+[07:22:33] qwen3.5-27b-abliterated: generating 60 of 60 answers
+[07:22:33]   WARNING: huihui_ai/qwen3.5-abliterated:27b has 2 entries on the server (2c5b727e8ad6, 9f1f4b8914ba). Remove the stray copy so the same weights answer every request.
+[07:22:33]   huihui_ai/qwen3.5-abliterated:27b digest 2c5b727e8ad6, think=True, Ollama 0.40.0

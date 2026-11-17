@@ -1,6 +1,6 @@
 # Pilot 2 summary
 
-Generated 2026-11-17T13:00:19+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-17T13:30:21+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
 **Judge:** 715 answers judged, 5 judge errors, 0 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
