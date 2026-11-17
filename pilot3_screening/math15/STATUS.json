@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-17T18:30:50Z",
+  "updated_utc": "2026-11-17T19:00:54Z",
   "state": "running",
-  "answers_done": 1076,
+  "answers_done": 1080,
   "answers_total": 1080,
-  "judged": 715,
-  "stage": "batchB generate gemma4-12b-abliterated",
+  "judged": 1073,
+  "stage": "batchB correct",
   "verify_fail": 0,
-  "verify_warn": 13,
+  "verify_warn": 10,
   "last_error": null
 }

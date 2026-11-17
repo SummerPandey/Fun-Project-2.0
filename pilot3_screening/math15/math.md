@@ -1,6 +1,6 @@
 # Math-15: standard vs abliterated
 
-**RUNNING 1,076/1,080 answers · judged 715 · stage: batchB generate gemma4-12b-abliterated** · updated 2026-11-17 18:30 UTC · verify: batchA 0 FAIL / 4 WARN · batchB 0 FAIL / 9 WARN
+**RUNNING 1,080/1,080 answers · judged 1,073 · stage: batchB correct** · updated 2026-11-17 19:00 UTC · verify: batchA 0 FAIL / 4 WARN · batchB 0 FAIL / 6 WARN
 
 Sampled runs (n=5 per question and wording). Game = the game-framed wording, plain = the same problem as plain math. Correct = the judge says the final answer matches the key. Ratios are abliterated/standard within a family. TPCA = tokens per correct answer (input+output).
 
@@ -8,9 +8,9 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 
 | family | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) | TPCA abl/std (game) | TPCA abl/std (plain) | no answer (ran out of tokens) std→abl |
 |---|--:|--:|--:|--:|--:|--:|
-| qwen | 84% → 70% | 62% → 60% | 1.07 | 1.33 | 1.04 | 45/150 → 50/150 |
-| llama | 6% → 0% | 10% → 2% | 0.45 | – | 4.49 | 0/150 → 0/150 |
-| gemma | 80% → 0% | 54% → 8% | 2.01 | – | 9.61 | 41/150 → 136/150 |
+| qwen | 76% → 67% | 61% → 59% | 1.07 | 1.22 | 1.06 | 45/150 → 50/150 |
+| llama | 14% → 1% | 16% → 3% | 0.45 | 12.11 | 5.47 | 0/150 → 0/150 |
+| gemma | 75% → 7% | 60% → 12% | 2.01 | 22.45 | 7.27 | 41/150 → 136/150 |
 
 ## Per question (pooled over the 3 families; tokens = mean of the 3 family ratios)
 
@@ -26,11 +26,11 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 | M08 | A target has h health (1 <= h … | 10/15 → 5/15 | 7/15 → 5/15 | 1.23 | 0/30 → 0/30 | 1/30 → 10/30 |
 | M09 | Three fair dice are rolled; you may then … | 8/15 → 3/15 | 9/15 → 4/15 | 2.32 | 0/30 → 1/30 | 3/30 → 12/30 |
 | M10 | In a take-away game, players alternately remove 1, … | 10/15 → 4/15 | 9/15 → 5/15 | 1.20 | 0/30 → 1/30 | 1/30 → 11/30 |
-| M11 | Draws are uniform and independent over 10 types. … | – → – | – → – | 2.72 | – → – | 0/30 → 10/30 |
-| M12 | You have 5 time units. Task A takes … | – → – | – → – | 1.83 | – → – | 1/30 → 10/30 |
-| M13 | A fair coin is flipped until HHT or … | – → – | – → – | 0.84 | – → – | 15/30 → 20/30 |
-| M14 | X ~ Binomial(3, 2/3). Find P(X >= 2) … | – → – | – → – | 0.85 | – → – | 0/30 → 1/30 |
-| M15 | On a standard 6-row by 7-column Connect Four … | – → – | – → – | 0.95 | – → – | 20/30 → 20/30 |
+| M11 | Draws are uniform and independent over 10 types. … | 10/15 → 5/15 | 10/15 → 5/15 | 2.72 | 0/30 → 0/30 | 0/30 → 10/30 |
+| M12 | You have 5 time units. Task A takes … | 14/15 → 5/15 | 14/15 → 5/15 | 1.83 | 0/30 → 0/30 | 1/30 → 10/30 |
+| M13 | A fair coin is flipped until HHT or … | 2/15 → 1/15 | 4/15 → 1/15 | 0.84 | 0/30 → 0/30 | 15/30 → 20/30 |
+| M14 | X ~ Binomial(3, 2/3). Find P(X >= 2) … | 12/15 → 10/15 | 12/15 → 9/15 | 0.85 | 0/30 → 0/30 | 0/30 → 1/30 |
+| M15 | On a standard 6-row by 7-column Connect Four … | 0/15 → 0/15 | 0/15 → 0/15 | 0.95 | 0/30 → 3/30 | 20/30 → 20/30 |
 
 ## Caveats
 

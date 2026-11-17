@@ -273,3 +273,41 @@
 [11:39:09]   30/60 (last: 16384 tokens, length)
 [11:57:57]   40/60 (last: 16384 tokens, length)
 [12:16:48]   50/60 (last: 16384 tokens, length)
+[12:35:39]   60/60 (last: 16384 tokens, length)
+[12:35:39] gemma4-12b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/generations.jsonl
+[12:35:39] done
+=== 2026-11-17T18:35:39Z batchB stage judge
+[12:35:39] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[12:35:39] === stage: judge (backend: ollama) ===
+[12:35:39]   WARNING: mistral-small3.1:24b has 2 entries on the server (8f3b5653ff8b, b02dc4066b18). Remove the stray copy so the same weights answer every request.
+[12:35:39]   judge mistral-small3.1:24b digest 8f3b5653ff8b
+[12:35:39] judging 360 answers
+[12:35:55]   judged 20/360 answers
+[12:36:07]   judged 40/360 answers
+[12:36:19]   judged 60/360 answers
+[12:36:37]   judged 80/360 answers
+[12:36:51]   judged 100/360 answers
+[12:37:04]   judged 120/360 answers
+[12:37:17]   judged 140/360 answers
+[12:37:30]   judged 160/360 answers
+[12:37:46]   judged 180/360 answers
+[12:38:03]   retrying 1 unparseable judge replies once
+[12:38:06]   judged 200/360 answers
+[12:38:30]   retrying 1 unparseable judge replies once
+[12:38:38]   judged 220/360 answers
+[12:38:55]   judged 240/360 answers
+[12:39:16]   judged 260/360 answers
+[12:39:32]   judged 280/360 answers
+[12:39:46]   judged 300/360 answers
+[12:40:05]   judged 320/360 answers
+[12:40:20]   judged 340/360 answers
+[12:40:33]   judged 360/360 answers
+[12:40:33] wrote 360 judgments to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/judgments.jsonl (2 judge errors)
+[12:40:33] done
+=== 2026-11-17T18:40:33Z batchB stage correct
+[12:40:33] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[12:40:33] === stage: correct (backend: ollama) ===
+[12:40:33] gemma4-12b-standard: 10 refused answers get a correction turn
+[12:50:56]   10/10 corrections
+[12:50:56] gemma4-12b-standard: corrections written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/corrections.jsonl
+[12:50:56] qwen3.5-27b-standard: 11 refused answers get a correction turn
