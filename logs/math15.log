@@ -34,3 +34,20 @@
 [20:40:41]   90/120 (last: 16384 tokens, length)
 [21:08:37]   100/120 (last: 14988 tokens, stop)
 [21:27:46]   110/120 (last: 16384 tokens, length)
+[21:52:19]   120/120 (last: 10283 tokens, stop)
+[21:52:19] qwen3.5-27b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results/generations.jsonl
+[21:52:19] done
+=== 2026-11-17T03:52:19Z batchA stage generate llama3.1-8b-standard
+[21:52:19] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results (backend: ollama)
+[21:52:19] === stage: generate (backend: ollama) ===
+[21:52:19] llama3.1-8b-standard: generating 120 of 120 answers
+[21:52:19]   llama3.1:8b-instruct-q4_K_M digest 46e0c10c039e, think=None, Ollama 0.40.0
+[21:52:40]   10/120 (last: 453 tokens, stop)
+[21:53:22]   20/120 (last: 493 tokens, stop)
+[21:53:51]   30/120 (last: 462 tokens, stop)
+[21:55:53]   40/120 (last: 402 tokens, stop)
+[21:57:38]   50/120 (last: 427 tokens, stop)
+[21:58:23]   60/120 (last: 459 tokens, stop)
+[21:58:45]   70/120 (last: 450 tokens, stop)
+[21:59:11]   80/120 (last: 532 tokens, stop)
+[21:59:38]   90/120 (last: 422 tokens, stop)
