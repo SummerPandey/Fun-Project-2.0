@@ -91,3 +91,12 @@
 [23:11:22]   90/120 (last: 16384 tokens, length)
 [23:17:36]   100/120 (last: 11540 tokens, stop)
 [23:25:00]   110/120 (last: 16384 tokens, length)
+[23:33:31]   120/120 (last: 16384 tokens, length)
+[23:33:31] gemma4-12b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results/generations.jsonl
+[23:33:31] done
+=== 2026-11-17T05:33:31Z batchA stage generate gemma4-12b-abliterated
+[23:33:31] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results (backend: ollama)
+[23:33:31] === stage: generate (backend: ollama) ===
+[23:33:31] gemma4-12b-abliterated: generating 120 of 120 answers
+[23:33:31]   huihui_ai/gemma-4-abliterated:12b digest 526eca3f9757, think=True, Ollama 0.40.0
+[23:54:16]   10/120 (last: 16384 tokens, length)
