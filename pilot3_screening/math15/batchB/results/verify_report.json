@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T16:30:38+00:00",
+  "checked_at": "2026-11-17T17:00:41+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 283 rows, all valid JSON"
+      "message": "generations.jsonl: 309 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -48,17 +48,17 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-standard: generate 43/60, judge 0/60, capability 0/?"
+      "message": "gemma4-12b-standard: generate 60/60, judge 0/60, capability 0/?"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-abliterated: generate 0/60, judge 0/60, capability 0/?"
+      "message": "gemma4-12b-abliterated: generate 9/60, judge 0/60, capability 0/?"
     },
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 283 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 309 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -87,6 +87,11 @@
     },
     {
       "level": "PASS",
+      "area": "digests",
+      "message": "gemma4-12b-abliterated: one set of weights, 526eca3f9757 (matches pin)"
+    },
+    {
+      "level": "PASS",
       "area": "settings",
       "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
     },
@@ -108,22 +113,22 @@
     {
       "level": "PASS",
       "area": "tokens",
-      "message": "all 283 answers: cap flags consistent, counts in range"
+      "message": "all 309 answers: cap flags consistent, counts in range"
     },
     {
       "level": "WARN",
       "area": "tokens",
-      "message": "59 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
+      "message": "73 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "10 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "12 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-17T16:30:38+00:00"
+      "message": "summary.json generated_at 2026-11-17T17:00:41+00:00"
     }
   ]
 }
