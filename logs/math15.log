@@ -270,3 +270,5 @@
 [10:42:51]   huihui_ai/gemma-4-abliterated:12b digest 526eca3f9757, think=True, Ollama 0.40.0
 [11:01:41]   10/60 (last: 16384 tokens, length)
 [11:20:25]   20/60 (last: 16384 tokens, length)
+[11:39:09]   30/60 (last: 16384 tokens, length)
+[11:57:57]   40/60 (last: 16384 tokens, length)
