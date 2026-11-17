@@ -1,8 +1,8 @@
 # Pilot 2 summary
 
-Generated 2026-11-17T10:30:06+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
+Generated 2026-11-17T11:00:08+00:00. Headline numbers use the five sampled runs; greedy is shown separately.
 
-**Judge:** 714 answers judged, 6 judge errors, 0 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
+**Judge:** 715 answers judged, 5 judge errors, 0 missing, 0 useful-flag disagreements (useful is recomputed in code). Keyword refusal is approximate.
 
 **Judge models used:** mistral-small3.1:24b (quantization ollama, revision 8f3b5653ff8b845ba9453938cf67c2f975c45ce293feccd88a9cf21e2a2efd08).
 
@@ -41,9 +41,9 @@ Generated 2026-11-17T10:30:06+00:00. Headline numbers use the five sampled runs;
 | qwen3.5-27b-abliterated | original | 10/10 | 49.900 | 8579.300 | 7331.300 | 0.100 | 0.000 | 0.000 | 0.700 | 0.100 | 0.100 | 86292 / 7 = 12327.429 |
 | qwen3.5-27b-abliterated | twin | 10/10 | 57.700 | 10182.500 | 8727.100 | 0.100 | 0.000 | 0.000 | 0.900 | 0.200 | 0.100 | 102402 / 9 = 11378.000 |
 | qwen3.5-27b-abliterated | block | 10/10 | 49.900 | 8579.300 | 7331.300 | 0.100 | 0.000 | 0.000 | 0.700 | 0.100 | 0.100 | 86292 / 7 = 12327.429 |
-| llama3.1-8b-standard | original | 10/10 | 49.200 | 3721.300 | 0.000 | 0.000 | 0.000 | 0.000 | 0.125 | 0.200 | 0.000 | 4835 / 1 = 4835.000 |
+| llama3.1-8b-standard | original | 10/10 | 49.200 | 3721.300 | 0.000 | 0.000 | 0.000 | 0.000 | 0.111 | 0.200 | 0.000 | 21266 / 1 = 21266.000 |
 | llama3.1-8b-standard | twin | 10/10 | 57.100 | 3665.800 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.200 | 0.000 | 4335 / 0 = undefined |
-| llama3.1-8b-standard | block | 10/10 | 49.200 | 3721.300 | 0.000 | 0.000 | 0.000 | 0.000 | 0.125 | 0.200 | 0.000 | 4835 / 1 = 4835.000 |
+| llama3.1-8b-standard | block | 10/10 | 49.200 | 3721.300 | 0.000 | 0.000 | 0.000 | 0.000 | 0.111 | 0.200 | 0.000 | 21266 / 1 = 21266.000 |
 | llama3.1-8b-abliterated | original | 10/10 | 359.200 | 422.900 | 0.000 | 0.100 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7821 / 0 = undefined |
 | llama3.1-8b-abliterated | twin | 10/10 | 367.100 | 336.000 | 0.000 | 0.000 | 0.000 | 0.000 | 0.200 | 0.000 | 0.000 | 7031 / 2 = 3515.500 |
 | llama3.1-8b-abliterated | block | 10/10 | 359.200 | 422.900 | 0.000 | 0.100 | 0.000 | 0.000 | 0.000 | 0.000 | 0.000 | 7821 / 0 = undefined |
@@ -87,26 +87,26 @@ A standard model's refused answer (full or partial) to the original wording gets
 
 | Model | Run set | Turns | Attempts | Refused turn 1 | Corrected | Fixed | Correction % | Pending | Useful turn 1 | Useful final | Mean tokens turn 1 | Mean tokens conversation | TPUA turn 1 | TPUA conversation |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| qwen3.5-27b-standard | sampled | 2 | 50 | 7 | 0 | 0 | n/a | 7 | 0.840 | 0.840 | 9921.620 | 9921.620 | 11811.452 | 11811.452 |
+| qwen3.5-27b-standard | sampled | 2 | 50 | 7 | 7 | 4 | 0.571 | 0 | 0.840 | 0.920 | 9921.620 | 11817.940 | 11811.452 | 12845.587 |
 | qwen3.5-27b-abliterated | sampled | 1 | 50 | 11 | 0 | 0 | n/a | 0 | 0.700 | 0.700 | 11009.920 | 11009.920 | 15728.457 | 15728.457 |
 | llama3.1-8b-standard | sampled | 2 | 48 | 0 | 0 | 0 | n/a | 0 | 0.062 | 0.062 | 710.292 | 710.292 | 11364.667 | 11364.667 |
 | llama3.1-8b-abliterated | sampled | 1 | 50 | 3 | 0 | 0 | n/a | 0 | 0.000 | 0.000 | 851.620 | 851.620 | undefined | undefined |
-| gemma4-12b-standard | sampled | 2 | 50 | 8 | 0 | 0 | n/a | 8 | 0.800 | 0.800 | 7495.420 | 7495.420 | 9369.275 | 9369.275 |
+| gemma4-12b-standard | sampled | 2 | 50 | 8 | 8 | 3 | 0.375 | 0 | 0.800 | 0.860 | 7495.420 | 9810.160 | 9369.275 | 11407.163 |
 | gemma4-12b-abliterated | sampled | 1 | 50 | 50 | 0 | 0 | n/a | 0 | 0.000 | 0.000 | 16440.100 | 16440.100 | undefined | undefined |
-| qwen3.5-27b-standard | greedy | 2 | 10 | 1 | 0 | 0 | n/a | 1 | 0.900 | 0.900 | 8925.000 | 8925.000 | 9916.667 | 9916.667 |
+| qwen3.5-27b-standard | greedy | 2 | 10 | 1 | 1 | 0 | 0.000 | 0 | 0.900 | 0.900 | 8925.000 | 10576.700 | 9916.667 | 11751.889 |
 | qwen3.5-27b-abliterated | greedy | 1 | 10 | 1 | 0 | 0 | n/a | 0 | 0.700 | 0.700 | 8629.200 | 8629.200 | 12327.429 | 12327.429 |
-| llama3.1-8b-standard | greedy | 2 | 8 | 0 | 0 | 0 | n/a | 0 | 0.125 | 0.125 | 604.375 | 604.375 | 4835.000 | 4835.000 |
+| llama3.1-8b-standard | greedy | 2 | 9 | 0 | 0 | 0 | n/a | 0 | 0.111 | 0.111 | 2362.889 | 2362.889 | 21266.000 | 21266.000 |
 | llama3.1-8b-abliterated | greedy | 1 | 10 | 1 | 0 | 0 | n/a | 0 | 0.000 | 0.000 | 782.100 | 782.100 | undefined | undefined |
-| gemma4-12b-standard | greedy | 2 | 10 | 5 | 0 | 0 | n/a | 5 | 0.500 | 0.500 | 9415.100 | 9415.100 | 18830.200 | 18830.200 |
+| gemma4-12b-standard | greedy | 2 | 10 | 5 | 5 | 4 | 0.800 | 0 | 0.500 | 0.900 | 9415.100 | 14808.700 | 18830.200 | 16454.111 |
 | gemma4-12b-abliterated | greedy | 1 | 10 | 10 | 0 | 0 | n/a | 0 | 0.000 | 0.000 | 16440.100 | 16440.100 | undefined | undefined |
 
 ### Does the correction close the gap? (sampled runs)
 
 | Family | Abliterated useful (1 turn) | Standard useful turn 1 | Standard useful after correction | Share of gap closed | Correction % | TPUA std conv / abl | Mean tokens std conv / abl |
 |---|---|---|---|---|---|---|---|
-| qwen | 0.700 | 0.840 | 0.840 | n/a | n/a | 0.751 | 0.901 |
+| qwen | 0.700 | 0.840 | 0.920 | n/a | 0.571 | 0.817 | 1.073 |
 | llama | 0.000 | 0.062 | 0.062 | n/a | n/a | n/a | 0.834 |
-| gemma | 0.000 | 0.800 | 0.800 | n/a | n/a | n/a | 0.456 |
+| gemma | 0.000 | 0.800 | 0.860 | n/a | 0.375 | n/a | 0.597 |
 
 ## Blocking (regex, computed)
 

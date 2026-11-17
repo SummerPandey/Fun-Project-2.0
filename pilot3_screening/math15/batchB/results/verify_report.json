@@ -1,0 +1,94 @@
+{
+  "checked_at": "2026-11-17T11:00:08+00:00",
+  "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results",
+  "mock": false,
+  "fails": 0,
+  "warnings": 8,
+  "items": [
+    {
+      "level": "PASS",
+      "area": "files",
+      "message": "generations.jsonl: 4 rows, all valid JSON"
+    },
+    {
+      "level": "WARN",
+      "area": "files",
+      "message": "judgments.jsonl does not exist yet"
+    },
+    {
+      "level": "WARN",
+      "area": "files",
+      "message": "capability.jsonl does not exist yet"
+    },
+    {
+      "level": "PASS",
+      "area": "files",
+      "message": "all rows are real"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "qwen3.5-27b-standard: generate 4/60, judge 0/60, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "qwen3.5-27b-abliterated: generate 0/60, judge 0/60, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "llama3.1-8b-standard: generate 0/60, judge 0/60, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "llama3.1-8b-abliterated: generate 0/60, judge 0/60, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "gemma4-12b-standard: generate 0/60, judge 0/60, capability 0/?"
+    },
+    {
+      "level": "WARN",
+      "area": "progress",
+      "message": "gemma4-12b-abliterated: generate 0/60, judge 0/60, capability 0/?"
+    },
+    {
+      "level": "PASS",
+      "area": "provenance",
+      "message": "all 4 answers match the prompt texts in pilot_prompts.json"
+    },
+    {
+      "level": "PASS",
+      "area": "digests",
+      "message": "qwen3.5-27b-standard: one set of weights, 64ae5b1d651f (matches pin)"
+    },
+    {
+      "level": "PASS",
+      "area": "settings",
+      "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
+    },
+    {
+      "level": "PASS",
+      "area": "settings",
+      "message": "qwen: both models used identical options and think flag {\"options\": {\"frequency_penalty\": 0.0, \"min_p\": 0.0, \"num_ctx\": 20480, \"num_predict\": 16384, \"presence_penalty\": 0.0, \"repeat_penalty\": 1.0, \"top_k\": 0, \"top_p\": 1.0}, \"think\": true}"
+    },
+    {
+      "level": "PASS",
+      "area": "tokens",
+      "message": "all 4 answers: cap flags consistent, counts in range"
+    },
+    {
+      "level": "PASS",
+      "area": "summary",
+      "message": "2 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+    },
+    {
+      "level": "PASS",
+      "area": "summary",
+      "message": "summary.json generated_at 2026-11-17T11:00:08+00:00"
+    }
+  ]
+}

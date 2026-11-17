@@ -1,11 +1,11 @@
 {
-  "updated_utc": "2026-11-17T10:30:06Z",
+  "updated_utc": "2026-11-17T11:00:09Z",
   "state": "running",
-  "answers_done": 720,
+  "answers_done": 724,
   "answers_total": 1080,
-  "judged": 714,
-  "stage": "batchA correct",
+  "judged": 715,
+  "stage": "batchB generate qwen3.5-27b-standard",
   "verify_fail": 0,
-  "verify_warn": 6,
+  "verify_warn": 12,
   "last_error": null
 }

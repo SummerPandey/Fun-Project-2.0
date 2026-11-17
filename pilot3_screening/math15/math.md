@@ -1,6 +1,6 @@
 # Math-15: standard vs abliterated
 
-**RUNNING 720/1,080 answers · judged 714 · stage: batchA correct** · updated 2026-11-17 10:30 UTC · verify: batchA 0 FAIL / 6 WARN
+**RUNNING 724/1,080 answers · judged 715 · stage: batchB generate qwen3.5-27b-standard** · updated 2026-11-17 11:00 UTC · verify: batchA 0 FAIL / 4 WARN · batchB 0 FAIL / 8 WARN
 
 Sampled runs (n=5 per question and wording). Game = the game-framed wording, plain = the same problem as plain math. Correct = the judge says the final answer matches the key. Ratios are abliterated/standard within a family. TPCA = tokens per correct answer (input+output).
 
@@ -8,7 +8,7 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 
 | family | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) | TPCA abl/std (game) | TPCA abl/std (plain) |
 |---|--:|--:|--:|--:|--:|
-| qwen | 84% → 70% | 62% → 60% | 1.11 | 1.33 | 1.04 |
+| qwen | 84% → 70% | 62% → 60% | 1.12 | 1.33 | 1.04 |
 | llama | 6% → 0% | 10% → 2% | 0.38 | – | 4.49 |
 | gemma | 80% → 0% | 54% → 8% | 2.20 | – | 9.61 |
 
