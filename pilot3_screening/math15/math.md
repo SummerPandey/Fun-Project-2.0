@@ -1,6 +1,6 @@
 # Math-15: standard vs abliterated
 
-**RUNNING 335/1,080 answers · judged 0 · stage: batchA generate llama3.1-8b-standard** · updated 2026-11-17 04:00 UTC · verify: batchA 0 FAIL / 9 WARN
+**RUNNING 509/1,080 answers · judged 0 · stage: batchA generate gemma4-12b-standard** · updated 2026-11-17 04:30 UTC · verify: batchA 0 FAIL / 9 WARN
 
 Sampled runs (n=5 per question and wording). Game = the game-framed wording, plain = the same problem as plain math. Correct = the judge says the final answer matches the key. Ratios are abliterated/standard within a family. TPCA = tokens per correct answer (input+output).
 
@@ -9,22 +9,22 @@ Sampled runs (n=5 per question and wording). Game = the game-framed wording, pla
 | family | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) | TPCA abl/std (game) | TPCA abl/std (plain) |
 |---|--:|--:|--:|--:|--:|
 | qwen | – → – | – → – | 1.11 | – | – |
-| llama | – → – | – → – | – | – | – |
+| llama | – → – | – → – | 0.38 | – | – |
 | gemma | – → – | – → – | – | – | – |
 
 ## Per question (pooled over the 3 families; tokens = mean of the 3 family ratios)
 
 | id | question | accuracy std→abl (game) | accuracy std→abl (plain) | out tokens abl/std (game) | refusals std→abl (both wordings) |
 |---|---|--:|--:|--:|--:|
-| M01 | An opponent in rock-paper-scissors never repeats their previous … | – → – | – → – | 1.09 | – → – |
-| M02 | Two fair dice are rolled up to three … | – → – | – → – | 1.53 | – → – |
-| M03 | An action saves 4 seconds with probability 1 … | – → – | – → – | 1.27 | – → – |
-| M04 | Over three rounds, each round you choose A … | – → – | – → – | 0.94 | – → – |
-| M05 | A secret integer is in 1-10. With three … | – → – | – → – | 1.62 | – → – |
-| M06 | Players A and B alternate turns, A first. … | – → – | – → – | 1.00 | – → – |
-| M07 | X is uniform on {1, 5, 10}. After … | – → – | – → – | 1.07 | – → – |
-| M08 | A target has h health (1 <= h … | – → – | – → – | 0.88 | – → – |
-| M09 | Three fair dice are rolled; you may then … | – → – | – → – | 1.21 | – → – |
+| M01 | An opponent in rock-paper-scissors never repeats their previous … | – → – | – → – | 0.93 | – → – |
+| M02 | Two fair dice are rolled up to three … | – → – | – → – | 1.21 | – → – |
+| M03 | An action saves 4 seconds with probability 1 … | – → – | – → – | 0.97 | – → – |
+| M04 | Over three rounds, each round you choose A … | – → – | – → – | 0.55 | – → – |
+| M05 | A secret integer is in 1-10. With three … | – → – | – → – | 0.91 | – → – |
+| M06 | Players A and B alternate turns, A first. … | – → – | – → – | 0.97 | – → – |
+| M07 | X is uniform on {1, 5, 10}. After … | – → – | – → – | 0.60 | – → – |
+| M08 | A target has h health (1 <= h … | – → – | – → – | 0.85 | – → – |
+| M09 | Three fair dice are rolled; you may then … | – → – | – → – | 1.03 | – → – |
 | M10 | In a take-away game, players alternately remove 1, … | – → – | – → – | 1.00 | – → – |
 | M11 | Draws are uniform and independent over 10 types. … | – → – | – → – | – | – → – |
 | M12 | You have 5 time units. Task A takes … | – → – | – → – | – | – → – |

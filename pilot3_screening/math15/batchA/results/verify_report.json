@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T04:00:17+00:00",
+  "checked_at": "2026-11-17T04:30:20+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchA/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 335 rows, all valid JSON"
+      "message": "generations.jsonl: 509 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -38,17 +38,17 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-standard: generate 95/120, judge 0/120, capability 0/?"
+      "message": "llama3.1-8b-standard: generate 120/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-abliterated: generate 0/120, judge 0/120, capability 0/?"
+      "message": "llama3.1-8b-abliterated: generate 120/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "gemma4-12b-standard: generate 0/120, judge 0/120, capability 0/?"
+      "message": "gemma4-12b-standard: generate 29/120, judge 0/120, capability 0/?"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 335 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 509 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -77,6 +77,16 @@
     },
     {
       "level": "PASS",
+      "area": "digests",
+      "message": "llama3.1-8b-abliterated: one set of weights, 5920dea9e0f0 (matches pin)"
+    },
+    {
+      "level": "PASS",
+      "area": "digests",
+      "message": "gemma4-12b-standard: one set of weights, 6114515d63c1 (matches pin)"
+    },
+    {
+      "level": "PASS",
       "area": "settings",
       "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
     },
@@ -92,23 +102,28 @@
     },
     {
       "level": "PASS",
+      "area": "settings",
+      "message": "gemma: both models used identical options and think flag {\"options\": {\"frequency_penalty\": 0.0, \"min_p\": 0.0, \"num_ctx\": 20480, \"num_predict\": 16384, \"presence_penalty\": 0.0, \"repeat_penalty\": 1.0, \"top_k\": 0, \"top_p\": 1.0}, \"think\": true}"
+    },
+    {
+      "level": "PASS",
       "area": "tokens",
-      "message": "all 335 answers: cap flags consistent, counts in range"
+      "message": "all 509 answers: cap flags consistent, counts in range"
     },
     {
       "level": "WARN",
       "area": "tokens",
-      "message": "60 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
+      "message": "67 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "6 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "10 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-17T04:00:17+00:00"
+      "message": "summary.json generated_at 2026-11-17T04:30:20+00:00"
     }
   ]
 }
