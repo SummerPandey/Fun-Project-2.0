@@ -1,5 +1,5 @@
 {
-  "checked_at": "2026-11-17T15:30:33+00:00",
+  "checked_at": "2026-11-17T16:00:35+00:00",
   "results": "/home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results",
   "mock": false,
   "fails": 0,
@@ -8,7 +8,7 @@
     {
       "level": "PASS",
       "area": "files",
-      "message": "generations.jsonl: 108 rows, all valid JSON"
+      "message": "generations.jsonl: 172 rows, all valid JSON"
     },
     {
       "level": "WARN",
@@ -33,12 +33,12 @@
     {
       "level": "WARN",
       "area": "progress",
-      "message": "qwen3.5-27b-abliterated: generate 48/60, judge 0/60, capability 0/?"
+      "message": "qwen3.5-27b-abliterated: generate 60/60, judge 0/60, capability 0/?"
     },
     {
       "level": "WARN",
       "area": "progress",
-      "message": "llama3.1-8b-standard: generate 0/60, judge 0/60, capability 0/?"
+      "message": "llama3.1-8b-standard: generate 52/60, judge 0/60, capability 0/?"
     },
     {
       "level": "WARN",
@@ -58,7 +58,7 @@
     {
       "level": "PASS",
       "area": "provenance",
-      "message": "all 108 answers match the prompt texts in pilot_prompts.json"
+      "message": "all 172 answers match the prompt texts in pilot_prompts.json"
     },
     {
       "level": "PASS",
@@ -72,6 +72,11 @@
     },
     {
       "level": "PASS",
+      "area": "digests",
+      "message": "llama3.1-8b-standard: one set of weights, 46e0c10c039e (matches pin)"
+    },
+    {
+      "level": "PASS",
       "area": "settings",
       "message": "every answer's seed and temperature match its run (s1-s5 sampled, greedy)"
     },
@@ -82,23 +87,28 @@
     },
     {
       "level": "PASS",
+      "area": "settings",
+      "message": "llama: both models used identical options and think flag {\"options\": {\"frequency_penalty\": 0.0, \"min_p\": 0.0, \"num_ctx\": 20480, \"num_predict\": 16384, \"presence_penalty\": 0.0, \"repeat_penalty\": 1.0, \"top_k\": 0, \"top_p\": 1.0}, \"think\": null}"
+    },
+    {
+      "level": "PASS",
       "area": "tokens",
-      "message": "all 108 answers: cap flags consistent, counts in range"
+      "message": "all 172 answers: cap flags consistent, counts in range"
     },
     {
       "level": "WARN",
       "area": "tokens",
-      "message": "41 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
+      "message": "46 answers ran out of tokens while still thinking (no visible answer); consider a larger max_tokens before the main study"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "4 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
+      "message": "6 summary numbers (mean output tokens, TPUA) recomputed from JSONL: all match"
     },
     {
       "level": "PASS",
       "area": "summary",
-      "message": "summary.json generated_at 2026-11-17T15:30:33+00:00"
+      "message": "summary.json generated_at 2026-11-17T16:00:35+00:00"
     }
   ]
 }
