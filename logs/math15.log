@@ -234,3 +234,28 @@
 [09:58:30]   30/60 (last: 637 tokens, stop)
 [09:58:58]   40/60 (last: 450 tokens, stop)
 [09:59:30]   50/60 (last: 563 tokens, stop)
+[10:02:45]   60/60 (last: 690 tokens, stop)
+[10:02:45] llama3.1-8b-standard: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/generations.jsonl
+[10:02:45] done
+=== 2026-11-17T16:02:45Z batchB stage generate llama3.1-8b-abliterated
+[10:02:45] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[10:02:45] === stage: generate (backend: ollama) ===
+[10:02:46] llama3.1-8b-abliterated: generating 60 of 60 answers
+[10:02:46]   mannix/llama3.1-8b-abliterated:q4_k_m digest 5920dea9e0f0, think=None, Ollama 0.40.0
+[10:03:02]   10/60 (last: 285 tokens, stop)
+[10:03:19]   20/60 (last: 26 tokens, stop)
+[10:03:37]   30/60 (last: 313 tokens, stop)
+[10:03:59]   40/60 (last: 572 tokens, stop)
+[10:04:19]   50/60 (last: 684 tokens, stop)
+[10:04:36]   60/60 (last: 391 tokens, stop)
+[10:04:36] llama3.1-8b-abliterated: answers written to /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results/generations.jsonl
+[10:04:36] done
+=== 2026-11-17T16:04:36Z batchB stage generate gemma4-12b-standard
+[10:04:36] output folder: /home/sandb/Fun-Project-2.0/pilot3_screening/math15/batchB/results (backend: ollama)
+[10:04:36] === stage: generate (backend: ollama) ===
+[10:04:36] gemma4-12b-standard: generating 60 of 60 answers
+[10:04:36]   gemma4:12b digest 6114515d63c1, think=True, Ollama 0.40.0
+[10:10:52]   10/60 (last: 16384 tokens, length)
+[10:17:10]   20/60 (last: 16384 tokens, length)
+[10:23:38]   30/60 (last: 16384 tokens, length)
+[10:29:32]   40/60 (last: 16384 tokens, length)
